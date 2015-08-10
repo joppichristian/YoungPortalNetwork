@@ -1,12 +1,14 @@
 form{
   color:rgb(50,72,31);
   width: 100%;
+  margin:auto;
 }
 input[type="text"]{
   font-size:24px;
   border: 2px solid #cfd9db;
   border-radius: .25em;
   padding: 5px;
+  width: 80%;
 }
   input[type="text"]:focus{
     border-color: rgb(50,72,31);

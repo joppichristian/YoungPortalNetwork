@@ -13,13 +13,13 @@
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: auto;
-  opacity: 0.7;
+  opacity: 1;
   padding: 0px;
 }
 
   .article:hover{
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(50, 72, 31, 0.2);
   }
 
 .article .description{

@@ -32,11 +32,11 @@
 <body>
 
 	<header>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px" >
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
 					<a href="index.html"><i class="fa fa-chevron-left"></i> TORNA ALLA HOME</a>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3" id="torna_home">
 					<a>SVILUPPATORI</a>
 			</div>
 		</div>
@@ -114,5 +114,20 @@
 	</div> <!-- .project-container -->
 <script src="js/js_developers/jquery-2.1.1.js"></script>
 <script src="js/js_developers/main.js"></script> <!-- Resource jQuery -->
+
+<script>
+		window.onload = function() {
+
+			if($(window).width()<776){
+				document.getElementById('torna_home').style.display='none';
+			}else{
+				document.getElementById('torna_home').style.display='block';
+
+			}
+
+			onChangeDim();
+
+		}
+</script>
 </body>
 </html>

@@ -2,6 +2,7 @@ form{
   color:rgb(50,72,31);
   width: 100%;
   margin:auto;
+  margin-top: 10%;
 }
 input[type="text"]{
   font-size:24px;

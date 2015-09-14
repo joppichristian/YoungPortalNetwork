@@ -3,16 +3,13 @@
 }
 form{
   color:rgb(148,59,68);
-  width: 100%;
   margin:auto;
-  margin-top: 10%;
 }
 input[type="text"]{
   font-size:24px;
   border: 2px solid #cfd9db;
   border-radius: .25em;
   padding: 5px;
-  width: 80%;
 }
   input[type="text"]:focus{
     border-color: rgb(148,59,68);

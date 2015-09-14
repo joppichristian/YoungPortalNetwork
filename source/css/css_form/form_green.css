@@ -5,14 +5,12 @@ form{
   color:rgb(50,72,31);
   width: 100%;
   margin:auto;
-  margin-top: 10%;
 }
 input[type="text"]{
-  font-size:24px;
+  font-size:20px;
   border: 2px solid #cfd9db;
   border-radius: .25em;
   padding: 5px;
-  width: 80%;
 }
   input[type="text"]:focus{
     border-color: rgb(50,72,31);
@@ -20,10 +18,34 @@ input[type="text"]{
     outline: none;
   }
 input[type="submit"]{
-    font-size:24px;
+    font-size:20px;
     background-color: rgb(50,72,31);
     border: 1px solid #cfd9db;
     border-radius: .25em;
     color: white;
     padding: 5px;
   }
+  button{
+        font-size:20px;
+        background-color: rgb(50,72,31);
+        border: 1px solid #cfd9db;
+        border-radius: .25em;
+        color: white;
+        padding: 5px;
+      }
+      button:hover{
+        border-color: rgb(50,72,31);
+        box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
+      }
+
+  textarea{
+    font-size:20px;
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+  }
+    textarea:focus{
+      border-color: rgb(50,72,31);
+      box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
+      outline: none;
+    }

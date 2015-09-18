@@ -31,11 +31,17 @@ img{
   border-width: 2px;
   height: 200px;
   color:white;
+  font-size: 22px;
+  font-weight: bold;
   }
 .images{
   height: 200px;
   padding: auto;
   text-align: center;
+  background-image: url("../images/img-menu.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
 }
 .green{
   border-color: rgb(50,72,31);

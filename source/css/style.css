@@ -31,7 +31,7 @@ img{
   border-width: 2px;
   height: 200px;
   color:white;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
   }
 
@@ -77,4 +77,10 @@ img{
 footer{
   height: 80px;
   background-color: black;
+}
+
+@media screen and (min-width: 480px) {
+    .block {
+        font-size: 22px;
+    }
 }

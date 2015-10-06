@@ -1,0 +1,208 @@
+<html>
+<?php
+include 'private/connessione-db.php';
+include 'private/utility-login.php';
+
+my_session_start();
+
+?>
+  <head>
+    <title>YoungPortalNetwork - Il portale giovani della Valle di Cembra</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--        CSS       -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
+    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" >
+
+    <!--              -->
+
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- -->
+	<script type="text/javascript" src="private/sha512.js"></script>
+	
+  </head>
+  <body>
+    <header role="banner" style="background-color:black;">
+      <div class="logo" style="float:left;"  >
+        <font style="color:rgb(50,72,31);">V A L L E  </font><font style="color:rgb(23,148,201);">D I   </font><font style="color:rgb(149,59,69);">C E M B R A</font>
+      </div>
+      <nav class="main-nav" >
+        <ul>
+          <!-- inser more links here -->
+		  <?php
+		  if(utenteLoggato($mysqli) == true) {
+		  ?>
+		 	 <li>CIAO <?php echo $_SESSION['username']; ?></li> 
+			 <li><a href="private/logout.php" > logout </a></li>
+		  <?php	
+		  }else{
+		   ?>	
+             <li><a class="cd-signin" style="background-color:rgb(23,148,201);" href="#0">Sign in</a></li>
+             <li><a class="cd-signup" style="background-color:rgb(149,59,69);" href="#0">Sign up</a></li>
+		  <?php	
+		  }	
+		  ?>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+      <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+        <ul class="cd-switcher">		
+			<li><a href="#0">Sign in</a></li>
+            <li><a href="#0">New account</a></li>         
+        </ul>
+
+        <div id="cd-login"> <!-- log in form -->
+          <form class="cd-form"  name="loginForm" id="loginForm" >
+            <p class="fieldset">
+              <label class="image-replace cd-email" for="signin-email">E-mail</label>
+              <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+              <span class="cd-error-message">Email o password errata! Oppure devi attivare l'account</span>
+            </p>
+
+            <p class="fieldset">
+              <label class="image-replace cd-password" for="signin-password">Password</label>
+              <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
+              <a href="#0" class="hide-password">Hide</a>
+              <span class="cd-error-message">Email o password errata! Oppure devi attivare l'account</span>
+            </p>
+
+            <p class="fieldset">
+              <input type="checkbox" id="remember-me" checked>
+              <label for="remember-me">Remember me</label>
+            </p>
+
+            <p class="fieldset">
+              <input class="full-width" type="submit" value="Login">
+            </p>
+          </form>
+
+          <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+          <!-- <a href="#0" class="cd-close-form">Close</a> -->
+        </div> <!-- cd-login -->
+
+        <div id="cd-signup"> <!-- sign up form -->
+          <form  id="formRegister" name="formRegister" class="cd-form" method="POST">
+            <p class="fieldset">
+              <label class="image-replace cd-username" for="signup-username">Username</label>
+              <input class="full-width has-padding has-border" id="signup-username" name="signup-username" type="text" placeholder="Username">
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+
+            <p class="fieldset">
+              <label class="image-replace cd-email" for="signup-email">E-mail</label>
+              <input class="full-width has-padding has-border" id="signup-email" name="signup-email" type="email" placeholder="E-mail">
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+
+            <p class="fieldset">
+              <label class="image-replace cd-password" for="signup-password">Password</label>
+              <input class="full-width has-padding has-border" id="signup-password" name="signup-password" type="text"  placeholder="Password">
+              <a href="#0" class="hide-password">Hide</a>
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+			
+			<p class="fieldset">
+              <label class="image-replace cd-password" for="signup-password">Conferma Password</label>
+              <input class="full-width has-padding has-border" id="signup-conferma-password" name="signup-conferma-password" type="text"  placeholder="Conferma Password">
+              <a href="#0" class="hide-password">Hide</a>
+              <span class="cd-error-message">Le 2 password non coincidono!</span>
+            </p>
+
+            <p class="fieldset">
+              <input type="checkbox" id="accept-terms">
+              <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+            </p>
+
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" value="Create account">
+            </p>
+          </form>
+
+          <!-- <a href="#0" class="cd-close-form">Close</a> -->
+        </div> <!-- cd-signup -->
+
+        <div id="cd-reset-password"> <!-- reset password form -->
+          <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+          <form class="cd-form">
+            <p class="fieldset">
+              <label class="image-replace cd-email" for="reset-email">E-mail</label>
+              <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" value="Reset password">
+            </p>
+          </form>
+
+          <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+        </div> <!-- cd-reset-password -->
+        <a href="#0" class="cd-close-form">Close</a>
+      </div> <!-- cd-user-modal-container -->
+    </div> <!-- cd-user-modal -->
+
+
+  <div class="col-md-12 images" >
+  </div>
+
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block green responsive-2" onclick="location.href='login_activities.html';" style="cursor:pointer;">
+              <p>Attività</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block blue responsive-2" onclick="location.href='login_events.html';" style="cursor:pointer;">
+              <p>Eventi</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block red responsive-2" onclick="location.href='login_business.html';" style="cursor:pointer;">
+              <p>Aziende</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block green responsive-2" onclick="location.href='login_giovani.html';" style="cursor:pointer;">
+              <p>Giovani e Lavoro</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block blue responsive-2" onclick="location.href='login_students.html';" style="cursor:pointer;">
+              <p>Forum Studenti</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block red responsive-2" onclick="location.href='login_strutture.html';" style="cursor:pointer;">
+              <p>Strutture a noleggio</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block green responsive-2" onclick="location.href='login_contacts.html';" style="cursor:pointer;">
+              <p>Contatti</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="block blue responsive-2" onclick="location.href='developers.html';" style="cursor:pointer;">
+              <p>Sviluppatori</p>
+        </div>
+    </div>
+  </div>
+  <footer class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top:5%">
+
+  </footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+  </body>
+</html>

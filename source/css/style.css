@@ -74,6 +74,9 @@ img{
   letter-spacing: 2px;
   font-weight: bolder;
 }
+li{
+  color: rgb(149,59,69);
+}
 footer{
   height: 80px;
   background-color: black;

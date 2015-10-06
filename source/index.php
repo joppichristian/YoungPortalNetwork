@@ -17,8 +17,9 @@ my_session_start();
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
-    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
     <link rel="stylesheet" href="css/font-awesome.min.css" >
+    <link rel="stylesheet" href="css/pace.css" >
+
 
     <!--              -->
 
@@ -26,9 +27,11 @@ my_session_start();
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="private/sha512.js"></script>
+    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+   <script src="js/pace.js"></script>
     <!-- -->
-	<script type="text/javascript" src="private/sha512.js"></script>
-	
+
   </head>
   <body>
     <header role="banner" style="background-color:black;">
@@ -41,15 +44,15 @@ my_session_start();
 		  <?php
 		  if(utenteLoggato($mysqli) == true) {
 		  ?>
-		 	 <li>CIAO <?php echo $_SESSION['username']; ?></li> 
-			 <li><a href="private/logout.php" > logout </a></li>
-		  <?php	
+		 	 <li>Benvenuto, <?php echo $_SESSION['username']; ?></li>
+			 <li><a href="private/logout.php" > Esci </a></li>
+		  <?php
 		  }else{
-		   ?>	
-             <li><a class="cd-signin" style="background-color:rgb(23,148,201);" href="#0">Sign in</a></li>
-             <li><a class="cd-signup" style="background-color:rgb(149,59,69);" href="#0">Sign up</a></li>
-		  <?php	
-		  }	
+		   ?>
+             <li><a class="cd-signin" style="background-color:rgb(23,148,201);" href="#0">Accedi</a></li>
+             <li><a class="cd-signup" style="background-color:rgb(149,59,69);" href="#0">Registrati</a></li>
+		  <?php
+		  }
 		  ?>
         </ul>
       </nav>
@@ -57,9 +60,9 @@ my_session_start();
 
     <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
       <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
-        <ul class="cd-switcher">		
-			<li><a href="#0">Sign in</a></li>
-            <li><a href="#0">New account</a></li>         
+        <ul class="cd-switcher">
+			<li><a href="#0">Accedi</a></li>
+            <li><a href="#0">Registrati</a></li>
         </ul>
 
         <div id="cd-login"> <!-- log in form -->
@@ -73,13 +76,13 @@ my_session_start();
             <p class="fieldset">
               <label class="image-replace cd-password" for="signin-password">Password</label>
               <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
-              <a href="#0" class="hide-password">Hide</a>
+              <a href="#0" class="hide-password">Nascondi</a>
               <span class="cd-error-message">Email o password errata! Oppure devi attivare l'account</span>
             </p>
 
             <p class="fieldset">
               <input type="checkbox" id="remember-me" checked>
-              <label for="remember-me">Remember me</label>
+              <label for="remember-me">Ricordami</label>
             </p>
 
             <p class="fieldset">
@@ -87,7 +90,7 @@ my_session_start();
             </p>
           </form>
 
-          <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+          <p class="cd-form-bottom-message"><a href="#0">Hai dimenticato la password?</a></p>
           <!-- <a href="#0" class="cd-close-form">Close</a> -->
         </div> <!-- cd-login -->
 
@@ -111,7 +114,7 @@ my_session_start();
               <a href="#0" class="hide-password">Hide</a>
               <span class="cd-error-message">Error message here!</span>
             </p>
-			
+
 			<p class="fieldset">
               <label class="image-replace cd-password" for="signup-password">Conferma Password</label>
               <input class="full-width has-padding has-border" id="signup-conferma-password" name="signup-conferma-password" type="text"  placeholder="Conferma Password">
@@ -199,9 +202,27 @@ my_session_start();
         </div>
     </div>
   </div>
+  <div class="contributors col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:center;">
+      <a href="http://www.comunita.valledicembra.tn.it">
+        <img src="images/loghi/cvc.jpg" style="width:100px;height:100px;margin:3%;"  />
+      </a>
+      <a href="http://www.politichegiovanili.provincia.tn.it">
+        <img src="images/loghi/pg.jpg"  style="width:170px;height:150px;margin:3%;" />
+      </a>
+      <a href="http://www.comune.albiano.tn.it">
+        <img src="images/loghi/alb.png"  style="width:100px;height:100px;margin:3%;" />
+      </a>
+      <a href="http://www.bimtrento.it">
+        <img src="images/loghi/bim.jpg"  style="width:100px;height:100px;margin:3%;" />
+      </a>
+      <a href="http://www.provincia.tn.it">
+        <img src="images/loghi/pat.jpg" style="width:250px;height:150px;margin:3%;"/>
+      </a>
+  </div>
   <footer class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top:5%">
 
   </footer>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
   </body>

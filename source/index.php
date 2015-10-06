@@ -162,7 +162,7 @@ my_session_start();
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_activities.php';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='activities.php';" style="cursor:pointer;">
               <p>Attività</p>
         </div>
     </div>

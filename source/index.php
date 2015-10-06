@@ -162,42 +162,42 @@ my_session_start();
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_activities.html';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='login_activities.php';" style="cursor:pointer;">
               <p>Attività</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='login_events.html';" style="cursor:pointer;">
+        <div class="block blue responsive-2" onclick="location.href='login_events.php';" style="cursor:pointer;">
               <p>Eventi</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block red responsive-2" onclick="location.href='login_business.html';" style="cursor:pointer;">
+        <div class="block red responsive-2" onclick="location.href='login_business.php';" style="cursor:pointer;">
               <p>Aziende</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_giovani.html';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='login_giovani.php';" style="cursor:pointer;">
               <p>Giovani e Lavoro</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='login_students.html';" style="cursor:pointer;">
+        <div class="block blue responsive-2" onclick="location.href='login_students.php';" style="cursor:pointer;">
               <p>Forum Studenti</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block red responsive-2" onclick="location.href='login_strutture.html';" style="cursor:pointer;">
+        <div class="block red responsive-2" onclick="location.href='login_strutture.php';" style="cursor:pointer;">
               <p>Strutture a noleggio</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_contacts.html';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='login_contacts.php';" style="cursor:pointer;">
               <p>Contatti</p>
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='developers.html';" style="cursor:pointer;">
+        <div class="block blue responsive-2" onclick="location.href='developers.php';" style="cursor:pointer;">
               <p>Sviluppatori</p>
         </div>
     </div>

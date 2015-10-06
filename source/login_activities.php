@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
 	<script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
   <link rel="stylesheet" href="css/font-awesome.min.css" >
+	<link rel="stylesheet" href="css/pace.css" >
+	<script src="js/pace.js"></script>
 	<title>YPN | Attività</title>
 </head>
 <body>
@@ -116,9 +118,9 @@
 	</div> <!-- cd-user-modal -->
 
     <!--include la pagina -->
-  <object type="text/html" data="activities.html" style="width:100%; height:100%">
-    <p>backup content</p>
-  </object>
+		<object type="text/html" data="activities.php" style="width:100%;height:90%;">
+	    <p>backup content</p>
+	  </object>
     <!--fine include la pagina -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

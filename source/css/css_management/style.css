@@ -1,4 +1,4 @@
-/* -------------------------------- 
+/* --------------------------------
 
 Primary style
 
@@ -30,7 +30,7 @@ img, svg {
   max-width: 100%;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Modules - reusable parts of our design
 
@@ -42,9 +42,9 @@ Modules - reusable parts of our design
   white-space: nowrap;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main components 
+Main components
 
 -------------------------------- */
 #cd-table {
@@ -133,7 +133,7 @@ Main components
   position: absolute;
   width: 16px;
   height: 16px;
-  background-image: url("../img/yes-no.svg");
+  background-image: url("../img/img_management/yes-no.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 32px 16px;
@@ -196,7 +196,7 @@ Main components
   right: 0;
   top: 50%;
   margin-top: -8px;
-  background: url("../img/small-arrow.svg") no-repeat center center;
+  background: url("../img/img_management/small-arrow.svg") no-repeat center center;
   z-index: 6;
   -webkit-animation: cd-scroll-right 1.5s infinite;
   -moz-animation: cd-scroll-right 1.5s infinite;

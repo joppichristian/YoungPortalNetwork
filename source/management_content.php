@@ -38,8 +38,8 @@
 					<li>url_foto.jpg</li>
 					<li>02/10/2015</li>
 
-					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o"></i></a></li>
-          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times"></i></a></li>
+					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 
@@ -50,8 +50,8 @@
           <li>url_foto.jpg</li>
           <li>02/10/2015</li>
 
-          <li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o"></i></a></li>
-          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
         </ul>
 			</div> <!-- cd-table-column -->
 
@@ -62,8 +62,8 @@
 					<li>url_foto.jpg</li>
 					<li>02/10/2015</li>
 
-					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o"></i></a></li>
-          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times"></i></a></li>
+					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 
@@ -74,8 +74,8 @@
 					<li>url_foto.jpg</li>
 					<li>02/10/2015</li>
 
-					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o"></i></a></li>
-          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times"></i></a></li>
+					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 
@@ -86,8 +86,8 @@
 					<li>url_foto.jpg</li>
 					<li>02/10/2015</li>
 
-					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o"></i></a></li>
-          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times"></i></a></li>
+					<li><a class="cd-select" href="#0" style="color:blue;"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+          <li><a class="cd-select" href="#0" style="color:red;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 

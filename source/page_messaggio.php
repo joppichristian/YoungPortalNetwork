@@ -30,7 +30,7 @@
       <font style="color:rgb(50,72,31);">V A L L E  </font><font style="color:rgb(23,148,201);">D I   </font><font style="color:rgb(149,59,69);">C E M B R A</font>
     </div>
     <nav class="main-nav" >
-      <div style="margin-top:10px;"><a href="index.php"><i class="fa fa-home  fa-4x"></i></a></div>
+      <div style="margin-top:10px;"><a href="index.php"><i class="fa fa-home  fa-3x"></i></a></div>
     </nav>
   </header>
 

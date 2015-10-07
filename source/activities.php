@@ -26,7 +26,7 @@
 </head>
 <body>
   <header role="banner" style="background-color:black;">
-    <div id="cd-logo"><a href="index.html"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
+    <div id="cd-logo"><a href="index.php"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
 
     <nav class="main-nav">
       <ul>
@@ -138,7 +138,7 @@
     </div>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a href="addActivity.html" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+    <a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
       <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
       Aggiungi attività
     </button>
@@ -157,7 +157,7 @@
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
 
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="activity.html?id=1" >
+          <a href="activity.php?id=1" >
             <div class="preview" >
               <img src="images/pilates.jpg" />
             </div>
@@ -167,7 +167,7 @@
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="attivita.html?id=1" >
+          <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />
             </div>
@@ -177,7 +177,7 @@
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="attivita.html?id=1" >
+          <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />
             </div>

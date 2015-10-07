@@ -167,7 +167,7 @@ my_session_start();
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='login_events.php';" style="cursor:pointer;">
+        <div class="block blue responsive-2" onclick="location.href='events.php';" style="cursor:pointer;">
               <p>Eventi</p>
         </div>
     </div>

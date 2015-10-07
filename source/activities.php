@@ -143,7 +143,7 @@
       Aggiungi attività
     </button>
   </a>
-  <a href="manageActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+  <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci le tue attività
     </button>

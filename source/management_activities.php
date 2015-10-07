@@ -138,7 +138,7 @@
 
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="background-color:white; padding:0px; height:100px" align="center" >
-        <a>GESTISCI LE TUE ATTIVITA'</a>
+        <a style="color:rgb(50,72,31);">GESTISCI LE TUE ATTIVITA'</a>
     </div>
   </div>
 

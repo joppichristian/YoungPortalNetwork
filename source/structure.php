@@ -29,7 +29,7 @@
 </head>
 <body>
 	<header role="banner" style="background-color:black;">
-		<div id="cd-logo"><a href="index.html"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
+		<div id="cd-logo"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
 
 		<nav class="main-nav" >
 			<ul>

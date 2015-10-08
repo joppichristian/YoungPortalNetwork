@@ -6,7 +6,7 @@ body{
   margin-right: auto;
   text-align: center;
   width: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .article{
@@ -101,4 +101,21 @@ header h1 {
 }
 .intestazione{
   padding:2%;
+}
+
+.subheader{
+  position: relative;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background-color: rgb(148,59,68);
+  margin-bottom: 15px;
+  z-index: -1;
+}
+.subheader h1 {
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  font-size: 1.25rem;
 }

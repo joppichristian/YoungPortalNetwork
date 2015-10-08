@@ -26,7 +26,7 @@
 </head>
 <body>
   <header role="banner" style="background-color:black;">
-    <div id="cd-logo"><a href="index.html"><a href="index.php" style="color:white;"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
+    <div id="cd-logo"><a href="activities.php"><a href="activities.php" style="color:white;"><i  class="fa fa-chevron-left"></i> TORNA INDIETRO</a></div>
 
     <nav class="main-nav">
       <ul>
@@ -133,12 +133,9 @@
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a style="color:white;">ATTIVITA</a>
+          <a style="color:white;">GESTISCI LE TUE ATTIVITA'</a>
       </div>
 
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="background-color:white; padding:0px; height:100px" align="center" >
-        <a style="color:rgb(50,72,31);">GESTISCI LE TUE ATTIVITA'</a>
     </div>
   </div>
 

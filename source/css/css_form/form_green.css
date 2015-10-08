@@ -1,5 +1,6 @@
 .filter-form{
   text-align: center;
+  font-size: 25px;
 }
 form{
   color:rgb(50,72,31);
@@ -7,7 +8,6 @@ form{
   margin:auto;
 }
 input[type="text"]{
-  font-size:20px;
   border: 2px solid #cfd9db;
   border-radius: .25em;
   padding: 5px;
@@ -17,8 +17,17 @@ input[type="text"]{
     box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
     outline: none;
   }
+  input[type="file"]{
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+  }
+    input[type="file"]:focus{
+      border-color: rgb(50,72,31);
+      box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
+      outline: none;
+    }
 input[type="submit"]{
-    font-size:20px;
     background-color: rgb(50,72,31);
     border: 1px solid #cfd9db;
     border-radius: .25em;
@@ -26,7 +35,6 @@ input[type="submit"]{
     padding: 5px;
   }
   button{
-        font-size:20px;
         background-color: rgb(50,72,31);
         border: 1px solid #cfd9db;
         border-radius: .25em;
@@ -37,7 +45,17 @@ input[type="submit"]{
         border-color: rgb(50,72,31);
         box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
       }
-
+      select{
+            background-color: rgb(50,72,31);
+            border: 1px solid #cfd9db;
+            border-radius: .25em;
+            color: white;
+            padding: 5px;
+          }
+          select:hover{
+            border-color: rgb(50,72,31);
+            box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
+          }
   textarea{
     font-size:20px;
     border: 2px solid #cfd9db;

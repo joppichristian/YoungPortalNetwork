@@ -156,7 +156,7 @@
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
 
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
           <a href="activity.php?id=1" >
             <div class="preview" >
               <img src="images/pilates.jpg" />
@@ -166,7 +166,7 @@
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
           <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />
@@ -176,7 +176,7 @@
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
           <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />

@@ -18,7 +18,7 @@ body {
   font-size: 100%;
   font-family: "Ubuntu", sans-serif;
   color: #333333;
-  background-color: #3f4258;
+  background-color: white;
 }
 
 a {
@@ -165,7 +165,7 @@ Main components
   left: 0;
   top: 0;
   z-index: 10;
-  background: rgba(121, 130, 153, 0.95);
+  background: rgba(50,72,31,0.7);
   margin-left: 0;
   border-color: #6b758d;
   box-shadow: 2px 0 0 rgba(0, 0, 0, 0.1);
@@ -180,9 +180,13 @@ Main components
 }
 #cd-table header.cd-table-column h2 {
   color: #edeef1;
+  background-color: rgba(50,72,31,0.6);
+}
+#cd-table header.cd-table-column li{
+  background-color: rgba(50,72,31,0.6);
 }
 #cd-table header.cd-table-column li:nth-child(odd) {
-  background-color: rgba(107, 117, 141, 0.95);
+  background-color: rgba(50,72,31,1);
 }
 #cd-table header.cd-table-column li:last-child {
   border-bottom: 1px solid #6b758d;
@@ -224,7 +228,6 @@ Main components
   #cd-table header.cd-table-column {
     width: 16.66667%;
     float: left;
-    background: #798299;
     box-shadow: none;
     pointer-events: auto;
   }

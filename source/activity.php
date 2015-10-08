@@ -27,7 +27,7 @@
   </head>
   <body>
     <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12" role="banner" style="background-color:black;">
-      <div id="cd-logo"><a href="index.php"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
+      <div id="cd-logo"><a href="activities.php"><a href="activities.php"><i  class="fa fa-chevron-left"></i> TORNA INDIETRO</a></div>
 
       <nav class="main-nav">
         <ul>
@@ -130,17 +130,15 @@
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
             <a>Pilates</a>
-        </div>
 
       </div>
-      <a href="activities.php" class="cd-close col-lg-2 col-md-2 col-sm-2 col-xs-12">Close</a>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
       <img src="images/pilates.jpg"/>
     </div>
-    <div class="info col-lg-8 col-md-8 col-sm-6 col-xs-12">
+    <div class="info col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <b>
       Corso di pilates<br />
       data da definire<br />
@@ -151,6 +149,10 @@
       12 lezioni di pilates per donne al costo di 75 €.
       Prima prova gratuita.
     </p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
+        <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+    </div>
     </div>
   </body>
 </html>

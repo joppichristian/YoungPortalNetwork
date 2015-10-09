@@ -108,7 +108,7 @@ h1{
   line-height: 100px;
   text-align: center;
   background-color: rgb(50,72,31);
-  margin-bottom: 10%;
+  margin-bottom: 15px;
   z-index: -1;
 }
 .subheader h1 {

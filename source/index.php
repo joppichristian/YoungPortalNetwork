@@ -192,7 +192,7 @@ my_session_start();
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_contacts.php';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='contacts.php';" style="cursor:pointer;">
               <p>Contatti</p>
         </div>
     </div>

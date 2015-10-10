@@ -138,16 +138,16 @@
       </div>
     </div>
   </div>
-  <form action="#" method="post" >
+  <form action="private/post-add-activity.php" method="post" >
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
       <!--Esempio text -->
       <h1>Titolo:</h1>
-      <input type="text" name="titolo" placeholder="Titolo" />
+      <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
     </div>
     <!--Esempio textarea -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
       <p>Descrizione:</p>
-      <textarea rows="5" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
+      <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
@@ -162,7 +162,7 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
       <p>Immagine:</p>
-        <input type="file" name="file1">
+        <input type="file" name="file">
         <p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >

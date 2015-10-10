@@ -1,4 +1,11 @@
 <html>
+<?php
+include 'private/connessione-db.php';
+include 'private/utility-login.php';
+
+my_session_start();
+
+?>
 <head>
   <title>YPN | Attivita</title>
   <meta charset="utf-8">
@@ -21,20 +28,22 @@
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="private/sha512.js"></script>
+   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
   <script src="js/pace.js"></script>
-  <!-- -->
+  <!-- JavaScript custom -->
+  <script language="JavaScript" type="text/JavaScript">
+	function displayEffettuaLogin(){
+		alert("Effettua prima il login.");
+	}	
+  </script>
+  
 </head>
 <body>
   <header role="banner" style="background-color:black;">
-    <div id="cd-logo"><a href="index.php"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
-
-    <nav class="main-nav">
-      <ul>
-        <!-- inser more links here -->
-        <li><a class="cd-signin" href="#0" style="background-color:rgb(50,72,31);">Sign in</a></li>
-        <li><a class="cd-signup" href="#0" style="background-color:rgb(149,59,69);">Sign up</a></li>
-      </ul>
-    </nav>
+    <?php
+	  include("header.php");
+	?>
   </header>
 
   <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
@@ -139,9 +148,23 @@
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
-      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-      Aggiungi attività
-    </button>
+      
+	  <?php
+	  if(utenteLoggato($mysqli) == true) {
+	  ?>
+		<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+           Aggiungi attività
+        </button>
+	  <?php
+	  }else{
+	   ?>
+		 <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" disabled onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+            Aggiungi attività
+         </button>
+	  <?php
+	  }
+	  ?>
+	  
   </a>
   <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">

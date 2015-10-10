@@ -5,6 +5,9 @@ include 'private/utility-login.php';
 
 my_session_start();
 
+$linkIndietro = "index.php";
+$testoIndietro = "TORNA ALLA HOME";
+
 ?>
 <head>
   <title>YPN | Attivita</title>
@@ -35,9 +38,9 @@ my_session_start();
   <script language="JavaScript" type="text/JavaScript">
 	function displayEffettuaLogin(){
 		alert("Effettua prima il login.");
-	}	
+	}
   </script>
-  
+
 </head>
 <body>
   <header role="banner" style="background-color:black;">
@@ -148,7 +151,7 @@ my_session_start();
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
-      
+
 	  <?php
 	  if(utenteLoggato($mysqli) == true) {
 	  ?>
@@ -164,7 +167,7 @@ my_session_start();
 	  <?php
 	  }
 	  ?>
-	  
+
   </a>
   <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">

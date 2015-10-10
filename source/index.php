@@ -5,6 +5,9 @@ include 'private/utility-login.php';
 
 my_session_start();
 
+$linkIndietro = "#";
+$testoIndietro = "";
+
 ?>
   <head>
     <title>YoungPortalNetwork - Il portale giovani della Valle di Cembra</title>
@@ -164,7 +167,7 @@ my_session_start();
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='login_students.php';" style="cursor:pointer;">
+        <div class="block blue responsive-2" onclick="location.href='students.php';" style="cursor:pointer;">
               <p>Forum Studenti</p>
         </div>
     </div>

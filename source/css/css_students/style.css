@@ -56,14 +56,14 @@ a {
 Main components
 
 -------------------------------- */
-header {
+.subheader {
   position: relative;
   height: 100px;
   line-height: 100px;
   text-align: center;
   background-color: rgb(23,148,201);
 }
-header h1 {
+.subheader h1 {
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -71,11 +71,11 @@ header h1 {
   font-size: 1.25rem;
 }
 @media only screen and (min-width: 1024px) {
-  header {
+  .subheader {
     height: 100px;
     line-height: 100px;
   }
-  header h1 {
+  .subheader h1 {
     font-size: 36px;
     font-size: 2.25rem;
     font-weight: 300;

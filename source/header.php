@@ -13,7 +13,14 @@
 		 <li><a href="private/logout.php" > Esci </a></li>
 	  <?php
 	  }else{
+			if($linkIndietro != "#")
+			{
+		?>
+				<div id="cd-logo"><a href="<?php echo $linkIndietro ?>"><a href="<?php echo $linkIndietro ?>"><i  class="fa fa-chevron-left"></i><?php echo $testIndietro ?></a></div>
+		<?php
+			}
 	   ?>
+
 		 <li><a class="cd-signin" style="background-color:rgb(23,148,201);" href="#0">Accedi</a></li>
 		 <li><a class="cd-signup" style="background-color:rgb(149,59,69);" href="#0">Registrati</a></li>
 	  <?php

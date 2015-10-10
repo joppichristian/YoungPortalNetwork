@@ -6,7 +6,7 @@ include 'private/utility-login.php';
 my_session_start();
 
 $linkIndietro = "#";
-$testoIndietro = "";
+$testoIndietro = "#";
 
 ?>
   <head>

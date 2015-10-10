@@ -6,7 +6,7 @@ include 'private/utility-login.php';
 my_session_start();
 
 $linkIndietro="activities.php";
-$testLink = "TORNA INDIETRO";
+$testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>

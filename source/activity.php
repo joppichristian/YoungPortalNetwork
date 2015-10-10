@@ -1,4 +1,14 @@
 <html>
+  <?php
+  include 'private/connessione-db.php';
+  include 'private/utility-login.php';
+
+  my_session_start();
+
+  $linkIndietro = "activities.php";
+  $testoIndietro = "TORNA INDIETRO";
+
+  ?>
   <head>
     <title>YPN | Attivita</title>
     <meta charset="utf-8">
@@ -14,6 +24,7 @@
     <link rel="stylesheet" href="css/pace.css" >
     <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
+    <link rel="stylesheet" type="text/css" href="css/style-gallery.css">
     <!--              -->
 
 
@@ -26,16 +37,10 @@
 
   </head>
   <body>
-    <header class="col-lg-12 col-md-12 col-sm-12 col-xs-12" role="banner" style="background-color:black;">
-      <div id="cd-logo"><a href="activities.php"><a href="activities.php"><i  class="fa fa-chevron-left"></i> TORNA INDIETRO</a></div>
-
-      <nav class="main-nav">
-        <ul>
-          <!-- inser more links here -->
-          <li><a class="cd-signin" href="#0" style="background-color:rgb(50,72,31);">Sign in</a></li>
-          <li><a class="cd-signup" href="#0" style="background-color:rgb(149,59,69);">Sign up</a></li>
-        </ul>
-      </nav>
+    <header role="banner" style="background-color:black;">
+      <?php
+      include("header.php");
+    ?>
     </header>
 
     <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
@@ -125,6 +130,7 @@
 
           <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
         </div> <!-- cd-reset-password -->
+        <a href="#0" class="cd-close-form">Close</a>
       </div> <!-- cd-user-modal-container -->
     </div> <!-- cd-user-modal -->
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -154,5 +160,12 @@
         <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
     </div>
     </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:5%;padding-left:20%;padding-bottom:5%;">
+    <?php
+      include("gallery.php");
+     ?>
+   </div>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
   </body>
 </html>

@@ -1,4 +1,14 @@
 <html>
+<?php
+include 'private/connessione-db.php';
+include 'private/utility-login.php';
+
+my_session_start();
+
+$linkIndietro="activities.php";
+$testoIndietro = "TORNA INDIETRO";
+
+?>
 <head>
   <title>YPN | Attivita</title>
   <meta charset="utf-8">
@@ -26,15 +36,9 @@
 </head>
 <body>
   <header role="banner" style="background-color:black;">
-    <div id="cd-logo"><a href="activities.php"><a href="activities.php" style="color:white;"><i  class="fa fa-chevron-left"></i> TORNA INDIETRO</a></div>
-
-    <nav class="main-nav">
-      <ul>
-        <!-- inser more links here -->
-        <li><a class="cd-signin" href="#0" style="background-color:rgb(50,72,31);">Sign in</a></li>
-        <li><a class="cd-signup" href="#0" style="background-color:rgb(149,59,69);">Sign up</a></li>
-      </ul>
-    </nav>
+     <?php
+	  include("header.php");
+	?>
   </header>
 
   <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->

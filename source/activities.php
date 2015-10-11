@@ -150,25 +150,28 @@ $testoIndietro = "TORNA ALLA HOME";
     </div>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+  
+	<?php
+	if(utenteLoggato($mysqli) == true) {
+	?>
+		<a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+			   Aggiungi attività
+			</button>		  
+		</a> 
+	<?php
+	}else{
+	?>	 
+		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+				Aggiungi attività
+			</button>
+		</a>	
+	<?php
+	}
+	?>
 
-	  <?php
-	  if(utenteLoggato($mysqli) == true) {
-	  ?>
-		<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-           Aggiungi attività
-        </button>
-	  <?php
-	  }else{
-	   ?>
-		 <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" disabled onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
-            Aggiungi attività
-         </button>
-	  <?php
-	  }
-	  ?>
-
-  </a>
+  
   <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci le tue attività

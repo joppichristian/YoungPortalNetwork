@@ -142,38 +142,58 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
     </div>
   </div>
-  <form action="private/post-add-activity.php" method="post" >
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
-      <!--Esempio text -->
-      <h1>Titolo:</h1>
-      <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
-    </div>
-    <!--Esempio textarea -->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
-      <p>Descrizione:</p>
-      <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
-    </div>
+  <?php
+  if(utenteLoggato($mysqli) == true) {
+  ?>
+	  <form action="post-add-activity.php" method="post"  enctype="multipart/form-data" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+		  <!--Esempio text -->
+		  <h1>Titolo:</h1>
+		  <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+		  <!--Esempio text -->
+		  <h1>Localit&agrave;:</h1>
+		  <input type="text" id="localita" name="localita" placeholder="Localita" />
+		</div>
+		<!--Esempio textarea -->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+		  <p>Descrizione:</p>
+		  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
+		</div>
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
-      <p>Categoria:</p>
-      <select>
-        <option value="volvo">Sport</option>
-        <option value="saab">Corsi</option>
-        <option value="mercedes">Categoria 3</option>
-        <option value="audi">Categoria 4</option>
-      </select>
-    </div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+		  <p>Categoria:</p>
+		  <select id="categoria" name="categoria" >
+			<?php
+			$qry_c="SELECT * FROM CAT_ATTIVITA ;";
+			$result_c = $mysqli->query($qry_c);
+			while($row_c = $result_c->fetch_array())
+			{
+			?>
+				<option value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
+			<?php
+			}
+			?>		
+		  </select>
+		</div>
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
-      <p>Immagine:</p>
-        <input type="file" name="file">
-        <p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
-      <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
-      <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
-    <div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
+		  <p>Immagine:</p>
+		 
+			<input type="file" name="file" id="file" />
+			<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
+		  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
+		  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
+		<div>
 
-  </form>
+	  </form>
+  <?php
+  }else{
+		echo "Devi effettuare il login per aggiungere un'attivit&agrave;";
+  }	  
+  ?>  
 </body>
 </html>

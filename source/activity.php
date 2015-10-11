@@ -140,31 +140,33 @@
 
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-      <img src="images/pilates.jpg"/>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+        <img src="images/pilates.jpg"/>
+      </div>
+      <div class="main-info col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div id="title">
+        Corso di pilates </div>
+        <div id="data">
+          Da gennaio</div>
+          <div id="localita">
+        Centro sportivo Albiano </div>
+      </div>
     </div>
-    <div class="info col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <b>
-      Corso di pilates<br />
-      data da definire<br />
-      Centro sportivo Albiano<br />
-      </b>
-      <br />
-      <p>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:5%;padding-bottom:5%;">
+    <?php
+      include("gallery.php");
+     ?>
+   </div>
+      <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description">
       12 lezioni di pilates per donne al costo di 75 €.
       Prima prova gratuita.
-    </p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
         <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
     </div>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:5%;padding-left:20%;padding-bottom:5%;">
-    <?php
-      include("gallery.php");
-     ?>
-   </div>
+
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
   </body>

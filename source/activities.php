@@ -150,42 +150,42 @@ $testoIndietro = "TORNA ALLA HOME";
     </div>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  
+
 	<?php
 	if(utenteLoggato($mysqli) == true) {
 	?>
-		<a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+		<a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
 			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			   Aggiungi attività
-			</button>		  
-		</a> 
+			</button>
+		</a>
 	<?php
 	}else{
-	?>	 
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+	?>
+		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
 			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi attività
 			</button>
-		</a>	
+		</a>
 	<?php
 	}
 	?>
 
-  
-  <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+  <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci le tue attività
     </button>
   </a>
 
-  <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
         <input class="user" type="text" name="filter" id="filter" style="width:80%;">
         <input type="submit" value="Search">
   </form>
   </div>
-  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
+  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
           <a href="activity.php?id=1" >
             <div class="preview" >
               <img src="images/pilates.jpg" />
@@ -195,7 +195,7 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
           <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />
@@ -205,7 +205,7 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+        <div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
           <a href="attivita.php?id=1" >
             <div class="preview" >
               <img src="images/example.jpg" />

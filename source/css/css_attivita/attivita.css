@@ -5,6 +5,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  padding: 0 auto;
   width: 80%;
   margin-top: 10%;
 }
@@ -90,9 +91,26 @@ h1{
   color:rgb(50,72,31);
 }
 
-.info{
-  color:black;
+.main-info{
+  color:rgb(50,72,31);
   text-align: left;
+  margin-top: 5%;
+}
+  .main-info #title{
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  .main-info #data{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .main-info #localita{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+.info-description{
+  color:rgb(50,72,31);
+  font-size: 18px;
 }
 .intestazione{
   padding:2%;

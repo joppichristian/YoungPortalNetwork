@@ -133,21 +133,53 @@
         <a href="#0" class="cd-close-form">Close</a>
       </div> <!-- cd-user-modal-container -->
     </div> <!-- cd-user-modal -->
+	
+	<?php
+	
+	$id_attivita = $_GET["id"];
+	  
+	if(!isset($id_attivita)){
+		die("Errore, il link non è corretto. Torna indietro e riprova.");
+	}
+	
+	$titolo = "";
+	$localita = "";
+	$descrizione = "";
+	$categoria_id = "";
+	$utente_creatore = "";
+	$url_foto = "";
+	$data_inserimento = "";
+	
+	$qry_a="SELECT * FROM ATTIVITA WHERE ID='$id_attivita' ;";
+	$result_a = $mysqli->query($qry_a);
+	while($row_a = $result_a->fetch_array())
+	{
+		$titolo = $row_a['TITOLO'];
+		$localita = $row_a['LOCALITA'];
+		$descrizione = $row_a['DESCRIZIONE'];
+		$categoria_id = $row_a['CATEGORIA_ID'];
+		$utente_creatore = $row_a['UTENTE_CREATORE'];
+		$url_foto = $row_a['URL_FOTO'];
+		$data_inserimento = $row_a['DATA_INSERIMENTO'];
+	}
+	
+	?>
+	
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
-            <a>Pilates</a>
+            <a><?php echo $titolo; ?></a>
 
       </div>
     </div>
 
       <div class="main-info col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div id="title">
-        Corso di pilates </div>
+        <?php echo $titolo; ?> </div>
         <div id="data">
-          Da gennaio</div>
+         <?php echo  $data_inserimento; ?></div>
           <div id="localita">
-        Centro sportivo Albiano </div>
+        <?php echo $localita; ?></div>
         <div style="margin-top:10%;">
       <?php
         include("gallery.php");
@@ -156,13 +188,10 @@
       </div>
 
       <div class="main-info col-lg-4 col-md-4 col-sm-12 col-xs-12" style="float:left;" >
-        <img src="images/pilates.jpg" id="anteprima" />
+        <img src="<?php echo $url_foto; ?>" id="anteprima" />
         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
-        12 lezioni di pilates per donne al costo di 75 €.
-        Prima prova gratuita.
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus pellentesque nisl, a dapibus ante aliquet consequat. Sed non faucibus odio, eu suscipit enim. Integer et efficitur eros. Sed placerat libero id leo suscipit, at eleifend lacus facilisis. Nulla iaculis enim augue, sed semper odio euismod nec. Aenean aliquet gravida scelerisque. Cras eget sem libero. Suspendisse quis magna in sem semper pretium eget et sapien. Suspendisse convallis quam ut imperdiet tempor. Sed eu urna at augue sollicitudin suscipit id eu lacus. Vestibulum est lectus, rutrum id quam et, consectetur venenatis magna.
-        </div>
+         <?php echo $descrizione; ?>
+		 </div>
       </div>
 
 

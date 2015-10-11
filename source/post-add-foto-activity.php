@@ -14,7 +14,7 @@
 	if(!isset($id_attivita)){
 		die("ce qualche errore ( non trovo l attivit&agrave; ), <a href=\"management_activities.php\" >Torna a gestione attivita</a>");
 	}
-	echo "id attivita: ".$id_attivita . "</br>";
+	//echo "id attivita: ".$id_attivita . "</br>";
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		
 		$uploads_dir = 'images/media-attivita';
@@ -57,7 +57,7 @@
 						"VALUES
 						('".$id_attivita."','".$urlFoto."','". $urlFotoThumb ."','".$id_attivita."' , 'FOTO')";
 		
-					echo $sql ;
+					//echo $sql ;
 	
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));
@@ -65,7 +65,7 @@
 
 					echo "</br></br>HAI AGGIUNTO 1 NUOVA FOTO AL DATABASE!!</br></br>";
 			
-					echo "</br></br> COMPLIMENTI, hai inserito una nuova foto: <a href='$urlFoto' target="_blank" > VEDI FOTO </a> </br> </br>" ;
+					echo "</br></br> COMPLIMENTI, hai inserito una nuova foto: <a href='$urlFoto' target='_blank' > VEDI FOTO </a> </br> </br>" ;
 					echo "<a href='add-foto-activity.php?id=$id_attivita' > AGGIUNGINE UN'ALTRA </a> </br></br>";
 					echo "<a href='management_activities.php' > TORNA A GESTIONE ATTIVIT&Agrave; </a> </br></br>";
 					

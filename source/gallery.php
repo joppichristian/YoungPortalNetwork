@@ -117,6 +117,22 @@
 
         <!-- Slides Container -->
         <div u="slides" id="slides">
+		
+			<?php
+			$qry_a="SELECT * FROM MEDIA_ATTIVITA WHERE ATTIVITA_ID = '$id_attivita' AND TIPO='FOTO' ;";
+			$result_a = $mysqli->query($qry_a);
+			while($row_a = $result_a->fetch_array())
+			{
+				echo  $row_a['URL']; 
+			?>		
+				<div>
+					<img u="image" src="<?php echo $row_a['URL']; ?>" />
+					<img u="thumb" src="<?php echo $row_a['URL_THUMB']; ?>" />
+				</div>
+			<?php
+	        }		
+			?>	
+		 <!--
             <div>
                 <img u="image" src="images/examples_gallery/alila/ciao.jpg" />
                 <img u="thumb" src="images/examples_gallery/alila/thumb-ciao.jpg" />
@@ -165,7 +181,7 @@
             <div>
                 <img u="image" src="images/examples_gallery/alila/12.jpg" />
                 <img u="thumb" src="images/examples_gallery/alila/thumb-12.jpg" />
-            </div>
+            </div> -->
         </div>
 
         <!-- Arrow Navigator Skin Begin -->

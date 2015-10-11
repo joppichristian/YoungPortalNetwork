@@ -170,10 +170,7 @@
 
         <!-- Arrow Navigator Skin Begin -->
         <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora05l" > </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora05r" > </span>
-        <!-- Arrow Navigator Skin End -->
+      
 
         <!-- Thumbnail Navigator Skin Begin -->
         <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 100px; left:0px; bottom: 0px;">

@@ -140,28 +140,32 @@
 
       </div>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
-        <img src="images/pilates.jpg"/>
-      </div>
-      <div class="main-info col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+      <div class="main-info col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div id="title">
         Corso di pilates </div>
         <div id="data">
           Da gennaio</div>
           <div id="localita">
         Centro sportivo Albiano </div>
+        <div style="margin-top:10%;">
+      <?php
+        include("gallery.php");
+       ?>
+     </div>
       </div>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:5%;padding-bottom:5%;">
-    <?php
-      include("gallery.php");
-     ?>
-   </div>
-      <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description">
-      12 lezioni di pilates per donne al costo di 75 €.
-      Prima prova gratuita.
-    </div>
+
+      <div class="main-info col-lg-4 col-md-4 col-sm-12 col-xs-12" style="float:left;" >
+        <img src="images/pilates.jpg" id="anteprima" />
+        <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
+        12 lezioni di pilates per donne al costo di 75 €.
+        Prima prova gratuita.
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus pellentesque nisl, a dapibus ante aliquet consequat. Sed non faucibus odio, eu suscipit enim. Integer et efficitur eros. Sed placerat libero id leo suscipit, at eleifend lacus facilisis. Nulla iaculis enim augue, sed semper odio euismod nec. Aenean aliquet gravida scelerisque. Cras eget sem libero. Suspendisse quis magna in sem semper pretium eget et sapien. Suspendisse convallis quam ut imperdiet tempor. Sed eu urna at augue sollicitudin suscipit id eu lacus. Vestibulum est lectus, rutrum id quam et, consectetur venenatis magna.
+        </div>
+      </div>
+
+
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
         <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
     </div>

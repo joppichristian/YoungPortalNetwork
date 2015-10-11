@@ -5,12 +5,12 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro = "index.php";
-$testoIndietro = "TORNA ALLA HOME";
+$linkIndietro="management_activities.php";
+$testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>
-  <title>YPN | Attivita</title>
+  <title>YPN | Aggiungi Attività</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,16 +30,9 @@ $testoIndietro = "TORNA ALLA HOME";
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="private/sha512.js"></script>
-   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
-  <script src="js/pace.js"></script>
-  <!-- JavaScript custom -->
-  <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
+ <script src="js/bootstrap.min.js"></script>
+  <!-- -->
+
 
 </head>
 <body>
@@ -145,68 +138,40 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>ATTIVITA</a>
+          <a>AGGIUNGI FOTO ATTIVIT&Agrave;</a>
       </div>
     </div>
   </div>
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <?php
+  if(utenteLoggato($mysqli) == true) {
+	  
+	  $id_attivita = $_GET["id"];
+	  
+	  if(isset($id_attivita)){
+  ?>
+		  <form action="post-add-foto-activity.php" method="post"  enctype="multipart/form-data" >
+			 
+			<input type="hidden" id="id" name="id" value="<?php echo $id_attivita; ?>" /> 
+			 
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
+			  <p>Aggiungi Foto attivit&agrave;:</p>
+			 
+				<input type="file" name="file" id="file" />
+				<p>N.B.: L'immagine verrà aggiunta alla galleria dell'attività.</p>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
+			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
+			  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
+			<div>
 
-	<?php
-	if(utenteLoggato($mysqli) == true) {
-	?>
-		<a href="addActivity.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-			   Aggiungi attività
-			</button>
-		</a>
-	<?php
-	}else{
-	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
-				Aggiungi attività
-			</button>
-		</a>
-	<?php
-	}
-	?>
-
-
-  <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-    <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      Gestisci le tue attività
-    </button>
-  </a>
-
-  <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
-        <input class="user" type="text" name="filter" id="filter" style="width:80%;">
-        <input type="submit" value="Search">
-  </form>
-  </div>
-  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		
-	<?php	
-	$qry_a="SELECT * FROM ATTIVITA ;";
-	$result_a = $mysqli->query($qry_a);
-	while($row_a = $result_a->fetch_array())
-	{
-	?>
-		<div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
-          <a href="activity.php?id=<?php echo $row_a['ID']; ?>" >
-            <div class="preview" >
-              <img src="<?php echo $row_a['URL_FOTO']; ?>" />
-            </div>
-            <div class="description">
-              <p><?php echo $row_a['TITOLO']; ?></p>
-            </div>
-          </a>
-        </div>
-	<?php
-	}
-	?>	
-		 
-    </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+		  </form>
+  <?php
+		}else{
+			echo "ERRORE, torna a gestione attivit&agrave; e riprova.";
+		}	
+  }else{
+		echo "Devi effettuare il login per aggiungere foto ad un'attivit&agrave;";
+  }	  
+  ?>  
 </body>
 </html>

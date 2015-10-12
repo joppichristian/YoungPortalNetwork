@@ -90,15 +90,85 @@ jQuery(document).ready(function($){
 		$form_signup.removeClass('is-selected');
 		$form_forgot_password.addClass('is-selected');
 	}
-
-	//REMOVE THIS - it's just to show error messages 
+	
 	$form_login.find('input[type="submit"]').on('click', function(event){
+			 
+		// non inviare la password in chiaro
+		//document.getElementById("signin-password").value = "";
+				
+		var pwd = SHA512(document.getElementById("signin-password").value);
+		var email = document.getElementById("signin-email").value
+		
+		$.ajax({
+			url:'private/effettua-login.php',
+			type: 'POST',
+			data: { 
+				'signin-email': email, 
+				'p': pwd,
+				'cod': '12345'
+			},
+			success:function(response){
+			
+				//alert("Resp:"+response);
+				//alert("response index of success="+response.indexOf("success"));
+											
+				if( response.indexOf("success") > -1){
+					//UTENTE LOGGATO
+					//alert("Loggato correttamente...");
+					location.reload();
+					
+				}else{
+					
+					//MOSTRA MESSAGGIO DI ERRORE				 
+					$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+					$form_login.find('input[id="signin-password"]').toggleClass('has-error').next('span').toggleClass('is-visible');				 
+					 
+				}
+			}
+		});	
 		event.preventDefault();
-		$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+		//$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 	});
 	$form_signup.find('input[type="submit"]').on('click', function(event){
-		event.preventDefault();
-		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+		//event.preventDefault();
+		//$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+		 
+		//alert("sono in validate form");
+		// Crea un elemento di input che verrà usato come campo di output per la password criptata.
+		var p = document.createElement("input");
+		// Aggiungi un nuovo elemento al tuo form.
+		document.formRegister.appendChild(p);
+		p.name = "p";
+		p.type = "hidden"
+		p.value = SHA512(document.getElementById("signup-password").value);
+	
+		// esegui il confronto se le 2 password coincidono		
+		var mexErrore   = "";
+		
+		var password = document.getElementById("signup-password").value;			
+		var confermaP  = document.getElementById("signup-conferma-password").value;
+					
+		if(password!=confermaP){
+			mexErrore = mexErrore+" \n[LE 2 PASSWORD NON COINCIDONO]";		
+		}
+		
+		if(mexErrore!=("")){			
+			//MESSAGGIO DI ERRORE
+			$form_signup.find('input[id="signup-conferma-password"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			event.preventDefault();
+		 
+		}
+		else
+		{		
+			// Assicurati che la password non venga inviata in chiaro.
+			document.getElementById("signup-password").value = "";
+			document.getElementById("signup-conferma-password").value = "";		
+			document.formRegister.action = 'private/accetta-registrazione.php';
+			document.formRegister.submit();
+			 
+		}		
+	
+	
 	});
 
 

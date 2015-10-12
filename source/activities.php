@@ -183,9 +183,9 @@ $testoIndietro = "TORNA ALLA HOME";
         <input type="submit" value="Search">
   </form>
   </div>
-  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		
-	<?php	
+  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">
+
+	<?php
 	$qry_a="SELECT * FROM ATTIVITA ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
@@ -203,8 +203,8 @@ $testoIndietro = "TORNA ALLA HOME";
         </div>
 	<?php
 	}
-	?>	
-		 
+	?>
+
     </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->

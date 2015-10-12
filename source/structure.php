@@ -53,7 +53,7 @@ $testoIndietro = "TORNA ALLA HOME";
       </div>
     </div>
   </div>
-
+<!--
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a href="addStructure.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
       <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
@@ -67,11 +67,11 @@ $testoIndietro = "TORNA ALLA HOME";
   </a>
 
   </div>
-
+-->
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
 
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=1" >
+          <a href="structure_comune/detail_structure_albiano.php" >
             <div class="preview" >
               <img src="images/loghi_comune/albiano.jpg" />
             </div>

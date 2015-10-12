@@ -133,15 +133,15 @@
         <a href="#0" class="cd-close-form">Close</a>
       </div> <!-- cd-user-modal-container -->
     </div> <!-- cd-user-modal -->
-	
+
 	<?php
-	
+
 	$id_attivita = $_GET["id"];
-	  
+
 	if(!isset($id_attivita)){
 		die("Errore, il link non è corretto. Torna indietro e riprova.");
 	}
-	
+
 	$titolo = "";
 	$localita = "";
 	$descrizione = "";
@@ -149,7 +149,7 @@
 	$utente_creatore = "";
 	$url_foto = "";
 	$data_inserimento = "";
-	
+
 	$qry_a="SELECT * FROM ATTIVITA WHERE ID='$id_attivita' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
@@ -162,9 +162,9 @@
 		$url_foto = $row_a['URL_FOTO'];
 		$data_inserimento = $row_a['DATA_INSERIMENTO'];
 	}
-	
+
 	?>
-	
+
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
@@ -173,31 +173,35 @@
       </div>
     </div>
 
-      <div class="main-info col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <div id="title">
+      <div class="main-info col-lg-7 col-md-7 col-sm-12 col-xs-12" style="margin-bottom:5%;">
+        <div id="title" style="font-size: 400%;">
         <?php echo $titolo; ?> </div>
         <div id="data">
          <?php echo  $data_inserimento; ?></div>
           <div id="localita">
         <?php echo $localita; ?></div>
-        <div style="margin-top:10%;">
-      <?php
-        include("gallery.php");
-       ?>
-     </div>
+        <div style="margin-top:5%;">
+            <?php
+              include("gallery.php");
+            ?>
+        </div>
       </div>
 
-      <div class="main-info col-lg-4 col-md-4 col-sm-12 col-xs-12" style="float:left;" >
+
+
+      <div class="main-info col-lg-5 col-md-5 col-sm-12 col-xs-12" style="float:left;" >
         <img src="<?php echo $url_foto; ?>" id="anteprima" />
         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
          <?php echo $descrizione; ?>
-		 </div>
+		    </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
+            <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+        </div>
+
       </div>
 
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
-        <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
-    </div>
+
     </div>
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

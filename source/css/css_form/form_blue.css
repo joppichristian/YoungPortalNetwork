@@ -18,6 +18,27 @@ input[type="text"]{
     box-shadow: 0 0 5px rgba(23, 148, 201, 0.2);
     outline: none;
   }
+input[type="datetime"]{
+  font-size:20px;
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+}
+  input[type="datetime"]:focus{
+    border-color: rgb(23,148,201);
+    box-shadow: 0 0 5px rgba(23, 148, 201, 0.2);
+    outline: none;
+  }
+  input[type="file"]{
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+  }
+    input[type="file"]:focus{
+      border-color: rgba(23, 149, 202, 1);
+      box-shadow: 0 0 5px rgba(23, 149, 202, 0.2);
+      outline: none;
+    }
 input[type="submit"]{
     font-size:20px;
     background-color: rgb(23,148,201);
@@ -38,6 +59,17 @@ button{
       border-color: rgb(23,148,201);
       box-shadow: 0 0 5px rgba(23, 148, 201, 0.2);
     }
+select{
+            background-color: rgba(23, 149, 202, 1);
+            border: 1px solid #cfd9db;
+            border-radius: .25em;
+            color: white;
+            padding: 5px;
+          }
+          select:hover{
+            border-color: rgba(23, 149, 202, 1);
+            box-shadow: 0 0 5px rgba(23, 149, 202, 0.2);
+          }
 
 textarea{
   font-size:20px;

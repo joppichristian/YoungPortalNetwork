@@ -5,12 +5,12 @@
 
   my_session_start();
 
-  $linkIndietro = "activities.php";
+  $linkIndietro = "events.php";
   $testoIndietro = "TORNA INDIETRO";
 
   ?>
   <head>
-    <title>YPN | Attivita</title>
+    <title>YPN | Evento</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@
     <!--        CSS       -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/css_form/form_green.css" rel="stylesheet">
-    <link href="css/css_attivita/attivita.css" rel="stylesheet">
+    <link href="css/css_form/form_blue.css.css" rel="stylesheet">
+    <link href="css/css_events//events.css.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css" >
     <link rel="stylesheet" href="css/pace.css" >
     <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
@@ -50,9 +50,9 @@
   
   	<?php
 
-	$id_attivita = $_GET["id"];
+	$id_evento = $_GET["id"];
 
-	if(!isset($id_attivita)){
+	if(!isset($id_evento)){
 		die("Errore, il link non è corretto. Torna indietro e riprova.");
 	}
 
@@ -64,14 +64,14 @@
 	$url_foto = "";
 	$data_inserimento = "";
 
-	$qry_a="SELECT * FROM ATTIVITA WHERE ID='$id_attivita' ;";
+	$qry_a="SELECT * FROM EVENTO WHERE ID='$id_evento' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{
 		$titolo = $row_a['TITOLO'];
 		$localita = $row_a['LOCALITA'];
 		$descrizione = $row_a['DESCRIZIONE'];
-		$categoria_id = $row_a['CATEGORIA_ID'];
+		$categoria_id = $row_a['CATEGORIA'];
 		$utente_creatore = $row_a['UTENTE_CREATORE'];
 		$url_foto = $row_a['URL_FOTO'];
 		$data_inserimento = $row_a['DATA_INSERIMENTO'];
@@ -96,7 +96,7 @@
         <?php echo $localita; ?></div>
         <div style="margin-top:5%;">
             <?php
-              include("gallery_activity.php");
+              include("gallery_events.php");
             ?>
         </div>
       </div>

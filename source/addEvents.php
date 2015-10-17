@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <?php
 include 'private/connessione-db.php';
@@ -5,12 +6,12 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="activities.php";
+$linkIndietro="events.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>
-  <title>YPN | Aggiungi Attività</title>
+  <title>YPN | Aggiungi Evento</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +19,8 @@ $testoIndietro = "TORNA INDIETRO";
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+  <link href="css/css_form/form_blue.css" rel="stylesheet">
+  <link href="css/css_events/events.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >
@@ -43,9 +44,9 @@ $testoIndietro = "TORNA INDIETRO";
   </header>
 
   <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-    <?php
-	  include("login.php");
-	?>
+    <?php 
+	    include("login.php");
+	   ?>
   </div> <!-- cd-user-modal -->
   <div class="subheader" >
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
@@ -53,14 +54,14 @@ $testoIndietro = "TORNA INDIETRO";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>NUOVA ATTIVITA</a>
+          <a>NUOVO EVENTO</a>
       </div>
     </div>
   </div>
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-	  <form action="post-add-activity.php" method="post"  enctype="multipart/form-data" >
+	  <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
@@ -76,12 +77,15 @@ $testoIndietro = "TORNA INDIETRO";
 		  <p>Descrizione:</p>
 		  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
 		</div>
-
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+		<p>Data e Ora di Inizio:</p>
+		  <input type="datetime" id="data_inizio" name="mydatetime" ></input>
+		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>
 		  <select id="categoria" name="categoria" >
 			<?php
-			$qry_c="SELECT * FROM CAT_ATTIVITA ;";
+			$qry_c="SELECT * FROM CAT_EVENTI ;";
 			$result_c = $mysqli->query($qry_c);
 			while($row_c = $result_c->fetch_array())
 			{
@@ -97,7 +101,7 @@ $testoIndietro = "TORNA INDIETRO";
 		  <p>Immagine:</p>
 		 
 			<input type="file" name="file" id="file" />
-			<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
+			<p>N.B.: L'immagine verrà usata come anteprima dell'evento.</p>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 		  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
@@ -107,7 +111,7 @@ $testoIndietro = "TORNA INDIETRO";
 	  </form>
   <?php
   }else{
-		echo "Devi effettuare il login per aggiungere un'attivit&agrave;";
+		echo "Devi effettuare il login per aggiungere un evento";
   }	  
   ?>  
 </body>

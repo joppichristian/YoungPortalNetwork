@@ -5,11 +5,12 @@ body{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  padding: 0 auto;
   width: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .item-option{
-  background-color:rgb(23,148,201);
+  background-color:rgba(23, 149, 202, 1);
   color:white;
   font-size: 24px;
   text-align: center;
@@ -20,7 +21,7 @@ body{
 }
 .article{
   height: 40%;
-  border: 2px solid rgb(23,148,201);
+  border: 2px solid rgba(23, 149, 202, 1);
   border-radius: .25em;
   margin-left: 2%;
   margin-right: 2%;
@@ -31,11 +32,11 @@ body{
 
   .article:hover{
     opacity: 0.7;
-    box-shadow: 0 0 15px rgba(23,148,201, 0.2);
+    box-shadow: 0 0 15px rgba(23, 149, 202, 0.2);
   }
 
 .article a .description{
-    background-color: rgba(23,148,201,1);
+    background-color: rgba(23, 149, 202, 1);
     width: 100%;
     height: 30%;
     padding-top: 10%;
@@ -83,16 +84,33 @@ body{
 }
 
 .gallery img{
-  border: 2px solid rgb(23,148,201);
+  border: 2px solid rgba(23, 149, 202, 1);
   width: 1;
 }
 h1{
-  color:rgb(23,148,201);
+  color:rgba(23, 149, 202, 1);
 }
 
-.info{
-  color:black;
+.main-info{
+  color:rgba(23, 149, 202, 1);
   text-align: left;
+  margin-top: 5%;
+}
+  .main-info #title{
+    font-size: 400%;
+    font-weight: bolder;
+  }
+  .main-info #data{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .main-info #localita{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+.info-description{
+  color:rgb(50,72,31);
+  font-size: 18px;
 }
 .intestazione{
   padding:2%;
@@ -107,8 +125,8 @@ h1{
   height: 100px;
   line-height: 100px;
   text-align: center;
-  background-color: rgb(23,148,201);
-  margin-bottom: 10%;
+  background-color: rgba(23, 149, 202, 1);
+  margin-bottom: 15px;
   z-index: -1;
 }
 .subheader h1 {
@@ -116,5 +134,4 @@ h1{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
-  font-size: 1.25rem;
 }

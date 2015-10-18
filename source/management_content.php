@@ -79,7 +79,7 @@
 				<h2><?php echo $row['TITOLO']; ?></h2>
 				<ul>
 					<li><?php echo $row['LOCALITA']; ?></li>
-					<li><?php echo $row['DESCRIZIONE']; ?></li>
+					<li><?php echo substr($row['DESCRIZIONE'],0,60); ?></li>
 					<li><img src="<?php echo $row['URL_FOTO']; ?>" /></li>
 					<li><?php echo $row['DATA_INSERIMENTO']; ?></li>
 

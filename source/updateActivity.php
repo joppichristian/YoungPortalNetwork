@@ -5,7 +5,7 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="activities.php";
+$linkIndietro="management_activities.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
@@ -139,7 +139,7 @@ $testoIndietro = "TORNA INDIETRO";
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 			  <button type="submit" value="Salva" style="font-size: 25px;" >Salva</button>
-			  <button type="reset" value="Annulla" style="font-size: 25px;">Annulla</button>
+			   <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
 			<div>
 
 		  </form>

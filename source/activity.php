@@ -32,7 +32,11 @@
    <script src="js/bootstrap.min.js"></script>
      <script src="js/pace.js"></script>
     <!-- -->
-
+	<script> 
+		function apriPopupCondivisioneFB() { 
+			newin = window.open('http://www.facebook.com/share.php?u='+window.location.href,'titolo','scrollbars=no,resizable=yes, width=400,height=400,status=no,location=no,toolbar=no');
+		} 
+	</script>
 
   </head>
   <body>
@@ -76,6 +80,15 @@
 		$url_foto = $row_a['URL_FOTO'];
 		$data_inserimento = $row_a['DATA_INSERIMENTO'];
 	}
+	
+	$title=urlencode($titolo);
+ 
+	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_attivita);
+	 
+	$summary=urlencode($localita);
+	 
+	$image=urlencode($url_foto);
+
 
 	?>
 
@@ -108,8 +121,8 @@
         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
          <?php echo $descrizione; ?>
 		    </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
-            <a href="#"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">		 
+            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
         </div>
 
       </div>

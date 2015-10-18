@@ -32,7 +32,39 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
+ <script language="JavaScript" type="text/JavaScript">
+  function eliminaFoto(id)
+	{
+		var elimina = confirm("Sicuro di voler eliminare la foto: id="+id);
+		if (elimina == true) {
+	
+			$.ajax({
+				url:'post-fotoActivityDelete.php',
+				type: 'POST',
+				data: { 
+					'id': id, 
+					'cod': 'young123' 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+													
+					if( response.indexOf("success") > -1){
+						alert("Foto eliminata con successo...");
+						location.reload(true);
+					}else{
+						alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+					}
+				}
+			});		
+	
+		} else {
+			//alert("You pressed Cancel!");
+		}
 
+	}
+  </script>
 
 </head>
 <body>
@@ -157,14 +189,41 @@ $testoIndietro = "TORNA INDIETRO";
 			  <p>Aggiungi Foto attivit&agrave;:</p>
 			 
 				<input type="file" name="file" id="file" />
+				</br>
 				<p>N.B.: L'immagine verrà aggiunta alla galleria dell'attività.</p>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
-			  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
+			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
 			<div>
 
 		  </form>
+		  </br></br>
+		  <h3>------------------------------------------------------------------------------------</h3>
+			</br>
+			<b>FOTO CORRENTI:</b>
+			</br></br>
+			<table border="1">
+				<tr> <td>   </td> <td>   </td> <td>   </td> </tr>
+				<?php
+				$query_foto="SELECT * FROM MEDIA_ATTIVITA WHERE TIPO='FOTO' AND ATTIVITA_ID='".$id_attivita."' ;" ;
+				$result_foto = $mysqli->query($query_foto);
+			 
+				while($row_foto = $result_foto->fetch_array())
+				{
+				?>
+					<tr>   
+						<td style="vertical-align: middle;"><?php echo $row_foto['ID']; ?></td>
+						<td>
+							<img src="<?php echo $row_foto['URL'];?>"  width="250px" />
+						</td>
+						<td  style="vertical-align: middle;" > <button  type="reset" onclick="eliminaFoto(<?php echo $row_foto['ID'];?>);">ELIMINA FOTO</button> </td>
+					</tr>
+				<?php
+				}
+				?>					
+			</table>
+		  
   <?php
 		}else{
 			echo "ERRORE, torna a gestione attivit&agrave; e riprova.";

@@ -8,7 +8,11 @@
 
 	<link rel="stylesheet" href="css/css_management/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/css_management/style.css"> <!-- Gem style -->
-	<script src="js/js_management/modernizr.js"></script> <!-- Modernizr -->
+	
+	<!-- Per Login -->
+    <script type="text/javascript" src="private/sha512.js"></script>
+    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+   
 	<script language="JavaScript" type="text/JavaScript">
   function eliminaAttivita(id)
 	{

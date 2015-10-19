@@ -15,8 +15,8 @@
 
 		<p class="fieldset">
 		  <label class="image-replace cd-password" for="signin-password">Password</label>
-		  <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
-		  <a href="#0" class="hide-password">Nascondi</a>
+		  <input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+		  <a href="#0" class="hide-password">Mostra</a>
 		  <span class="cd-error-message">Email o password errata! Oppure devi attivare l'account</span>
 		</p>
 
@@ -51,15 +51,15 @@
 
 		<p class="fieldset">
 		  <label class="image-replace cd-password" for="signup-password">Password</label>
-		  <input class="full-width has-padding has-border" id="signup-password" name="signup-password" type="text"  placeholder="Password">
-		  <a href="#0" class="hide-password">Hide</a>
+		  <input class="full-width has-padding has-border" id="signup-password" name="signup-password" type="password"  placeholder="Password">
+		  <a href="#0" class="hide-password">Mostra</a>
 		  <span class="cd-error-message">Error message here!</span>
 		</p>
 
 		<p class="fieldset">
 		  <label class="image-replace cd-password" for="signup-password">Conferma Password</label>
-		  <input class="full-width has-padding has-border" id="signup-conferma-password" name="signup-conferma-password" type="text"  placeholder="Conferma Password">
-		  <a href="#0" class="hide-password">Hide</a>
+		  <input class="full-width has-padding has-border" id="signup-conferma-password" name="signup-conferma-password" type="password"  placeholder="Conferma Password">
+		  <a href="#0" class="hide-password">Mostra</a>
 		  <span class="cd-error-message">Le 2 password non coincidono!</span>
 		</p>
 

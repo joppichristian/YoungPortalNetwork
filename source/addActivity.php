@@ -61,23 +61,23 @@ $testoIndietro = "TORNA INDIETRO";
   if(utenteLoggato($mysqli) == true) {
   ?>
 	  <form action="post-add-activity.php" method="post"  enctype="multipart/form-data" >
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
 		  <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
 		</div>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Localit&agrave;:</h1>
 		  <input type="text" id="localita" name="localita" placeholder="Localita" />
 		</div>
 		<!--Esempio textarea -->
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
 		  <p>Descrizione:</p>
 		  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
 		</div>
 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
 		  <p>Categoria:</p>
 		  <select id="categoria" name="categoria" >
 			<?php
@@ -89,13 +89,13 @@ $testoIndietro = "TORNA INDIETRO";
 				<option value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
 			<?php
 			}
-			?>		
+			?>
 		  </select>
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 		  <p>Immagine:</p>
-		 
+
 			<input type="file" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
 		</div>
@@ -108,7 +108,7 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   }else{
 		echo "Devi effettuare il login per aggiungere un'attivit&agrave;";
-  }	  
-  ?>  
+  }
+  ?>
 </body>
 </html>

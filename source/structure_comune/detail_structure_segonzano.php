@@ -23,34 +23,49 @@
 
   </div>
   <div style="width:100%;height:100px; background-color:rgb(148,59,68); padding:25px;" align="center">
-    <div style="color:white;"><a href="index.html" style="color:white;">Comune di Albiano</a></div>
+    <div style="color:white;"><a href="index.html" style="color:white;">Comune di Segonzano</a></div>
 
   </div>
 
 <div class="cd-tabs">
 	<nav>
 		<ul class="cd-tabs-navigation">
-			<li><a data-content="inbox" class="selected" href="#0">Centro Polifunzionale Sportivo</a></li>
-			<li><a data-content="new" href="#0">Sale comunali</a></li>
+			<li><a data-content="inbox" class="selected" href="#0">Attrezzature</a></li>
+      <li><a data-content="struttura" href="#0">Strutture comunali</a></li>
 
 		</ul> <!-- cd-tabs-navigation -->
 	</nav>
 
 	<ul class="cd-tabs-content">
 		<li data-content="inbox" class="selected">
-			<p>CHIEDE l’utilizzo del Centro polifunzionale Sportivo di Albiano:</p>
-			<p>* Palestra</p>
-			<p>* Sala macchine</p>
+      <p>CHIEDE autorizzazione per uso attrezzature pubbliche:</p>
+      <p>* Videoproiettore </p>
+      <p>* Impianto Voci </p>
+      <p>* Pannelli espositori</p>
+      <p>* Tavole e Panche</p>
+      <p>* Palco</p>
+      <p>* Impianto Luci</p>
+      <p>* Sedie in PVC </p>
 
-			<p><a href="../document_structure/albiano/A.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>
 
+      <p><a href="../document_structure/segonzano/A.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>
 		</li>
 
-		<li data-content="new">
-			<p>CHIEDE il nulla osta per l’utilizzo di una delle strutture comunali</p>
-			<p><a href="../document_structure/albiano/B.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>
 
-		</li>
+    <li data-content="struttura" >
+      <p>CHIEDE l'autorizzazione per uso della struttura comunale:</p>
+      <p>* Auditorium comunale </p>
+      <p>* Palestra comunale </p>
+      <p>* Teatro comunale</p>
+      <p>* Sala consiliare</p>
+      <p>* Baita Venticcia e Capannone</p>
+      <p>* Saletta pluriuso</p>
+
+
+      <p><a href="../document_structure/segonzano/B.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>
+    </li>
+
+
 
 
 	</ul> <!-- cd-tabs-content -->

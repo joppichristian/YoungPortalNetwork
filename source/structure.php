@@ -81,7 +81,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=2" >
+          <a href="structure_comune/detail_structure_cembra.php" >
             <div class="preview" >
               <img src="images/loghi_comune/cembra.jpg" />
             </div>
@@ -91,7 +91,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=3" >
+          <a href="structure_comune/detail_structure_faver.php" >
             <div class="preview" >
               <img src="images/loghi_comune/faver.jpg" />
             </div>
@@ -101,7 +101,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=4" >
+          <a href="structure_comune/detail_structure_giovo.php" >
             <div class="preview" >
               <img src="images/loghi_comune/giovo.jpg" />
             </div>
@@ -111,7 +111,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=5" >
+          <a href="structure_comune/detail_structure_grumes.php" >
             <div class="preview" >
               <img src="images/loghi_comune/grumes.jpg" />
             </div>
@@ -120,8 +120,18 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
+				<div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+          <a href="structure_comune/detail_structure_grauno.php" >
+            <div class="preview" >
+              <img src="images/loghi_comune/grauno.jpg" />
+            </div>
+            <div class="description">
+              <p>Comune di Grauno</p>
+            </div>
+          </a>
+        </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=6" >
+          <a href="structure_comune/detail_structure_lisignago.php" >
             <div class="preview" >
               <img src="images/loghi_comune/lisignago.jpg" />
             </div>
@@ -131,7 +141,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=7" >
+          <a href="structure_comune/detail_structure_lona.php" >
             <div class="preview" >
               <img src="images/loghi_comune/lona.jpg" />
             </div>
@@ -141,7 +151,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=8" >
+          <a href="structure_comune/detail_structure_segonzano.php" >
             <div class="preview" >
               <img src="images/loghi_comune/segonzano.jpg" />
             </div>
@@ -151,7 +161,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=9" >
+          <a href="structure_comune/detail_structure_sover.php" >
             <div class="preview" >
               <img src="images/loghi_comune/sover.jpg" />
             </div>
@@ -161,7 +171,7 @@ $testoIndietro = "TORNA ALLA HOME";
           </a>
         </div>
         <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-          <a href="detail_structure.php?id=10" >
+          <a href="structure_comune/detail_structure_valda.php" >
             <div class="preview" >
               <img src="images/loghi_comune/valda.jpg" />
             </div>

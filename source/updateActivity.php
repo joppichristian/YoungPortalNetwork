@@ -58,11 +58,11 @@ $testoIndietro = "TORNA INDIETRO";
     </div>
   </div>
   <?php
-  
+
   $id_activity = $_GET["id"];
 
   if(isset($id_activity)){
-	  	  
+
 	$titolo = "";
 	$localita = "";
 	$descrizione = "";
@@ -81,33 +81,33 @@ $testoIndietro = "TORNA INDIETRO";
 		$utenteCreatore = $row['UTENTE_CREATORE'];
 		$url_foto_attuale = $row['URL_FOTO'];
 	}
-  
+
 	if(utenteLoggato($mysqli) == true ) {
-		
+
 		$idUtente = $_SESSION['user_id'];
-		
+
 		if( $idUtente == $utenteCreatore ) {
 	?>
 		  <form action="post-updateActivity.php" method="post"  enctype="multipart/form-data" >
 			<input type="hidden" id="id" name="id" value="<?php echo $id_activity;?>" />
 			<input type="hidden" id="utenteCreatore" name="utenteCreatore" value="<?php echo $utenteCreatore;?>" />
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 			  <!--Esempio text -->
 			  <h1>Titolo:</h1>
 			  <input type="text" id="titolo" name="titolo" value="<?php echo $titolo;?>" placeholder="Titolo" />
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 			  <!--Esempio text -->
 			  <h1>Localit&agrave;:</h1>
 			  <input type="text" id="localita" name="localita" value="<?php echo $localita;?>" placeholder="Localita" />
 			</div>
 			<!--Esempio textarea -->
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
 			  <p>Descrizione:</p>
 			  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"><?php echo $descrizione;?></textarea>
 			</div>
 
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
 			  <p>Categoria:</p>
 			  <select id="categoria" name="categoria" >
 				<?php
@@ -120,19 +120,19 @@ $testoIndietro = "TORNA INDIETRO";
 						<option selected value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
 				<?php
 					}else{
-				?>	
+				?>
 						<option value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
 				<?php
-					}	
+					}
 				}
-				?>		
+				?>
 			  </select>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 			  <p>Immagine Corrente:</p>
 				<img src="<?php echo $url_foto_attuale;?>" />
-				
+
 				<p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
 				<input type="file" name="file" id="file" />
 				<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
@@ -149,10 +149,10 @@ $testoIndietro = "TORNA INDIETRO";
 	    }
 	}else{
 			echo "Devi effettuare il login per aggiungere un'attivit&agrave;";
-    }	  
+    }
   }else{
 	  echo "Errore. Prova a tornare indietro e riprova.";
-  }		  
-  ?>  
+  }
+  ?>
 </body>
 </html>

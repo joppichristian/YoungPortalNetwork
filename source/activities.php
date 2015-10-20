@@ -35,7 +35,8 @@ $testoIndietro = "TORNA ALLA HOME";
   
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
-  <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
   
   
   <!-- JavaScript custom -->
@@ -125,7 +126,5 @@ $testoIndietro = "TORNA ALLA HOME";
 	?>
 
     </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 </body>
 </html>

@@ -87,10 +87,10 @@ function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
 	}
 	
 	if($giaInserito){
-		die("</br>L'email inserita risulta già registrata. Devi però ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore. ");
+		die("</br>L'email inserita risulta gi&agrave; registrata. Devi per&ograve; ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore. ");
 		/* $sqlUpdate = "UPDATE UTENTE SET RANDOM = '$random' WHERE EMAIL = '$email' ;";
 		if (!mysqli_query($mysqli,$sqlUpdate)){
-			die('</br></br>Errore. Scrivi a info@cobble-fix.com . ');
+			die('</br></br>Errore. Scrivi a info@youngportalnetwork.it . ');
 		} */
 	
 	}else{

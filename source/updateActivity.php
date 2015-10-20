@@ -27,9 +27,10 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
   <!--              -->
 
-  <!-- Per Login -->
-    <script type="text/javascript" src="private/sha512.js"></script>
-    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+ <!-- Per Login -->
+  <script type="text/javascript" src="private/sha512.js"></script>
+  <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
    
 
   <!-- JavaScript -->

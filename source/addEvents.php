@@ -30,8 +30,9 @@ $testoIndietro = "TORNA INDIETRO";
 
   
 	<!-- Per Login -->
-    <script type="text/javascript" src="private/sha512.js"></script>
-    <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script type="text/javascript" src="private/sha512.js"></script>
+  <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -83,7 +84,7 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Inizio:</p>
-		  <input type="datetime" id="data_inizio" name="mydatetime" ></input>
+		  <input type="datetime-local" id="data_inizio" name="mydatetime" ></input>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>

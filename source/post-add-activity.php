@@ -79,10 +79,10 @@
 					}
 
 					
-					
+					$insertId = $mysqli->insert_id;
 			
 					$mysqli->close();	
-					header("Location: http://www.youngportalnetwork.it/management_activities.php");
+					header("Location: http://www.youngportalnetwork.it/add-foto-activity.php?id=$insertId");
 					die();
 					
 				}else{

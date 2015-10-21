@@ -25,73 +25,79 @@
 		}else{
 			date_default_timezone_set('Europe/Rome');
 			
-			// echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-			// echo "Type: " . $_FILES["file"]["type"] . "<br />";
-			// echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-			// echo "Stored in: " . $_FILES["file"]["tmp_name"];	
-				
-			$tmp_name = $_FILES["file"]["tmp_name"];
-			$name     = $_FILES["file"]["name"];
-			$type     = $_FILES["file"]["type"];
-			$size     = ($_FILES["file"]["size"] / 1024) ;
-				
-			$data_e_ora = date("Y-m-d_H-i-s",time());
-			
-			$name = $data_e_ora . $name ;
-			
-			// echo "<br>Copia file da temp:".$tmp_name." , alla dir: ".$uploads_dir."/".$name;
-			$pathImgUploadedThumb = resize(100,100,"".$uploads_dir."/thumb-".$name);
-			
-			if ( isset($pathImgUploadedThumb) ){
-			
-				//Devo salvare l evento nel DB:
-				$urlFotoThumb =  "http://www.youngportalnetwork.it/". $pathImgUploadedThumb ;
-				
-				$pathImgUploaded = resize(900,596,"".$uploads_dir."/".$name);
-				
-				if ( isset($pathImgUploaded) ){
-				
-					$urlFoto = "http://www.youngportalnetwork.it/". $pathImgUploaded ;
-				
-					$sql =	"INSERT INTO MEDIA_ATTIVITA (NOME, URL, URL_THUMB, ATTIVITA_ID, TIPO) "  .
-						"VALUES
-						('".$id_attivita."','".$urlFoto."','". $urlFotoThumb ."','".$id_attivita."' , 'FOTO')";
-		
-					//echo $sql ;
-	
-					if (!mysqli_query($mysqli,$sql)){
-						die('</br></br>Error: ' . mysqli_error($mysqli));
+			$files = array();
+			$fdata = $_FILES["files"];
+			if (is_array($fdata["name"])) {
+					for ($i = 0; $i < count($fdata['name']); ++$i) {
+							$files[] = array(
+								'name' => $fdata['name'][$i],
+								'tmp_name' => $fdata['tmp_name'][$i],
+								'type' =>  $fdata['type'][$i],
+								'size' =>  $fdata['size'][$i]								
+							);
 					}
-
-					header("Location: http://www.youngportalnetwork.it/add-foto-activity.php?id=$id_attivita");
-					die();						
-				}else{
-					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");	
-				}			
+			} else {
+					$files[] = $fdata;
+			}
+			
+			foreach ($files as $file) {
+					// uploaded location of file is $file['tmp_name']
+					// original filename of file is $file['file']
+					$tmp_name = $file["tmp_name"];
+					$name     = $file["name"];
+					$nameOriginal  = $name;
+					$type     = $file["type"];
+					$size     = ($file["size"] / 1024) ;
+					
+					$data_e_ora = date("Y-m-d_H-i-s",time());			
+					$name = $data_e_ora . $name ;
+					
+					//echo "<br>Copia file da temp:".$tmp_name." , alla dir: ".$uploads_dir."/".$name;
+					$pathImgUploadedThumb = resize(100,100,"".$uploads_dir."/thumb-".$name, $tmp_name, $type);
+					
+					if ( isset($pathImgUploadedThumb) ){
+					
+						//echo "</br>Devo salvare la foto nel DB:";
+						$urlFotoThumb =  "http://www.youngportalnetwork.it/". $pathImgUploadedThumb ;
+						
+						$pathImgUploaded = resize(900,596,"".$uploads_dir."/".$name, $tmp_name, $type);
+						
+						if ( isset($pathImgUploaded) ){
+							//echo "</br>Devo salvare la foto completa nel DB!!!!!!!!!!!!!!!!!!!!!";
+							$urlFoto = "http://www.youngportalnetwork.it/". $pathImgUploaded ;
+						
+							$sql =	"INSERT INTO MEDIA_ATTIVITA (NOME, URL, URL_THUMB, ATTIVITA_ID, TIPO) "  .
+								"VALUES
+								('".$id_attivita."','".$urlFoto."','". $urlFotoThumb ."','".$id_attivita."' , 'FOTO')";
 				
-			}else{
-				die ("</br></br>ERRORE: errore nel salvare la foto thumb caricata.. prova a cambiare foto!! ");	
-			}	
+							//echo $sql ;
+			
+							if (!mysqli_query($mysqli,$sql)){
+								die('</br></br>Error: ' . mysqli_error($mysqli));
+							}
+
+													
+						}else{
+							die ("</br></br>ERRORE: errore nel salvare la foto ".$nameOriginal .". prova a cambiare foto e riprova! ");	
+						}			
+						
+					}else{
+						die ("</br></br>ERRORE: errore nel salvare la thumb della foto ".$nameOriginal .". prova a cambiare foto!! ");	
+					}			
+					
+									
+			}
+			
+			//TUTTO E' ANDATO BENE, TORNA ALL ATTIVITA'.
+			header("Location: http://www.youngportalnetwork.it/add-foto-activity.php?id=$id_attivita");
+			die();			
+			 		
 		}
 
-		/*foreach ($_FILES["file"]["error"] as $key => $error) {
-		
-			if ($error == UPLOAD_ERR_OK){
-				
-				echo " UPLOAD_ERR_OK ";
-				 
-				$tmp_name = $_FILES["file"]["tmp_name"][$key];
-				$name = $_FILES["file"]["name"][$key];
-				echo "nameee:".$name;
-				move_uploaded_file($tmp_name, "".$uploads_dir."/".$name);
-			}else{
-				echo " else ";
-			}
-		}*/
-		
 		
 	}else{
-		echo "DEVI PRIMA COMPILARE IL FORM PER INSERIRE I DATI DELLA FOTO.";			
+		echo "DEVI PRIMA COMPILARE IL FORM PER INSERIRE I DATI DELLA FOTO.";	
+		die();		
 	}
 		
 	 
@@ -102,9 +108,11 @@
 	* @param int $height
 	* @param string $path
 	*/
-	function resize($width, $height, $path){
+	function resize($width, $height, $path, $tmp_name, $type){
+		
+		echo "-- resize: ". $path ." , ". $tmp_name ." , ". $type." END PARAM. </br> ";
 		/* Get original image x y*/
-		list($w, $h) = getimagesize($_FILES['file']['tmp_name']);
+		list($w, $h) = getimagesize($tmp_name);
 		/* calculate new image size with ratio */
 		$ratio = max($width/$w, $height/$h);
 		$h = ceil($height / $ratio);
@@ -115,7 +123,7 @@
 		//$path = 'uploads/'.$width.'x'.$height.'_'.$_FILES['image']['name'];
   
 		/* read binary data from image file */
-		$imgString = file_get_contents($_FILES['file']['tmp_name']);
+		$imgString = file_get_contents($tmp_name);
 		/* create image from string */
 		$image = imagecreatefromstring($imgString);
 		$tmp = imagecreatetruecolor($width, $height);
@@ -125,7 +133,7 @@
 							$width, $height,
 							$w, $h);
 		/* Save image */
-		switch ($_FILES['file']['type']) {
+		switch ($type) {
 			case 'image/jpeg':
 				imagejpeg($tmp, $path, 100);
 				break;

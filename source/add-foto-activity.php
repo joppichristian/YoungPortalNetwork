@@ -37,8 +37,9 @@ $testoIndietro = "TORNA INDIETRO";
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
  <script language="JavaScript" type="text/JavaScript">
-  function eliminaFoto(id)
+  function eliminaFoto(id,url)
 	{
+		//alert("url: "+url);
 		var elimina = confirm("Sicuro di voler eliminare la foto: id="+id);
 		if (elimina == true) {
 	
@@ -47,6 +48,7 @@ $testoIndietro = "TORNA INDIETRO";
 				type: 'POST',
 				data: { 
 					'id': id, 
+					'url': url, 
 					'cod': 'young123' 
 				},
 				success:function(response){
@@ -107,13 +109,13 @@ $testoIndietro = "TORNA INDIETRO";
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 			  <p>Aggiungi Foto attivit&agrave;:</p>
 			 
-				<input type="file" name="file" id="file" />
+				<input type="file" name="files[]" multiple="multiple" />
 				</br>
-				<p>N.B.: L'immagine verrà aggiunta alla galleria dell'attività.</p>
+				<p>N.B.: Le immagini verranno aggiunte alla galleria dell'attività.</p>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
-			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
-			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
+			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi le Foto</button>
+			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Fine.</button>
 			<div>
 
 		  </form>
@@ -136,7 +138,7 @@ $testoIndietro = "TORNA INDIETRO";
 						<td>
 							<img src="<?php echo $row_foto['URL'];?>"  width="250px" />
 						</td>
-						<td  style="vertical-align: middle;" > <button  type="reset" onclick="eliminaFoto(<?php echo $row_foto['ID'];?>);">ELIMINA FOTO</button> </td>
+						<td  style="vertical-align: middle;" > <button  type="reset" onclick="eliminaFoto(<?php echo $row_foto['ID'] .",'". $row_foto['URL']."'";?>);">ELIMINA FOTO</button> </td>
 					</tr>
 				<?php
 				}

@@ -104,8 +104,10 @@ $testoIndietro = "TORNA INDIETRO";
 			<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
-		  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
-		  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
+			<p>Continuando salverai l'attività rendendola visibile agli altri utenti del sito ed </br> <b> avrai la possibilità di aggiungere alcune foto.</b></p>
+			<button type="reset" value="Cancella" style="font-size: 25px;">Annulla</button>
+		    <button type="submit" value="Aggiugi" style="font-size: 25px;" >Continua </button>
+		  
 		<div>
 
 	  </form>

@@ -78,11 +78,13 @@
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
 
-					echo "</br></br>HAI AGGIUNTO 1 ATTIVIT&Agrave;..</br></br>";
-						
-					echo "<a href=\"../activities.php\" > Torna alle Attivit&agrave; </a>";			
+					
+					
 			
 					$mysqli->close();	
+					header("Location: http://www.youngportalnetwork.it/management_activities.php");
+					die();
+					
 				}else{
 					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");	
 				}	

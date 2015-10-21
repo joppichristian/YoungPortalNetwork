@@ -123,7 +123,7 @@ $testoIndietro = "TORNA INDIETRO";
 			<b>FOTO CORRENTI:</b>
 			</br></br>
 			<table border="1">
-				<tr> <td>   </td> <td>   </td> <td>   </td> </tr>
+				<tr> <td>   </td> <td>   </td> </tr>
 				<?php
 				$query_foto="SELECT * FROM MEDIA_ATTIVITA WHERE TIPO='FOTO' AND ATTIVITA_ID='".$id_attivita."' ;" ;
 				$result_foto = $mysqli->query($query_foto);
@@ -132,7 +132,7 @@ $testoIndietro = "TORNA INDIETRO";
 				{
 				?>
 					<tr>   
-						<td style="vertical-align: middle;"><?php echo $row_foto['ID']; ?></td>
+						
 						<td>
 							<img src="<?php echo $row_foto['URL'];?>"  width="250px" />
 						</td>

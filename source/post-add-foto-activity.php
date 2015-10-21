@@ -63,13 +63,8 @@
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
 
-					echo "</br></br>HAI AGGIUNTO 1 NUOVA FOTO AL DATABASE!!</br></br>";
-			
-					echo "</br></br> COMPLIMENTI, hai inserito una nuova foto: <a href='$urlFoto' target='_blank' > VEDI FOTO </a> </br> </br>" ;
-					echo "<a href='add-foto-activity.php?id=$id_attivita' > AGGIUNGINE UN'ALTRA </a> </br></br>";
-					echo "<a href='management_activities.php' > TORNA A GESTIONE ATTIVIT&Agrave; </a> </br></br>";
-					
-						
+					header("Location: http://www.youngportalnetwork.it/add-foto-activity.php?id=$id_attivita");
+					die();						
 				}else{
 					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");	
 				}			

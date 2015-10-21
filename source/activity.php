@@ -72,7 +72,7 @@
 	$url_foto = "";
 	$data_inserimento = "";
 
-	$qry_a="SELECT * FROM ATTIVITA WHERE ID='$id_attivita' ;";
+	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM ATTIVITA WHERE ID='$id_attivita' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{

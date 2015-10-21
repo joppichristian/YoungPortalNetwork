@@ -39,30 +39,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		 
 		if(!$mail->send()) 
 		{
-			//echo "Mailer Error: " . $mail->ErrorInfo;
-			echo "</br> Non e' stato possibile inviare il messaggio. contattaci: info@youngportalnetwork.it";
+			header("Location: ../page_messaggio.php?ms= Non e' stato possibile inviare il messaggio. Contattaci: info@youngportalnetwork.it");
+			die();
+
 		} 
 		else
 		{
-			echo "</br></br>Per completare la registrazione clicca sul link che ti abbiamo inviato su: ".$email." (se non ricevi la mail controlla anche la casella spam)</br></br>";
+			header('Location: ../page_messaggio.php?ms=Per completare la registrazione clicca sul link che ti abbiamo inviato alla tua mail  (se non ricevi la mail controlla anche la casella spam)');
+			die();
 		}
  	
-		if( strcmp($_POST["redirect"],"attivita")==0){
-			echo "<a href=\"../activities.php\" > Torna a attivita</a>";		
-		}else{
-			echo "<a href=\"../index.php\" > Torna al sito </a>";		
-		}
+	
 		
 		
 	}else{ //Utente gia registrato 
 	 
-		echo "Grazie, sei gi&agrave; registrato. </br>";		
-		
-		if( strcmp($_POST["redirect"],"attivita")==0){
-			echo "<a href=\"../activities.html\" > Torna alle attivita ed effettua il login </a>";		
-		}else{
-			echo "<a href=\"../index.php\" > Torna alla home ed effettua il login </a>";		
-		}
+		header('Location: ../page_messaggio.php?ms=Sei già registrato! Effettua il login!');
+		die();
 	
 	}	
 	
@@ -87,7 +80,10 @@ function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
 	}
 	
 	if($giaInserito){
-		die("</br>L'email inserita risulta gi&agrave; registrata. Devi per&ograve; ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore. ");
+		
+		
+		header("Location: ../page_messaggio.php?ms=L'email inserita risulta gia' registrata. Devi ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore.");
+			die();
 		/* $sqlUpdate = "UPDATE UTENTE SET RANDOM = '$random' WHERE EMAIL = '$email' ;";
 		if (!mysqli_query($mysqli,$sqlUpdate)){
 			die('</br></br>Errore. Scrivi a info@youngportalnetwork.it . ');

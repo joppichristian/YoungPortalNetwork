@@ -36,10 +36,13 @@ background-color: rgb(50, 72, 31);
   $qry_a="SELECT * FROM MEDIA_ATTIVITA WHERE ATTIVITA_ID = '$id_attivita' AND TIPO='FOTO' ;";
   $result_a = $mysqli->query($qry_a);
   $indice = 0;
+   $foto_trovate = 0;
+
   ?>
    <ol class="carousel-indicators">
      <?php while($row_a = $result_a->fetch_array())
      {
+	    $foto_trovate = 1;
        if($indice == 0) { ?>
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
      <?php
@@ -50,6 +53,13 @@ background-color: rgb(50, 72, 31);
      }
      $indice = $indice +1;
    }
+    if($foto_trovate==0)
+   {
+	   ?>
+	    <li data-target="#myCarousel" data-slide-to="0"></li>
+
+		<?php
+   }
      ?>
 
    </ol>
@@ -59,9 +69,11 @@ background-color: rgb(50, 72, 31);
 
      <?php
      $indice = 0;
+     $foto_trovate = 0;
      $result_a = $mysqli->query($qry_a);
      while($row_a = $result_a->fetch_array())
      {
+	   $foto_trovate = 1;
        if($indice == 0) { ?>
          <div class="item active">
            <img src="<?php echo $row_a['URL']; ?>" style="max-width:100%;"/>
@@ -75,6 +87,14 @@ background-color: rgb(50, 72, 31);
      <?php
      }
      $indice = $indice +1;
+   }
+   if($foto_trovate==0)
+   { ?>
+	    <div class="item active">
+           <img src="images/example.jpg" style="max-width:100%;"/>
+         </div>
+         <?php
+
    }
      ?>
 

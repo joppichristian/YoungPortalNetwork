@@ -27,11 +27,11 @@ $testoIndietro = "#";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/pace.js"></script>
-	
+
 	<!-- Per Login -->
     <script type="text/javascript" src="private/sha512.js"></script>
     <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
-   
+
     <!-- -->
 
   </head>
@@ -69,7 +69,7 @@ $testoIndietro = "#";
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='login_giovani.php';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='curriculums.php';" style="cursor:pointer;">
               <p>Giovani e Lavoro</p>
         </div>
     </div>

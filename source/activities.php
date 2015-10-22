@@ -112,7 +112,7 @@ $testoIndietro = "TORNA ALLA HOME";
 	{
 	?>
 
-  	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-9" >
+  	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
 		    <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="activity.php?id=<?php echo $row_a['ID']; ?>" >
             <div class="preview" >
@@ -123,7 +123,7 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-    <div>
+    </div>
 	<?php
 	}
 	?>

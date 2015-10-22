@@ -9,6 +9,20 @@ body{
   width: 80%;
   margin-top: 5%;
 }
+
+
+
+.item-option-select{
+  background-color:white;
+  color:rgb(50,72,31);
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+  margin-right: 1%;
+}
+
 .item-option{
   background-color:rgb(50,72,31);
   color:white;
@@ -94,7 +108,8 @@ h1{
 .main-info{
   color:rgb(50,72,31);
   text-align: left;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-bottom: 3%;
 }
   .main-info #title{
     font-size: 400%;
@@ -134,4 +149,24 @@ h1{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
+}
+
+
+
+.category{
+  border: 2px solid rgb(50,72,31);
+  border-radius: .25em;
+
+  margin-bottom: 5%;
+  opacity: 1;
+  padding: 0px;
+}
+
+  .category:hover{
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(50,72,31, 0.2);
+  }
+
+.category a .description{
+    background-color: rgba(50,72,31,1);
 }

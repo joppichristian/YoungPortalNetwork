@@ -66,7 +66,7 @@ $testoIndietro = "TORNA INDIETRO";
     {
         $ID_inserito=$row['ID'];
     }
-    
+
   $id_cv = $ID_inserito;
 
   if(isset($id_cv)){
@@ -126,9 +126,6 @@ $testoIndietro = "TORNA INDIETRO";
 
 
 	?>
-
-
-
 
   <form action="post-add-cv.php" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >

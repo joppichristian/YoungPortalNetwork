@@ -50,7 +50,12 @@ $testoIndietro = "TORNA ALLA HOME";
 	}
   </script>
 
+  <script type="text/javascript">
+  function displayCVGestione(){
+		alert("Non hai inserito il tuo CV. Vai nella sezione 'Aggiungi curriculum' qui accanto perinserirlo!");
+	}
   </script>
+
 
 </head>
 <body>
@@ -90,7 +95,7 @@ while($row_nome = $result_nome->fetch_array())
 
     if($gia_inserito == 1){
       ?>
-      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVInserito();" title='Attenzione!' >
 				         Aggiungi curriculum
 		       </button>
@@ -99,7 +104,7 @@ while($row_nome = $result_nome->fetch_array())
     }else{
     ?>
 
-		  <a href="addCurriculum.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+		  <a href="addCurriculum.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			     Aggiungi curriculum
 			    </button>
@@ -109,28 +114,82 @@ while($row_nome = $result_nome->fetch_array())
     }
   }else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
 			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi curriculum
 			</button>
 		</a>
 	<?php
 	}
-	?>
 
+  if($gia_inserito == 0){
+    ?>
+    <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVGestione();">
+        Gestisci il tuo curriculum
+      </button>
+    </a>
 
-  <a href="management_cv.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+  <?php
+  }else{
+  ?>
+
+  <a href="management_cv.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci il tuo curriculum
     </button>
   </a>
 
-  <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
+  <?php
+  }
+?>
+
+
+  <!--<form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
         <input class="user" type="text" name="filter" id="filter" style="width:80%;">
         <input type="submit" value="Search">
-  </form>
+  </form>-->
   </div>
-  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <p style="color:rgb(50,72,31);">Ricerca per categoria:</p>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
+        <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <a href="curriculums.php" >
+              <div class="description" style="padding-top:1%; padding-bottom:1%;">
+                <p style="color:rgb(50,72,31);">TUTTI</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+    <?php
+    $qry_a="SELECT * FROM CAT_CV ;";
+    $result_a = $mysqli->query($qry_a);
+    while($row_a = $result_a->fetch_array())
+    {
+    ?>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
+        <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <a href="detail_curriculum.php?id=<?php echo $row_a['ID']; ?>" >
+              <div class="description" style="padding-top:1%; padding-bottom:1%;">
+                <p><?php echo $row_a['nome']; ?></p>
+              </div>
+            </a>
+          </div>
+        </div>
+    <?php
+    }
+    ?>
+
+  </div>
+
+
+  <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
 
 	<?php
 	$qry_a="SELECT * FROM CURRICULUM ;";
@@ -138,7 +197,8 @@ while($row_nome = $result_nome->fetch_array())
 	while($row_a = $result_a->fetch_array())
 	{
 	?>
-		<div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="detail_curriculum.php?id=<?php echo $row_a['ID']; ?>" >
             <div class="preview" >
               <img src="<?php echo $row_a['url_foto']; ?>" />
@@ -148,6 +208,7 @@ while($row_nome = $result_nome->fetch_array())
             </div>
           </a>
         </div>
+      </div>
 	<?php
 	}
 	?>

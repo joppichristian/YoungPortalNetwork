@@ -155,34 +155,71 @@ while($row_nome = $result_nome->fetch_array())
       <p style="color:rgb(50,72,31);">Ricerca per categoria:</p>
     </div>
   </div>
+  <?php
+  $cat_id =$_GET['c'];
+  ?>
+
+
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
 
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
-        <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <a href="curriculums.php" >
+      <?php
+      if($cat_id == 0){
+      ?>
+      <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+          <a href="curriculums.php?c=0" >
+            <div class="description" style="padding-top:1%; padding-bottom:1%;">
+              <p style="color:rgb(50,72,31);">TUTTE</p>
+            </div>
+          </a>
+        </div>
+      <?php
+      }else{
+        ?>
+        <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <a href="curriculums.php?c=0" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
-                <p style="color:rgb(50,72,31);">TUTTI</p>
+                <p style="color:white;">TUTTE</p>
               </div>
             </a>
           </div>
-        </div>
+        <?php
+      }?>
+    </div>
 
     <?php
+
     $qry_a="SELECT * FROM CAT_CV ;";
     $result_a = $mysqli->query($qry_a);
     while($row_a = $result_a->fetch_array())
     {
+    
+    if($cat_id == $row_a['ID']){
     ?>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
-        <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <a href="detail_curriculum.php?id=<?php echo $row_a['ID']; ?>" >
+        <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <a href="curriculums.php?c=<?php echo $row_a['ID']; ?>" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
-                <p><?php echo $row_a['nome']; ?></p>
+                <p style="color:rgb(50,72,31);"><?php echo $row_a['nome']; ?></p>
               </div>
             </a>
-          </div>
         </div>
+    </div>
     <?php
+      }else{
+    ?>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
+          <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+              <a href="curriculums.php?c=<?php echo $row_a['ID']; ?>" >
+                <div class="description" style="padding-top:1%; padding-bottom:1%;">
+                  <p style="color:white;"><?php echo $row_a['nome']; ?></p>
+                </div>
+              </a>
+            </div>
+          </div>
+    <?php
+      }
+
     }
     ?>
 
@@ -192,7 +229,13 @@ while($row_nome = $result_nome->fetch_array())
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
 
 	<?php
-	$qry_a="SELECT * FROM CURRICULUM ;";
+  $qry_a="";
+  if($cat_id == 0){
+    $qry_a="SELECT * FROM CURRICULUM ;";
+  }else{
+    $qry_a="SELECT * FROM CURRICULUM WHERE ID_cat='".$cat_id."';";
+  }
+
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{

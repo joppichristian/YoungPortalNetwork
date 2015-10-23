@@ -69,7 +69,7 @@ $testoIndietro = "#";
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='curriculums.php';" style="cursor:pointer;">
+        <div class="block green responsive-2" onclick="location.href='curriculums.php?c=0';" style="cursor:pointer;">
               <p>Giovani e Lavoro</p>
         </div>
     </div>

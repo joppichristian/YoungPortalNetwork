@@ -27,6 +27,31 @@
     <!--              -->
 
 
+    <style media="screen">
+
+    .textcv{
+      text-align:right;
+      font-size: 300%;
+      margin-top: 0.3%
+      margin-bottom:0.3%;
+    }
+
+    .textcv_ele{
+      text-align:left;
+      font-size: 150%;
+      margin-top: 1%;
+      margin-bottom:1%;
+    }
+
+    .titolocv{
+      background-color:rgb(50,72,31);
+      color:white;
+      text-align:left;
+      font-size: 200%;
+    }
+
+    </style>
+
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
@@ -56,7 +81,7 @@
 
 	$id_cv = $_GET["id"];
 
-	if(!isset($id_attivita)){
+	if(!isset($id_cv)){
 		die("Errore, il link non è corretto. Torna indietro e riprova.");
 	}
 
@@ -69,8 +94,10 @@
   $email = "";
   $istruzione1 = "";
   $istruzione2 = "";
-  $istruzione3 = "";
-  $istruzione4 = "";
+  $esperienza1 = "";
+  $esperienza2 = "";
+  $esperienza3 = "";
+  $esperienza4 = "";
   $competenza1 = "";
   $competenza2 = "";
   $competenza3 = "";
@@ -90,8 +117,10 @@
     $email = $row_a['email'];
     $istruzione1 = $row_a['istruzione1'];
     $istruzione2 = $row_a['istruzione2'];
-    $istruzione3 = $row_a['istruzione3'];
-    $istruzione4 = $row_a['istruzione4'];
+    $esperienza1 = $row_a['esperienza1'];
+    $esperienza2 = $row_a['esperienza2'];
+    $esperienza3 = $row_a['esperienza3'];
+    $esperienza4 = $row_a['esperienza4'];
     $competenza1 = $row_a['competenza1'];
     $competenza2 = $row_a['competenza2'];
     $competenza3 = $row_a['competenza3'];
@@ -100,11 +129,11 @@
 
 	}
 
-	$title=urlencode($titolo);
+	$title=urlencode($nome);
 
 	$url=urlencode('http://www.youngportalnetwork.it/curriculums.php?id='.$id_cv);
 
-	$summary=urlencode($localita);
+	$summary=urlencode($residenza);
 
 	$image=urlencode($url_foto);
 
@@ -114,39 +143,150 @@
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
-            <a>Curriculum di <?php echo $titolo; ?></a>
+            <a>Curriculum di <?php echo $nome;  echo " ".$cognome;?></a>
 
       </div>
     </div>
 
-      <div class="main-info col-lg-7 col-md-7 col-sm-12 col-xs-12" style="margin-bottom:5%;">
-        <div id="title" style="font-size: 400%;">
-        <?php echo $nome; ?> </div>
-        <div id="data">
-         <?php echo  $data; ?></div>
-          <div id="localita">
-        <?php echo $residenza; ?></div>
-        <div style="margin-top:5%;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%; paddign:3%;">
 
-        </div>
-      </div>
-
-
-
-      <div class="main-info col-lg-5 col-md-5 col-sm-12 col-xs-12" style="float:left;" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border: 2px solid #cfd9db; border-radius: .25em; margin-bottom:3%;">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="left" style=" margin-top:1%; margin-bottom:1%; ">
         <img src="<?php echo $url_foto; ?>" id="anteprima" />
-        <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
-         <?php echo $istruzione1; ?>
-		    </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">
-            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" align="right">
+
+        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php echo $nome; echo " ".$cognome; ?>
+        </div>
+        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php echo "Nato il ".$data; ?>
+        </div>
+        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php echo "Telefono: ".$telefono; ?>
+        </div>
+        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php echo "Posta elettronica: ".$telefono; ?>
         </div>
 
       </div>
+    </div>
 
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0; border: 2px solid #cfd9db; border-radius: .25em; margin-bottom:3%;">
+
+        <div class="titolocv col-lg-12 col-md-12 col-sm-12 col-xs-12" align="left" >
+              <a>Istruzione</a>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title" >
+          <?php
+          if($istruzione1!=""){
+                echo "* ".$istruzione1;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($istruzione2!=""){
+                echo "* ".$istruzione2;
+          }
+         ?>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0; border: 2px solid #cfd9db; border-radius: .25em; margin-bottom:3%;">
+
+        <div class="titolocv col-lg-12 col-md-12 col-sm-12 col-xs-12" align="left" >
+              <a>Esperienze</a>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title" >
+          <?php
+          if($esperienza1!=""){
+                echo "* ".$esperienza1;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($esperienza2!=""){
+                echo "* ".$esperienza2;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($esperienza3!=""){
+                echo "* ".$esperienza3;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($esperienza4!=""){
+                echo "* ".$esperienza4;
+          }
+         ?>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0; border: 2px solid #cfd9db; border-radius: .25em; margin-bottom:3%;">
+
+        <div class="titolocv col-lg-12 col-md-12 col-sm-12 col-xs-12" align="left" >
+              <a>Competenze</a>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title" >
+          <?php
+          if($competenza1!=""){
+                echo "* ".$competenza1;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($competenza2!=""){
+                echo "* ".$competenza2;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($competenza3!=""){
+                echo "* ".$competenza3;
+          }
+         ?>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0; border: 2px solid #cfd9db; border-radius: .25em; margin-bottom:3%;">
+
+        <div class="titolocv col-lg-12 col-md-12 col-sm-12 col-xs-12" align="left" >
+              <a>Interessi</a>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title" >
+          <?php
+          if($interessi1!=""){
+                echo "* ".$interessi1;
+          }
+         ?>
+        </div>
+        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+          <?php
+          if($interessi2!=""){
+                echo "* ".$interessi2;
+          }
+         ?>
+        </div>
 
 
     </div>
+
+      <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:3%;">
+          <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+      </div>-->
+
+  </div>
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->

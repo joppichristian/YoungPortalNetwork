@@ -95,7 +95,7 @@ while($row_nome = $result_nome->fetch_array())
 
     if($gia_inserito == 1){
       ?>
-      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVInserito();" title='Attenzione!' >
 				         Aggiungi curriculum
 		       </button>
@@ -104,7 +104,7 @@ while($row_nome = $result_nome->fetch_array())
     }else{
     ?>
 
-		  <a href="addCurriculum.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+		  <a href="addCurriculum.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			     Aggiungi curriculum
 			    </button>
@@ -114,7 +114,7 @@ while($row_nome = $result_nome->fetch_array())
     }
   }else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
 			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi curriculum
 			</button>
@@ -124,7 +124,7 @@ while($row_nome = $result_nome->fetch_array())
 
   if($gia_inserito == 0){
     ?>
-    <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+    <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
       <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVGestione();">
         Gestisci il tuo curriculum
       </button>
@@ -134,7 +134,7 @@ while($row_nome = $result_nome->fetch_array())
   }else{
   ?>
 
-  <a href="management_cv.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;padding-top:1%; padding-bottom:1%;">
+  <a href="management_cv.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci il tuo curriculum
     </button>
@@ -193,7 +193,7 @@ while($row_nome = $result_nome->fetch_array())
     $result_a = $mysqli->query($qry_a);
     while($row_a = $result_a->fetch_array())
     {
-    
+
     if($cat_id == $row_a['ID']){
     ?>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1%;">
@@ -240,7 +240,7 @@ while($row_nome = $result_nome->fetch_array())
 	while($row_a = $result_a->fetch_array())
 	{
 	?>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
       <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="detail_curriculum.php?id=<?php echo $row_a['ID']; ?>" >
             <div class="preview" >

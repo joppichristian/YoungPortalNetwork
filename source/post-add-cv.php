@@ -77,14 +77,14 @@
 				$name = $data_e_ora . $name ;
 
 				// echo "<br>Copia file da temp:".$tmp_name." , alla dir: ".$uploads_dir."/".$name;
-				$pathImgUploaded = resize(418,262,"".$uploads_dir."/".$name);
+				$pathImgUploaded = resize(500,500,"".$uploads_dir."/".$name);
 
 				if ( isset($pathImgUploaded) ){
 
 					//Devo salvare l evento nel DB:
 					$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
 
-					$sql = "INSERT INTO CURRICULUM (url_foto, nome, cognome, data_nascita, residenza,telefono, email, istruzione1, istruzione2, esperienza1, esperienza2, esperienza3, esperienza4, competenza1, competenza2, competenza3, interessi1, interessi2,ID_cat,ID_utente) VALUES
+					$sql = "INSERT INTO CURRICULUM (url_foto, nome, cognome, data_nascita, residenza, telefono, email, istruzione1, istruzione2, esperienza1, esperienza2, esperienza3, esperienza4, competenza1, competenza2, competenza3, interessi1, interessi2,ID_cat,ID_utente) VALUES
 
 												('".$urlFoto."','".$nome."','".$cognome."','".$data."','".$residenza."','".$telefono."','".$email."','".$istruzione1."','".$istruzione2."','".$esperienza1."','".$esperienza2."','".$esperienza3."','".$esperienza4."','".$competenza1."','".$competenza2."','".$competenza3."','".$interessi1."','".$interessi2."','".$categoria."','".$idUtente."')";
 

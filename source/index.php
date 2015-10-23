@@ -48,9 +48,10 @@ $testoIndietro = "#";
 	  ?>
     </div> <!-- cd-user-modal -->
 
-
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="background-image: url(/images/.sfondo.jpg)">
   <div class="col-md-12 images" >
   </div>
+  <div>
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">

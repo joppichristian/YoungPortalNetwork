@@ -127,7 +127,7 @@ $testoIndietro = "TORNA INDIETRO";
 
 	?>
 
-  <form action="post-add-cv.php" method="post"  enctype="multipart/form-data" >
+  <form action="post-updateCV.php?i=<?php echo $id_cv;?>" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <h1>Nome:</h1>
@@ -160,47 +160,47 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Istruzione (campo 1):</p>
-    <textarea rows="3" id="istruzione1" name="istruzione1" cols="100" value="<?php echo $istruzione1;?>" placeholder="Istruzione"></textarea>
+    <textarea rows="3" id="istruzione1" name="istruzione1" cols="100" value="<?php echo $istruzione1;?>" placeholder="Istruzione"><?php echo $istruzione1;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Istruzione (campo 2):</p>
-    <textarea rows="3" id="istruzione2" name="istruzione2" cols="100" value="<?php echo $istruzione2;?>" placeholder="Istruzione"></textarea>
+    <textarea rows="3" id="istruzione2" name="istruzione2" cols="100" value="<?php echo $istruzione2;?>" placeholder="Istruzione"><?php echo $istruzione2;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Esperienza (campo 1):</p>
-    <textarea rows="3" id="esperienza1" name="esperienza1" cols="100" value="<?php echo $esperienza1;?>" placeholder="Esperienza"></textarea>
+    <textarea rows="3" id="esperienza1" name="esperienza1" cols="100" value="<?php echo $esperienza1;?>" placeholder="Esperienza"><?php echo $esperienza1;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Esperienza (campo 2):</p>
-    <textarea rows="3" id="esperienza2" name="esperienza2" cols="100" value="<?php echo $esperienza2;?>"  placeholder="Esperienza"></textarea>
+    <textarea rows="3" id="esperienza2" name="esperienza2" cols="100" value="<?php echo $esperienza2;?>"  placeholder="Esperienza"><?php echo $esperienza2;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Esperienza (campo 3):</p>
-    <textarea rows="3" id="esperienza3" name="esperienza3" cols="100" value="<?php echo $esperienza3;?>" placeholder="Esperienza"></textarea>
+    <textarea rows="3" id="esperienza3" name="esperienza3" cols="100" value="<?php echo $esperienza3;?>" placeholder="Esperienza"><?php echo $esperienza3;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Esperienza (campo 4):</p>
-    <textarea rows="3" id="esperienza4" name="esperienza4" cols="100" value="<?php echo $esperienza4;?>" placeholder="Esperienza"></textarea>
+    <textarea rows="3" id="esperienza4" name="esperienza4" cols="100" value="<?php echo $esperienza4;?>" placeholder="Esperienza"><?php echo $esperienza4;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Competenza (campo 1):</p>
-    <textarea rows="3" id="competenza1" name="competenza1" cols="100" value="<?php echo $competenza1;?>" placeholder="Competenza"></textarea>
+    <textarea rows="3" id="competenza1" name="competenza1" cols="100" value="<?php echo $competenza1;?>" placeholder="Competenza"><?php echo $competenza1;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Competenza (campo 2):</p>
-    <textarea rows="3" id="competenza2" name="competenza2" cols="100" value="<?php echo $competenza2;?>" placeholder="Competenza"></textarea>
+    <textarea rows="3" id="competenza2" name="competenza2" cols="100" value="<?php echo $competenza2;?>" placeholder="Competenza"><?php echo $competenza2;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Competenza (campo 3):</p>
-    <textarea rows="3" id="competenza3" name="competenza3" cols="100" value="<?php echo $competenza3;?>" placeholder="Competenza"></textarea>
+    <textarea rows="3" id="competenza3" name="competenza3" cols="100" value="<?php echo $competenza3;?>" placeholder="Competenza"><?php echo $competenza3;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Interessi (campo 1):</p>
-    <textarea rows="3" id="interessi1" name="interessi1" cols="100" value="<?php echo $interessi1;?>" placeholder="Competenza"></textarea>
+    <textarea rows="3" id="interessi1" name="interessi1" cols="100" value="<?php echo $interessi1;?>" placeholder="Competenza"><?php echo $interessi1;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Interessi (campo 2):</p>
-    <textarea rows="3" id="interessi2" name="interessi2" cols="100" value="<?php echo $interessi2;?>" placeholder="Competenza"></textarea>
+    <textarea rows="3" id="interessi2" name="interessi2" cols="100" value="<?php echo $interessi2;?>" placeholder="Competenza"><?php echo $interessi2;?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
     <p>Categoria:</p>
@@ -228,7 +228,7 @@ $testoIndietro = "TORNA INDIETRO";
     <p>Immagine Corrente:</p>
     <img src="<?php echo $url_foto;?>" />
 
-    <p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
+    <p>Per Cambiare Immagine utilizza il bottone qui sotto ():</p>
     <input type="file" name="file" id="file" />
     <p>N.B.: L'immagine verrà usata come foto profilo.</p>
   </div>

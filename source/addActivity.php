@@ -34,9 +34,45 @@ $testoIndietro = "TORNA INDIETRO";
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
-  <!-- -->
-
+  <script src="js/bootstrap.min.js"></script>
+  
+  <!-- JS -->
+  
+  <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var titolo = document.getElementById("titolo").value;		
+		var localita = document.getElementById("localita").value;				
+		var descrizione  = document.getElementById("descrizione").value;
+	 	 
+		if(titolo==""){
+			campi = campi+" \n[titolo] OBBLIGATORIO";			
+		}
+		if(localita==""){
+			campi = campi+" \n[localita] OBBLIGATORIO";			
+		}
+		if(descrizione==""){
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+		
+		if(document.getElementById("file").value.length < 1) {
+		   campi = campi+" \n[immagine] OBBLIGATORIO";			
+		}
+		
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-add-activity.php';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 
 </head>
 <body>
@@ -64,7 +100,7 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-	  <form action="post-add-activity.php" method="post"  enctype="multipart/form-data" >
+	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>

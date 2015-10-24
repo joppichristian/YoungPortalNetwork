@@ -91,6 +91,24 @@ jQuery(document).ready(function($){
 		$form_forgot_password.addClass('is-selected');
 	}
 	
+	 function emailCorretta(email) { 
+	 
+		if(email.length < 7){
+			return false; 
+		}	
+	 
+        var charEmailObbligatori1 = "@";  
+		var charEmailObbligatori2 = "."; 
+
+        if (email.indexOf(charEmailObbligatori1) == -1) {  
+            return false; 
+        }  
+		if (email.indexOf(charEmailObbligatori2) == -1) {  
+            return false; 
+        }  
+        return true; 
+    }
+ 	
 	$form_login.find('input[type="submit"]').on('click', function(event){
 			 
 		// non inviare la password in chiaro
@@ -130,42 +148,83 @@ jQuery(document).ready(function($){
 		//$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 	});
 	$form_signup.find('input[type="submit"]').on('click', function(event){
-		//event.preventDefault();
-		//$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		 
-		//alert("sono in validate form");
-		// Crea un elemento di input che verrà usato come campo di output per la password criptata.
+		
 		var p = document.createElement("input");
-		// Aggiungi un nuovo elemento al tuo form.
 		document.formRegister.appendChild(p);
 		p.name = "p";
 		p.type = "hidden"
 		p.value = SHA512(document.getElementById("signup-password").value);
-	
-		// esegui il confronto se le 2 password coincidono		
-		var mexErrore   = "";
 		
+		var hasErrors = false;	
+	
+		var username = document.getElementById("signup-username").value;	
 		var password = document.getElementById("signup-password").value;			
 		var confermaP  = document.getElementById("signup-conferma-password").value;
-					
-		if(password!=confermaP){
-			mexErrore = mexErrore+" \n[LE 2 PASSWORD NON COINCIDONO]";		
+		var eMail = document.getElementById("signup-email").value;		
+		var eMailConferma = document.getElementById("signup-conferma-email").value;		
+		var acceptTerms = document.getElementById("accept-terms");	
+		
+		if(username.length < 4){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="signup-username"]').toggleClass('has-error').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="signup-username"]').toggleClass('has-error').next('span').removeClass('is-visible');
+		}		
+		
+		if(!emailCorretta(eMail)){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="signup-email"]').toggleClass('has-error').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="signup-email"]').toggleClass('has-error').next('span').removeClass('is-visible');
 		}
 		
-		if(mexErrore!=("")){			
+		if(eMail!=eMailConferma){
 			//MESSAGGIO DI ERRORE
-			$form_signup.find('input[id="signup-conferma-password"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			var hasErrors = true;
 			event.preventDefault();
-		 
+			$form_signup.find('input[id="signup-conferma-email"]').toggleClass('has-error').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="signup-conferma-email"]').toggleClass('has-error').next('span').removeClass('is-visible');
 		}
-		else
-		{		
+		
+		if(password.length < 8){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="signup-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="signup-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+		}	
+					
+		if(password!=confermaP){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="signup-conferma-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="signup-conferma-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+		}	
+		
+		if(!acceptTerms.checked){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="accept-terms"]').toggleClass('has-error').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="accept-terms"]').toggleClass('has-error').next('span').removeClass('is-visible');
+		}
+		
+		 
+		if(!hasErrors){		
 			// Assicurati che la password non venga inviata in chiaro.
 			document.getElementById("signup-password").value = "";
 			document.getElementById("signup-conferma-password").value = "";		
 			document.formRegister.action = 'private/accetta-registrazione.php';
 			document.formRegister.submit();
-			 
 		}		
 	
 	

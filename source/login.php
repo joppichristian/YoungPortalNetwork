@@ -40,20 +40,26 @@
 		<p class="fieldset">
 		  <label class="image-replace cd-username" for="signup-username">Username</label>
 		  <input class="full-width has-padding has-border" id="signup-username" name="signup-username" type="text" placeholder="Username">
-		  <span class="cd-error-message">Error message here!</span>
+		  <span class="cd-error-message">Inserisci un username di almeno 4 caratteri.</span>
 		</p>
 
 		<p class="fieldset">
 		  <label class="image-replace cd-email" for="signup-email">E-mail</label>
 		  <input class="full-width has-padding has-border" id="signup-email" name="signup-email" type="email" placeholder="E-mail">
-		  <span class="cd-error-message">Error message here!</span>
+		  <span class="cd-error-message">Email non corretta!</span>
+		</p>
+		
+		<p class="fieldset">
+		  <label class="image-replace cd-email" for="signup-conferma-email">E-mail</label>
+		  <input class="full-width has-padding has-border" id="signup-conferma-email" name="signup-conferma-email" type="email" placeholder="Conferma E-mail">
+		  <span class="cd-error-message">Le Email non coincidono!</span>
 		</p>
 
 		<p class="fieldset">
 		  <label class="image-replace cd-password" for="signup-password">Password</label>
 		  <input class="full-width has-padding has-border" id="signup-password" name="signup-password" type="password"  placeholder="Password">
 		  <a href="#0" class="hide-password">Mostra</a>
-		  <span class="cd-error-message">Error message here!</span>
+		  <span class="cd-error-message">Password troppo corta (inserisci un minimo di 8 caratteri)</span>
 		</p>
 
 		<p class="fieldset">
@@ -65,6 +71,7 @@
 
 		<p class="fieldset">
 		  <input type="checkbox" id="accept-terms">
+		  <span class="cd-error-message">Per continuare devi accettare i termini</span>
 		  <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
 		</p>
 

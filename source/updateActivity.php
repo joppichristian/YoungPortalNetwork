@@ -27,7 +27,7 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
   <!--              -->
 
- <!-- Per Login -->
+  <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
@@ -35,9 +35,40 @@ $testoIndietro = "TORNA INDIETRO";
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+  <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var titolo = document.getElementById("titolo").value;		
+		var localita = document.getElementById("localita").value;				
+		var descrizione  = document.getElementById("descrizione").value;
+	 	 
+		if(titolo==""){
+			campi = campi+" \n[titolo] OBBLIGATORIO";			
+		}
+		if(localita==""){
+			campi = campi+" \n[localita] OBBLIGATORIO";			
+		}
+		if(descrizione==""){
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+				
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-updateActivity.php';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 
 </head>
 <body>
@@ -93,7 +124,7 @@ $testoIndietro = "TORNA INDIETRO";
 
 		if( $idUtente == $utenteCreatore ) {
 	?>
-		  <form action="post-updateActivity.php" method="post"  enctype="multipart/form-data" >
+		  <form  id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 			<input type="hidden" id="id" name="id" value="<?php echo $id_activity;?>" />
 			<input type="hidden" id="utenteCreatore" name="utenteCreatore" value="<?php echo $utenteCreatore;?>" />
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >

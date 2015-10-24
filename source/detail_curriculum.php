@@ -5,7 +5,7 @@
 
   my_session_start();
 
-  $linkIndietro = "activities.php";
+  $linkIndietro = "curriculums.php";
   $testoIndietro = "TORNA INDIETRO";
 
   ?>

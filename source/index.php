@@ -50,10 +50,7 @@ $testoIndietro = "#";
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle;" >
 
-    <img src="/images/sfondo.jpg" style="width:100%; height:45%; " />
-
-    <img src="/images/img-menu.png" style="position: absolute;  top: 30px;"/>
-
+    <img src="/images/sfondo.png" style="width:100%; height:45%; " />
 
   </div>
 

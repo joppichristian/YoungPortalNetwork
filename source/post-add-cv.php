@@ -92,11 +92,10 @@
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
 
-					echo "</br></br>HAI AGGIUNTO IL TUO CURRICULUM;..</br></br>";
-
-					echo "<a href=\"../curriculums.php\" > Torna ai Curriculum; </a>";
 
 					$mysqli->close();
+					header("Location: http://www.youngportalnetwork.it/curriculums.php");
+					die();	
 				}else{
 					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");
 				}
@@ -108,8 +107,9 @@
 		}
 
 	}else{
-		echo "SI E VERIFICATO UN ERRORE, <a href=\"curriculums.php\" >torna indietro e riprova</a>";
 		$mysqli->close();
+		header("Location: http://www.youngportalnetwork.it/page-messaggio.php?ms=Si e' verificato un errore. Riprova!");
+		die();	
 	}
 
 

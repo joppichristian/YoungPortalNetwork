@@ -5,12 +5,12 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="activities.php";
+$linkIndietro="curriculums.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>
-  <title>YPN | Aggiungi Attività</title>
+  <title>YPN | Aggiungi CV</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@ $testoIndietro = "TORNA INDIETRO";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>NUOVA ATTIVITA</a>
+          <a>NUOVO CURRICULUM</a>
       </div>
     </div>
   </div>

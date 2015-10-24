@@ -5,7 +5,7 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="management_activities.php";
+$linkIndietro="curriculums.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>

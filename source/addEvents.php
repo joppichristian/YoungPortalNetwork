@@ -84,7 +84,7 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Inizio:</p>
-		  <input type="datetime-local" id="data_inizio" name="mydatetime" ></input>
+		  <input type="datetime-local" id="data_inizio" >
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>

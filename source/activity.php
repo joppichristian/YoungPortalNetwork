@@ -104,30 +104,35 @@
       </div>
     </div>
 
-      <div class="main-info col-lg-7 col-md-7 col-sm-12 col-xs-12" style="margin-bottom:5%;">
-        <div id="title" style="font-size: 400%;">
-        <?php echo $titolo; ?> </div>
-        <div id="data">
-         <?php echo  $data_inserimento; ?></div>
-          <div id="localita">
-        <?php echo $localita; ?></div>
-        <div style="margin-top:5%;">
-            <?php
-              include("gallery_activity.php");
-            ?>
-        </div>
+      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;">
+	     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	        <div id="title" style="font-size: 400%;">
+	        <?php echo $titolo; ?> </div>
+	        <div id="data">
+	         <?php echo $data_inserimento; ?></div>
+	          <div id="localita">
+	        <?php echo $localita; ?></div>
+	         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
+         <?php echo $descrizione; ?>
+		    </div>
+	     </div>
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
+	     </div>
+        
       </div>
 
 
 
-      <div class="main-info col-lg-5 col-md-5 col-sm-12 col-xs-12" style="float:left;" >
-        <img src="<?php echo $url_foto; ?>" id="anteprima" />
-        <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
-         <?php echo $descrizione; ?>
-		    </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:5%;">		 
+      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
+	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
+            <?php
+              include("gallery_activity.php");
+            ?>
+        	</div>
+             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
             <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
-        </div>
+			</div>
 		</div>
 
 

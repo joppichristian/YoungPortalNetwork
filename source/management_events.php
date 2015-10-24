@@ -5,12 +5,12 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="activities.php";
+$linkIndietro="events.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>
-  <title>YPN | Attivita</title>
+  <title>YPN | Eventi</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@ $testoIndietro = "TORNA INDIETRO";
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+  <link href="css/css_form/form_blue.css" rel="stylesheet">
+  <link href="css/css_events/events.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >
@@ -58,7 +58,7 @@ $testoIndietro = "TORNA INDIETRO";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a style="color:white;">GESTISCI LE TUE ATTIVITA'</a>
+          <a style="color:white;">GESTISCI I TUOI EVENTI</a>
       </div>
 
     </div>
@@ -66,7 +66,7 @@ $testoIndietro = "TORNA INDIETRO";
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <?php
-      include "management_content.php";
+      include "management_content_event.php";
 
     ?>
   </div>

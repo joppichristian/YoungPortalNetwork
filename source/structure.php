@@ -70,7 +70,8 @@ $testoIndietro = "TORNA ALLA HOME";
 -->
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
 
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+				<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_albiano.php" >
             <div class="preview" >
               <img src="images/loghi_comune/albiano.jpg" />
@@ -80,7 +81,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_cembra.php" >
             <div class="preview" >
               <img src="images/loghi_comune/cembra.jpg" />
@@ -90,7 +94,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_faver.php" >
             <div class="preview" >
               <img src="images/loghi_comune/faver.jpg" />
@@ -100,7 +107,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_giovo.php" >
             <div class="preview" >
               <img src="images/loghi_comune/giovo.jpg" />
@@ -110,7 +120,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+						<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_grumes.php" >
             <div class="preview" >
               <img src="images/loghi_comune/grumes.jpg" />
@@ -120,7 +133,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-				<div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_grauno.php" >
             <div class="preview" >
               <img src="images/loghi_comune/grauno.jpg" />
@@ -130,7 +146,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_lisignago.php" >
             <div class="preview" >
               <img src="images/loghi_comune/lisignago.jpg" />
@@ -140,7 +159,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_lona.php" >
             <div class="preview" >
               <img src="images/loghi_comune/lona.jpg" />
@@ -150,7 +172,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_segonzano.php" >
             <div class="preview" >
               <img src="images/loghi_comune/segonzano.jpg" />
@@ -160,7 +185,10 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+						<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_sover.php" >
             <div class="preview" >
               <img src="images/loghi_comune/sover.jpg" />
@@ -170,7 +198,11 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
-        <div class="article col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+			</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+
           <a href="structure_comune/detail_structure_valda.php" >
             <div class="preview" >
               <img src="images/loghi_comune/valda.jpg" />
@@ -180,6 +212,7 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
+			</div>
     </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->

@@ -32,12 +32,12 @@ $testoIndietro = "TORNA ALLA HOME";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/pace.js"></script>
-  
+
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
-  
-  
+
+
   <!-- JavaScript custom -->
   <script language="JavaScript" type="text/JavaScript">
 	function displayEffettuaLogin(){
@@ -110,7 +110,9 @@ $testoIndietro = "TORNA ALLA HOME";
 	while($row_a = $result_a->fetch_array())
 	{
 	?>
-		<div class="article col-lg-3 col-md-3 col-sm-6 col-xs-9" >
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="event.php?id=<?php echo $row_a['ID']; ?>" >
             <div class="preview" >
               <img src="<?php echo $row_a['URL_FOTO']; ?>" />
@@ -120,6 +122,7 @@ $testoIndietro = "TORNA ALLA HOME";
             </div>
           </a>
         </div>
+      </div>
 	<?php
 	}
 	?>

@@ -17,12 +17,13 @@ input[type="text"]{
     box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
     outline: none;
   }
-input[type="datetime"]{
+ 
+input[type="datetime-local"]{
   border: 2px solid #cfd9db;
   border-radius: .25em;
   padding: 5px;
 }
-  input[type="datetime"]:focus{
+  input[type="datetime-local"]:focus{
     border-color: rgb(50,72,31);
     box-shadow: 0 0 5px rgba(50, 72, 31, 0.2);
     outline: none;

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <?php
 include 'private/connessione-db.php';
@@ -6,12 +5,12 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="events.php";
+$linkIndietro="management_events.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
 <head>
-  <title>YPN | Aggiungi Evento</title>
+  <title>YPN | Modifica Evento</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,18 +27,18 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
   <!--              -->
 
-  
-	<!-- Per Login -->
+  <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+   
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!-- -->
- 
-  <script language="JavaScript" type="text/JavaScript">
+
+<script language="JavaScript" type="text/JavaScript">
 	function validateForm()
 	{	
 		var message = "ATTENZIONE:\n";
@@ -77,13 +76,11 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitForm.action = 'post-add-event.php';
+			document.submitForm.action = 'post-updateEvent.php';
 			document.submitForm.submit();
 		}		
 	}
   </script> 
-
-
 
 </head>
 <body>
@@ -94,9 +91,9 @@ $testoIndietro = "TORNA INDIETRO";
   </header>
 
   <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-    <?php 
-	    include("login.php");
-	   ?>
+    <?php
+	  include("login.php");
+	?>
   </div> <!-- cd-user-modal -->
   <div class="subheader" >
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
@@ -104,14 +101,47 @@ $testoIndietro = "TORNA INDIETRO";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>NUOVO EVENTO</a>
+          <a>MODIFICA EVENTO</a>
       </div>
     </div>
   </div>
   <?php
-  if(utenteLoggato($mysqli) == true) {
-  ?>
-	  <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
+
+  $id_evento = $_GET["id"];
+
+  if(isset($id_evento)){
+
+	$titolo = "";
+	$localita = "";
+	$descrizione = "";
+	$catId = "";
+	$utenteCreatore = "";
+	$url_foto_attuale = "";
+
+	$qry="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INIZIO, '%d/%m/%Y %H:%i') as DATA_INIZIO,DATE_FORMAT(DATA_FINE, '%d/%m/%Y %H:%i') AS DATA_FINE FROM EVENTI WHERE ID ='$id_evento' ;";
+
+	$result = $mysqli->query($qry);
+	while($row = $result->fetch_array())
+	{
+		$titolo = $row_a['TITOLO'];
+		$localita = $row_a['LOCALITA'];
+		$descrizione = $row_a['DESCRIZIONE'];
+		$data_inizio = $row_a['DATA_INIZIO'];
+		$data_fine = $row_a['DATA_FINE'];
+		$categoria_id = $row_a['CATEGORIA_ID'];
+		$utente_creatore = $row_a['UTENTE_CREATORE'];
+		$url_foto = $row_a['URL_FOTO'];
+
+	}
+
+	if(utenteLoggato($mysqli) == true ) {
+
+		$idUtente = $_SESSION['user_id'];
+
+		
+		if( $idUtente == $utente_creatore ) {
+	?>
+		 <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
@@ -152,22 +182,30 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
-		  <p>Immagine:</p>
-		 
-			<input type="file" name="file" id="file" />
-			<p>N.B.: L'immagine verrà usata come anteprima dell'evento.</p>
-		</div>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
-			<p>Continuando salverai l'evento rendendolo visibile agli altri utenti del sito ed </br> <b> avrai la possibilità di aggiungere alcune foto.</b></p>
-		  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
-		  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>
-		<div>
+			  <p>Immagine Corrente:</p>
+				<img src="<?php echo $url_foto_attuale;?>" />
 
-	  </form>
-  <?php
+				<p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
+				<input type="file" name="file" id="file" />
+				<p>N.B.: L'immagine verrà usata come anteprima dell'evento.</p>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
+			  <button type="submit" value="Salva" style="font-size: 25px;" >Salva</button>
+			   <button type="reset"  onclick="window.location='management_events.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
+			<div>
+
+
+	  </form>	  
+	  <?php
+		}else{
+			echo $idUtente."/".$utente_creatore."Errore. Questo evento non e' stata creato da te.";
+	    }
+	}else{
+			echo "Devi effettuare il login per aggiungere un evento";
+    }
   }else{
-		echo "Devi effettuare il login per aggiungere un evento";
-  }	  
-  ?>  
+	  echo "Errore. Prova a tornare indietro e riprova.";
+  }
+  ?>
 </body>
 </html>

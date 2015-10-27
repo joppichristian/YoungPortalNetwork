@@ -16,20 +16,30 @@
 				die("Qualcosa è andato storto...");
 			}
 			
-			$titolo = $_POST["titolo"];
-			$localita = $_POST["localita"];
+			echo "</br> RIEPILOGO EVENTO:";
+			echo "</br>";
+			echo " titolo: ". $_POST["titolo"]. "\n";
+			echo "</br>";
+			echo " localita: ". $_POST["localita"]. "\n";
+			echo "</br>";
+			echo " descrizione: ". $_POST['descrizione']. "\n";
+			echo "</br>";			
+			echo " data ora inizio: ". $_POST['data_inizio']. "\n";
+			echo "</br>";			
+			echo " data ora fine: ". $_POST['data_fine']. "\n";
+			echo "</br>";			
+			echo " categoria: ".$_POST["categoria"]. "\n";
+			echo "</br>";
+			echo " id utente: ". $_SESSION['user_id'] . "\n";
+			echo "</br>";
+			 			
+			$titolo = $_POST["titolo"];	
+			$localita = $_POST["localita"];				
 			$descrizione = $_POST["descrizione"];
-			$catId = $_POST["categoria"];
-			$utenteCreatore = $_POST["utenteCreatore"];
-			
-		
-			$messaggio .= "</br> RIEPILOGO ACTIVITY:";
-			$messaggio .= "</br>";
-			$messaggio .= " titolo: ". $titolo. "\n";
-			$messaggio .= "</br>";
-			$messaggio .= " localita: ". $localita. "\n";
-			$messaggio .= "</br>";
-			$messaggio .= " descrizione: ". $descrizione. "\n";
+			$data_inizio = $_POST["data_inizio"];
+			$data_fine = $_POST["data_fine"];
+			$categoria = $_POST["categoria"];
+			$idUtente = $_SESSION['user_id'];	
 	 
 			/* echo " catId: ". $catId. "\n";
 			echo "</br>";
@@ -38,13 +48,15 @@
 			echo "</br>"; */
 			
 			if($idUtente != $utenteCreatore){
-				die("Non hai i permessi per modificate questa attivita.");
+				die("Non hai i permessi per modificate questo evento.");
 			}	
 			
 			
 			date_default_timezone_set('Europe/Rome');			
-			$uploads_dir = 'images/attivita';
+			$uploads_dir = 'images/eventi';
 			$data_e_ora = date("Y-m-d_H-i-s",time());
+			$data_inizio = date("Y-m-d_H-i",$data_inizio);
+			$data_fine = date("Y-m-d_H-i",$data_fine);
 			$name     = $_FILES["file"]["name"];			
 			$nameFile = $data_e_ora . $name ;
         	
@@ -66,32 +78,36 @@
 			
 			if($fileSettato == 1){
 				$pathImgUploaded = resize(418,262,"".$uploads_dir."/".$nameFile);
-				$sqlUpdate = "UPDATE ATTIVITA SET TITOLO = '".$titolo."' ,
+				$sqlUpdate = "UPDATE EVENTI SET TITOLO = '".$titolo."' ,
 												  URL_FOTO = '".$pathImgUploaded. "' ,
 												  LOCALITA = '".$localita. "' ,
                                                   DESCRIZIONE = '".$descrizione. "' ,
+                                                  DATA_INIZIO = '".$data_inizio."',
+                                                  DATA_FINE = '".$data_fine."',
 												  CATEGORIA_ID = '".$catId. "' 
 												   
 												  WHERE ID = '".$_POST['id']."' ;" ;
 			}else{
-				$sqlUpdate = "UPDATE ATTIVITA SET TITOLO = '".$titolo."' ,
+				$sqlUpdate = "UPDATE EVENTI SET TITOLO = '".$titolo."' ,
 												  LOCALITA = '".$localita. "' ,
                                                   DESCRIZIONE = '".$descrizione. "' ,
+                                                  DATA_INIZIO = '".$data_inizio."',
+                                                  DATA_FINE = '".$data_fine."',
 												  CATEGORIA_ID = '".$catId. "' 
-												  
+												   
 												  WHERE ID = '".$_POST['id']."' ;" ;
 			}
 			
 			//echo $sqlUpdate ;
         
 			if (!mysqli_query($mysqli,$sqlUpdate)){
-				die('</br></br>Errore. Scrivi a info@cobble-fix.com . ');
+				die('</br></br>Errore. Scrivi a info@youngportalnetwork.it . ');
 			}
 
-			$messaggio .= "</br></br>HAI MODIFICATO 1 ATTIVIT&Agrave; CON SUCCESSO</br></br>";
+			$messaggio .= "</br></br>HAI MODIFICATO 1 EVENTO CON SUCCESSO</br></br>";
 					 
 		}else{
-			$messaggio = "DEVI PRIMA COMPILARE IL FORM PER INSERIRE I DATI DELLA ATTIVIT&Agrave.";			
+			$messaggio = "DEVI PRIMA COMPILARE IL FORM PER INSERIRE I DATI DELL'EVENTO.";			
 		}
 	}else{
 		$messaggio = "DEVI EFFETTUARE IL LOGIN (SESSIONE SCADUTA).";			
@@ -152,7 +168,7 @@
 ?>	 	
 <html>
 <head>
-  <title>YPN | Attivita</title>
+  <title>YPN | EVENTI</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -160,8 +176,8 @@
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+  <link href="css/css_form/form_blue.css.css" rel="stylesheet">
+  <link href="css/css_events/events.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >

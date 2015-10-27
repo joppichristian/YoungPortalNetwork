@@ -26,6 +26,8 @@
 			echo "</br>";			
 			echo " data ora inizio: ". $_POST['data_inizio']. "\n";
 			echo "</br>";			
+			echo " data ora fine: ". $_POST['data_fine']. "\n";
+			echo "</br>";			
 			echo " categoria: ".$_POST["categoria"]. "\n";
 			echo "</br>";
 			echo " id utente: ". $_SESSION['user_id'] . "\n";
@@ -35,6 +37,7 @@
 			$localita = $_POST["localita"];				
 			$descrizione = $_POST["descrizione"];
 			$data_inizio = $_POST["data_inizio"];
+			$data_fine = $_POST["data_fine"];
 			$categoria = $_POST["categoria"];
 			$idUtente = $_SESSION['user_id'];	
 		 			
@@ -73,17 +76,16 @@
 					$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
 				
 					
-					$sql = "INSERT INTO EVENTI (TITOLO, LOCALITA, DESCRIZIONE,DATA_INIZIO, CATEGORIA_ID, UTENTE_CREATORE, URL_FOTO ) VALUES 
+					$sql = "INSERT INTO EVENTI (TITOLO, LOCALITA, DESCRIZIONE,DATA_INIZIO,DATA_FINE, CATEGORIA_ID, UTENTE_CREATORE, URL_FOTO ) VALUES 
 
-												('".$titolo."','".$localita."','".$descrizione."','".$data_inizio."','".$categoria."','".$idUtente."','".$urlFoto."')";
+												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d H:i", $data_inizio)."','".date ("Y-m-d H:i", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
 					
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
 
-					echo "</br></br>HAI AGGIUNTO 1 EVENTO..</br></br>";
-						
-					echo "<a href=\"../events.php\" > Torna agli eventi </a>";			
+					header("Location: http://www.youngportalnetwork.it/add-foto-event.php?id=$insertId");
+					die();		
 			
 					$mysqli->close();	
 				}else{

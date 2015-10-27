@@ -67,17 +67,18 @@
 	$url_foto = "";
 	$data_inserimento = "";
 
-	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM EVENTI WHERE ID ='$id_evento' ;";
+	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INIZIO, '%d/%m/%Y %H:%i') as DATA_INIZIO,DATE_FORMAT(DATA_FINE, '%d/%m/%Y %H:%i') AS DATA_FINE FROM EVENTI WHERE ID ='$id_evento' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{
 		$titolo = $row_a['TITOLO'];
 		$localita = $row_a['LOCALITA'];
 		$descrizione = $row_a['DESCRIZIONE'];
+		$data_inizio = $row_a['DATA_INIZIO'];
+		$data_fine = $row_a['DATA_FINE'];
 		$categoria_id = $row_a['CATEGORIA_ID'];
 		$utente_creatore = $row_a['UTENTE_CREATORE'];
 		$url_foto = $row_a['URL_FOTO'];
-		$data_inserimento = $row_a['DATA_INSERIMENTO'];
 	}
 
 	?>
@@ -95,8 +96,11 @@
 	        <div id="title" style="font-size: 400%;">
 	        <?php echo $titolo; ?> </div>
 	        <div id="data">
-	         <?php echo $data_inserimento; ?></div>
+		      Inizio Evento:
+	         <?php echo $data_inizio; ?><br/>Fine Evento:
+	         <?php echo $data_fine; ?></div>
 	          <div id="localita">
+		          Luogo Evento:
 	        <?php echo $localita; ?></div>
 	         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
          <?php echo $descrizione; ?>

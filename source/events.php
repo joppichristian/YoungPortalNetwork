@@ -99,7 +99,7 @@ $testoIndietro = "TORNA ALLA HOME";
 
   <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
         <input class="user" type="text" name="filter" id="filter" style="width:80%;">
-        <input type="submit" value="Search">
+        <input type="submit" class="item-option" value="Search">
   </form>
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">

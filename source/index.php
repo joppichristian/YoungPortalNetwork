@@ -50,14 +50,9 @@ $testoIndietro = "#";
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle;" >
 
-<<<<<<< Updated upstream
+
     <img src="images/sfondo.png" style="width:100%; height:45%; " />
-=======
-    <img src="/images/sfondo.jpg" style="width:100%; height:45%; " />
 
-    <img src="/images/img-menu.png" style="position: absolute;  top: 10%;"/>
-
->>>>>>> Stashed changes
 
   </div>
 
@@ -73,7 +68,7 @@ $testoIndietro = "#";
         </div>
     </div>
     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block red responsive-2" onclick="location.href='login_business.php';" style="cursor:pointer;">
+        <div class="block red responsive-2" onclick="location.href='companies.php';" style="cursor:pointer;">
               <p>Aziende</p>
         </div>
     </div>

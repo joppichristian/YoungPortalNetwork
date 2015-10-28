@@ -78,11 +78,13 @@
 					
 					$sql = "INSERT INTO EVENTI (TITOLO, LOCALITA, DESCRIZIONE,DATA_INIZIO,DATA_FINE, CATEGORIA_ID, UTENTE_CREATORE, URL_FOTO ) VALUES 
 
-												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d_H-i-s", $data_inizio)."','".date ("Y-m-d_H-i-s", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
+												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d", $data_inizio)."','".date ("Y-m-d", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
 					
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
+						
+					$insertId = $mysqli->insert_id;
 
 					header("Location: http://www.youngportalnetwork.it/add-foto-event.php?id=$insertId");
 					die();		

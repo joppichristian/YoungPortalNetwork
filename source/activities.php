@@ -9,7 +9,7 @@ $linkIndietro = "index.php";
 $testoIndietro = "TORNA ALLA HOME";
 
 $filter = $_GET['filter'];
-
+$grpg = $_GET['grpg'];
 ?>
 <head>
   <title>YPN | Attivita</title>
@@ -67,7 +67,18 @@ $filter = $_GET['filter'];
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>ATTIVITA</a>
+          
+		    <?php
+		    if($grpg == "1"){		 
+		    ?>
+				<a>ATTIVITA PIANO GIOVANI</a>
+		    <?php
+			}else{
+			?>
+				<a>ATTIVITA</a>
+			<?php
+			} 
+			?>	  
       </div>
     </div>
   </div>
@@ -107,8 +118,49 @@ $filter = $_GET['filter'];
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">
 
+	<?php
+	if($grpg == "1"){		 
+	?>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+			  <a href="activities.php" >
+				<div class="preview" >
+				  <img src="http://www.youngportalnetwork.it/images/example.jpg" />
+				</div>
+				<div class="description">
+				  <p><-- TUTTE LE ATTIVITA</p>
+				</div>
+			  </a>
+			</div>
+		</div>
+	<?php
+	}else{
+	?>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+			  <a href="activities.php?grpg=1" >
+				<div class="preview" >
+				  <img src="http://www.youngportalnetwork.it/images/example.jpg" />
+				</div>
+				<div class="description">
+				  <p>ATTIVITA PIANO GIOVANI</p>
+				</div>
+			  </a>
+			</div>
+		</div>
+	<?php
+	} 
+	?>	  
+  
+  
 	<?php	
-	$stmt = $mysqli->prepare("SELECT ID, TITOLO, URL_FOTO FROM ATTIVITA WHERE TITOLO LIKE ? ");
+	$query_sql = "SELECT ID, TITOLO, URL_FOTO FROM ATTIVITA WHERE TITOLO LIKE ? ";
+	
+	if($grpg == "1"){
+		$query_sql .= " AND UTENTE_CREATORE = '9' ";
+	}
+	
+	$stmt = $mysqli->prepare($query_sql);
 	$filterStmt =  '%'.$filter.'%';
 	$stmt->bind_param('s',$filterStmt); 
 	if ($stmt->execute()) {

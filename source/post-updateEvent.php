@@ -16,22 +16,13 @@
 				die("Qualcosa è andato storto...");
 			}
 			
-			echo "</br> RIEPILOGO EVENTO:";
-			echo "</br>";
-			echo " titolo: ". $_POST["titolo"]. "\n";
-			echo "</br>";
-			echo " localita: ". $_POST["localita"]. "\n";
-			echo "</br>";
-			echo " descrizione: ". $_POST['descrizione']. "\n";
-			echo "</br>";			
-			echo " data ora inizio: ". $_POST['data_inizio']. "\n";
-			echo "</br>";			
-			echo " data ora fine: ". $_POST['data_fine']. "\n";
-			echo "</br>";			
-			echo " categoria: ".$_POST["categoria"]. "\n";
-			echo "</br>";
-			echo " id utente: ". $_SESSION['user_id'] . "\n";
-			echo "</br>";
+			$messaggio .= "</br> RIEPILOGO EVENTO:";
+			$messaggio .= "</br>";
+			$messaggio .= " titolo: ". $titolo. "\n";
+			$messaggio .= "</br>";
+			$messaggio .= " localita: ". $localita. "\n";
+			$messaggio .= "</br>";
+			$messaggio .= " descrizione: ". $descrizione. "\n";
 			 			
 			$titolo = $_POST["titolo"];	
 			$localita = $_POST["localita"];				
@@ -39,6 +30,8 @@
 			$data_inizio = $_POST["data_inizio"];
 			$data_fine = $_POST["data_fine"];
 			$categoria = $_POST["categoria"];
+			$utenteCreatore = $_POST["utenteCreatore"];
+
 			$idUtente = $_SESSION['user_id'];	
 	 
 			/* echo " catId: ". $catId. "\n";
@@ -55,8 +48,8 @@
 			date_default_timezone_set('Europe/Rome');			
 			$uploads_dir = 'images/eventi';
 			$data_e_ora = date("Y-m-d_H-i-s",time());
-			$data_inizio = date("Y-m-d_H-i",$data_inizio);
-			$data_fine = date("Y-m-d_H-i",$data_fine);
+			$data_inizio = date("Y-m-d_H-i-s",$data_inizio);
+			$data_fine = date("Y-m-d_H-i-s",$data_fine);
 			$name     = $_FILES["file"]["name"];			
 			$nameFile = $data_e_ora . $name ;
         	
@@ -84,7 +77,7 @@
                                                   DESCRIZIONE = '".$descrizione. "' ,
                                                   DATA_INIZIO = '".$data_inizio."',
                                                   DATA_FINE = '".$data_fine."',
-												  CATEGORIA_ID = '".$catId. "' 
+												  CATEGORIA_ID = '".$categoria. "' 
 												   
 												  WHERE ID = '".$_POST['id']."' ;" ;
 			}else{
@@ -93,7 +86,7 @@
                                                   DESCRIZIONE = '".$descrizione. "' ,
                                                   DATA_INIZIO = '".$data_inizio."',
                                                   DATA_FINE = '".$data_fine."',
-												  CATEGORIA_ID = '".$catId. "' 
+												  CATEGORIA_ID = '".$categoria. "' 
 												   
 												  WHERE ID = '".$_POST['id']."' ;" ;
 			}
@@ -190,6 +183,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/pace.js"></script>
+    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+
   <!-- -->
 </head>
 <body>
@@ -213,8 +208,8 @@
       <div style="margin:15px; "><p style="color:black!important;"><a ><?php echo $messaggio; ?> </a></p>
 
 
-         <div href="management_activities.php" style="border-radius: 25px; padding:15px; background-color:rgb(0,147,202); position:absolute; right:15px; bottom:15px; cursor: pointer; " >
-			<p style="color:white;"> <a href="management_activities.php" > Continua.. </a></p>
+         <div href="management_events.php" style="border-radius: 25px; padding:15px; background-color:rgb(0,147,202); position:absolute; right:15px; bottom:15px; cursor: pointer; " >
+			<p style="color:white;"> <a href="management_events.php" > Continua.. </a></p>
 		 </div>
       </div>
 
@@ -241,8 +236,6 @@
         <img src="images/loghi/pat.jpg" style="width:250px;height:150px;margin:3%;"/>
       </a>
   </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 </body>
 </html>
 	

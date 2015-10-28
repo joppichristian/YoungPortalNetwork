@@ -8,6 +8,8 @@ my_session_start();
 $linkIndietro = "index.php";
 $testoIndietro = "TORNA ALLA HOME";
 
+$filter = $_GET['filter'];
+
 ?>
 <head>
   <title>YPN | Eventi</title>
@@ -98,34 +100,38 @@ $testoIndietro = "TORNA ALLA HOME";
   </a>
 
   <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
-        <input class="user" type="text" name="filter" id="filter" style="width:80%;">
+        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;">
         <input type="submit" class="item-option" value="Search">
   </form>
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">
 
+
+	<?php	
+	$stmt = $mysqli->prepare("SELECT ID, TITOLO, URL_FOTO FROM EVENTI WHERE TITOLO LIKE ? ");
+	$filterStmt =  '%'.$filter.'%';
+	$stmt->bind_param('s',$filterStmt); 
+	if ($stmt->execute()) {
+		$stmt->bind_result($id, $titolo, $urlFoto);
+		while ($stmt->fetch()) {	
+	?>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+					<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+				  <a href="activity.php?id=<?php echo $id; ?>" >
+					<div class="preview" >
+					  <img src="<?php echo $urlFoto; ?>" />
+					</div>
+					<div class="description">
+					  <p><?php echo $titolo; ?></p>
+					</div>
+				  </a>
+				</div>
+			</div>
 	<?php
-	$qry_a="SELECT * FROM EVENTI ;";
-	$result_a = $mysqli->query($qry_a);
-	while($row_a = $result_a->fetch_array())
-	{
+		}
+	}	
 	?>
 
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
-      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a href="event.php?id=<?php echo $row_a['ID']; ?>" >
-            <div class="preview" >
-              <img src="<?php echo $row_a['URL_FOTO']; ?>" />
-            </div>
-            <div class="description">
-              <p><?php echo $row_a['TITOLO']; ?></p>
-            </div>
-          </a>
-        </div>
-      </div>
-	<?php
-	}
-	?>
 
     </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -85,7 +85,7 @@
 			//echo $sqlUpdate ;
         
 			if (!mysqli_query($mysqli,$sqlUpdate)){
-				die('</br></br>Errore. Scrivi a info@cobble-fix.com . ');
+				die('</br></br>Errore. Scrivi a info@youngportalnetworl.it');
 			}
 
 			$messaggio .= "</br></br>HAI MODIFICATO 1 ATTIVIT&Agrave; CON SUCCESSO</br></br>";

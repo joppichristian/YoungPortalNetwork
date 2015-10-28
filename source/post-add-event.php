@@ -78,7 +78,7 @@
 					
 					$sql = "INSERT INTO EVENTI (TITOLO, LOCALITA, DESCRIZIONE,DATA_INIZIO,DATA_FINE, CATEGORIA_ID, UTENTE_CREATORE, URL_FOTO ) VALUES 
 
-												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d H:i", $data_inizio)."','".date ("Y-m-d H:i", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
+												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d_H-i-s", $data_inizio)."','".date ("Y-m-d_H-i-s", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
 					
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));

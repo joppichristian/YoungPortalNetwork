@@ -58,9 +58,6 @@ $testoIndietro = "TORNA INDIETRO";
 			campi = campi+" \n[descrizione] OBBLIGATORIO";			
 		}
 		
-		if(document.getElementById("file").value.length < 1) {
-		   campi = campi+" \n[immagine] OBBLIGATORIO";			
-		}
 		
 		if(document.getElementById("data_inizio").value.length < 1) {
 		   campi = campi+" \n[data inizio] OBBLIGATORIO";			
@@ -114,7 +111,9 @@ $testoIndietro = "TORNA INDIETRO";
 	$titolo = "";
 	$localita = "";
 	$descrizione = "";
-	$catId = "";
+	$data_inizio = $row['DATA_INIZIO'];
+	$data_fine = $row['DATA_FINE'];
+	$categoria_id = "";
 	$utenteCreatore = "";
 	$url_foto_attuale = "";
 
@@ -123,14 +122,14 @@ $testoIndietro = "TORNA INDIETRO";
 	$result = $mysqli->query($qry);
 	while($row = $result->fetch_array())
 	{
-		$titolo = $row_a['TITOLO'];
-		$localita = $row_a['LOCALITA'];
-		$descrizione = $row_a['DESCRIZIONE'];
-		$data_inizio = $row_a['DATA_INIZIO'];
-		$data_fine = $row_a['DATA_FINE'];
-		$categoria_id = $row_a['CATEGORIA_ID'];
-		$utente_creatore = $row_a['UTENTE_CREATORE'];
-		$url_foto = $row_a['URL_FOTO'];
+		$titolo = $row['TITOLO'];
+		$localita = $row['LOCALITA'];
+		$descrizione = $row['DESCRIZIONE'];
+		$data_inizio = $row['DATA_INIZIO'];
+		$data_fine = $row['DATA_FINE'];
+		$categoria_id = $row['CATEGORIA_ID'];
+		$utente_creatore = $row['UTENTE_CREATORE'];
+		$url_foto = $row['URL_FOTO'];
 
 	}
 
@@ -141,29 +140,32 @@ $testoIndietro = "TORNA INDIETRO";
 		
 		if( $idUtente == $utente_creatore ) {
 	?>
-		 <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
+		  <form  id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
+			  <input type="hidden" id="id" name="id" value="<?php echo $id_evento;?>" />
+			  	<input type="hidden" id="utenteCreatore" name="utenteCreatore" value="<?php echo $utente_creatore;?>" />
+
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
-		  <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
+		  <input type="text" id="titolo" name="titolo" value="<?php echo $titolo;?>" placeholder="Titolo" />
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Localit&agrave;:</h1>
-		  <input type="text" id="localita" name="localita" placeholder="Localita" />
+		  <input type="text" id="localita" name="localita" value="<?php echo $localita;?>" placeholder="Localita" />
 		</div>
 		<!--Esempio textarea -->
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Descrizione:</p>
-		  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
+		  <textarea rows="5" id="descrizione" name="descrizione"  cols="100"  placeholder="Descrizione"><?php echo $descrizione; ?></textarea>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Inizio: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" id="data_inizio" >
+		  <input type="datetime-local" name="data_inizio" value="<?php echo $data_inizio;?>" id="data_inizio" >
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" id="data_inizio" >
+		  <input type="datetime-local" name="data_fine" id="data_fine" value="<?php echo $data_fine;?>" >
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>
@@ -172,18 +174,24 @@ $testoIndietro = "TORNA INDIETRO";
 			$qry_c="SELECT * FROM CAT_EVENTI ;";
 			$result_c = $mysqli->query($qry_c);
 			while($row_c = $result_c->fetch_array())
-			{
-			?>
-				<option value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
-			<?php
-			}
-			?>		
+				{
+					if($row_c['ID'] == $categoria_id){
+				?>
+						<option selected value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
+				<?php
+					}else{
+				?>
+						<option value="<?php echo $row_c['ID']; ?>"><?php echo $row_c['NOME']; ?></option>
+				<?php
+					}
+				}
+				?>	
 		  </select>
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 			  <p>Immagine Corrente:</p>
-				<img src="<?php echo $url_foto_attuale;?>" />
+				<img src="<?php echo $url_foto;?>" />
 
 				<p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
 				<input type="file" name="file" id="file" />

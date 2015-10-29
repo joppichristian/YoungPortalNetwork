@@ -16,25 +16,25 @@
 
 		if(utenteLoggato($mysqli) == true) {
 
-			echo "</br> RIEPILOGO CURRICULUM:";
+			echo "</br> RIEPILOGO AZIENDA:";
 			echo "</br>";
 			echo " nome: ". $_POST["nome"]. "\n";
 			echo "</br>";
-			echo " cognome: ". $_POST["cognome"]. "\n";
+			echo " orario_apertura: ". $_POST["orario_apertura"]. "\n";
 			echo "</br>";
-			echo " data di nascita: ". $_POST['data']. "\n";
+			echo " email: ". $_POST["email"]. "\n";
 			echo "</br>";
-			echo " residenza e indirizzo: ".$_POST["residenza"]. "\n";
+			echo " telefono: ".$_POST["telefono"]. "\n";
 			echo "</br>";
 			echo " id utente: ". $_SESSION['user_id'] . "\n";
 			echo "</br>";
 
 			$nome = $_POST["nome"];
-			$offerta = $_POST["offerta"];
+			$descrizione = $_POST["descrizione"];
 			$residenza = $_POST["latitudine"];
       $longitudine = $_POST["longitudine"];
 			$orario_apertura = $_POST["orario_apertura"];
-      $email = $_POST["contatti"];
+      $email = $_POST["email"];
 			$telefono = $_POST["telefono"];
       $prodotto1 = $_POST["prodotto1"];
       $prodotto2 = $_POST["prodotto2"];
@@ -42,10 +42,13 @@
       $categoria = $_POST['categoria'];
 			$idUtente = $_SESSION['user_id'];
 
+      include 'insert_product_companies.php';
+
 			if($_FILES["file"]["error"]>0){
 				 die ("!!! ERRORE: errore caricamento file!!!! TORNA INDIETRO E RIPROVA.");
 
 			}else{
+
 
 				date_default_timezone_set('Europe/Rome');
 
@@ -53,6 +56,7 @@
 				$name     = $_FILES["file"]["name"];
 				$type     = $_FILES["file"]["type"];
 				$size     = ($_FILES["file"]["size"] / 1024) ;
+
 
 				/* echo "Upload: " . $_FILES["file"]["name"] . "<br />";
        			echo "Type: " . $_FILES["file"]["type"] . "<br />";
@@ -71,14 +75,15 @@
 				// echo "<br>Copia file da temp:".$tmp_name." , alla dir: ".$uploads_dir."/".$name;
 				$pathImgUploaded = resize(500,500,"".$uploads_dir."/".$name);
 
+
 				if ( isset($pathImgUploaded) ){
 
 					//Devo salvare l evento nel DB:
 					$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
 
-					$sql = "INSERT INTO CURRICULUM (url_foto, nome, cognome, data_nascita, residenza, telefono, email, istruzione1, istruzione2, esperienza1, esperienza2, esperienza3, esperienza4, competenza1, competenza2, competenza3, interessi1, interessi2,ID_cat,ID_utente) VALUES
+					$sql = "INSERT INTO AZIENDA (nome, descrizione, localita, orario, telefono, email, url_foto , ID_cat, ID_utente) VALUES
 
-												('".$urlFoto."','".$nome."','".$cognome."','".$data."','".$residenza."','".$telefono."','".$email."','".$istruzione1."','".$istruzione2."','".$esperienza1."','".$esperienza2."','".$esperienza3."','".$esperienza4."','".$competenza1."','".$competenza2."','".$competenza3."','".$interessi1."','".$interessi2."','".$categoria."','".$idUtente."')";
+												('".$nome."','".$descrizione."','".$latitudine."'-'".$longitudine."','".$orario_apertura."','".$telefono."','".$email."','".$urlFoto."','"..$categoria."','".$idUtente."')";
 
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));
@@ -86,7 +91,7 @@
 
 
 					$mysqli->close();
-					header("Location: http://www.youngportalnetwork.it/curriculums.php");
+					header("Location: http://www.youngportalnetwork.it/companies.php");
 					die();
 				}else{
 					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");

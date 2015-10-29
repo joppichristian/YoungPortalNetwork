@@ -72,8 +72,8 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Cosa offere:</h1>
-    <textarea rows="3" id="offerta" name="offerta" cols="100"  placeholder="cosa l'azienda fa' o vende.."></textarea>
+    <h1>Descrizione:</h1>
+    <textarea rows="3" id="descrizione" name="descrizione" cols="100"  placeholder="cosa l'azienda fa' o vende.."></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <h1>Localita</h1>
@@ -103,38 +103,56 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
+      <h1>Prodotto/innovazione/servizio (campo 1)</h1>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <!--Esempio text -->
-        <h1>Prodotto/innovazione/servizio (campo 1):</h1>
+        <h1>Nome:</h1>
         <input type="text" id="prodotto1" name="prodotto1" placeholder="Prodotto" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <p>Immagine prodotto:</p>
         <input type="file" name="file1" id="file1" />
       </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
+        <!--Esempio text -->
+        <h1>Descrizione (campo 1)</h1>
+        <textarea rows="3" id="descrizione1" name="descrizione1" cols="100"  placeholder="descrizione prodotto"></textarea>
+      </div>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
+        <h1>Prodotto/innovazione/servizio (campo 2):</h1>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <!--Esempio text -->
-          <h1>Prodotto/innovazione/servizio (campo 2):</h1>
+          <h1>Nome:</h1>
           <input type="text" id="prodotto2" name="prodotto2" placeholder="Prodotto" />
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <p>Immagine prodotto:</p>
           <input type="file" name="file2" id="file2" />
         </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
+          <!--Esempio text -->
+          <h1>Descrizione (campo 3)</h1>
+          <textarea rows="3" id="descrizione2" name="descrizione2" cols="100"  placeholder="descrizione prodotto"></textarea>
+        </div>
       </div>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
+          <h1>Prodotto/innovazione/servizio (campo 3):</h1>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <!--Esempio text -->
-            <h1>Prodotto/innovazione/servizio (campo 3):</h1>
+            <h1>Nome:</h1>
             <input type="text" id="prodotto3" name="prodotto3" placeholder="Prodotto" />
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <p>Immagine prodotto:</p>
             <input type="file" name="file3" id="file3" />
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
+            <!--Esempio text -->
+            <h1>Descrizione (campo 3)</h1>
+            <textarea rows="3" id="descrizione3" name="descrizione3" cols="100"  placeholder="descrizione prodotto"></textarea>
           </div>
         </div>
 

@@ -83,13 +83,13 @@ $testoIndietro = "TORNA ALLA HOME";
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <?php
-$query_nome="SELECT ID_utente FROM CURRICULUM WHERE  id_utente='". $_SESSION['user_id']."';";
+$query_nome="SELECT ID_utente FROM AZIENDA WHERE  id_utente='". $_SESSION['user_id']."';";
 $result_nome = $mysqli->query($query_nome);
-$gia_inserito=0;
+$gia_inserito=0;/*
 while($row_nome = $result_nome->fetch_array())
   {
       $gia_inserito=1;
-  }
+  }*/
 
   if(utenteLoggato($mysqli) == true) {
 
@@ -104,7 +104,7 @@ while($row_nome = $result_nome->fetch_array())
     }else{
     ?>
 
-		  <a href="addCurriculum.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+		  <a href="addCompanies.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			     Aggiungi azienda
 			    </button>

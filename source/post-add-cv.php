@@ -109,7 +109,7 @@
 	}else{
 		$mysqli->close();
 		header("Location: http://www.youngportalnetwork.it/page-messaggio.php?ms=Si e' verificato un errore. Riprova!");
-		die();	
+		die();
 	}
 
 

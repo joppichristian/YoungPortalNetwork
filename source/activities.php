@@ -125,7 +125,7 @@ $grpg = $_GET['grpg'];
 			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			  <a href="activities.php" >
 				<div class="preview" >
-				  <img src="http://www.youngportalnetwork.it/images/example.jpg" />
+				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" />
 				</div>
 				<div class="description">
 				  <p><-- TUTTE LE ATTIVITA</p>
@@ -140,7 +140,7 @@ $grpg = $_GET['grpg'];
 			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			  <a href="activities.php?grpg=1" >
 				<div class="preview" >
-				  <img src="http://www.youngportalnetwork.it/images/example.jpg" />
+				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" />
 				</div>
 				<div class="description">
 				  <p>ATTIVITA PIANO GIOVANI</p>
@@ -157,7 +157,7 @@ $grpg = $_GET['grpg'];
 	$query_sql = "SELECT ID, TITOLO, URL_FOTO FROM ATTIVITA WHERE TITOLO LIKE ? ";
 	
 	if($grpg == "1"){
-		$query_sql .= " AND UTENTE_CREATORE = '9' ";
+		$query_sql .= " AND UTENTE_CREATORE = '29' ";
 	}
 	
 	$stmt = $mysqli->prepare($query_sql);

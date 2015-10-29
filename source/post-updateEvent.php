@@ -24,9 +24,9 @@
 			$messaggio .= "</br>";
 			$messaggio .= " descrizione: ". $descrizione. "\n";
 			 			
-			$titolo = $_POST["titolo"];	
-			$localita = $_POST["localita"];				
-			$descrizione = $_POST["descrizione"];
+			$titolo = str_replace("'", "\'",$_POST["titolo"]);
+			$localita = str_replace("'", "\'",$_POST["localita"]);
+			$descrizione = str_replace("'", "\'",$_POST["descrizione"]);
 			$data_inizio = $_POST["data_inizio"];
 			$data_fine = $_POST["data_fine"];
 			$categoria = $_POST["categoria"];

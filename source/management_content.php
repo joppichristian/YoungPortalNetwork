@@ -32,7 +32,6 @@
 					//alert("response index of success="+response.indexOf("success"));
 													
 					if( response.indexOf("success") > -1){
-						alert("Attivita eliminata con successo...");
 						location.reload(true);
 					}else{
 						alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");

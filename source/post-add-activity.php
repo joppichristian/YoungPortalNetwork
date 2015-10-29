@@ -29,9 +29,9 @@
 			echo " id utente: ". $_SESSION['user_id'] . "\n";
 			echo "</br>";
 			 			
-			$titolo = $_POST["titolo"];	
-			$localita = $_POST["localita"];				
-			$descrizione = $_POST["descrizione"];
+			$titolo = str_replace("'", "\'", $_POST["titolo"]);	
+			$localita = str_replace("'", "\'",$_POST["localita"]);				
+			$descrizione = str_replace("'", "\'",$_POST["descrizione"]);
 			$categoria = $_POST["categoria"];
 			$idUtente = $_SESSION['user_id'];	
 		 			

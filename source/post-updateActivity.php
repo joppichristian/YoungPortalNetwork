@@ -16,9 +16,9 @@
 				die("Qualcosa è andato storto...");
 			}
 			
-			$titolo = $_POST["titolo"];
-			$localita = $_POST["localita"];
-			$descrizione = $_POST["descrizione"];
+			$titolo = str_replace("'", "\'",$_POST["titolo"]);
+			$localita = str_replace("'", "\'",$_POST["localita"]);
+			$descrizione = str_replace("'", "\'",$_POST["descrizione"]);
 			$catId = $_POST["categoria"];
 			$utenteCreatore = $_POST["utenteCreatore"];
 			

@@ -33,13 +33,15 @@
 			echo " id utente: ". $_SESSION['user_id'] . "\n";
 			echo "</br>";
 			 			
-			$titolo = $_POST["titolo"];	
-			$localita = $_POST["localita"];				
-			$descrizione = $_POST["descrizione"];
+			$titolo = str_replace("'", "\'",$_POST["titolo"]);	
+			$localita = str_replace("'", "\'",$_POST["localita"]);				
+			$descrizione = str_replace("'", "\'",$_POST["descrizione"]);
 			$data_inizio = $_POST["data_inizio"];
 			$data_fine = $_POST["data_fine"];
 			$categoria = $_POST["categoria"];
-			$idUtente = $_SESSION['user_id'];	
+			$idUtente = $_SESSION['user_id'];
+			$data_inizio = date('d/m/Y H:i', strtotime($data_inizio));	
+			$data_fine = date('d/m/Y H:i', strtotime($data_fine));	
 		 			
 			if($_FILES["file"]["error"]>0){
 				 die ("!!! ERRORE: errore caricamento file!!!! TORNA INDIETRO E RIPROVA.");	
@@ -78,7 +80,7 @@
 					
 					$sql = "INSERT INTO EVENTI (TITOLO, LOCALITA, DESCRIZIONE,DATA_INIZIO,DATA_FINE, CATEGORIA_ID, UTENTE_CREATORE, URL_FOTO ) VALUES 
 
-												('".$titolo."','".$localita."','".$descrizione."','".date ("Y-m-d", $data_inizio)."','".date ("Y-m-d", $data_fine)."','".$categoria."','".$idUtente."','".$urlFoto."')";
+												('".$titolo."','".$localita."','".$descrizione."','". $data_inizio."','". $data_fine."','".$categoria."','".$idUtente."','".$urlFoto."')";
 					
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));

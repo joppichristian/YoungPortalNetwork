@@ -1,98 +1,134 @@
 <?php
 
-      if($_FILES["file1"]["error"]>0){
-				// die ("!!! ERRORE: errore caricamento file prodotto (Campo 1)!!!! TORNA INDIETRO E RIPROVA.");
-
-			}
-      if($_FILES["file2"]["error"]>0){
-				 //die ("!!! ERRORE: errore caricamento file prodotto (Campo 2)!!!! TORNA INDIETRO E RIPROVA.");
-
-			}
-      if($_FILES["file3"]["error"]>0){
-				 //die ("!!! ERRORE: errore caricamento file prodotto (Campo 3)!!!! TORNA INDIETRO E RIPROVA.");
-
-			}
+                      date_default_timezone_set('Europe/Rome');
 
 
-				date_default_timezone_set('Europe/Rome');
+                      $valid_formats = array("jpg", "png", "gif", "zip", "bmp","JPG");
+                      $max_file_size = 0; //100 kb
+                      $path = 'images/aziende/';// Upload directory
+                      $count = 1;
 
-        $tmp_name1 = $_FILES["file1"]["tmp_name"];
-        $name1     = $_FILES["file1"]["name"];
-        $type1     = $_FILES["file1"]["type"];
-        $size1     = ($_FILES["file1"]["size"] / 1024) ;
+                      //if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
+                      // Loop $_FILES to exeicute all files
+                      foreach ($_FILES['fileP']['name'] as $f => $name) {
+                          if ($_FILES['fileP']['error'][$f] == 4) {
+                              continue; // Skip file if any error found
+                          }
+                          if ($_FILES['fileP']['error'][$f] == 0) {
+                              if ($_FILES['fileP']['size'][$f] = $max_file_size) {
+                                  $message[] = "$name is too large!.";
+                                  continue; // Skip large file
+                              }
+                              elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+                                  $message[] = "$name is not a valid format";
+                                  continue; // Skip invalid file formats
+                              }
+                              else{ // No error found! Move uploaded file
+                                  $data_e_ora = date("Y-m-d_H-i-s",time());
+                                  $name = $data_e_ora."_Prodotto".$count."_".$name;
+                                  $ima= "'".$path.$name."'";
+                                  //echo "Prima della riduzione---".$name;
+                                  $pathImgUploadedThumb = resizeP(500, 500, $_FILES["fileP"]["tmp_name"][$f],$_FILES["fileP"]["type"][$f], $path.$name); //resize(800,400,$path.$name);
+                                  //echo "    Dopo riduzione e caricamento";
+                                  //if(move_uploaded_file($_FILES["file"]["tmp_name"][$f], $path.$name))
+                                  //$count++; // Number of successfully uploaded file
+
+                                  if((${'prodotto'.$count}!="")&&(${'descrizione'.$count}!="")){
+                                    $urlFotoP =  "http://www.youngportalnetwork.it/".$name ;
+                                    $sqlP = "INSERT INTO PRODOTTI_AZIENDA (url_foto, titolo, descrizione, id_utente) VALUES
+                                        ('".$urlFotoP."','".${'prodotto'.$count}."','".${'descrizione'.$count}."','".$idUtente."')";
+                                              //  echo "SQL E?  ".$sql;
+                        					  if (!mysqli_query($mysqli,$sqlP)){
+                        						        die('</br></br>Error: ' . mysqli_error($mysqli));
+                        					  }
+                                  }
+                                  $count= $count+1;
+                              }
+                          }
+                          $array_nome_foto[]= $name;
+                          //echo "nome file? ".$name;
+                      }
 
 
-        $tmp_name2 = $_FILES["file2"]["tmp_name"];
-        $name2     = $_FILES["file2"]["name"];
-        $type2     = $_FILES["file2"]["type"];
-        $size2     = ($_FILES["file2"]["size"] / 1024) ;
+                      //echo "Fino a qui";
 
+                    
 
-        $tmp_name3 = $_FILES["file3"]["tmp_name"];
-        $name3     = $_FILES["file3"]["name"];
-        $type3     = $_FILES["file3"]["type"];
-        $size3     = ($_FILES["file3"]["size"] / 1024) ;
+                      /*
 
-				/* echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-       			echo "Type: " . $_FILES["file"]["type"] . "<br />";
-                echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-                echo "Stored in: " . $_FILES["file"]["tmp_name"];
-					 */
+                      $text_get_foto;
 
-				if(!isset($_FILES["file"]["name"])){
-					die ("Immagine di copertina non caricata. Riprova con un'altra foto o contatta l'amministratore.");
-				}
+                      for ($i=0; $i<$numero_foto; $i++)
+                      {
+                          $numero_f=$i+1;
+                          $text_get_foto= $text_get_foto."f".$numero_f."=".$array_nome_foto[$i]."&";
+                      }
+/*
+                      if($id_ann!=0){
+                          echo "<script>window.location = 'caricamento_foto.php?ann=".$id_ann."&".$text_get_foto."'</script>";
+                      }
+*/
 
-				$data_e_ora = date("Y-m-d_H-i-s",time());
+                      /*
+                      $message="COMPLIMENTI, hai aggiunto un annuncio!";
+                      echo "<script type='text/javascript'>alert('$message');</script>";
+                      echo "<script>window.location = '../index.html'</script>";
+                      */
+                      // liberazione delle risorse occupate dal risultato
+                      //$result->close();
 
-				$name = $data_e_ora . $name ;
-
-				// echo "<br>Copia file da temp:".$tmp_name." , alla dir: ".$uploads_dir."/".$name;
-				$pathImgUploaded = resize(500,500,"".$uploads_dir."/".$name);
-
-        $img_prodotto1= 0;
-        $img_prodotto2= 0;
-        $img_prodotto3= 0;
-
-        if(isset($_FILES["file1"]["name"])){
-					$img_prodotto1= 1;
-          $name1= $name."_Prodotto1";
-        //  $pathImgUploaded1 = resize(500,500,"".$uploads_dir."/".$name1);
-				}
-        if(isset($_FILES["file2"]["name"])){
-					$img_prodotto2= 1;
-          $name2= $name."_Prodotto2";
-          //$pathImgUploaded2 = resize(500,500,"".$uploads_dir."/".$name2);
-        }
-        if(isset($_FILES["file2"]["name"])){
-					$img_prodotto3= 1;
-          $name3= $name."_Prodotto3";
-          //$pathImgUploaded3 = resize(500,500,"".$uploads_dir."/".$name3);
-				}
-
-				if ( isset($pathImgUploaded) ){
-
-					//Devo salvare l evento nel DB:
-					/*$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
-
-					$sql = "INSERT INTO CURRICULUM (url_foto, nome, cognome, data_nascita, residenza, telefono, email, istruzione1, istruzione2, esperienza1, esperienza2, esperienza3, esperienza4, competenza1, competenza2, competenza3, interessi1, interessi2,ID_cat,ID_utente) VALUES
-
-												('".$urlFoto."','".$nome."','".$cognome."','".$data."','".$residenza."','".$telefono."','".$email."','".$istruzione1."','".$istruzione2."','".$esperienza1."','".$esperienza2."','".$esperienza3."','".$esperienza4."','".$competenza1."','".$competenza2."','".$competenza3."','".$interessi1."','".$interessi2."','".$categoria."','".$idUtente."')";
-
-					if (!mysqli_query($mysqli,$sql)){
-						die('</br></br>Error: ' . mysqli_error($mysqli));
-					}"
+      /**
+          * Image resize
+          * @param int $width
+          * @param int $height
+          * @param string $path
           */
+          function resizeP($width, $height,$img_rid,$img_ty, $path){
+              /* Get original image x y*/
+              $file_temp = $img_rid;
+              list($w, $h) = getimagesize($file_temp);
+              /* calculate new image size with ratio */
+              $ratio = max($width/$w, $height/$h);
+              $h = ceil($height / $ratio);
+              $x = ($w - $width / $ratio) / 2;
+              $w = ceil($width / $ratio);
+
+              /* new file name */
+              //$path = 'uploads/'.$width.'x'.$height.'_'.$_FILES['image']['name'];
+
+              /* read binary data from image file */
+              $imgString = file_get_contents($img_rid);
+              /* create image from string */
+              $image = imagecreatefromstring($imgString);
+              $tmp = imagecreatetruecolor($width, $height);
+              imagecopyresampled($tmp, $image,
+                                  0, 0,
+                                  $x, 0,
+                                  $width, $height,
+                                  $w, $h);
+              /* Save image */
+              switch ($img_ty) {
+                  case 'image/jpeg':
+                      imagejpeg($tmp, $path, 100);
+                      break;
+                  case 'image/png':
+                      imagepng($tmp, $path, 0);
+                      break;
+                  case 'image/gif':
+                      imagegif($tmp, $path);
+                      break;
+                  default:
+                      exit;
+                      break;
+              }
+              return $path;
+              /* cleanup memory */
+              imagedestroy($image);
+              imagedestroy($tmp);
+          }
 
 
-					//$mysqli->close();
-					//header("Location: http://www.youngportalnetwork.it/curriculums.php");
-					//die();
-				}else{
-					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");
-				}
 
 
 
-
-?>
+      ?>

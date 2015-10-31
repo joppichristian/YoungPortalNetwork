@@ -46,13 +46,13 @@ $testoIndietro = "TORNA ALLA HOME";
   </script>
   <script type="text/javascript">
   function displayCVInserito(){
-		alert("Hai già inserito il tuo CV. Vai nella sezione 'Gestisci il tuo curriculum' qui accanto per modificalo!");
+		alert("Hai già inserito il tuo CV. Vai nella sezione 'Gestisci la tua azienda' qui accanto per modificalo!");
 	}
   </script>
 
   <script type="text/javascript">
   function displayCVGestione(){
-		alert("Non hai inserito il tuo CV. Vai nella sezione 'Aggiungi curriculum' qui accanto perinserirlo!");
+		alert("Non hai inserito il tuo CV. Vai nella sezione 'Aggiungi azienda' qui accanto perinserirlo!");
 	}
   </script>
 
@@ -170,7 +170,7 @@ while($row_nome = $result_nome->fetch_array())
       if($cat_id == 0){
       ?>
       <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a href="curriculums.php?c=0" >
+          <a href="companies.php?c=0" >
             <div class="description" style="padding-top:1%; padding-bottom:1%;">
               <p style="color:rgb(148,59,68);">TUTTE</p>
             </div>
@@ -180,7 +180,7 @@ while($row_nome = $result_nome->fetch_array())
       }else{
         ?>
         <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <a href="curriculums.php?c=0" >
+            <a href="companies.php?c=0" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
                 <p style="color:white;">TUTTE</p>
               </div>
@@ -201,7 +201,7 @@ while($row_nome = $result_nome->fetch_array())
     ?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;">
         <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <a href="curriculums.php?c=<?php echo $row_a['ID']; ?>" >
+            <a href="companies.php?c=<?php echo $row_a['ID']; ?>" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
                 <p style="color:rgb(148,59,68);"><?php echo $row_a['nome']; ?></p>
               </div>
@@ -213,7 +213,7 @@ while($row_nome = $result_nome->fetch_array())
     ?>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;">
           <div class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-              <a href="curriculums.php?c=<?php echo $row_a['ID']; ?>" >
+              <a href="companies.php?c=<?php echo $row_a['ID']; ?>" >
                 <div class="description" style="padding-top:1%; padding-bottom:1%;">
                   <p style="color:white;"><?php echo $row_a['nome']; ?></p>
                 </div>
@@ -234,9 +234,9 @@ while($row_nome = $result_nome->fetch_array())
 	<?php
   $qry_a="";
   if($cat_id == 0){
-    $qry_a="SELECT * FROM CURRICULUM ;";
+    $qry_a="SELECT * FROM AZIENDA ;";
   }else{
-    $qry_a="SELECT * FROM CURRICULUM WHERE ID_cat='".$cat_id."';";
+    $qry_a="SELECT * FROM AZIENDA WHERE ID_cat='".$cat_id."';";
   }
 
 	$result_a = $mysqli->query($qry_a);
@@ -250,7 +250,7 @@ while($row_nome = $result_nome->fetch_array())
               <img src="<?php echo $row_a['url_foto']; ?>" />
             </div>
             <div class="description">
-              <p><?php echo $row_a['nome']; ?>  <?php echo $row_a['cognome']; ?></p>
+              <p><?php echo $row_a['nome']; ?></p>
             </div>
           </a>
         </div>

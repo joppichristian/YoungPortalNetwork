@@ -32,13 +32,17 @@
 			$nome = $_POST["nome"];
 			$descrizione = $_POST["descrizione"];
 			$residenza = $_POST["latitudine"];
+      $latitudine = $_POST["latitudine"];
       $longitudine = $_POST["longitudine"];
 			$orario_apertura = $_POST["orario_apertura"];
       $email = $_POST["email"];
 			$telefono = $_POST["telefono"];
       $prodotto1 = $_POST["prodotto1"];
+      $descrizione1 = $_POST["descrizione1"];
       $prodotto2 = $_POST["prodotto2"];
+      $descrizione2 = $_POST["descrizione2"];
       $prodotto3 = $_POST["prodotto3"];
+      $descrizione3 = $_POST["descrizione3"];
       $categoria = $_POST['categoria'];
 			$idUtente = $_SESSION['user_id'];
 
@@ -80,18 +84,20 @@
 
 					//Devo salvare l evento nel DB:
 					$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
-
+          $loc = $latitudine."e".$longitudine;
 					$sql = "INSERT INTO AZIENDA (nome, descrizione, localita, orario, telefono, email, url_foto , ID_cat, ID_utente) VALUES
 
-												('".$nome."','".$descrizione."','".$latitudine."'-'".$longitudine."','".$orario_apertura."','".$telefono."','".$email."','".$urlFoto."','"..$categoria."','".$idUtente."')";
+												('".$nome."','".$descrizione."','".$loc."','".$orario_apertura."','".$telefono."','".$email."','".$urlFoto."','".$categoria."','".$idUtente."')";
 
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));
 					}
 
 
+
+          $insertId = $mysqli->insert_id;
 					$mysqli->close();
-					header("Location: http://www.youngportalnetwork.it/companies.php");
+          header("Location: http://www.youngportalnetwork.it/add-foto-companies.php?id=$insertId");
 					die();
 				}else{
 					die ("</br></br>ERRORE: errore nel salvare la foto caricata.. prova a cambiare foto!! ");
@@ -99,7 +105,7 @@
 			}
 
 		}else{
-			echo "SI E VERIFICATO UN ERRORE: non sei loggato correttamente <a href=\"curriculums.php\" >torna indietro ed effettua il login</a>";
+			echo "SI E VERIFICATO UN ERRORE: non sei loggato correttamente <a href=\"companies.php\" >torna indietro ed effettua il login</a>";
 			$mysqli->close();
 		}
 

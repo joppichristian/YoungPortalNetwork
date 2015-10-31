@@ -10,14 +10,14 @@
 		//echo "files non settati";
 	}
 
-	$id_attivita = $_POST["id"];
-	if(!isset($id_attivita)){
-		die("c'e' qualche errore ( non trovo l attivit&agrave; ), <a href=\"management_activities.php\" >Torna a gestione attivita</a>");
+	$id_companies = $_POST["id"];
+	if(!isset($id_companies)){
+		die("c'e' qualche errore ( non trovo l' azienda ), <a href=\"management_companies.php\" >Torna a gestione azienda</a>");
 	}
-	//echo "id attivita: ".$id_attivita . "</br>";
+	//echo "id attivita: ".$id_companies . "</br>";
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
-		$uploads_dir = 'images/media-attivita';
+		$uploads_dir = 'images/media-companies';
 
 		if($_FILES["file"]["error"]>0){
 			 die ("!!! ERRORE: errore caricamento file!!!! TORNA INDIETRO E RIPROVA.");
@@ -66,9 +66,9 @@
 							//echo "</br>Devo salvare la foto completa nel DB!!!!!!!!!!!!!!!!!!!!!";
 							$urlFoto = "http://www.youngportalnetwork.it/". $pathImgUploaded ;
 
-							$sql =	"INSERT INTO MEDIA_ATTIVITA (NOME, URL, URL_THUMB, ATTIVITA_ID, TIPO) "  .
+							$sql =	"INSERT INTO MEDIA_AZIENDA (NOME, URL, URL_THUMB, AZIENDA_ID, TIPO) "  .
 								"VALUES
-								('".$id_attivita."','".$urlFoto."','". $urlFotoThumb ."','".$id_attivita."' , 'FOTO')";
+								('".$id_companies."','".$urlFoto."','". $urlFotoThumb ."','".$id_companies."' , 'FOTO')";
 
 							//echo $sql ;
 
@@ -89,7 +89,7 @@
 			}
 
 			//TUTTO E' ANDATO BENE, TORNA ALL ATTIVITA'.
-			header("Location: http://www.youngportalnetwork.it/add-foto-activity.php?id=$id_attivita");
+			header("Location: http://www.youngportalnetwork.it/add-foto-companies.php?id=$id_companies");
 			die();
 
 		}

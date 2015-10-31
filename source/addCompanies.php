@@ -5,7 +5,7 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="curriculums.php";
+$linkIndietro="companies.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
@@ -18,8 +18,8 @@ $testoIndietro = "TORNA INDIETRO";
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+  <link href="css/css_form/form_red.css" rel="stylesheet">
+  <link href="css/css_companies/companies.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >
@@ -111,7 +111,7 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <p>Immagine prodotto:</p>
-        <input type="file" name="file1" id="file1" />
+        <input type="file" name="fileP[]" id="file1" />
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
         <!--Esempio text -->
@@ -129,7 +129,7 @@ $testoIndietro = "TORNA INDIETRO";
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <p>Immagine prodotto:</p>
-          <input type="file" name="file2" id="file2" />
+          <input type="file" name="fileP[]" id="file2" />
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
           <!--Esempio text -->
@@ -147,7 +147,7 @@ $testoIndietro = "TORNA INDIETRO";
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <p>Immagine prodotto:</p>
-            <input type="file" name="file3" id="file3" />
+            <input type="file" name="fileP[]" id="file3" />
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
             <!--Esempio text -->

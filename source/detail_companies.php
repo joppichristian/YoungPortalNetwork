@@ -5,12 +5,12 @@
 
   my_session_start();
 
-  $linkIndietro = "activities.php";
+  $linkIndietro = "companies.php";
   $testoIndietro = "TORNA INDIETRO";
 
   ?>
   <head>
-    <title>YPN | Attivita</title>
+    <title>YPN | Azienda</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,9 +58,9 @@
 
   	<?php
 
-	$id_attivita = $_GET["id"];
+	$id_azienda = $_GET["id"];
 
-	if(!isset($id_attivita)){
+	if(!isset($id_azienda)){
 		die("Errore, il link non è corretto. Torna indietro e riprova.");
 	}
 
@@ -72,7 +72,7 @@
 	$url_foto = "";
 	$data_inserimento = "";
 
-	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM ATTIVITA WHERE ID='$id_attivita' ;";
+	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM ATTIVITA WHERE ID='$id_azienda' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{
@@ -87,7 +87,7 @@
 
 	$title=urlencode($titolo);
 
-	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_attivita);
+	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_azienda);
 
 	$summary=urlencode($localita);
 
@@ -97,15 +97,56 @@
 	?>
 
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-2 nopadding" >
+          <a></a>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding" >
+          <a>Chi siamo</a>
+        </div>
 
-            <a><?php echo $titolo; ?></a>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+          <a>Prodotti/Servizi</a>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+          <a>Orari</a>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+          <a>Dove siamo</a>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 nopadding">
+          <a>Contatti</a>
+        </div>
 
       </div>
     </div>
 
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <img src="<?php echo $url_foto; ?>" id="anteprima" />
+          </div>
+
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <div id="title" style="font-size: 400%;"> <?php echo $titolo; ?> </div>
+          </div>
+
+      </div>
+
+      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:1%;">
+            <?php
+              include("gallery_companies.php");
+            ?>
+          </div>
+      </div>
+
+
+
       <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;">
-	     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	        <div id="title" style="font-size: 400%;">
 	        <?php echo $titolo; ?> </div>
 	        <div id="data">
@@ -116,24 +157,13 @@
          <?php echo $descrizione; ?>
 		    </div>
 	     </div>
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
-	     </div>
+
 
       </div>
 
 
 
-      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
-            <?php
-              include("gallery_activity.php");
-            ?>
-        	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
-            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
-			</div>
-		</div>
+
 
 
 

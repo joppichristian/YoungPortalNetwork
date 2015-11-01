@@ -81,7 +81,27 @@ footer{
   height: 80px;
   background-color: black;
 }
-
+.commenti{
+	margin-bottom: 150px;	
+}
+.commento{
+	height: 150px;
+	border-bottom: solid 1px;
+	
+}
+.user-profile{
+	height: 100%;
+}
+.commento .info{
+	line-height: 50px;
+}
+.commento .info #utente{
+	font-weight: bold;
+	color:rgb(50, 72, 31);
+}
+.commento .info #data_inserimento{
+	font-weight: bold;
+}
 @media screen and (min-width: 480px) {
     .block {
         font-size: 22px;

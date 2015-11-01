@@ -36,11 +36,37 @@
    <script src="js/bootstrap.min.js"></script>
      <script src="js/pace.js"></script>
     <!-- -->
+    
+    <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi = "";
+		var testo_commento = document.getElementById("testo_commento").value;		
+	
+	 	 
+		if(testo_commento ==""){
+			campi = campi+" \nNESSUN COMMENTO INSERITO";			
+		}
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-add-comment_activity.php';
+			document.submitForm.submit();
+		}	
+	}
+  </script> 
+
+    
 	<script> 
 		function apriPopupCondivisioneFB() { 
 			newin = window.open('http://www.facebook.com/share.php?u='+window.location.href,'titolo','scrollbars=no,resizable=yes, width=400,height=400,status=no,location=no,toolbar=no');
 		} 
 	</script>
+
 
   </head>
   <body>
@@ -134,9 +160,55 @@
             <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
 			</div>
 		</div>
+		
 
 
 
+    </div>
+    
+    <!-- Parte commenti -->
+    <?php 
+	    if(utenteLoggato($mysqli) == true) {	?>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	    <div class="commento col-lg-6 col-md-6 col-sm-6 col-xs-6 " style="border-color:#32481f;">
+			<form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
+				<input type="hidden" name="id" value="<?php echo $id_attivita;?>" />
+				<textarea rows="5" id="testo_commento" name="testo_commento" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  placeholder="Commento"></textarea>
+			   	<button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi commento</button>
+		   	</form>
+		</div>
+    </div>
+    <?php } ?>
+	<div class="commenti col-lg-6 col-md-6 col-sm-6 col-xs-6" id="commenti">
+	<?php
+		
+		$query_sql = "SELECT TESTO, DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i:%s') as DATA_ORA_INSERIMENTO, USERNAME 
+					  FROM COMMENTO_ATTIVITA
+					  LEFT JOIN UTENTE ON USER_ID = UTENTE.ID
+					   WHERE ATTIVITA_ID =". $id_attivita ."
+					   ORDER BY DATA_ORA_INSERIMENTO DESC;";
+	
+		$result = $mysqli->query($query_sql);	 
+		while($row = $result->fetch_array())
+		{
+		?>
+	    <div class="commento col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-color:#32481f">
+	    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+	    		<img class="user-profile col-lg-12 col-md-12 col-sm-12 col-xs-12"  src="images/utente.jpg" />
+	    	</div>
+	    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-9">
+		    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="utente">
+			    	<? echo $row['USERNAME']; ?>
+		    	</div>
+		    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="data_inserimento" >
+			    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
+		    	</div>
+		    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
+			    	<? echo $row['TESTO']; ?>
+		    	</div>
+	    	</div>
+    	</div>
+    <? } ?>
     </div>
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

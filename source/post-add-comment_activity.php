@@ -4,7 +4,15 @@
 	
 	my_session_start();
 	
-		$commento = str_replace("'", "\'",$POST_['testo_commento']);
+			
+	if ($_SERVER['REQUEST_METHOD'] == "POST"){
+		
+		$uploads_dir = 'images/eventi';
+        	
+		if(utenteLoggato($mysqli) == true) {	
+
+	
+		$commento = str_replace("'", "\'",$_POST['testo_commento']);
 		$id = $_POST['id'];
 		$user_id = $_SESSION['user_id'];
 		$sql = "INSERT INTO COMMENTO_ATTIVITA (TESTO, ATTIVITA_ID,USER_ID) VALUES ('".$commento."','".$id."','".$user_id."');";					
@@ -15,9 +23,10 @@
 			
 		$mysqli->close();	
 		
-		header("Location: http://www.youngportalnetwork.it/activity.php?id=$id");
+		header("Location: http://www.youngportalnetwork.it/activity.php?id=".$id."#commenti");
 		die();		
 	
-	
+		}
+	}
 
 ?>	 		

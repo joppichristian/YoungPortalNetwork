@@ -26,6 +26,7 @@ $testoIndietro = "#";
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+      <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 	<script src="js/pace.js"></script>
 
 	<!-- Per Login -->
@@ -48,7 +49,7 @@ $testoIndietro = "#";
 	  ?>
     </div> <!-- cd-user-modal -->
 
-  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle;" >
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle; z-index: -1;" >
 
 
     <img src="images/sfondo.png" style="width:100%; height:45%; " />
@@ -119,7 +120,6 @@ $testoIndietro = "#";
 
   </footer>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+
   </body>
 </html>

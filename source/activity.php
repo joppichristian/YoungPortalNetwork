@@ -169,7 +169,7 @@
     <?php 
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	    <div class="commento col-lg-6 col-md-6 col-sm-6 col-xs-6 " style="border-color:#32481f;">
+	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " style="border-color:#32481f;margin-bottom: 3%">
 			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
 				<input type="hidden" name="id" value="<?php echo $id_attivita;?>" />
 				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	
@@ -178,7 +178,7 @@
 		</div>
     </div>
     <?php } ?>
-	<div class="commenti col-lg-6 col-md-6 col-sm-6 col-xs-6" id="commenti" >
+	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
 	<?php
 		
 		$query_sql = "SELECT CA.ID, TESTO, DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
@@ -193,17 +193,17 @@
 			if($row['USER_ID'] == $_SESSION['user_id']){
 				?>
 					 <div class="commento col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-color:#32481f">
-				    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				    		<img class="user-profile col-lg-12 col-md-12 col-sm-12 col-xs-12"  src="images/utente.jpg" />
+				    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0">
+				    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;" />
 				    	</div>
-				    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-9">
-					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="color:rgb(50, 72, 31);" id="utente">
+				    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
+					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(50, 72, 31);" id="utente">
 						    	<? echo $row['USERNAME']; ?>
 					    	</div>
-					    	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="color:rgb(50, 72, 31);" id="data_inserimento" >
+					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:rgb(50, 72, 31);" id="data_inserimento" >
 						    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 					    	</div>
-					    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="elimina" >
+					    	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" id="elimina" >
 						    	<a href="delete_comment.php?id=<? echo $row['ID'];  ?>&att=<? echo $id_attivita;  ?>" style="color:#32481f" >Elimina</a>
 					    	</div>
 					    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
@@ -216,14 +216,14 @@
 			}
 			else{?>
 				 <div class="commento col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-color:#32481f">
-			    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-			    		<img class="user-profile col-lg-12 col-md-12 col-sm-12 col-xs-12"  src="images/utente.jpg" />
+			    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0">
+			    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;"/>
 			    	</div>
-			    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-9">
-				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" id="utente">
+			    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
+				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="utente">
 					    	<? echo $row['USERNAME']; ?>
 				    	</div>
-				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="data_inserimento" >
+				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="data_inserimento" >
 					    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 				    	</div>
 				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">

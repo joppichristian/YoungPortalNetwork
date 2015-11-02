@@ -125,7 +125,7 @@ $grpg = $_GET['grpg'];
 			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			  <a href="activities.php" >
 				<div class="preview" >
-				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" />
+				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" style="height: 90%; width: auto; padding: auto;"/>
 				</div>
 				<div class="description">
 				  <p><-- TUTTE LE ATTIVITA</p>
@@ -140,10 +140,10 @@ $grpg = $_GET['grpg'];
 			<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 			  <a href="activities.php?grpg=1" >
 				<div class="preview" >
-				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" />
+				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" style="height: 90%; width: auto; padding: auto;"/>
 				</div>
 				<div class="description">
-				  <p>ATTIVITA PIANO GIOVANI</p>
+				  <p style="font-weight: bolder;">FILTRA PIANO GIOVANI</p>
 				</div>
 			  </a>
 			</div>

@@ -59,21 +59,8 @@
 	}
   </script>
   
-  </head>
-  <body>
-    <header role="banner" style="background-color:black;">
-      <?php
-      include("header.php");
-    ?>
-    </header>
-
-	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-	<?php
-      include("login.php");
-    ?>
-  </div> <!-- cd-user-modal -->
   
-  	<?php
+  <?php
 
 	$id_evento = $_GET["id"];
 
@@ -104,7 +91,29 @@
 	}
 
 	?>
+		<!-- Meta tag condivisione FB -->
+    <meta property="og:title" content="<? echo $titolo; ?>" />
+	<meta property="og:type" content="WebSite" />
+	<meta property="og:url" content="http://www.youngportalnetwork.it/event.php?id=<? echo $id_evento;?>" />
+	<meta property="og:image" content="<? echo $url_foto; ?>" />
+	<meta property="og:description" content="Per saperne di più clicca qui..." />
 
+  
+  </head>
+  <body>
+    <header role="banner" style="background-color:black;">
+      <?php
+      include("header.php");
+    ?>
+    </header>
+
+	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<?php
+      include("login.php");
+    ?>
+  </div> <!-- cd-user-modal -->
+  
+  	
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
@@ -128,19 +137,21 @@
          <?php echo $descrizione; ?>
 		    </div>
 	     </div> 
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;">
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
 		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
 	     </div>
         
       </div>
 <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:3%;">
+	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
             <?php
               include("gallery_events.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;">		 
-            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
+           <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
+            <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+
 			</div>
 		</div>
 
@@ -149,7 +160,7 @@
     <?php 
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 3%">
+	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
 			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
 				<input type="hidden" name="id" value="<?php echo $id_evento;?>" />
 				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	

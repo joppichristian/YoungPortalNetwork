@@ -31,7 +31,7 @@
 
 			$nome = $_POST["nome"];
 			$descrizione = $_POST["descrizione"];
-			$residenza = $_POST["latitudine"];
+
       $latitudine = $_POST["latitudine"];
       $longitudine = $_POST["longitudine"];
 			$orario_apertura = $_POST["orario_apertura"];
@@ -84,10 +84,10 @@
 
 					//Devo salvare l evento nel DB:
 					$urlFoto =  "http://www.youngportalnetwork.it/". $pathImgUploaded ;
-          $loc = $latitudine."e".$longitudine;
-					$sql = "INSERT INTO AZIENDA (nome, descrizione, localita, orario, telefono, email, url_foto , ID_cat, ID_utente) VALUES
+          //$loc = $latitudine."e".$longitudine;
+					$sql = "INSERT INTO AZIENDA (nome, descrizione, latitudine, longitudine, orario, telefono, email, url_foto , ID_cat, ID_utente) VALUES
 
-												('".$nome."','".$descrizione."','".$loc."','".$orario_apertura."','".$telefono."','".$email."','".$urlFoto."','".$categoria."','".$idUtente."')";
+												('".$nome."','".$descrizione."','".$latitudine."','".$longitudine."','".$orario_apertura."','".$telefono."','".$email."','".$urlFoto."','".$categoria."','".$idUtente."')";
 
 					if (!mysqli_query($mysqli,$sql)){
 						die('</br></br>Error: ' . mysqli_error($mysqli));

@@ -42,6 +42,48 @@
 		}
 	</script>
 
+  <style media="screen">
+
+  .subsezioni{
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: rgb(148,59,68);
+    margin-bottom: 15px;
+    z-index: -1;
+  }
+  .subsezioni h1 {
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 20px;
+  }
+
+  </style>
+
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+  <script>
+      function creazioneMap(lat, long) {
+        alert("ciaooooo ".lat);
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(lat, 9.long),
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+
+        var marker = new google.maps.Marker({
+        map: map,
+        draggable: false,
+        position: new google.maps.LatLng(lat, long)
+    });
+      }
+      google.maps.event.addDomListener(window, 'load', creazioneMap);
+    </script>
+
   </head>
   <body>
     <header role="banner" style="background-color:black;">
@@ -72,19 +114,47 @@
 	$url_foto = "";
 	$data_inserimento = "";
 
-	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM ATTIVITA WHERE ID='$id_azienda' ;";
+	$qry_a="SELECT *  FROM AZIENDA WHERE ID='$id_azienda' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
 	{
-		$titolo = $row_a['TITOLO'];
-		$localita = $row_a['LOCALITA'];
-		$descrizione = $row_a['DESCRIZIONE'];
-		$categoria_id = $row_a['CATEGORIA_ID'];
-		$utente_creatore = $row_a['UTENTE_CREATORE'];
-		$url_foto = $row_a['URL_FOTO'];
-		$data_inserimento = $row_a['DATA_INSERIMENTO'];
+    $nome = $row_a["nome"];
+    $descrizione = $row_a["descrizione"];
+    $latitudine = $row_a["latitudine"];
+    $longitudine = $row_a["longitudine"];
+    $orario_apertura = $row_a["orario"];
+    $email = $row_a["email"];
+    $telefono = $row_a["telefono"];
+    $url_foto_logo = $row_a["url_foto"];
+    $categoria = $row_a['ID_categoria'];
+    $autore = $row_a['ID_utente'];
+
 	}
 
+  $url_fotoPr1 ="";
+  $descrizionePr1 = "";
+  $titoloPr1 = "";
+  $url_fotoPr2 ="";
+  $descrizionePr2 = "";
+  $titoloPr2 = "";
+  $url_fotoPr3 ="";
+  $descrizionePr3 = "";
+  $titoloPr3 = "";
+
+  $ind_pr=1;
+  $qry_a=" SELECT *  FROM PRODOTTI_AZIENDA WHERE ID_utente='$autore' ;";
+	$result_a = $mysqli->query($qry_a);
+	while($row_a = $result_a->fetch_array())
+	{
+    ${'url_fotoPr'.$ind_pr} = $row_a["url_foto"];
+    ${'descrizionePr'.$ind_pr} = $row_a["descrizione"];
+    ${'titoloPr'.$ind_pr}  = $row_a["titolo"];
+
+    $ind_pr= $ind_pr+1;
+	}
+
+
+  $idUtente = $_SESSION['user_id'];
 	$title=urlencode($titolo);
 
 	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_azienda);
@@ -130,7 +200,7 @@
           </div>
 
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-            <div id="title" style="font-size: 400%;"> <?php echo $titolo; ?> </div>
+            <div id="title" style="font-size: 400%;"> <?php echo $nome; ?> </div>
           </div>
 
       </div>
@@ -143,31 +213,88 @@
           </div>
       </div>
 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
+        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+            <a><?php echo $nome; ?> - Chi siamo</a>
+          </div>
+        </div>
 
-      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;">
-	     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	        <div id="title" style="font-size: 400%;">
-	        <?php echo $titolo; ?> </div>
-	        <div id="data">
-	         <?php echo $data_inserimento; ?></div>
-	          <div id="localita">
-	        <?php echo $localita; ?></div>
-	         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
-         <?php echo $descrizione; ?>
-		    </div>
-	     </div>
-
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+          <?php echo $descrizione; ?>
+        </div>
 
       </div>
 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
+        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+            <a><?php echo $nome; ?> - Prodotti/Servizi</a>
+          </div>
+        </div>
 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+            <?php echo $titoloPr1; ?>
+          </div>
 
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+            <?php echo $titoloPr2; ?>
+          </div>
 
+        </div>
 
-    </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+
+        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+            <a><?php echo $nome; ?> - Orari</a>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+          <?php echo $orario_apertura; ?>
+        </div>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+
+        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+            <a><?php echo $nome; ?> - Dove siamo</a>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 " onload="creazioneMap(<?php echo $latitudine;?>,<?php echo $longitudine;?>);"  align="center" >
+               <div id="map-canvas" class="map_canvas"></div>
+          </div>
+
+          <?php echo $latitudine; echo $longitudine; ?>
+        </div>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+
+        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+            <a><?php echo $nome; ?> - Contatti</a>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+          <?php echo $email; echo $telefono; ?>
+        </div>
+
+      </div>
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->

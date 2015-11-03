@@ -63,11 +63,11 @@ $testoIndietro = "TORNA INDIETRO";
 		   campi = campi+" \n[immagine] OBBLIGATORIO";			
 		}
 		
-		if(document.getElementById("data_inizio").value.length < 1) {
+		if(document.getElementById("data_inizio").value == "") {
 		   campi = campi+" \n[data inizio] OBBLIGATORIO";			
 		}
 		
-		if(document.getElementById("data_fine").value.length < 1) {
+		if(document.getElementById("data_fine").value == "") {
 		   campi = campi+" \n[data fine] OBBLIGATORIO";			
 		}
 		
@@ -77,8 +77,8 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitForm.action = 'post-add-event.php';
-			document.submitForm.submit();
+			document.submitFormEvent.action = 'post-add-event.php';
+			document.submitFormEvent.submit();
 		}		
 	}
   </script> 
@@ -111,7 +111,7 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-	  <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
+	  <form id="submitFormEvent" name="submitFormEvent" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
@@ -133,7 +133,7 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" id="data_inizio" >
+		  <input type="datetime-local" id="data_fine" >
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>

@@ -71,6 +71,7 @@ input[type="submit"]{
     border: 2px solid #cfd9db;
     border-radius: .25em;
     padding: 5px;
+    resize: none;
   }
     textarea:focus{
       border-color: rgb(23,149,202);

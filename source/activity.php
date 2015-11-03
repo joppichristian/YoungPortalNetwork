@@ -141,7 +141,7 @@
          <?php echo $descrizione; ?>
 		    </div>
 	     </div>
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;">
 		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
 	     </div>
         
@@ -150,12 +150,12 @@
 
 
       <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
+	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:3%;">
             <?php
               include("gallery_activity.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
+             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;">		 
             <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
 			</div>
 		</div>

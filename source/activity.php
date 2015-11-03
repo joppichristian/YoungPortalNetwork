@@ -169,7 +169,7 @@
     <?php 
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " style="border-color:#32481f;margin-bottom: 3%">
+	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 3%">
 			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
 				<input type="hidden" name="id" value="<?php echo $id_attivita;?>" />
 				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	

@@ -85,8 +85,9 @@ footer{
 	margin-bottom: 150px;	
 }
 .commento{
-	height: 150px;
+	height: auto;
 	border-top: solid 1px;
+	text-align: center;
 	
 }
 .user-profile{
@@ -104,5 +105,8 @@ footer{
 @media screen and (min-width: 480px) {
     .block {
         font-size: 22px;
+    }
+    .commento{
+	    text-align: left;
     }
 }

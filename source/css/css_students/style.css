@@ -8,7 +8,9 @@ Primary style
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.cd-faq *::after,.cd-faq *::before {
+  content: '';
+}
 
 body {
   font-size: 100%;
@@ -46,6 +48,27 @@ body.cd-overlay::after {
 a {
   color: rgb(23,148,201);
   text-decoration: none;
+}
+.item-option-select{
+  background-color:white;
+  color:rgb(50,72,31);
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+  margin-right: 1%;
+}
+
+.item-option{
+  background-color:rgba(23, 148, 202, 1);
+  color:white;
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+  margin-right: 1%;
 }
 
 /* --------------------------------
@@ -93,7 +116,7 @@ Main components
 @media only screen and (min-width: 768px) {
   .cd-faq {
     position: relative;
-    margin: 4em auto;
+    margin: 12em auto;
     box-shadow: none;
   }
 }
@@ -137,7 +160,7 @@ Main components
   .cd-faq-categories {
     width: 20%;
     float: left;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   }
   .cd-faq-categories a {
     font-size: 13px;
@@ -352,7 +375,7 @@ Main components
   .cd-faq-group > li {
     background: #ffffff;
     margin-bottom: 6px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     -webkit-transition: box-shadow 0.2s;
     -moz-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
@@ -389,7 +412,7 @@ Main components
     top: 50%;
     height: 2px;
     width: 13px;
-    background: #cfdca0;
+    background: #1795ca;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transition-property: -webkit-transform;

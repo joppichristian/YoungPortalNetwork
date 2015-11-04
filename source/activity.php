@@ -158,7 +158,7 @@
               include("gallery_activity.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md- col-sm-3 col-xs-12" style="margin-top:1%;">		 
+             <div class="col-lg-3 col-md- col-sm-3 col-xs-12" style="margin-top:1%;text-align: center;">		 
             <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
             <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
             </div>

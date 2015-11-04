@@ -148,7 +148,7 @@
               include("gallery_events.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
+             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;text-align: center;">		 
            <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
             <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 
@@ -157,7 +157,9 @@
 
 
 		    <!-- Parte commenti -->
-    <?php 
+  
+    </div>
+      <?php 
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
@@ -170,7 +172,6 @@
     </div>
     <?php } ?>
 
-    </div>
 	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
 	<?php
 		

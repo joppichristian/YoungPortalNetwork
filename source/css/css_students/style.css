@@ -14,7 +14,6 @@ Primary style
 
 body {
   font-size: 100%;
-  font-family: "Open Sans", sans-serif;
   color: #4e5359;
   background-color: #f3f3f5;
 }
@@ -46,7 +45,7 @@ body.cd-overlay::after {
 }
 
 a {
-  color: rgb(23,148,201);
+  color: rgb(0,144,215);
   text-decoration: none;
 }
 .item-option-select{
@@ -81,7 +80,7 @@ Main components
   height: 100px;
   line-height: 100px;
   text-align: center;
-  background-color: rgb(23,148,201);
+  background-color: rgb(0,144,215);
 }
 .subheader h1 {
   color: #ffffff;
@@ -199,7 +198,7 @@ Main components
     left: 0;
     height: 100%;
     width: 3px;
-    background-color: rgb(23,148,201);
+    background-color: rgb(0,144,215);
     opacity: 0;
     -webkit-transition: opacity 0.2s;
     -moz-transition: opacity 0.2s;
@@ -317,7 +316,7 @@ Main components
   display: inline-block;
   height: 3px;
   width: 18px;
-  background: rgb(23,148,201);
+  background: rgb(0,144,215);
 }
 .cd-close-panel::before {
   -webkit-transform: rotate(45deg);
@@ -457,7 +456,7 @@ Main components
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.4;
-  color: rgb(23,148,201);
+  color: rgb(0,144,215);
 }
 @media only screen and (min-width: 768px) {
   .cd-faq-content {

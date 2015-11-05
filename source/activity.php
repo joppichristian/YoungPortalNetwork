@@ -201,14 +201,14 @@
 				    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;" />
 				    	</div>
 				    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
-					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(50, 72, 31);" id="utente">
+					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(180,183,34);" id="utente">
 						    	<? echo $row['USERNAME']; ?>
 					    	</div>
-					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:rgb(50, 72, 31);" id="data_inserimento" >
+					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:rgb(180,183,34);" id="data_inserimento" >
 						    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 					    	</div>
 					    	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" id="elimina" >
-						    	<a href="delete_comment.php?id=<? echo $row['ID'];  ?>&att=<? echo $id_attivita;  ?>" style="color:#32481f" >Elimina</a>
+						    	<a href="delete_comment.php?id=<? echo $row['ID'];  ?>&att=<? echo $id_attivita;  ?>" style="color:#b4b722" >Elimina</a>
 					    	</div>
 					    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
 						    	<? echo $row['TESTO']; ?>
@@ -224,13 +224,13 @@
 			    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;"/>
 			    	</div>
 			    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
-				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(50, 72, 31);" id="utente">
+				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(180,183,34);" id="utente">
 					    	<? echo $row['USERNAME']; ?>
 				    	</div>
-				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="color:rgb(50, 72, 31);" id="data_inserimento" >
+				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="color:rgb(180,183,34);" id="data_inserimento" >
 					    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 				    	</div>
-				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:rgb(50, 72, 31);" id="testo">
+				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:rgb(180,183,34);" id="testo">
 					    	<? echo $row['TESTO']; ?>
 				    	</div>
 			    	</div>

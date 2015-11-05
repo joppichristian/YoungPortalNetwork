@@ -29,10 +29,10 @@
     <!--              -->
 	<style>
 		.cd-faq-trigger{
-			color:#1795ca;
+			color:#0090d7;
 		}
 		.cd-faq-trigger:hover{
-			color:#1795ca;
+			color:#0090d7;
 		}
 	</style>
 	
@@ -55,6 +55,7 @@
 		alert("Effettua prima il login.");
 	}
   </script>
+
 
     <!-- -->
     <title>YPN | Forum Studenti</title>
@@ -107,10 +108,7 @@
 	?>
 
 		
-	  <form class="filter-form col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:5%;">
-	        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;">
-	        <input type="submit" class="item-option" value="Search">
-	  </form>
+	
 	  </div>
 
     <!--include la pagina -->
@@ -147,36 +145,84 @@
 			{ ?>
 				<ul id="<? echo $row_c['MATERIA']; ?>" class="cd-faq-group">
 				<li class="cd-faq-title"><h2><? echo $row_c['MATERIA']; ?></h2></li>
-			<?	$qry_dom="SELECT * FROM DOMANDE WHERE ID_MATERIA = ".$row_c['ID']." ORDER BY DATA_INSERIMENTO DESC LIMIT 5;";
+			<?	$qry_dom="SELECT D.ID,TESTO,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') AS DATA_INSERIMENTO,ANONIMATO,USERNAME,USER_ID FROM DOMANDE D LEFT JOIN UTENTE U ON D.USER_ID = U.ID WHERE ID_MATERIA = ".$row_c['ID']." ORDER BY DATA_INSERIMENTO DESC;";
 				$result_dom = $mysqli->query($qry_dom);
 				
 				while($row_dom = $result_dom->fetch_array())
 				{?>
-				<li>
-				<a class="cd-faq-trigger" href="#0"><? echo $row_dom['TESTO']; ?></a>
+				<li><?
+				if ($row_dom['USER_ID'] == $_SESSION['user_id']){	
+				if ($row_dom['ANONIMATO'] == 0){
+				?>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   '.$row_dom['USERNAME']; ?><div onclick="location.href='deleteAsk.php?id=<? echo $row_dom['ID']; ?>';" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<?}else{?>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   anonimo'?><div onclick="location.href='deleteAsk.php?id=<? echo $row_dom['ID']; ?>';" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<?}}else{?>
+					<? if ($row_dom['ANONIMATO'] == 0){
+				?>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   '.$row_dom['USERNAME']; ?> </div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<?}else{?>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   anonimo'?></div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<?}
+				 }?>
 				<div class="cd-faq-content">
 					<!-- elemento risposta-->
 					<?php
-					$qry_risp="SELECT TESTO,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_INSERIMENTO,USERNAME,ANONIMATO FROM RISPOSTE R LEFT JOIN UTENTE U ON R.USER_ID = U.ID WHERE ID_DOMANDA = ".$row_dom['ID']." ORDER BY DATA_INSERIMENTO DESC LIMIT 5;";
+					$qry_risp="SELECT R.ID,TESTO,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_INSERIMENTO,USERNAME,ANONIMATO,USER_ID FROM RISPOSTE R LEFT JOIN UTENTE U ON R.USER_ID = U.ID WHERE ID_DOMANDA = ".$row_dom['ID']." ORDER BY DATA_INSERIMENTO DESC;";
 					$result_risp = $mysqli->query($qry_risp);
 					
 					while($row_risp = $result_risp->fetch_array())
 					{ ?>
 					<div style="margin-top: 2%;margin-bottom: 2%;">
-						<? if($row_risp['ANONIMATO'] == 0){ ?>
-						<div style="color:#1795ca;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   '.$row_risp['USERNAME'].':'; ?></div> 
-						<p><br/><? echo $row_risp['TESTO']; ?> </p>
+						<? if($row_risp['USER_ID'] == $_SESSION['user_id']){
+							if($row_risp['ANONIMATO'] == 0){ ?>
+						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   '.$row_risp['USERNAME'].':'; ?></div> 
+						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="location.href='deleteAnswer.php?id=<? echo $row_risp['ID'];?>';" ?>Elimina</div>
+						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
 						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
 						<? } else { ?>
-						<div style="color:#1795ca;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   anonimo:'; ?></div> 
-						<p><br/><? echo $row_risp['TESTO']; ?> </p>
+						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   anonimo:'; ?></div> 
+						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="location.href='deleteAnswer.php?id=<? echo $row_risp['ID'];?>';" ?>Elimina</div>
 
-						<?} ?>
+						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
+
+						<?}}else{ 
+							if($row_risp['ANONIMATO'] == 0){ ?>
+						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   '.$row_risp['USERNAME'].':'; ?></div> 
+						
+						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
+						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
+						<? } else { ?>
+						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   anonimo:'; ?></div> 
+						
+
+						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
+
+						<?}
+						}?>
 					</div>
 
 			<?
-					}
-				}?>
+					}?>
+								  <?php 
+				    if(utenteLoggato($mysqli) == true) {	?>
+			    <div style="height: auto;">
+				    <div style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
+						<form action="post-add-answer.php" method="post"  enctype="multipart/form-data" >			    
+							<input type="hidden" name="id_domanda" value="<?php echo $row_dom['ID'];?>" />
+							<textarea name='answer' id="answer" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Rispondi qui..."></textarea>			   		 <p>Vuoi essere anonimo? :</p>
+						  <select name="anonimato" >
+							  <option value="0">No</option>
+							  <option value="1">Si</option>
+						  </select><br/>
+							<button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi risposta</button>
+					   	</form>
+					</div>
+			    </div>
+			    <?php } ?>
+
+				</div>
+				<?}?>
 				</ul> <!-- cd-faq-group -->
 			<?
 			}

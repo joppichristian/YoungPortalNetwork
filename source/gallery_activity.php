@@ -10,7 +10,7 @@ a:hover{
 
 .carousel-control {
 	left: -12px;
-  background-color: rgba(50, 72, 31, 0.6);
+  background-color: rgba(180,183,34, 0.6);
 }
 .carousel-control.right {
 	right: -12px;
@@ -24,11 +24,11 @@ a:hover{
 }
 
 .carousel-indicators li {
-	background-color: rgba(50, 72, 31, 0.6);
+	background-color: rgba(180,183,34, 0.6);
 }
 
 .carousel-indicators .active {
-background-color: rgb(50, 72, 31);
+background-color: rgb(180,183,34);
 }
 </style>
 <div id="myCarousel" class="carousel slide">

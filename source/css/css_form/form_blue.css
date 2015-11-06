@@ -3,7 +3,7 @@
   font-size: 25px;
 }
 form{
-  color:rgba(23, 149, 202, 1);
+  color:rgba(0,144,215 , 1);
   width: 100%;
   margin:auto;
 }
@@ -23,8 +23,8 @@ input[type="datetime-local"]{
   padding: 5px;
 }
   input[type="datetime-local"]:focus{
-    border-color: rgb(23,149,202);
-    box-shadow: 0 0 5px rgba(23,149,202,0.2);
+    border-color: rgb(0,144,215);
+    box-shadow: 0 0 5px rgba(0,144,215,0.2);
     outline: none;
   }
   input[type="file"]{
@@ -33,47 +33,48 @@ input[type="datetime-local"]{
     padding: 5px;
   }
     input[type="file"]:focus{
-      border-color: rgb(23,149,202);
-      box-shadow: 0 0 5px rgba(23,149,202,0.2);
+      border-color: rgb(0,144,215);
+      box-shadow: 0 0 5px rgba(0,144,215,0.2);
       outline: none;
     }
 input[type="submit"]{
-    background-color: rgb(23,149,202);
+    background-color: rgb(0,144,215);
     border: 1px solid #cfd9db;
     border-radius: .25em;
     color: white;
     padding: 5px;
   }
   button{
-        background-color: rgb(23,149,202);
+        background-color: rgb(0,144,215);
         border: 1px solid #cfd9db;
         border-radius: .25em;
         color: white;
         padding: 5px;
       }
       button:hover{
-        border-color: rgb(23,149,202);
-        box-shadow: 0 0 5px rgba(23,149,202,0.2);
+        border-color: rgb(0,144,215);
+        box-shadow: 0 0 5px rgba(0,144,215,0.2);
       }
       select{
-            background-color: rgb(23,149,202);
+            background-color: rgb(0,144,215);
             border: 1px solid #cfd9db;
             border-radius: .25em;
             color: white;
             padding: 5px;
           }
           select:hover{
-            border-color: rgb(23,149,202);
-            box-shadow: 0 0 5px rgba(23,149,202,0.2);
+            border-color: rgb(0,144,215);
+            box-shadow: 0 0 5px rgba(0,144,215,0.2);
           }
   textarea{
     font-size:20px;
     border: 2px solid #cfd9db;
     border-radius: .25em;
     padding: 5px;
+    resize: none;
   }
     textarea:focus{
-      border-color: rgb(23,149,202);
-      box-shadow: 0 0 5px rgba(23,149,202,0.2);
+      border-color: rgb(0,144,215);
+      box-shadow: 0 0 5px rgba(0,144,215,0.2);
       outline: none;
     }

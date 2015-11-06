@@ -28,16 +28,40 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
   <!--              -->
 
+  <!-- JQuery e CSS per data -->
+  <link rel="stylesheet" href="css/css_jquery/jquery.datetimepicker.css">
+  <style type="text/css">
+
+		.custom-date-style {
+			background-color: red !important;
+		}
+
+		.input{	
+		}
+		.input-wide{
+			width: 500px;
+		}
+
+   </style>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jquery-ui-timepicker-addon.js"></script>-->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  
+  <!-- JavaScript -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/pace.js"></script>
   
 	<!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
-  <!-- JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
-  <!-- -->
+  
  
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
@@ -63,11 +87,11 @@ $testoIndietro = "TORNA INDIETRO";
 		   campi = campi+" \n[immagine] OBBLIGATORIO";			
 		}
 		
-		if(document.getElementById("data_inizio").value.length < 1) {
+		if(document.getElementById("data_inizio").value == "") {
 		   campi = campi+" \n[data inizio] OBBLIGATORIO";			
 		}
 		
-		if(document.getElementById("data_fine").value.length < 1) {
+		if(document.getElementById("data_fine").value == "") {
 		   campi = campi+" \n[data fine] OBBLIGATORIO";			
 		}
 		
@@ -77,8 +101,8 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitForm.action = 'post-add-event.php';
-			document.submitForm.submit();
+			document.submitFormEvent.action = 'post-add-event.php';
+			document.submitFormEvent.submit();
 		}		
 	}
   </script> 
@@ -111,7 +135,7 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-	  <form action="post-add-event.php" method="post"  enctype="multipart/form-data" >
+	  <form id="submitFormEvent" name="submitFormEvent" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
 		  <h1>Titolo:</h1>
@@ -130,10 +154,33 @@ $testoIndietro = "TORNA INDIETRO";
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Inizio: (gg/mm/aaaa hh:mm) </p>
 		  <input type="datetime-local" id="data_inizio" >
+		  <script>
+				if ( $('#data_inizio')[0].type != 'datetime-local' ){
+					//$('#data_inizio').datetimepicker();
+					$('#data_inizio').datetimepicker({
+						dayOfWeekStart : 1,
+						formatDate:'d/m/Y',
+						lang:'en'
+					});
+					//$('#data_inizio').datetimepicker({value:'2015/04/15 05:03',step:10}); 
+				}	
+			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" id="data_inizio" >
+			
+		  <input type="datetime-local" id="data_fine" >
+		  <script>
+				if ( $('#data_fine')[0].type != 'datetime-local' ){
+					//$('#data_fine').datetimepicker();
+					$('#data_fine').datetimepicker({
+						dayOfWeekStart : 1,
+						formatDate:'d/m/Y',
+						lang:'en'
+					});
+					//$('#data_fine').datetimepicker({value:'2015/04/15 05:03',step:10}); 
+				}	
+			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>

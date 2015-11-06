@@ -14,7 +14,7 @@ body{
 
 .item-option-select{
   background-color:white;
-  color:rgb(50,72,31);
+  color:rgb(180,183,34);
   font-size: 24px;
   text-align: center;
   border: 2px solid #cfd9db;
@@ -24,7 +24,7 @@ body{
 }
 
 .item-option{
-  background-color:rgb(50,72,31);
+  background-color:rgb(180,183,34);
   color:white;
   font-size: 24px;
   text-align: center;
@@ -35,7 +35,7 @@ body{
 }
 .article{
   height: 40%;
-  border: 2px solid rgb(50,72,31);
+  border: 2px solid rgb(180,183,34);
   border-radius: .25em;
   /*margin-left: 2%;
   margin-right: 2%;*/
@@ -46,11 +46,11 @@ body{
 
   .article:hover{
     opacity: 0.7;
-    box-shadow: 0 0 15px rgba(50,72,31, 0.2);
+    box-shadow: 0 0 15px rgba(180,183,34, 0.2);
   }
 
 .article a .description{
-    background-color: rgba(50,72,31,1);
+    background-color: rgba(180,183,34,1);
     width: 100%;
     height: 30%;
     padding-top: 10%;
@@ -98,15 +98,15 @@ body{
 }
 
 .gallery img{
-  border: 2px solid rgb(50,72,31);
+  border: 2px solid rgb(180,183,34);
   width: 1;
 }
 h1{
-  color:rgb(50,72,31);
+  color:rgb(180,183,34);
 }
 
 .main-info{
-  color:rgb(50,72,31);
+  color:rgb(180,183,34);
   text-align: left;
   margin-top: 2%;
   margin-bottom: 3%;
@@ -124,7 +124,7 @@ h1{
     font-weight: bolder;
   }
 .info-description{
-  color:rgb(50,72,31);
+  color:rgb(180,183,34);
   font-size: 18px;
 }
 .intestazione{
@@ -140,7 +140,7 @@ h1{
   height: 100px;
   line-height: 100px;
   text-align: center;
-  background-color: rgb(50,72,31);
+  background-color: rgb(180,183,34);
   margin-bottom: 15px;
   z-index: -1;
 }
@@ -154,7 +154,7 @@ h1{
 
 
 .category{
-  border: 2px solid rgb(50,72,31);
+  border: 2px solid rgb(180,183,34);
   border-radius: .25em;
 
   margin-bottom: 5%;
@@ -164,9 +164,9 @@ h1{
 
   .category:hover{
     opacity: 0.7;
-    box-shadow: 0 0 15px rgba(50,72,31, 0.2);
+    box-shadow: 0 0 15px rgba(180,183,34, 0.2);
   }
 
 .category a .description{
-    background-color: rgba(50,72,31,1);
+    background-color: rgba(180,183,34,1);
 }

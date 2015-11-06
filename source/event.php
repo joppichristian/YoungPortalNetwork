@@ -18,7 +18,7 @@
     <!--        CSS       -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/css_form/form_blue.css.css" rel="stylesheet">
+    <link href="css/css_form/form_blue.css" rel="stylesheet">
     <link href="css/css_events/events.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css" >
     <link rel="stylesheet" href="css/pace.css" >
@@ -36,22 +36,31 @@
      <script src="js/pace.js"></script>
     <!-- -->
 
-
-  </head>
-  <body>
-    <header role="banner" style="background-color:black;">
-      <?php
-      include("header.php");
-    ?>
-    </header>
-
-	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-	<?php
-      include("login.php");
-    ?>
-  </div> <!-- cd-user-modal -->
+	    <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi = "";
+		var testo_commento = document.getElementById("testo_commento").value;		
+	
+	 	 
+		if(testo_commento =="..."){
+			campi = campi+" \nNESSUN COMMENTO INSERITO";			
+		}
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.commentForm.action = 'post-add-comment_event.php';
+			document.commentForm.submit();
+		}	
+	}
+  </script>
   
-  	<?php
+  
+  <?php
 
 	$id_evento = $_GET["id"];
 
@@ -82,7 +91,29 @@
 	}
 
 	?>
+		<!-- Meta tag condivisione FB -->
+    <meta property="og:title" content="<? echo $titolo; ?>" />
+	<meta property="og:type" content="WebSite" />
+	<meta property="og:url" content="http://www.youngportalnetwork.it/event.php?id=<? echo $id_evento;?>" />
+	<meta property="og:image" content="<? echo $url_foto; ?>" />
+	<meta property="og:description" content="Per saperne di più clicca qui..." />
 
+  
+  </head>
+  <body>
+    <header role="banner" style="background-color:black;">
+      <?php
+      include("header.php");
+    ?>
+    </header>
+
+	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<?php
+      include("login.php");
+    ?>
+  </div> <!-- cd-user-modal -->
+  
+  	
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
@@ -105,8 +136,8 @@
 	         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
          <?php echo $descrizione; ?>
 		    </div>
-	     </div>
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	     </div> 
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
 		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
 	     </div>
         
@@ -117,15 +148,88 @@
               include("gallery_events.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
-            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
+             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;text-align: center;">		 
+           <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
+            <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+
 			</div>
 		</div>
 
 
-
+		    <!-- Parte commenti -->
+  
     </div>
+      <?php 
+	    if(utenteLoggato($mysqli) == true) {	?>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
+			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
+				<input type="hidden" name="id" value="<?php echo $id_evento;?>" />
+				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	
+				<button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi commento</button>
+		   	</form>
+		</div>
+    </div>
+    <?php } ?>
 
+	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
+	<?php
+		
+		$query_sql = "SELECT CE.ID, TESTO, DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
+					  FROM COMMENTO_EVENTI CE
+					  LEFT JOIN UTENTE U ON CE.USER_ID = U.ID
+					   WHERE EVENTO_ID =". $id_evento ."
+					   ORDER BY DATA_ORA_INSERIMENTO DESC;";
+	
+		$result = $mysqli->query($query_sql);	 
+		while($row = $result->fetch_array())
+		{
+			if($row['USER_ID'] == $_SESSION['user_id']){
+				?>
+					 <div class="commento col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-color:#1795ca">
+				    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0">
+				    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;" />
+				    	</div>
+				    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
+					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:#1795ca;" id="utente">
+						    	<? echo $row['USERNAME']; ?>
+					    	</div>
+					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:#1795ca;" id="data_inserimento" >
+						    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
+					    	</div>
+					    	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" id="elimina" >
+						    	<a href="delete_comment_event.php?id=<? echo $row['ID'];  ?>&ev=<? echo $id_evento;  ?>" style="color:#1795ca" >Elimina</a>
+					    	</div>
+					    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
+						    	<? echo $row['TESTO']; ?>
+					    	</div>
+				    	</div>
+			    	</div>
+
+				<?
+			}
+			else{?>
+				 <div class="commento col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="color:#1795ca;">
+			    	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-0">
+			    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;"/>
+			    	</div>
+			    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
+				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:#1795ca;" id="utente">
+					    	<? echo $row['USERNAME']; ?>
+				    	</div>
+				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="color:#1795ca;" id="data_inserimento" >
+					    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
+				    	</div>
+				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
+					    	<? echo $row['TESTO']; ?>
+				    	</div>
+			    	</div>
+		    	</div>
+
+			<?	
+			}
+	 } ?>
+    </div>
 
    
 

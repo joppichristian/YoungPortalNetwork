@@ -59,30 +59,7 @@
 		}	
 	}
   </script> 
-
-    
-	<script> 
-		function apriPopupCondivisioneFB() { 
-			newin = window.open('http://www.facebook.com/share.php?u='+window.location.href,'titolo','scrollbars=no,resizable=yes, width=400,height=400,status=no,location=no,toolbar=no');
-		} 
-	</script>
-
-
-  </head>
-  <body>
-    <header role="banner" style="background-color:black;">
-      <?php
-      include("header.php");
-    ?>
-    </header>
-
-	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-	<?php
-      include("login.php");
-    ?>
-  </div> <!-- cd-user-modal -->
-  
-  	<?php
+  <?php
 
 	$id_attivita = $_GET["id"];
 
@@ -121,7 +98,33 @@
 
 
 	?>
-    <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  	
+  	<!-- Meta tag condivisione FB -->
+    <meta property="og:title" content="<? echo $titolo; ?>" />
+	<meta property="og:type" content="WebSite" />
+	<meta property="og:url" content="http://www.youngportalnetwork.it/activity.php?id=<? echo $id_attivita;?>" />
+	<meta property="og:image" content="<? echo $url_foto; ?>" />
+	<meta property="og:description" content="Per saperne di più clicca qui..." />
+
+
+		
+
+  </head>
+  <body>
+    <header role="banner" style="background-color:black;">
+      <?php
+      include("header.php");
+    ?>
+    </header>
+
+	 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<?php
+      include("login.php");
+    ?>
+  </div> <!-- cd-user-modal -->
+  
+  	    <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
             <a><?php echo $titolo; ?></a>
@@ -141,7 +144,7 @@
          <?php echo $descrizione; ?>
 		    </div>
 	     </div>
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
 		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
 	     </div>
         
@@ -155,9 +158,10 @@
               include("gallery_activity.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">		 
-            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img src="images/fb.svg" alt="Condividi" style="width:15%;height:15%;"/></a>
-			</div>
+             <div class="col-lg-3 col-md- col-sm-3 col-xs-12" style="margin-top:1%;text-align: center;">		 
+            <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
+            <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+            </div>
 		</div>
 		
 
@@ -169,7 +173,7 @@
     <?php 
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 3%">
+	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
 			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
 				<input type="hidden" name="id" value="<?php echo $id_attivita;?>" />
 				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	
@@ -197,14 +201,14 @@
 				    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;" />
 				    	</div>
 				    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
-					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(50, 72, 31);" id="utente">
+					    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(180,183,34);" id="utente">
 						    	<? echo $row['USERNAME']; ?>
 					    	</div>
-					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:rgb(50, 72, 31);" id="data_inserimento" >
+					    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="color:rgb(180,183,34);" id="data_inserimento" >
 						    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 					    	</div>
 					    	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" id="elimina" >
-						    	<a href="delete_comment.php?id=<? echo $row['ID'];  ?>&att=<? echo $id_attivita;  ?>" style="color:#32481f" >Elimina</a>
+						    	<a href="delete_comment.php?id=<? echo $row['ID'];  ?>&att=<? echo $id_attivita;  ?>" style="color:#b4b722" >Elimina</a>
 					    	</div>
 					    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
 						    	<? echo $row['TESTO']; ?>
@@ -220,13 +224,13 @@
 			    		<img class="user-profile"  src="images/utente.jpg" style="max-width:100%; height:auto;"/>
 			    	</div>
 			    	<div class="info col-lg-9 col-md-9 col-sm-9 col-xs-12">
-				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="utente">
+				    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="color:rgb(180,183,34);" id="utente">
 					    	<? echo $row['USERNAME']; ?>
 				    	</div>
-				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="data_inserimento" >
+				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="color:rgb(180,183,34);" id="data_inserimento" >
 					    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 				    	</div>
-				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="testo">
+				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:rgb(180,183,34);" id="testo">
 					    	<? echo $row['TESTO']; ?>
 				    	</div>
 			    	</div>

@@ -11,10 +11,12 @@
 		if(utenteLoggato($mysqli) == true) {	
 
 	
-		$commento = str_replace("'", "\'",$_POST['testo_commento']);
-		$id = $_POST['id'];
+		$domanda = str_replace("'", "\'",$_POST['question']);
 		$user_id = $_SESSION['user_id'];
-		$sql = "INSERT INTO COMMENTO_ATTIVITA (TESTO, ATTIVITA_ID,USER_ID) VALUES ('".$commento."','".$id."','".$user_id."');";					
+		$anonimo = $_POST['anonimato'];
+		$materia = $_POST['materia'];
+		
+		$sql = "INSERT INTO DOMANDE (TESTO, ID_MATERIA,USER_ID,ANONIMATO) VALUES ('".$domanda."','".$materia."','".$user_id."','".$anonimo."');";					
 		if (!mysqli_query($mysqli,$sql)){
 			die('</br></br>Error: ' . mysqli_error($mysqli));
 		}	
@@ -22,7 +24,7 @@
 			
 		$mysqli->close();	
 		
-		header("Location: http://www.youngportalnetwork.it/activity.php?id=".$id."#commenti");
+		header("Location: http://www.youngportalnetwork.it/students.php");
 		die();		
 	
 		}

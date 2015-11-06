@@ -14,7 +14,7 @@
 		$commento = str_replace("'", "\'",$_POST['testo_commento']);
 		$id = $_POST['id'];
 		$user_id = $_SESSION['user_id'];
-		$sql = "INSERT INTO COMMENTO_ATTIVITA (TESTO, ATTIVITA_ID,USER_ID) VALUES ('".$commento."','".$id."','".$user_id."');";					
+		$sql = "INSERT INTO COMMENTO_EVENTI (TESTO, EVENTO_ID,USER_ID) VALUES ('".$commento."','".$id."','".$user_id."');";					
 		if (!mysqli_query($mysqli,$sql)){
 			die('</br></br>Error: ' . mysqli_error($mysqli));
 		}	
@@ -22,7 +22,7 @@
 			
 		$mysqli->close();	
 		
-		header("Location: http://www.youngportalnetwork.it/activity.php?id=".$id."#commenti");
+		header("Location: http://www.youngportalnetwork.it/event.php?id=".$id."#commenti");
 		die();		
 	
 		}

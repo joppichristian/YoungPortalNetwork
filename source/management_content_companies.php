@@ -14,13 +14,13 @@
     <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
 
 	<script language="JavaScript" type="text/JavaScript">
-  function eliminaAttivita(id)
+  function eliminaAzienda(id)
 	{
-		var elimina = confirm("Sicuro di voler eliminare l'attivita: id="+id);
+		var elimina = confirm("Sicuro di voler eliminare l'azienda: id="+id);
 		if (elimina == true) {
 
 			$.ajax({
-				url:'post-deleteActivity.php',
+				url:'post-deleteAzienda.php',
 				type: 'POST',
 				data: {
 					'id': id,
@@ -56,12 +56,12 @@
   ?>
 <section id="cd-table">
 	<header class="cd-table-column">
-		<h2>Attivita'</h2>
+		<h2>Azienda</h2>
 		<ul>
-			<li>Localit&agrave;</li>
+			<li>Nome</li>
+			<li>Telefono</li>
 			<li>Descrizione</li>
-			<li>Foto Copertina</li>
-			<li>Data e ora inserimento</li>
+			<li>Email</li>
 			<!--<li>Modifica</li>
 			<li>Elimina</li>-->
 		</ul>
@@ -73,22 +73,22 @@
 		<?php
 		$idUtente = $_SESSION['user_id'];
 
-		$qry="SELECT * FROM ATTIVITA WHERE UTENTE_CREATORE = '$idUtente' ;";
+		$qry="SELECT * FROM AZIENDA WHERE ID_utente = '$idUtente' ;";
 		$result = $mysqli->query($qry);
 		while($row = $result->fetch_array())
 		{
 		?>
 			<div class="cd-table-column">
-				<h2><?php echo $row['TITOLO']; ?></h2>
+				<h2><?php echo $row['nome']; ?></h2>
 				<ul>
-					<li><?php echo $row['LOCALITA']; ?></li>
-					<li><?php echo substr($row['DESCRIZIONE'],0,60); ?></li>
+					<li><?php echo $row['telefono']; ?></li>
+					<li><?php echo substr($row['descrizione'],0,60); ?></li>
 					<li><img src="<?php echo $row['URL_FOTO']; ?>" /></li>
-					<li><?php echo $row['DATA_INSERIMENTO']; ?></li>
+					<li><?php echo $row['email']; ?></li>
 
-					<li><a class="cd-select" href="add-foto-activity.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);">gestisci foto</a></li>
-					<li><a class="cd-select" href="updateActivity.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
-					<li><a class="cd-select" onclick='eliminaAttivita(<?php echo $row['ID']; ?>);' style="color:red; cursor:pointer;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
+					<li><a class="cd-select" href="add-foto-companies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);">gestisci foto</a></li>
+					<li><a class="cd-select" href="updateCompanies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+					<li><a class="cd-select" onclick='eliminaAzienda(<?php echo $row['ID']; ?>);' style="color:red; cursor:pointer;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 		<?php
@@ -106,7 +106,7 @@
 <script src="js/js_management/main.js"></script> <!-- Gem jQuery -->
 <?php
   }else{
-		echo "Devi effettuare il login per gestire le tue attivit&agrave;";
+		echo "Devi effettuare il login per gestire la tua azienda";
   }
   ?>
 </body>

@@ -58,44 +58,52 @@ $testoIndietro = "#";
   </div>
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" >
         <div class="block green responsive-2" onclick="location.href='activities.php';" style="cursor:pointer;">
-              <p>Attività</p>
+              <!--<p>Attività</p>-->
+              <img src="/images/loghi_home/attivita.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
         <div class="block blue responsive-2" onclick="location.href='events.php';" style="cursor:pointer;">
-              <p>Eventi</p>
+              <!--<p>Eventi</p>-->
+              <img src="/images/loghi_home/eventi.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block red responsive-2" onclick="location.href='companies.php';" style="cursor:pointer;">
-              <p>Aziende</p>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="block orange responsive-2" onclick="location.href='companies.php';" style="cursor:pointer;">
+              <!--<p>Aziende</p>-->
+              <img src="/images/loghi_home/aziende_IMPRENDITORI.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='curriculums.php?c=0';" style="cursor:pointer;">
-              <p>Giovani e Lavoro</p>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="block gray responsive-2" onclick="location.href='curriculums.php?c=0';" style="cursor:pointer;">
+              <!--<p>Giovani e Lavoro</p>-->
+              <img src="/images/loghi_home/giovani.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
         <div class="block blue responsive-2" onclick="location.href='students.php';" style="cursor:pointer;">
-              <p>Forum Studenti</p>
+              <!--<p>Forum Studenti</p>-->
+              <img src="/images/loghi_home/forum.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block red responsive-2" onclick="location.href='structure.php';" style="cursor:pointer;">
-              <p>Strutture a noleggio</p>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="block orange responsive-2" onclick="location.href='structure.php';" style="cursor:pointer;">
+              <!--<p>Strutture a noleggio</p>-->
+              <img src="/images/loghi_home/strutture.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block green responsive-2" onclick="location.href='contacts.php';" style="cursor:pointer;">
-              <p>Contatti</p>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="block gray responsive-2" onclick="location.href='contacts.php';" style="cursor:pointer;">
+              <!--<p>Contatti</p>-->
+              <img src="/images/loghi_home/contatti.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-        <div class="block blue responsive-2" onclick="location.href='developers.php';" style="cursor:pointer;">
-              <p>Sviluppatori</p>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+        <div class="block green responsive-2" onclick="location.href='developers.php';" style="cursor:pointer;">
+              <!--<p>Sviluppatori</p>-->
+              <img src="/images/loghi_home/sviluppatori.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
   </div>

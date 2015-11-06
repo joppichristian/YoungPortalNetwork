@@ -5,7 +5,7 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="management_activities.php";
+$linkIndietro="management_companies.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
@@ -44,7 +44,7 @@ $testoIndietro = "TORNA INDIETRO";
 		if (elimina == true) {
 
 			$.ajax({
-				url:'post-fotoActivityDelete.php',
+				url:'post-fotoCompaniesDelete.php',
 				type: 'POST',
 				data: {
 					'id': id,
@@ -115,7 +115,7 @@ $testoIndietro = "TORNA INDIETRO";
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Carica le Foto</button>
-			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Fine.</button>
+			  <button type="reset"  onclick="window.location='management_companies.php';" value="Annulla" style="font-size: 25px;">Fine.</button>
 			<div>
 
 		  </form>

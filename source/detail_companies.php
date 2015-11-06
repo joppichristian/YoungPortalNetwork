@@ -64,25 +64,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-  <script>
-      function creazioneMap(lat, long) {
-        alert("ciaooooo ".lat);
-        var mapCanvas = document.getElementById('map-canvas');
-        var mapOptions = {
-          center: new google.maps.LatLng(lat, 9.long),
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
 
-        var marker = new google.maps.Marker({
-        map: map,
-        draggable: false,
-        position: new google.maps.LatLng(lat, long)
-    });
-      }
-      google.maps.event.addDomListener(window, 'load', creazioneMap);
-    </script>
 
   </head>
   <body>
@@ -125,7 +107,7 @@
     $orario_apertura = $row_a["orario"];
     $email = $row_a["email"];
     $telefono = $row_a["telefono"];
-    $url_foto_logo = $row_a["url_foto"];
+    $url_foto = $row_a["url_foto"];
     $categoria = $row_a['ID_categoria'];
     $autore = $row_a['ID_utente'];
 
@@ -157,7 +139,7 @@
   $idUtente = $_SESSION['user_id'];
 	$title=urlencode($titolo);
 
-	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_azienda);
+	$url=urlencode('http://www.youngportalnetwork.it/companies.php?id='.$id_azienda);
 
 	$summary=urlencode($localita);
 
@@ -166,35 +148,44 @@
 
 	?>
 
+
+
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-2 nopadding" >
           <a></a>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding" >
-          <a>Chi siamo</a>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding">
+          <li><a href="#chi_siamo" >Chi siamo</a></li>
         </div>
 
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
-          <a>Prodotti/Servizi</a>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding" >
+          <a href="#prodotti">Prodotti/Servizi</a>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
-          <a>Orari</a>
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
-          <a>Dove siamo</a>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding" >
+          <a href="#orari">Orari</a>
         </div>
 
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 nopadding">
-          <a>Contatti</a>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding">
+          <a href="#dove_siamo">Dove siamo</a>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding">
+          <a href="#contatti">Contatti</a>
         </div>
 
       </div>
     </div>
 
+    <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:1%;">
+          <?php
+            include("gallery_companies.php");
+          ?>
+        </div>
+    </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:1%;" >
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <img src="<?php echo $url_foto; ?>" id="anteprima" />
           </div>
@@ -205,29 +196,23 @@
 
       </div>
 
-      <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:1%;">
-            <?php
-              include("gallery_companies.php");
-            ?>
-          </div>
-      </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
-        <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+      <div id="chi_siamo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+
+        <div  class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
             <a><?php echo $nome; ?> - Chi siamo</a>
           </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;margin-bottom:3%;" >
           <?php echo $descrizione; ?>
         </div>
 
       </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+      <div id="prodotti"  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
         <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
@@ -235,21 +220,68 @@
           </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:3%;" >
 
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
-            <?php echo $titoloPr1; ?>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="center" style="margin-bottom:2%;">
+                <?php echo $titoloPr1; ?>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
+              <img src="<?php echo $url_fotoPr1; ?>" style="width:100%;height:50%;"  />
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="left" style="margin-top:2%;">
+                <?php echo $descrizionePr1; ?>
+            </div>
           </div>
 
+          <?php
+            if($titoloPr2 != "" && $descrizionePr2 != "" ){
+
+              ?>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
-            <?php echo $titoloPr2; ?>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="center" style="margin-bottom:2%;">
+                <?php echo $titoloPr2; ?>
+            </div>
+            <?php if($urlFotoPr2 ==""){ ?>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
+              <img src="<?php echo $url_fotoPr2; ?>" style="width:100%;height:50%;"  />
+            </div>
+            <?php
+              }else{
+                  $url_vuota = "http://www.youngportalnetwork.it/images/example.jpg";
+            ?>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
+                <img src="<?php echo $url_vuota; ?>" style="width:100%;height:50%;"  />
+              </div>
+            <?php
+              }
+            ?>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="left" style="margin-top:2%;">
+                <?php echo $descrizionePr2; ?>
+            </div>
+          </div>
+          <?php
+          }
+          ?>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="center" style="margin-bottom:2%;">
+                <?php echo $titoloPr3; ?>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
+              <img src="<?php echo $url_fotoPr3; ?>" style="width:100%;height:50%;"  />
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="left" style="margin-top:2%;">
+                <?php echo $descrizionePr3; ?>
+            </div>
           </div>
 
         </div>
 
       </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+      <div id="orari"  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
         <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
@@ -257,13 +289,13 @@
           </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;margin-bottom:3%;" >
           <?php echo $orario_apertura; ?>
         </div>
 
       </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+      <div  id="dove_siamo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
         <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
@@ -272,17 +304,15 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 " onload="creazioneMap(<?php echo $latitudine;?>,<?php echo $longitudine;?>);"  align="center" >
-               <div id="map-canvas" class="map_canvas"></div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 " style="width:100%; margin-bottom:3%;" align="center" >
+               <div id="map-canvas" style="width:100%;height:50%;"></div>
           </div>
 
-          <?php echo $latitudine; echo $longitudine; ?>
         </div>
 
       </div>
 
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
+      <div id="contatti"  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
 
         <div class="subsezioni col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
@@ -290,7 +320,7 @@
           </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;margin-bottom:3%;" >
           <?php echo $email; echo $telefono; ?>
         </div>
 
@@ -298,5 +328,30 @@
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+
+
+   <script>
+
+     window.onload = function() {
+
+       var lat = <?php echo $latitudine; ?>;
+       var long =<?php echo $longitudine; ?>;
+       var mapCanvas = document.getElementById('map-canvas');
+       var mapOptions = {
+         center: new google.maps.LatLng(lat, long),
+         zoom: 12,
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+       }
+       var map = new google.maps.Map(mapCanvas, mapOptions)
+
+       var marker = new google.maps.Marker({
+       map: map,
+       draggable: false,
+       position: new google.maps.LatLng(lat, long)
+   });
+     }
+     google.maps.event.addDomListener(window, 'load', initialize);
+   </script>
+
   </body>
 </html>

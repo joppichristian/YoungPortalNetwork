@@ -34,9 +34,9 @@
                                   //$count++; // Number of successfully uploaded file
 
                                   if((${'prodotto'.$count}!="")&&(${'descrizione'.$count}!="")){
-                                    $urlFotoP =  "http://www.youngportalnetwork.it/".$name ;
-                                    $sqlP = "INSERT INTO PRODOTTI_AZIENDA (url_foto, titolo, descrizione, id_utente) VALUES
-                                        ('".$urlFotoP."','".${'prodotto'.$count}."','".${'descrizione'.$count}."','".$idUtente."')";
+                                    $urlFotoP =  "http://www.youngportalnetwork.it/images/aziende/".$name ;
+                                    $sqlP = "INSERT INTO PRODOTTI_AZIENDA (url_foto, titolo, descrizione, n_prodotto, id_utente) VALUES
+                                        ('".$urlFotoP."','".${'prodotto'.$count}."','".${'descrizione'.$count}."','".$count."','".$idUtente."')";
                                               //  echo "SQL E?  ".$sql;
                         					  if (!mysqli_query($mysqli,$sqlP)){
                         						        die('</br></br>Error: ' . mysqli_error($mysqli));
@@ -52,7 +52,7 @@
 
                       //echo "Fino a qui";
 
-                    
+
 
                       /*
 

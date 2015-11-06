@@ -10,7 +10,7 @@ a:hover{
 
 .carousel-control {
 	left: -12px;
-  background-color: rgba(50, 72, 31, 0.6);
+  /*background-color: rgba(50, 72, 31, 0.6);*/
 }
 .carousel-control.right {
 	right: -12px;
@@ -76,13 +76,13 @@ background-color: rgb(50, 72, 31);
 	   $foto_trovate = 1;
        if($indice == 0) { ?>
          <div class="item active">
-           <img src="<?php echo $row_a['URL']; ?>" style="width:100%; height:80%;"/>
+           <img src="<?php echo $row_a['URL']; ?>" style="width:100%; height:60%;"/>
          </div>
      <?php
    } else {
      ?>
      <div class="item">
-       <img src="<?php echo $row_a['URL']; ?>" style="width:100%; height:80%;"/>
+       <img src="<?php echo $row_a['URL']; ?>" style="width:100%; height:60%;"/>
      </div>
      <?php
      }
@@ -91,7 +91,7 @@ background-color: rgb(50, 72, 31);
    if($foto_trovate==0)
    { ?>
 	    <div class="item active">
-           <img src="images/example.jpg" style="width:100%;height:80%;"/>
+           <img src="images/example.jpg" style="width:100%;height:60%;"/>
          </div>
          <?php
 

@@ -145,7 +145,7 @@
 			{ ?>
 				<ul id="<? echo $row_c['MATERIA']; ?>" class="cd-faq-group">
 				<li class="cd-faq-title"><h2><? echo $row_c['MATERIA']; ?></h2></li>
-			<?	$qry_dom="SELECT D.ID,TESTO,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') AS DATA_INSERIMENTO,ANONIMATO,USERNAME,USER_ID FROM DOMANDE D LEFT JOIN UTENTE U ON D.USER_ID = U.ID WHERE ID_MATERIA = ".$row_c['ID']." ORDER BY DATA_INSERIMENTO DESC;";
+			<?	$qry_dom="SELECT D.ID,TESTO,DATA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') AS DATA_INSERIMENTO,ANONIMATO,USERNAME,USER_ID FROM DOMANDE D LEFT JOIN UTENTE U ON D.USER_ID = U.ID WHERE ID_MATERIA = ".$row_c['ID']." ORDER BY DATA ASC;";
 				$result_dom = $mysqli->query($qry_dom);
 				
 				while($row_dom = $result_dom->fetch_array())
@@ -168,7 +168,7 @@
 				<div class="cd-faq-content">
 					<!-- elemento risposta-->
 					<?php
-					$qry_risp="SELECT R.ID,TESTO,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_INSERIMENTO,USERNAME,ANONIMATO,USER_ID FROM RISPOSTE R LEFT JOIN UTENTE U ON R.USER_ID = U.ID WHERE ID_DOMANDA = ".$row_dom['ID']." ORDER BY DATA_INSERIMENTO DESC;";
+					$qry_risp="SELECT R.ID,TESTO,DATA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_INSERIMENTO,USERNAME,ANONIMATO,USER_ID FROM RISPOSTE R LEFT JOIN UTENTE U ON R.USER_ID = U.ID WHERE ID_DOMANDA = ".$row_dom['ID']." ORDER BY DATA ASC;";
 					$result_risp = $mysqli->query($qry_risp);
 					
 					while($row_risp = $result_risp->fetch_array())
@@ -183,9 +183,9 @@
 						<? } else { ?>
 						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   anonimo:'; ?></div> 
 						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="location.href='deleteAnswer.php?id=<? echo $row_risp['ID'];?>';" ?>Elimina</div>
-
+						
 						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
-
+						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
 						<?}}else{ 
 							if($row_risp['ANONIMATO'] == 0){ ?>
 						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   '.$row_risp['USERNAME'].':'; ?></div> 
@@ -197,7 +197,7 @@
 						
 
 						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
-
+						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
 						<?}
 						}?>
 					</div>
@@ -219,8 +219,10 @@
 					   	</form>
 					</div>
 			    </div>
-			    <?php } ?>
-
+			    <?php }else{ ?>
+			    	<div style="color:#0090d7;font-weight: bolder;">Effettua il login per rispondere alla domanda!</div>
+				<?
+				}?>
 				</div>
 				<?}?>
 				</ul> <!-- cd-faq-group -->

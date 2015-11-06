@@ -170,16 +170,18 @@
 		   	</form>
 		</div>
     </div>
-    <?php } ?>
+     <?php }else{ ?>
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:#1795ca;font-weight: bolder;margin-bottom: 1%;margin-top: 3%;">Effettua il login per poter commentare!</div>
+    <? }?>
 
 	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
 	<?php
 		
-		$query_sql = "SELECT CE.ID, TESTO, DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
+		$query_sql = "SELECT CE.ID, TESTO, DATA_ORA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
 					  FROM COMMENTO_EVENTI CE
 					  LEFT JOIN UTENTE U ON CE.USER_ID = U.ID
 					   WHERE EVENTO_ID =". $id_evento ."
-					   ORDER BY DATA_ORA_INSERIMENTO DESC;";
+					   ORDER BY DATA ASC;";
 	
 		$result = $mysqli->query($query_sql);	 
 		while($row = $result->fetch_array())

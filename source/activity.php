@@ -181,15 +181,17 @@
 		   	</form>
 		</div>
     </div>
-    <?php } ?>
+    <?php }else{ ?>
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:rgb(180,183,34);font-weight: bolder;margin-bottom: 1%;margin-top: 3%;">Effettua il login per poter commentare!</div>
+    <? }?>
 	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
 	<?php
 		
-		$query_sql = "SELECT CA.ID, TESTO, DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
+		$query_sql = "SELECT CA.ID, TESTO, DATA_ORA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
 					  FROM COMMENTO_ATTIVITA CA
 					  LEFT JOIN UTENTE U ON CA.USER_ID = U.ID
 					   WHERE ATTIVITA_ID =". $id_attivita ."
-					   ORDER BY DATA_ORA_INSERIMENTO DESC;";
+					   ORDER BY DATA ASC;";
 	
 		$result = $mysqli->query($query_sql);	 
 		while($row = $result->fetch_array())
@@ -230,7 +232,7 @@
 				    	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="color:rgb(180,183,34);" id="data_inserimento" >
 					    	<? echo $row['DATA_ORA_INSERIMENTO']; ?>
 				    	</div>
-				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:rgb(180,183,34);" id="testo">
+				    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="testo">
 					    	<? echo $row['TESTO']; ?>
 				    	</div>
 			    	</div>

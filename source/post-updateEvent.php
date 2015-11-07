@@ -15,15 +15,7 @@
 			if(!isset($_POST['id'])){
 				die("Qualcosa è andato storto...");
 			}
-			
-			$messaggio .= "</br> RIEPILOGO EVENTO:";
-			$messaggio .= "</br>";
-			$messaggio .= " titolo: ". $titolo. "\n";
-			$messaggio .= "</br>";
-			$messaggio .= " localita: ". $localita. "\n";
-			$messaggio .= "</br>";
-			$messaggio .= " descrizione: ". $descrizione. "\n";
-			 			
+								 			
 			$titolo = str_replace("'", "\'",$_POST["titolo"]);
 			$localita = str_replace("'", "\'",$_POST["localita"]);
 			$descrizione = str_replace("'", "\'",$_POST["descrizione"]);
@@ -33,6 +25,14 @@
 			$utenteCreatore = $_POST["utenteCreatore"];
 
 			$idUtente = $_SESSION['user_id'];	
+			
+			$messaggio .= "</br> RIEPILOGO EVENTO:";
+			$messaggio .= "</br>";
+			$messaggio .= " titolo: ". $titolo. "\n";
+			$messaggio .= "</br>";
+			$messaggio .= " localita: ". $localita. "\n";
+			$messaggio .= "</br>";
+			$messaggio .= " descrizione: ". $descrizione. "\n";
 	 
 			/* echo " catId: ". $catId. "\n";
 			echo "</br>";
@@ -48,8 +48,8 @@
 			date_default_timezone_set('Europe/Rome');			
 			$uploads_dir = 'images/eventi';
 			$data_e_ora = date("Y-m-d_H-i-s",time());
-			$data_inizio = date("Y-m-d_H-i-s",$data_inizio);
-			$data_fine = date("Y-m-d_H-i-s",$data_fine);
+			//$data_inizio = date("Y-m-d_H-i-s",$data_inizio);
+			//$data_fine = date("Y-m-d_H-i-s",$data_fine);
 			$name     = $_FILES["file"]["name"];			
 			$nameFile = $data_e_ora . $name ;
         	

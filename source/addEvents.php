@@ -153,33 +153,20 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		<p>Data e Ora di Inizio: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" id="data_inizio" >
-		  <script>
-				if ( $('#data_inizio')[0].type != 'datetime-local' ){
-					//$('#data_inizio').datetimepicker();
-					$('#data_inizio').datetimepicker({
-						dayOfWeekStart : 1,
-						formatDate:'d/m/Y',
-						lang:'en'
-					});
-					//$('#data_inizio').datetimepicker({value:'2015/04/15 05:03',step:10}); 
-				}	
+		    <input type="text" id="data_inizio" name="data_inizio" />
+		    <script>	  
+				//if ( $('#data_inizio')[0].type != 'datetime-local' ){
+					$('#data_inizio').datetimepicker();					
+				//}	
 			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
-		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>
-			
-		  <input type="datetime-local" id="data_fine" >
-		  <script>
-				if ( $('#data_fine')[0].type != 'datetime-local' ){
-					//$('#data_fine').datetimepicker();
-					$('#data_fine').datetimepicker({
-						dayOfWeekStart : 1,
-						formatDate:'d/m/Y',
-						lang:'en'
-					});
-					//$('#data_fine').datetimepicker({value:'2015/04/15 05:03',step:10}); 
-				}	
+		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>			
+		    <input type="text" id="data_fine" name="data_fine" />
+		    <script>
+				//if ( $('#data_fine')[0].type != 'datetime-local' ){
+					$('#data_fine').datetimepicker();
+				//}	
 			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">

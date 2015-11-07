@@ -27,15 +27,35 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
   <!--              -->
 
+  <!-- JQuery e CSS per data inizio e fine -->
+  <link rel="stylesheet" href="css/css_jquery/jquery.datetimepicker.css">
+  <style type="text/css">
+
+		.custom-date-style {
+			background-color: red !important;
+		}
+
+		.input{	
+		}
+		.input-wide{
+			width: 500px;
+		}
+
+   </style>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.datetimepicker.full.min.js"></script>
+  <!-- Fine JS per data inizio e fine -->
+  
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
-   
-
-  <!-- JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+   <!-- JavaScript -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/pace.js"></script>
   <!-- -->
 
 <script language="JavaScript" type="text/JavaScript">
@@ -111,13 +131,14 @@ $testoIndietro = "TORNA INDIETRO";
 	$titolo = "";
 	$localita = "";
 	$descrizione = "";
-	$data_inizio = $row['DATA_INIZIO'];
-	$data_fine = $row['DATA_FINE'];
+	$data_inizio = "";
+	$data_fine = "";
 	$categoria_id = "";
 	$utenteCreatore = "";
 	$url_foto_attuale = "";
 
-	$qry="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INIZIO, '%d/%m/%Y %H:%i') as DATA_INIZIO,DATE_FORMAT(DATA_FINE, '%d/%m/%Y %H:%i') AS DATA_FINE FROM EVENTI WHERE ID ='$id_evento' ;";
+	//$qry="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INIZIO, '%d/%m/%Y %H:%i') as DATA_INIZIO,DATE_FORMAT(DATA_FINE, '%d/%m/%Y %H:%i') AS DATA_FINE FROM EVENTI WHERE ID ='$id_evento' ;";
+	$qry="SELECT * FROM EVENTI WHERE ID ='$id_evento' ;";
 
 	$result = $mysqli->query($qry);
 	while($row = $result->fetch_array())
@@ -160,12 +181,22 @@ $testoIndietro = "TORNA INDIETRO";
 		  <textarea rows="5" id="descrizione" name="descrizione"  cols="100"  placeholder="Descrizione"><?php echo $descrizione; ?></textarea>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
-		<p>Data e Ora di Inizio: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" name="data_inizio" value="<?php echo $data_inizio;?>" id="data_inizio" >
+		<p>Data e Ora di Inizio: (gg/mm/aaaa hh:mm)<?php echo $data_inizio; ?> </p>
+		    <input type="text" id="data_inizio" name="data_inizio" />
+		    <script>	  
+				//if ( $('#data_inizio')[0].type != 'datetime-local' ){
+					$('#data_inizio').datetimepicker({ value: '<?php echo substr( str_replace("-","/",$data_inizio) , 0, -3); ?>' });					
+				//}	
+			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
-		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm) </p>
-		  <input type="datetime-local" name="data_fine" id="data_fine" value="<?php echo $data_fine;?>" >
+		<p>Data e Ora di Fine: (gg/mm/aaaa hh:mm)<?php echo $data_fine; ?> </p>			
+		    <input type="text" id="data_fine" name="data_fine" />
+		    <script>
+				//if ( $('#data_fine')[0].type != 'datetime-local' ){
+					$('#data_fine').datetimepicker({ value:'<?php echo substr( str_replace("-","/",$data_fine) , 0, -3); ?>' });
+				//}	
+			</script>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;">
 		  <p>Categoria:</p>

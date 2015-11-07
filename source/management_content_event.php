@@ -61,6 +61,8 @@
 			<li>Localit&agrave;</li>
 			<li>Descrizione</li>
 			<li>Foto Copertina</li>
+			<li>Data e ora inizio</li>
+			<li>Data e ora fine</li>
 			<li>Data e ora inserimento</li>
 			<!--<li>Modifica</li>
 			<li>Elimina</li>-->
@@ -84,6 +86,8 @@
 					<li><?php echo $row['LOCALITA']; ?></li>
 					<li><?php echo substr($row['DESCRIZIONE'],0,60); ?></li>
 					<li><img src="<?php echo $row['URL_FOTO']; ?>" /></li>
+					<li><?php echo $row['DATA_INIZIO']; ?></li>
+					<li><?php echo $row['DATA_FINE']; ?></li>
 					<li><?php echo $row['DATA_INSERIMENTO']; ?></li>
 
 					<li><a class="cd-select" href="add-foto-event.php?id=<?php echo $row['ID']; ?>" style="color:rgba(23, 149, 202, 1);">gestisci foto</a></li>

@@ -40,8 +40,10 @@
 			$data_fine = $_POST["data_fine"];
 			$categoria = $_POST["categoria"];
 			$idUtente = $_SESSION['user_id'];
-			$data_inizio = date('d/m/Y H:i', strtotime($data_inizio));	
-			$data_fine = date('d/m/Y H:i', strtotime($data_fine));	
+			//$data_inizio = date('d/m/Y H:i', strtotime($data_inizio));	
+			//$data_fine = date('d/m/Y H:i', strtotime($data_fine));	
+			//echo "</br> - DATA I: ".$data_inizio ;
+			//echo "</br> - DATA F: ".$data_fine ;
 		 			
 			if($_FILES["file"]["error"]>0){
 				 die ("!!! ERRORE: errore caricamento file!!!! TORNA INDIETRO E RIPROVA.");	

@@ -18,8 +18,8 @@ $testoIndietro = "TORNA ALLA HOME";
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+  <link href="css/css_form/form_gray.css" rel="stylesheet">
+  <link href="css/css_curriculum/cv.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >
@@ -152,7 +152,7 @@ while($row_nome = $result_nome->fetch_array())
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 2%; width:100%">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <p style="color:rgb(50,72,31);">Ricerca per categoria:</p>
+      <p style="color:rgb(156,156,156);">Ricerca per categoria:</p>
     </div>
   </div>
   <?php
@@ -169,7 +169,7 @@ while($row_nome = $result_nome->fetch_array())
       <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="curriculums.php?c=0" >
             <div class="description" style="padding-top:1%; padding-bottom:1%;">
-              <p style="color:rgb(50,72,31);">TUTTE</p>
+              <p style="color:rgb(156,156,156);">TUTTE</p>
             </div>
           </a>
         </div>
@@ -200,7 +200,7 @@ while($row_nome = $result_nome->fetch_array())
         <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
             <a href="curriculums.php?c=<?php echo $row_a['ID']; ?>" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
-                <p style="color:rgb(50,72,31);"><?php echo $row_a['nome']; ?></p>
+                <p style="color:rgb(156,156,156);"><?php echo $row_a['nome']; ?></p>
               </div>
             </a>
         </div>

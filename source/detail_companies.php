@@ -49,7 +49,7 @@
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background-color: rgb(148,59,68);
+    background-color: rgb(234,140,6);
     margin-bottom: 15px;
     z-index: -1;
   }

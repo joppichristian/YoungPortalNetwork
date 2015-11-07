@@ -86,8 +86,8 @@
 					<li><img src="<?php echo $row['URL_FOTO']; ?>" /></li>
 					<li><?php echo $row['email']; ?></li>
 
-					<li><a class="cd-select" href="add-foto-companies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);">gestisci foto</a></li>
-					<li><a class="cd-select" href="updateCompanies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(50, 72, 31, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
+					<li><a class="cd-select" href="add-foto-companies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(234,140,6, 1);">gestisci foto</a></li>
+					<li><a class="cd-select" href="updateCompanies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(234,140,6, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
 					<li><a class="cd-select" onclick='eliminaAzienda(<?php echo $row['ID']; ?>);' style="color:red; cursor:pointer;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->

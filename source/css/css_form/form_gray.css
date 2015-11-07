@@ -1,0 +1,81 @@
+.filter-form{
+  text-align: center;
+  font-size: 25px;
+}
+form{
+  color:rgb(156,156,156);
+  width: 100%;
+  margin:auto;
+}
+input[type="text"]{
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+}
+  input[type="text"]:focus{
+    border-color: rgb(156,156,156);
+    box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+    outline: none;
+  }
+
+input[type="datetime-local"]{
+  border: 2px solid #cfd9db;
+  border-radius: .25em;
+  padding: 5px;
+}
+  input[type="datetime-local"]:focus{
+    border-color: rgb(156,156,156);
+    box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+    outline: none;
+  }
+  input[type="file"]{
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+  }
+    input[type="file"]:focus{
+      border-color: rgb(156,156,156);
+      box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+      outline: none;
+    }
+input[type="submit"]{
+    background-color: rgb(156,156,156);
+    border: 1px solid #cfd9db;
+    border-radius: .25em;
+    color: white;
+    padding: 5px;
+  }
+  button{
+        background-color: rgb(156,156,156);
+        border: 1px solid #cfd9db;
+        border-radius: .25em;
+        color: white;
+        padding: 5px;
+      }
+      button:hover{
+        border-color: rgb(156,156,156);
+        box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+      }
+      select{
+            background-color: rgb(156,156,156);
+            border: 1px solid #cfd9db;
+            border-radius: .25em;
+            color: white;
+            padding: 5px;
+          }
+          select:hover{
+            border-color: rgb(156,156,156);
+            box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+          }
+  textarea{
+    font-size:20px;
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+    resize: none;
+  }
+    textarea:focus{
+      border-color: rgb(156,156,156);
+      box-shadow: 0 0 5px rgba(156,156,156, 0.2);
+      outline: none;
+    }

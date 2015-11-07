@@ -18,8 +18,8 @@
     <!--        CSS       -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/css_form/form_green.css" rel="stylesheet">
-    <link href="css/css_attivita/attivita.css" rel="stylesheet">
+    <link href="css/css_form/form_gray.css" rel="stylesheet">
+    <link href="css/css_curriculum/cv.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css" >
     <link rel="stylesheet" href="css/pace.css" >
     <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
@@ -31,7 +31,7 @@
 
     .textcv{
       text-align:right;
-      font-size: 300%;
+      font-size: 200%;
       margin-top: 0.3%
       margin-bottom:0.3%;
     }
@@ -44,7 +44,7 @@
     }
 
     .titolocv{
-      background-color:rgb(50,72,31);
+      background-color:rgb(156,156,156);
       color:white;
       text-align:left;
       font-size: 200%;
@@ -181,7 +181,7 @@
           <?php
           if($istruzione1!=""){
                 echo "* ".$istruzione1;
-          } 
+          }
          ?>
         </div>
         <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">

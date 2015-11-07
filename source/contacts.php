@@ -6,8 +6,8 @@
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/css_form/form_green.css" rel="stylesheet">
-  <link href="css/css_attivita/attivita.css" rel="stylesheet">
+	<link href="css/css_form/form_gray.css" rel="stylesheet">
+  <link href="css/css_curriculum/cv.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/font-awesome.min.css" >
   <link rel="stylesheet" href="css/pace.css" >

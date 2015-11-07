@@ -152,7 +152,7 @@ while($row_nome = $result_nome->fetch_array())
   </div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="margin-top: 2%;">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <p style="color:rgb(148,59,68);">Ricerca per categoria:</p>
+      <p style="color:rgb(234,140,6);">Ricerca per categoria:</p>
     </div>
   </div>
   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="margin-top: 2%;">
@@ -172,7 +172,7 @@ while($row_nome = $result_nome->fetch_array())
       <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="companies.php?c=0" >
             <div class="description" style="padding-top:1%; padding-bottom:1%;">
-              <p style="color:rgb(148,59,68);">TUTTE</p>
+              <p style="color:rgb(234,140,6);">TUTTE</p>
             </div>
           </a>
         </div>
@@ -203,7 +203,7 @@ while($row_nome = $result_nome->fetch_array())
         <div class="item-option-select col-lg-12 col-md-12 col-sm-12 col-xs-12" >
             <a href="companies.php?c=<?php echo $row_a['ID']; ?>" >
               <div class="description" style="padding-top:1%; padding-bottom:1%;">
-                <p style="color:rgb(148,59,68);"><?php echo $row_a['nome']; ?></p>
+                <p style="color:rgb(234,140,6);"><?php echo $row_a['nome']; ?></p>
               </div>
             </a>
         </div>

@@ -73,8 +73,8 @@ header h1 {
   width: 50px;
   z-index: 1;
   pointer-events: none;
-  background: -webkit-linear-gradient( right , #f8f7ee, rgba(248, 247, 238, 0));
-  background: linear-gradient(to left, #f8f7ee, rgba(248, 247, 238, 0));
+  background: -webkit-linear-gradient( right , #f8f7ee, rgba(234,140,6, 0));
+  background: linear-gradient(to left, #f8f7ee, rgba(234,140,6, 0));
   visibility: visible;
   opacity: 1;
   -webkit-transition: opacity .3s 0s, visibility 0s 0s;

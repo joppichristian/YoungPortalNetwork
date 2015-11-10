@@ -49,12 +49,12 @@ $testoIndietro = "#";
 	  ?>
     </div> <!-- cd-user-modal -->
 
-  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle; z-index: -1;" >
-
-
-    <img src="images/sfondo.png" style="width:100%; height:45%; " />
-
-
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom:3%; padding:0px; width:100%; vertical-align:middle; z-index: -1;" >
+	<div style="position: absolute;top:30px; width:35%; text-align:center;background-color: white;border-bottom-right-radius: 50px;">
+		<img src="images/logo.png" style="width:60%;height: auto;"/>
+	</div>
+    <img src="images/sfondo.jpg" style="width:100%; height:auto; " />
+    
   </div>
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">

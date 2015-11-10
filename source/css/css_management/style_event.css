@@ -55,7 +55,7 @@ Main components
   font-size: 14px;
   font-size: 0.875rem;
   /* you may remove this border in case of dark backgrounds if it's annoying */
-  border-right: 1px solid #e6e7f1;
+  border-right: 1px solid white;
 }
 #cd-table::after {
   /* clearfix */
@@ -98,7 +98,7 @@ Main components
 #cd-table .cd-table-column {
   width: 150px;
   float: left;
-  border: 1px solid #e6e7f1;
+  border: 1px solid white;
   margin-left: -1px;
 }
 #cd-table .cd-table-column:last-child {
@@ -108,7 +108,7 @@ Main components
   position: relative;
   text-align: center;
   padding: 0 1em;
-  border-bottom: 1px solid #e6e7f1;
+  border-bottom: 1px solid white;
   height: 42px;
   line-height: 42px;
   background-color: white;
@@ -167,7 +167,7 @@ Main components
   z-index: 10;
   background: rgba(23, 149, 202, 0.7);
   margin-left: 0;
-  border-color: #6b758d;
+  border-color: white;
   box-shadow: 2px 0 0 rgba(0, 0, 0, 0.1);
   pointer-events: none;
 }
@@ -176,7 +176,7 @@ Main components
   text-align: left;
   color: #edeef1;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-bottom-color: #6b758d;
+  border-bottom-color: white;
 }
 #cd-table header.cd-table-column h2 {
   color: #edeef1;
@@ -189,7 +189,7 @@ Main components
   background-color: rgba(23, 149, 202, 1);
 }
 #cd-table header.cd-table-column li:last-child {
-  border-bottom: 1px solid #6b758d;
+  border-bottom: 1px solid white;
 }
 #cd-table .cd-scroll-right {
   /* small right arrow that indicates it's possible to scroll right */
@@ -223,7 +223,7 @@ Main components
     float: left;
   }
   #cd-table .cd-table-column:last-child {
-    border-right: 1px solid #e6e7f1;
+    border-right: 1px solid white;
   }
   #cd-table header.cd-table-column {
     width: 16.66667%;

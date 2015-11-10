@@ -40,15 +40,30 @@ $grpg = $_GET['grpg'];
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
-
+    <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+	
   <!-- JavaScript custom -->
-  <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
+   <script type="text/javascript">
+			      function displayEffettuaLogin(){
+                                    $('#addAct').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Attività',
+                                            content: 'Effettua il login per aggiungere un\'attività',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                             animationSpeed: 1000,
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+                               
+                                   }
+                                
+                                </script>
 
-</head>
+  </head>
 <body>
   <header role="banner" style="background-color:black;">
     <?php
@@ -95,12 +110,12 @@ $grpg = $_GET['grpg'];
 	<?php
 	}else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+		<a href="#" id="addAct" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi attività
 			</button>
 		</a>
-	<?php
+			<?php
 	}
 	?>
 

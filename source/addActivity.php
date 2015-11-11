@@ -36,6 +36,31 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   
+  <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+	
+  <!-- JavaScript custom -->
+   <script type="text/javascript">
+	  function displayEffettuaLogin(){
+		$('#addAct').on('click', function () {
+				$.alert({
+				title: 'Aggiungi Attività',
+				content: 'Effettua il login per aggiungere un\'attività',
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
+		});
+   
+      }
+					
+	</script>
+  
+  
   <!-- JS -->
   
   <script language="JavaScript" type="text/JavaScript">

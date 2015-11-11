@@ -149,7 +149,7 @@ $grpg = $_GET['grpg'];
 	}else{
 	?>
 		<a href="#" id="addAct" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="ShowDialogBox('Attenzione','Devi effettuare il login.','Ok','annulla');" title='Effettua il login per aggiungere un attivita' >
+			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="ShowDialogBox('Attenzione','Devi effettuare il login.','Ok','');" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi attività
 			</button>
 		</a>

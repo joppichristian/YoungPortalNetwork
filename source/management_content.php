@@ -65,11 +65,11 @@
 		$.confirm({
 				title: 'Elimino Attività',
 				confirmButton: 'Elimina',
-				cancelButton: 'Annulla',
+				//cancelButton: 'Annulla',
 				content: 'Sei sicuro di voler eliminare l\'attività?',
 				theme: 'supervan',
 				confirmButtonClass: 'btn-info',
-				cancelButtonClass: 'btn-danger',
+			//	cancelButtonClass: 'btn-danger',
 				animation:'RotateY',
 				animationSpeed: 1000,
 				confirm: function () {
@@ -92,10 +92,10 @@
 							}
 						}
 					});		
-				},
-				cancel: function () {
+				}//,
+				//cancel: function () {
 					//non fare nulla.
-				}
+				//}
 		});
 		
 	}

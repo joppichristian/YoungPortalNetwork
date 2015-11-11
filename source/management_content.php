@@ -36,7 +36,7 @@
 
 					<li><a class="cd-select" href="add-foto-activity.php?id=<?php echo $row['ID']; ?>" style="color:rgba(180,183,34, 1);">gestisci foto</a></li>
 					<li><a class="cd-select" href="updateActivity.php?id=<?php echo $row['ID']; ?>" style="color:rgba(180,183,34, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>
-					<li><a class="cd-select elimina"  value="<?php echo $row['ID']; ?>" style="color:red; cursor:pointer;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
+					<li><a class="cd-select-elimina" onclick="confermaEliminazione(<?php echo $row['ID']; ?>);"  style="color:red; cursor:pointer;"><i class="fa fa-times" style=" margin-top:3px;"></i></a></li>
 				</ul>
 			</div> <!-- cd-table-column -->
 			 		<?php
@@ -60,48 +60,44 @@
   }	  
   ?>  
  <script type="text/javascript">
-                         		$('.elimina').each(function(){
-                                    $(this).on('click', function () {
-	                                    var id = 30;
-	                                    alert(id);
-	                                    console.log($(this));
-	                                        $(this).confirm({
-                                            title: 'Elimino Attività',
-                                            confirmButton: 'Elimina',
-                                            cancelButton: 'Annulla',
-                                             content: 'Sei sicuro di voler eliminare l\'attività?',
-                                            theme: 'supervan',
-                                            confirmButtonClass: 'btn-info',
-                                            cancelButtonClass: 'btn-danger',
-                                           animation:'RotateY',
-                                             animationSpeed: 1000,
-                                            confirm: function (id) {
-                                                $.ajax({
-													url:'post-deleteActivity.php',
-													type: 'POST',
-													data: { 
-														'id': id, 
-														'cod': 'young123' 
-													},
-													success:function(response){
-													
-														//alert("Resp:"+response);
-														//alert("response index of success="+response.indexOf("success"));
-																						
-														if( response.indexOf("success") > -1){
-															location.reload(true);
-														}else{
-															alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
-														}
-													}
-												});		
-                                            },
-                                            cancel: function () {
-                                                alert("prova");
-                                            }
-                                        });
-                                    });
-                                   });
-                                   
-                                
-                                </script>
+	function confermaEliminazione(id){
+		
+		$.confirm({
+				title: 'Elimino Attività',
+				confirmButton: 'Elimina',
+				cancelButton: 'Annulla',
+				content: 'Sei sicuro di voler eliminare l\'attività?',
+				theme: 'supervan',
+				confirmButtonClass: 'btn-info',
+				cancelButtonClass: 'btn-danger',
+				animation:'RotateY',
+				animationSpeed: 1000,
+				confirm: function () {
+					$.ajax({
+						url:'post-deleteActivity.php',
+						type: 'POST',
+						data: { 
+							'id': id, 
+							'cod': 'young123' 
+						},
+						success:function(response){
+						
+							alert("Resp:"+response);
+							//alert("response index of success="+response.indexOf("success"));
+															
+							if( response.indexOf("success") > -1){
+								location.reload(true);
+							}else{
+								alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+							}
+						}
+					});		
+				},
+				cancel: function () {
+					//non fare nulla.
+				}
+		});
+		
+	}
+	   
+</script>

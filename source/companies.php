@@ -36,25 +36,14 @@ $testoIndietro = "TORNA ALLA HOME";
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
 
-  <!-- JavaScript custom -->
-  <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
-  <script type="text/javascript">
-  function displayCVInserito(){
-		alert("Hai già inserito il tuo CV. Vai nella sezione 'Gestisci la tua azienda' qui accanto per modificalo!");
-	}
-  </script>
+ <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+ 
 
-  <script type="text/javascript">
-  function displayCVGestione(){
-		alert("Non hai inserito la tua azienda. Vai nella sezione 'Aggiungi azienda' qui accanto per inserirlo!");
-	}
-  </script>
+
 
 
 </head>
@@ -95,7 +84,7 @@ while($row_nome = $result_nome->fetch_array())
 
     if($gia_inserito == 1){
       ?>
-      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+      <a href="#" id="inserted" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
 			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVInserito();" title='Attenzione!' >
 				         Aggiungi azienda
 		       </button>
@@ -114,8 +103,8 @@ while($row_nome = $result_nome->fetch_array())
     }
   }else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+		<a href="#" id="addBus" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12"  title='Effettua il login per aggiungere un attivita' >
 				Aggiungi azienda
 			</button>
 		</a>
@@ -124,8 +113,8 @@ while($row_nome = $result_nome->fetch_array())
 
   if($gia_inserito == 0){
     ?>
-    <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
-      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVGestione();">
+    <a href="#" id="manageBus" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
         Gestisci la tua azienda
       </button>
     </a>
@@ -261,11 +250,55 @@ while($row_nome = $result_nome->fetch_array())
 
     </div>
   </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+    <script type="text/javascript">
+                                    $('#addBus').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Azienda',
+                                            content: 'Effettua il login per aggiungere un\'azienda',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+                               
+                                    $('#manageBus').on('click', function () {
+	                                        $.alert({
+                                            title: 'Modifica Azienda',
+                                            content: 'Non hai inserito la tua azienda. Vai nella sezione \'Aggiungi azienda\' qui accanto per inserirlo!',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+                                
+									  $('#inserted').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Azienda',
+                                            content: 'Hai già inserito la tua azienda. Vai nella sezione \'Gestisci la tua azienda \' qui accanto per modificarla!',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+
+                                </script>
+
+
 </body>
 </html>
 
-<<script type="text/javascript">
-
-</script>

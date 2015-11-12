@@ -25,6 +25,7 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/pace.css" >
   <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
   <!--              -->
 
   
@@ -36,41 +37,53 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
- <script language="JavaScript" type="text/JavaScript">
-  function eliminaFoto(id,url)
-	{
-		//alert("url: "+url);
-		var elimina = confirm("Sicuro di voler eliminare la foto: id="+id);
-		if (elimina == true) {
-	
-			$.ajax({
-				url:'post-fotoActivityDelete.php',
-				type: 'POST',
-				data: { 
-					'id': id, 
-					'url': url, 
-					'cod': 'young123' 
-				},
-				success:function(response){
-				
-					//alert("Resp:"+response);
-					//alert("response index of success="+response.indexOf("success"));
-													
-					if( response.indexOf("success") > -1){
-						alert("Foto eliminata con successo...");
-						location.reload(true);
-					}else{
-						alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
-					}
-				}
-			});		
-	
-		} else {
-			//alert("You pressed Cancel!");
-		}
+   <script type="text/javascript" src="js/jquery-confirm.js"></script>
 
+ <script language="JavaScript" type="text/JavaScript">
+ 
+	function confermaEliminazioneFoto(id,url){
+		
+		$.confirm({
+				title: 'Elimino Foto',
+				confirmButton: 'Elimina',
+				cancelButton: 'Annulla',
+				content: 'Sei sicuro di voler eliminare la foto?',
+				theme: 'supervan',
+				confirmButtonClass: 'btn-info',
+				cancelButtonClass: 'btn-danger',
+				animation:'RotateY',
+				animationSpeed: 1000,
+				confirm: function () {
+					$.ajax({
+						url:'post-fotoActivityDelete.php',
+						type: 'POST',
+						data: { 
+							'id': id, 
+							'url': url, 
+							'cod': 'young123' 
+						},
+						success:function(response){
+						
+							//alert("Resp:"+response);
+							//alert("response index of success="+response.indexOf("success"));
+															
+							if( response.indexOf("success") > -1){
+								location.reload(true);
+							}else{
+								alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+							}
+						}
+					});		
+				}//,
+				//cancel: function () {
+					//non fare nulla.
+				//}
+		});
+		
 	}
+
   </script>
+
 
 </head>
 <body>
@@ -138,7 +151,7 @@ $testoIndietro = "TORNA INDIETRO";
 						<td>
 							<img src="<?php echo $row_foto['URL'];?>"  width="250px" />
 						</td>
-						<td  style="vertical-align: middle;" > <button  type="reset" onclick="eliminaFoto(<?php echo $row_foto['ID'] .",'". $row_foto['URL']."'";?>);">ELIMINA FOTO</button> </td>
+						<td  style="vertical-align: middle;" > <button  type="reset" onclick="confermaEliminazioneFoto(<?php echo $row_foto['ID'] .",'". $row_foto['URL']."'";?>);">ELIMINA FOTO</button> </td>
 					</tr>
 				<?php
 				}

@@ -50,14 +50,12 @@
     <script type="text/javascript" src="private/sha512.js"></script>
     <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
      <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
- <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
 
 
-    <!-- -->
+ <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+    
+    
     <title>YPN | Forum Studenti</title>
 
   </head>
@@ -98,8 +96,8 @@
 	<?php
 	}else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+		<a href="#" id="addAsk" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi domanda
 			</button>
 		</a>
@@ -154,9 +152,9 @@
 				if ($row_dom['USER_ID'] == $_SESSION['user_id']){	
 				if ($row_dom['ANONIMATO'] == 0){
 				?>
-				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   '.$row_dom['USERNAME']; ?><div onclick="location.href='deleteAsk.php?id=<? echo $row_dom['ID']; ?>';" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   '.$row_dom['USERNAME']; ?><div onclick="confermaEliminazioneDomanda(<? echo $row_dom['ID'];?>)" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
 				<?}else{?>
-				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   anonimo'?><div onclick="location.href='deleteAsk.php?id=<? echo $row_dom['ID']; ?>';" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
+				<a class="cd-faq-trigger" href="#0"><div style="float:right;font-size: 60%;"><?echo $row_dom['DATA_INSERIMENTO'].'   anonimo'?><div onclick="confermaEliminazioneDomanda(<? echo $row_dom['ID'];?>)" style="font-weight: bolder;font-size: 130%;">Elimina</div> </div><br/><? echo $row_dom['TESTO']; ?> </a>
 				<?}}else{?>
 					<? if ($row_dom['ANONIMATO'] == 0){
 				?>
@@ -177,12 +175,12 @@
 						<? if($row_risp['USER_ID'] == $_SESSION['user_id']){
 							if($row_risp['ANONIMATO'] == 0){ ?>
 						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   '.$row_risp['USERNAME'].':'; ?></div> 
-						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="location.href='deleteAnswer.php?id=<? echo $row_risp['ID'];?>';" ?>Elimina</div>
+						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="confermaEliminazioneRisposta(<? echo $row_risp['ID'];?>)" >Elimina</div>
 						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
 						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
 						<? } else { ?>
 						<div style="color:#0090d7;font-weight: bolder;"><?echo $row_risp['DATA_INSERIMENTO'].'   anonimo:'; ?></div> 
-						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="location.href='deleteAnswer.php?id=<? echo $row_risp['ID'];?>';" ?>Elimina</div>
+						<div style="color:#0090d7;font-weight: bolder;cursor:pointer;float:right;" onclick="confermaEliminazioneRisposta(<? echo $row_risp['ID'];?>)"  >Elimina</div>
 						
 						<p style="color:black;"><br/><? echo $row_risp['TESTO']; ?> </p>
 						<hr align="left" size="1" width="300" color="rgb(23,148,201)" noshade>
@@ -239,8 +237,101 @@
 </section> <!-- cd-faq -->
 
     <!--fine include la pagina -->
-
+ <script type="text/javascript">
+                                    $('#addAsk').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Domanda',
+                                            content: 'Effettua il login per aggiungere una domanda al forum',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+					
+						function confermaEliminazioneDomanda(id){
+							
+							$.confirm({
+									title: 'Elimino Domanda',
+									confirmButton: 'Elimina',
+									cancelButton: 'Annulla',
+									content: 'Sei sicuro di voler eliminare la domanda?',
+									theme: 'supervan',
+									confirmButtonClass: 'btn-info',
+									cancelButtonClass: 'btn-danger',
+									animation:'RotateY',
+									animationSpeed: 1000,
+									confirm: function () {
+										$.ajax({
+											url:'deleteAsk.php',
+											type: 'GET',
+											data: { 
+												'id': id, 
+												
+											},
+											success:function(response){
+											
+				
+												if( response.indexOf("success") > -1){
+													location.reload(true);
+												}else{
+													alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+												}
+											}
+										});		
+									}//,
+									//cancel: function () {
+										//non fare nulla.
+									//}
+							});
+							
+						}
+						function confermaEliminazioneRisposta(id){
+							
+							$.confirm({
+									title: 'Elimino Risposta',
+									confirmButton: 'Elimina',
+									cancelButton: 'Annulla',
+									content: 'Sei sicuro di voler eliminare la risposta?',
+									theme: 'supervan',
+									confirmButtonClass: 'btn-info',
+									cancelButtonClass: 'btn-danger',
+									animation:'RotateY',
+									animationSpeed: 1000,
+									confirm: function () {
+										$.ajax({
+											url:'deleteAnswer.php',
+											type: 'GET',
+											data: { 
+												'id': id, 
+												
+											},
+											success:function(response){
+											
+								
+																				
+												if( response.indexOf("success") > -1){
+													location.reload(true);
+												}else{
+													alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+												}
+											}
+										});		
+									}//,
+									//cancel: function () {
+										//non fare nulla.
+									//}
+							});
+							
+						}
+	   
+</script>
   </body>
+  
   <script>
       window.onload = function() {
 

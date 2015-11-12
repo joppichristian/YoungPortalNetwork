@@ -40,68 +40,11 @@ $grpg = $_GET['grpg'];
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
-  <!-- MICHELE CONFIRM DIALOG JavaScript Show Dialog Box  -->
-    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
-
-	<style>
-		.showcss{ display:block;}
-		.hidecss{ display:none;}
-	</style>
-	<script>
-	/* funzione che mostra il confirm dialog 	
-		==> parametri imporanti: btnOktext, btnAnnullatext (se metto un valore '' il bottone non viene mostrato!) 	
-	*/
-	function ShowDialogBox(title, message, btnOktext, btnAnnullatext) {
-                var btn1css;
-                var btn2css;
-                if (btnOktext == '') {
-                    btn1css = "hidecss";
-                } else {
-                    btn1css = "showcss";
-                }
-                if (btnAnnullatext == '') {
-                    btn2css = "hidecss";
-                } else {
-                    btn2css = "showcss";
-                }
-                $("#lblMessage").html(message);
-
-				//Apro Dialog
-                $("#dialog").dialog({
-                    resizable: false,
-                    title: title,
-                    modal: true,
-                    width: '400px',
-                    height: 'auto',
-                    bgiframe: false,
-                    hide: { effect: 'scale', duration: 400 },
-					position: { my: 'top', at: 'top+150' },
-                    buttons: [
-								{
-									text: btnOktext,
-									"class": btn1css,
-									//Cliccato btnOK
-									click: function () {
-																				
-										$("#dialog").dialog('close');
-
-									}
-								},
-								{
-									text: btnAnnullatext,
-									"class": btn2css,
-									//Cliccato btnAnnulla
-									click: function () {
-										$("#dialog").dialog('close');
-									}
-								}
-                             ]
-                });
-            }
-	</script>	
-
-  </head>
+ <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+	
+  <!-- JavaScript custom -->
+     </head>
 <body>
   <header role="banner" style="background-color:black;">
     <?php
@@ -149,7 +92,7 @@ $grpg = $_GET['grpg'];
 	}else{
 	?>
 		<a href="#" id="addAct" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="ShowDialogBox('Attenzione','Devi effettuare il login.','Ok','');" title='Effettua il login per aggiungere un attivita' >
+			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12"  title='Effettua il login per aggiungere un attivita' >
 				Aggiungi attività
 			</button>
 		</a>
@@ -249,5 +192,25 @@ $grpg = $_GET['grpg'];
 	?>
 
     </div>
+     <script type="text/javascript">
+                                    $('#addAct').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Attività',
+                                            content: 'Effettua il login per aggiungere un\'attività',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+                               
+                                   
+                                
+                                </script>
+
 </body>
 </html>

@@ -25,6 +25,8 @@ $testoIndietro = "TORNA INDIETRO";
   <link rel="stylesheet" href="css/pace.css" >
   <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
   <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
+  	<link rel="stylesheet" href="css/css_management/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/css_management/style_companies.css"> <!-- Gem style -->
   <!--              -->
 
 
@@ -36,9 +38,15 @@ $testoIndietro = "TORNA INDIETRO";
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+<script src="js/js_management/main.js"></script> <!-- Gem jQuery -->
 
 
-  <!-- JavaScript custom -->
+
+ <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+    
+
 </head>
 <body>
   <header role="banner" style="background-color:black;">
@@ -71,7 +79,5 @@ $testoIndietro = "TORNA INDIETRO";
     ?>
   </div>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 </body>
 </html>

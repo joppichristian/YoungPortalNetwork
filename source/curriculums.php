@@ -60,7 +60,7 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>Curriculum</a>
+          <a>CURRICULUM</a>
       </div>
     </div>
   </div>
@@ -252,11 +252,11 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
-                               
+
                                     $('#manageCV').on('click', function () {
 	                                        $.alert({
                                             title: 'Modifica CV',
@@ -267,11 +267,11 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
-                                
+
 									  $('#inserted').on('click', function () {
 	                                        $.alert({
                                             title: 'Aggiungi CV',
@@ -282,8 +282,8 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
 

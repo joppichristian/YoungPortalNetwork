@@ -41,7 +41,7 @@ $testoIndietro = "TORNA ALLA HOME";
 
  <script type="text/javascript" src="js/jquery-confirm.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
- 
+
 
 
 
@@ -65,7 +65,7 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>Aziende</a>
+          <a>AZIENDE</a>
       </div>
     </div>
   </div>
@@ -261,11 +261,11 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
-                               
+
                                     $('#manageBus').on('click', function () {
 	                                        $.alert({
                                             title: 'Modifica Azienda',
@@ -276,11 +276,11 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
-                                
+
 									  $('#inserted').on('click', function () {
 	                                        $.alert({
                                             title: 'Aggiungi Azienda',
@@ -291,8 +291,8 @@ while($row_nome = $result_nome->fetch_array())
                                             animationSpeed: 1000,
                                             columnClass: 'col-xs-12',
                                             confirm: function (id) {
-                                             
-                                            }                                        
+
+                                            }
                                             });
                                     });
 
@@ -301,4 +301,3 @@ while($row_nome = $result_nome->fetch_array())
 
 </body>
 </html>
-

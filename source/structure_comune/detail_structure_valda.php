@@ -22,7 +22,7 @@
     <div ><a href="../structure.php"style="color:white;"><i  class="fa fa-chevron-left"></i> TORNA INDIETRO</a></div>
 
   </div>
-  <div style="width:100%;height:100px; background-color:rgb(148,59,68); padding:25px;" align="center">
+  <div style="width:100%;height:100px; background-color:rgb(234,140,6); padding:25px;" align="center">
     <div style="color:white;"><a href="index.html" style="color:white;">Comune di Valda</a></div>
 
   </div>

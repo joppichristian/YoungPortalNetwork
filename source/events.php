@@ -63,7 +63,8 @@ $filter = $_GET['filter'];
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>EVENTI</a>
+	      <img src="images/eventi_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">EVENTI</a>
       </div>
     </div>
   </div>
@@ -97,8 +98,8 @@ $filter = $_GET['filter'];
   </a>
 
   <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
-        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;">
-        <input type="submit" class="item-option" value="Search">
+        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;font-size: 24px;">
+        <input type="submit" class="item-option" value="Filtra">
   </form>
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">

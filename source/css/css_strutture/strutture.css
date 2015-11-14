@@ -7,6 +7,7 @@ body{
   text-align: center;
   width: 80%;
   margin-top: 5%;
+  font-size: 20px !important
 }
 
 .article{
@@ -82,7 +83,7 @@ h1{
 header{
   position: relative;
   height: 100px;
-  line-height: 100px;
+  line-height: normal;
   text-align: center;
   background-color: rgb(234,140,6);
   margin-bottom: 10%;

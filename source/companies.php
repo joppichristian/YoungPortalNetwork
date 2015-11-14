@@ -65,7 +65,8 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>AZIENDE</a>
+	      <img src="images/giovani_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">AZIENDE</a>
       </div>
     </div>
   </div>

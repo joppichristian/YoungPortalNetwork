@@ -1,4 +1,14 @@
-<html >
+<html>
+<?php
+include 'private/connessione-db.php';
+include 'private/utility-login.php';
+
+my_session_start();
+
+$linkIndietro = "index.php";
+$testoIndietro = "TORNA ALLA HOME";
+
+?>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,20 +38,14 @@
 
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<title>YPN | Strutture a noleggio</title>
+	<title>YPN | Contatti</title>
 </head>
 <body>
-	<header id="header_id" role="banner" style="background-color:black;">
-		<div id="cd-logo"><a href="index.php"><i  class="fa fa-chevron-left"></i> TORNA ALLA HOME</a></div>
-
-		<nav class="main-nav" >
-			<ul>
-				<!-- inser more links here -->
-				<li><a class="cd-signin" href="#0" style="background-color:rgb(23,148,201);">Sign in</a></li>
-				<li><a class="cd-signup" href="#0" style="background-color:rgb(149,59,69);">Sign up</a></li>
-			</ul>
-		</nav>
-	</header>
+	 <header role="banner" style="background-color:black;">
+    <?php
+	  include("header.php");
+	?>
+  </header>
 
 	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
 		  <?php
@@ -55,7 +59,8 @@
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>CONTATTI</a>
+	      <img src="images/contatti_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">CONTATTI</a>
       </div>
     </div>
   </div>

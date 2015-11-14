@@ -78,7 +78,8 @@
             <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
         </div>-->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <a>FORUM STUDENTI</a>
+	        <img src="images/forum_logo.png" style="height: 100%;width: auto;"/> 
+            <a style="vertical-align: top;">FORUM STUDENTI</a>
         </div>
       </div>
 

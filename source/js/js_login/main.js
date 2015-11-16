@@ -2,6 +2,7 @@ jQuery(document).ready(function($){
 	var $form_modal = $('.cd-user-modal'),
 		$form_login = $form_modal.find('#cd-login'),
 		$form_signup = $form_modal.find('#cd-signup'),
+		$form_updatePwd = $form_modal.find('#updateUserForm'),
 		$form_forgot_password = $form_modal.find('#cd-reset-password'),
 		$form_modal_tab = $('.cd-switcher'),
 		$tab_login = $form_modal_tab.children('li').eq(0).children('a'),
@@ -227,6 +228,49 @@ jQuery(document).ready(function($){
 			document.formRegister.submit();
 		}		
 	
+	
+	});
+	
+	
+	//========================================================= Form update account ===========================================================
+	$form_updatePwd.find('input[type="submit"]').on('click', function(event){
+		
+		var p = document.createElement("input");
+		document.updateUserForm.appendChild(p);
+		p.name = "p";
+		p.type = "hidden"
+		p.value = SHA512(document.getElementById("updateUser-password").value);
+		
+		var hasErrors = false;	
+	
+		var password = document.getElementById("updateUser-password").value;			
+		var confermaP  = document.getElementById("updateUser-conferma-password").value;
+		 		
+		if(password.length < 8){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+		}	
+					
+		if(password!=confermaP){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+		}	
+			 
+		if(!hasErrors){		
+			// Assicurati che la password non venga inviata in chiaro.
+			document.getElementById("updateUser-password").value = "";
+			document.getElementById("updateUser-conferma-password").value = "";		
+			document.updateUserForm.action = 'private/modifica-account.php';
+			document.updateUserForm.submit();
+		}			
 	
 	});
 

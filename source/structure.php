@@ -49,7 +49,8 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>STRUTTURE A NOLEGGIO</a>
+	      <img src="images/strutture_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">STRUTTURE A NOLEGGIO</a>
       </div>
     </div>
   </div>

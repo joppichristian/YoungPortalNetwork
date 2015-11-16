@@ -1,6 +1,5 @@
 .filter-form{
   text-align: center;
-  font-size: 25px;
 }
 form{
   color:rgba(0,144,215 , 1);
@@ -67,7 +66,6 @@ input[type="submit"]{
             box-shadow: 0 0 5px rgba(0,144,215,0.2);
           }
   textarea{
-    font-size:20px;
     border: 2px solid #cfd9db;
     border-radius: .25em;
     padding: 5px;

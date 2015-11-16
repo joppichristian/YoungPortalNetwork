@@ -38,14 +38,11 @@ $filter = $_GET['filter'];
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
 
-  <!-- JavaScript custom -->
-  <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
+    <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 
 </head>
 <body>
@@ -66,7 +63,8 @@ $filter = $_GET['filter'];
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>EVENTI</a>
+	      <img src="images/eventi_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">EVENTI</a>
       </div>
     </div>
   </div>
@@ -83,8 +81,8 @@ $filter = $_GET['filter'];
 	<?php
 	}else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+		<a href="#" id='addEve' class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:5%;">
+			<button  class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" title='Effettua il login per aggiungere un attivita' >
 				Aggiungi evento
 			</button>
 		</a>
@@ -100,8 +98,8 @@ $filter = $_GET['filter'];
   </a>
 
   <form class="filter-form col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:5%;">
-        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;">
-        <input type="submit" class="item-option" value="Search">
+        <input class="user" type="text" name="filter" id="filter" value="<?php echo $filter; ?>" style="width:80%;font-size: 24px;">
+        <input type="submit" class="item-option" value="Filtra">
   </form>
   </div>
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%; width:100%">
@@ -134,7 +132,25 @@ $filter = $_GET['filter'];
 
 
     </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+         <script type="text/javascript">
+                                    $('#addEve').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi Evento',
+                                            content: 'Effettua il login per aggiungere un evento',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+                                             
+                                            }                                        
+                                            });
+                                    });
+                               
+                                   
+                                
+                                </script>
+
 </body>
 </html>

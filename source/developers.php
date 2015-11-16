@@ -33,10 +33,11 @@
 	<header>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:80px" >
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
-					<a href="index.php"><i class="fa fa-chevron-left"></i> TORNA ALLA HOME</a>
+					<a href="index.php" style="font-size: 16px;"><i class="fa fa-chevron-left"></i> TORNA ALLA HOME</a>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3" id="torna_home">
-					<a>SVILUPPATORI</a>
+					<img src="images/sviluppatori_logo.png" style="height: 100%;width: auto;"/> 
+					<a style="vertical-align: top;" >SVILUPPATORI</a>
 			</div>
 		</div>
 

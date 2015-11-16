@@ -36,27 +36,11 @@ $testoIndietro = "TORNA ALLA HOME";
   <!-- Per Login -->
   <script type="text/javascript" src="private/sha512.js"></script>
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
 
-  <!-- JavaScript custom -->
-  <script language="JavaScript" type="text/JavaScript">
-	function displayEffettuaLogin(){
-		alert("Effettua prima il login.");
-	}
-  </script>
-  <script type="text/javascript">
-  function displayCVInserito(){
-		alert("Hai già inserito il tuo CV. Vai nella sezione 'Gestisci il tuo curriculum' qui accanto per modificalo!");
-	}
-  </script>
-
-  <script type="text/javascript">
-  function displayCVGestione(){
-		alert("Non hai inserito il tuo CV. Vai nella sezione 'Aggiungi curriculum' qui accanto perinserirlo!");
-	}
-  </script>
-
-
+ <script type="text/javascript" src="js/jquery-confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 </head>
 <body>
   <header role="banner" style="background-color:black;">
@@ -76,7 +60,8 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-          <a>Curriculum</a>
+	      <img src="images/cv_logo.png" style="height: 100%;width: auto;"/> 
+          <a style="vertical-align: top;">CURRICULUM</a>
       </div>
     </div>
   </div>
@@ -95,8 +80,8 @@ while($row_nome = $result_nome->fetch_array())
 
     if($gia_inserito == 1){
       ?>
-      <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
-			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVInserito();" title='Attenzione!' >
+      <a href="#" id="inserted" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+			     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12"  title='Attenzione!' >
 				         Aggiungi curriculum
 		       </button>
 		  </a>
@@ -114,8 +99,8 @@ while($row_nome = $result_nome->fetch_array())
     }
   }else{
 	?>
-		<a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
-			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayEffettuaLogin();" title='Effettua il login per aggiungere un attivita' >
+		<a href="#" id="addCV" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+			<button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12"  title='Effettua il login per aggiungere un attivita' >
 				Aggiungi curriculum
 			</button>
 		</a>
@@ -124,8 +109,8 @@ while($row_nome = $result_nome->fetch_array())
 
   if($gia_inserito == 0){
     ?>
-    <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
-      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" onClick="displayCVGestione();">
+    <a href="#" id="manageCV" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
         Gestisci il tuo curriculum
       </button>
     </a>
@@ -257,11 +242,53 @@ while($row_nome = $result_nome->fetch_array())
 	?>
 
     </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+      <script type="text/javascript">
+                                    $('#addCV').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi CV',
+                                            content: 'Effettua il login per aggiungere il tuo CV',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+
+                                            }
+                                            });
+                                    });
+
+                                    $('#manageCV').on('click', function () {
+	                                        $.alert({
+                                            title: 'Modifica CV',
+                                            content: 'Non hai inserito il tuo CV. Vai nella sezione \'Aggiungi curriculum \' qui accanto per inserirlo!',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+
+                                            }
+                                            });
+                                    });
+
+									  $('#inserted').on('click', function () {
+	                                        $.alert({
+                                            title: 'Aggiungi CV',
+                                            content: 'Hai già inserito il tuo CV. Vai nella sezione \'Gestisci il tuo curriculum \' qui accanto per modificarlo!',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+
+                                            }
+                                            });
+                                    });
+
+                                </script>
+
 </body>
 </html>
-
-<<script type="text/javascript">
-
-</script>

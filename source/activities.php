@@ -126,7 +126,7 @@ $grpg = $_GET['grpg'];
 				  <img src="http://www.youngportalnetwork.it/images/loghi/pg.jpg" style="height: 90%; width: auto; padding: auto;"/>
 				</div>
 				<div class="description">
-				  <p><-- TUTTE LE ATTIVITA</p>
+				  <p><i  class="fa fa-chevron-left"></i> TUTTE LE ATTIVITA'</p>
 				</div>
 			  </a>
 			</div>

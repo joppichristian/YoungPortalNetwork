@@ -140,3 +140,6 @@ footer{
 .subheader{
 	font-size: 28px;
 }
+.subheader img{
+	vertical-align: top;
+}

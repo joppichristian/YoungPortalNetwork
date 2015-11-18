@@ -55,28 +55,28 @@
 		<div id="updateUserForm"> 
 		  <form class="cd-form"  name="updateUserForm" id="updateUserForm" >
 			<p class="fieldset">
-			  <label>E-mail: </label>
+			   
 			  <input type="hidden" id="updateUserForm-email"  name="updateUserForm-email" value="<?php echo $_SESSION['username']; ?>" >
-			  <label><?php echo $_SESSION['username']; ?></label>
+			   
 			</p>
 
 			<p class="fieldset">
 				<label>Cambio password: </label>
 			</p>
 			<p class="fieldset">
-			  <label>Vecchia Password:</label>
+			  
 			  <input class="full-width has-padding has-border" id="vecchia-password" name="vecchia-password" type="password"  placeholder="Vecchia Password">
 			  <a href="#0" class="hide-password">Mostra</a>
 			  <span class="cd-error-message">Password Errata</span>
 			</p>			
 			<p class="fieldset">
-			  <label>Nuova Password:</label>
+			   
 			  <input class="full-width has-padding has-border" id="updateUser-password" name="updateUser-password" type="password"  placeholder="Nuova Password">
 			  <a href="#0" class="hide-password">Mostra</a>
 			  <span class="cd-error-message">Password troppo corta (inserisci un minimo di 8 caratteri)</span>
 			</p>			
 			<p class="fieldset">
-			  <label>Conferma Nuova Password:</label>
+			   
 			  <input class="full-width has-padding has-border" id="updateUser-conferma-password" name="updateUser-conferma-password" type="password"  placeholder="Conferma Nuova Password">
 			  <a href="#0" class="hide-password">Mostra</a>
 			  <span class="cd-error-message">Le 2 password non coincidono!</span>

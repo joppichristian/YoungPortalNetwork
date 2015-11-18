@@ -240,6 +240,7 @@ jQuery(document).ready(function($){
 		var vecchiaPassword = SHA512(document.getElementById("vecchia-password").value);	
 		var email = document.getElementById("updateUserForm-email").value;
 		
+		$form_updatePwd.find('input[id="vecchia-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');		
 		$.ajax({
 			url:'private/effettua-login.php',
 			type: 'POST',

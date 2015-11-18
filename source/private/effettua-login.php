@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		}
 	} else { 
    
-		echo "Si è verificat qualche errore. Torna al sito e riprova...";
+		echo "cod2: Si è verificat qualche errore. Torna al sito e riprova...";
 	}
 }else{
-	echo "Si è verificato qualche errore. Torna al sito e riprova...";
+	echo "cod1: Si è verificato qualche errore. Torna al sito e riprova...";
 }	
 ?>
 

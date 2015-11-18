@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
 	global $mysqli;
 	$giaInserito = false;
+	$utenteGiaInUso = false;
 	
 	$query="SELECT * FROM UTENTE WHERE EMAIL = '$email' ;" ;
 	$result = $mysqli->query($query); 
@@ -79,17 +80,23 @@ function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
 		$giaInserito = true;
 	}
 	
-	if($giaInserito){
-		
-		
-		header("Location: ../page_messaggio.php?ms=L'email inserita risulta gia' registrata. Devi ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore.");
-			die();
-		/* $sqlUpdate = "UPDATE UTENTE SET RANDOM = '$random' WHERE EMAIL = '$email' ;";
-		if (!mysqli_query($mysqli,$sqlUpdate)){
-			die('</br></br>Errore. Scrivi a info@youngportalnetwork.it . ');
-		} */
+	$query_user="SELECT * FROM UTENTE WHERE USERNAME = '$username' ;" ;
+	$result_user = $mysqli->query($query_user); 
+	while($row_user = $result_user->fetch_array())
+	{
+		$utenteGiaInUso = true;
+	}
 	
+	if($giaInserito){
+		header("Location: ../page_messaggio.php?ms=L'email inserita risulta gia' registrata. Devi ancora cliccare sul link che ti abbiamo inviato via email per attivare l'account. Per info contatta l'amministratore.");
+		die();
+			
 	}else{
+		
+		if($utenteGiaInUso){
+			header("Location: ../page_messaggio.php?ms=Il nome utente ($username) inserito risulta gia' in uso. Per favore inserisci un nuovo nome utente.");
+			die();			
+		}
 					
 		// Crea una chiave casuale
 		$random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));

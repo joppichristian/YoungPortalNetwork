@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
 		//document.getElementById("signin-password").value = "";
 				
 		var pwd = SHA512(document.getElementById("signin-password").value);
-		var email = document.getElementById("signin-email").value
+		var email = document.getElementById("signin-email").value;
 		
 		$.ajax({
 			url:'private/effettua-login.php',
@@ -224,6 +224,7 @@ jQuery(document).ready(function($){
 			// Assicurati che la password non venga inviata in chiaro.
 			document.getElementById("signup-password").value = "";
 			document.getElementById("signup-conferma-password").value = "";		
+			document.formRegister.method = 'POST';
 			document.formRegister.action = 'private/accetta-registrazione.php';
 			document.formRegister.submit();
 		}		
@@ -234,44 +235,70 @@ jQuery(document).ready(function($){
 	
 	//========================================================= Form update account ===========================================================
 	$form_updatePwd.find('input[type="submit"]').on('click', function(event){
+									
+		// Controllo se la vecchia password è corretta.
+		var vecchiaPassword = SHA512(document.getElementById("vecchia-password").value);	
+		var email = document.getElementById("updateUserForm-email").value;
 		
-		var p = document.createElement("input");
-		document.updateUserForm.appendChild(p);
-		p.name = "p";
-		p.type = "hidden"
-		p.value = SHA512(document.getElementById("updateUser-password").value);
-		
-		var hasErrors = false;	
-	
-		var password = document.getElementById("updateUser-password").value;			
-		var confermaP  = document.getElementById("updateUser-conferma-password").value;
-		 		
-		if(password.length < 8){
-			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
-			event.preventDefault();
-			$form_signup.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
-		}else{
-			$form_signup.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
-		}	
+		$.ajax({
+			url:'private/effettua-login.php',
+			type: 'POST',
+			data: { 
+				'signin-email': email, 
+				'p': vecchiaPassword,
+				'cod': '12345'
+			},
+			success:function(response){			
+				//alert("Resp:"+response);
+				
+				if( response.indexOf("success") > -1){
+					//UTENTE LOGGATO -> PASSWORD VECCHIA CORRETTA
+					$form_updatePwd.find('input[id="vecchia-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');		
 					
-		if(password!=confermaP){
-			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
-			event.preventDefault();
-			$form_signup.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
-		}else{
-			$form_signup.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
-		}	
-			 
-		if(!hasErrors){		
-			// Assicurati che la password non venga inviata in chiaro.
-			document.getElementById("updateUser-password").value = "";
-			document.getElementById("updateUser-conferma-password").value = "";		
-			document.updateUserForm.action = 'private/modifica-account.php';
-			document.updateUserForm.submit();
-		}			
-	
+					var p = document.createElement("input");
+					document.updateUserForm.appendChild(p);
+					p.name = "p";
+					p.type = "hidden"
+					p.value = SHA512(document.getElementById("updateUser-password").value);
+					
+					var hasErrors = false;		
+					var password = document.getElementById("updateUser-password").value;			
+					var confermaP  = document.getElementById("updateUser-conferma-password").value;
+					
+					if(password.length < 8){
+						//MESSAGGIO DI ERRORE
+						var hasErrors = true;
+						event.preventDefault();
+						$form_updatePwd.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+					}else{
+						$form_updatePwd.find('input[id="updateUser-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+					}	
+								
+					if(password!=confermaP){
+						//MESSAGGIO DI ERRORE
+						var hasErrors = true;
+						event.preventDefault();
+						$form_updatePwd.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
+					}else{
+						$form_updatePwd.find('input[id="updateUser-conferma-password"]').toggleClass('has-error').next('a').next('span').removeClass('is-visible');
+					}	
+						 
+					if(!hasErrors){		
+						// Assicurati che la password non venga inviata in chiaro.
+						document.getElementById("updateUser-password").value = "";
+						document.getElementById("updateUser-conferma-password").value = "";	
+						document.updateUserForm.method = 'POST';			
+						document.updateUserForm.action = 'private/post-modifica-account.php';
+						document.updateUserForm.submit();
+					}	
+					
+				}else{					
+					//MOSTRA MESSAGGIO DI ERRORE				 
+					$form_updatePwd.find('input[id="vecchia-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');						 
+				}
+			}
+		});	
+		event.preventDefault();	
 	});
 
 

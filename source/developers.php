@@ -1,5 +1,17 @@
 <!doctype html>
 <html lang="en" class="no-js">
+	<?php
+include 'private/connessione-db.php';
+include 'private/utility-login.php';
+
+my_session_start();
+
+$linkIndietro = "index.php";
+$testoIndietro = "TORNA ALLA HOME";
+
+$filter = $_GET['filter'];
+$grpg = $_GET['grpg'];
+?>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +29,8 @@
 	<link rel="stylesheet" href="css/css_developers/style.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/font-awesome.min.css" >
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	  <link rel="stylesheet" href="css/css_login/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
 	<!--              -->
 
 
@@ -25,25 +39,43 @@
  <script src="js/bootstrap.min.js"></script>
 	<!-- -->
 
+	<!-- Per Login -->
+  <script type="text/javascript" src="private/sha512.js"></script>
+  <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
+  <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
+
 
 	<title>YPN | Developers</title>
 </head>
 <body>
 
-	<header>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:80px" >
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
-					<a href="index.php" style="font-size: 16px;"><i class="fa fa-chevron-left"></i> TORNA ALLA HOME</a>
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3" id="torna_home">
-					<img src="images/sviluppatori_logo.png" style="height: 100%;width: auto;"/> 
-					<a style="vertical-align: top;" >SVILUPPATORI</a>
-			</div>
-		</div>
-
+<header role="banner" style="background-color:black;">
+    <?php
+	  include("header.php");
+	?>
   </header>
 
-	<div class="projects-container">
+  <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<?php
+      include("login.php");
+    ?>
+  </div> <!-- cd-user-modal -->
+  <div class="subheader" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
+      <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
+          <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
+      </div>-->
+      
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:100px">
+          <img src="images/sviluppatori_logo.png" style="height: 100%;width: auto;"/> 
+		   	
+				<a style="vertical-align: top;">SVILUPPATORI</a>
+		</div>
+    </div>
+  </div>
+
+
+	<div class="projects-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<ul>
 			<li class="cd-single-project">
 				<div class="cd-title">
@@ -85,10 +117,19 @@
 
 				<div class="cd-project-info">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
+						Giovane intraprendente appassionato all'IT . Diplomato nel 2013 presso l'istituto tecnico G.Marconi con il titolo di Perito Informatico. Frequenta il terzo anno universitario presso il Dipartimento di Ingegneria e Scienze dell'Informazione di Trento. Possiede buone conoscenze in ambito web developing e sviluppo applicativi mobile. Ama viaggiare ed è attivo come vigile del fuoco volontario. 
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						Contact : <br/>
+						<br/>
+						
+						Mobile : +39 3494645026<br/>
+						<a href="mailto:christian.joppi@gmail.com" style="color:rgb(63, 83, 142);">E-mail</a> <br/>
+						<a href="https://www.linkedin.com/profile/view?id=AAIAAAugjyYBT_De6wuJ-imbmUqf5a0rxNRfPZ8&trk=nav_responsive_tab_profile_pic" style="color:rgb(63, 83, 142);">Linkedin</a><br/>
+						<a href="https://www.facebook.com/christian.joppi" style="color:rgb(63, 83, 142);">Facebook</a><br/>
+
 					</p>
 				</div> <!-- .cd-project-info -->
 			</li>

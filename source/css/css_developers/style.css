@@ -29,31 +29,20 @@ a {
 Main Components
 
 -------------------------------- */
-header {
+.subheader{
   position: relative;
   height: 100px;
   line-height: 100px;
-  font-size: 28px;
   text-align: center;
-  background-color: rgb(180,183,32);;
+  background-color: #b6b823;
+  z-index: -1;
+
 }
-header h1 {
+.subheader h1 {
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
-  font-size: 1.25rem;
-}
-@media only screen and (min-width: 1024px) {
-  header {
-    height: 100px;
-    line-height: 100px;
-  }
-  header h1 {
-    font-size: 36px;
-    font-size: 2.25rem;
-    font-weight: 300;
-  }
 }
 
 

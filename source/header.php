@@ -20,7 +20,7 @@ if( strcmp( $testoIndietro , "#") == 0  ){
 	  if(utenteLoggato($mysqli) == true) {
 	  ?>  
 		  <li style="color:#eb8c06;background-color: black; cursor: pointer;">Benvenuto, <?php echo $_SESSION['username']; ?></li>
-		  <li><a href="private/logout.php" > Esci </a></li>
+		  <li><a id="a-esci" href="private/logout.php" > Esci </a></li>
 	  <?php
 	  }else{
 	  ?>		

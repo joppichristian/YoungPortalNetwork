@@ -1,0 +1,81 @@
+<html>
+	<head>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	 <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var titolo = document.getElementById("titolo").value;		
+		var localita = document.getElementById("localita").value;				
+		var descrizione  = document.getElementById("descrizione").value;
+	 	 
+		if(titolo==""){
+			campi = campi+" \n[titolo] OBBLIGATORIO";			
+		}
+		if(localita==""){
+			campi = campi+" \n[localita] OBBLIGATORIO";			
+		}
+		if(descrizione==""){
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+			
+		
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{	
+			var stringa = titolo + ' ' + localita + ' ' + descrizione;
+			$.ajax({
+					url:'swear_check.php',
+					type: 'POST',
+						data: { 
+							'stringa': stringa,
+							
+						},
+						success:function(response){	
+							alert(response);														
+							if( response.indexOf("success") > -1){
+								alert("Success");
+							}
+						},
+						
+						error: function(err){
+							console.log(err);
+								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
+						}
+											});		
+			
+			
+		}		
+	}
+  </script> 
+
+	</head>
+	<body>
+		<form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
+		  <!--Esempio text -->
+		  <p>Titolo:</p>
+		  <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
+		  <!--Esempio text -->
+		  <p>Localit&agrave;:</p>
+		  <input type="text" id="localita" name="localita" placeholder="Localita" />
+		</div>
+		<!--Esempio textarea -->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
+		  <p>Descrizione:</p>
+		  <textarea rows="5" id="descrizione" name="descrizione" cols="100"  placeholder="Descrizione"></textarea>
+		</div>
+		 <button type="submit" value="Aggiugi" style="font-size: 25px;" >Continua </button>
+		  
+		</form>
+		
+	</body>
+</html>

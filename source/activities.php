@@ -63,7 +63,7 @@ $grpg = $_GET['grpg'];
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:100px">
           <img src="images/attivita_logo.png" style="height: 100%;width: auto;"/> 
 		    <?php
 		    if($grpg == "1"){		 

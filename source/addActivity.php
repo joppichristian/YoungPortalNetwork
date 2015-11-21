@@ -91,50 +91,11 @@ $testoIndietro = "TORNA INDIETRO";
 			return false;
 		}
 		else
-		{		
-			$.ajax({
-						url:'swear_check.php',
-						type: 'POST',
-						data: { 
-							'stringa': titolo
-							
-						},
-						success:function(response){															
-							if( response.indexOf("success") == -1){
-								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
-							}
-						}
-					});		
-			$.ajax({
-						url:'swear_check.php',
-						type: 'POST',
-						data: { 
-							'stringa': localita
-							
-						},
-						success:function(response){															
-							if( response.indexOf("success") == -1){
-								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
-							}
-						}
-					});
-					$.ajax({
-						url:'swear_check.php',
-						type: 'POST',
-						data: { 
-							'stringa': descrizione
-							
-						},
-						success:function(response){															
-							if( response.indexOf("success") > -1){
-								document.submitFormEvent.action = 'post-add-activity.php';
-								document.submitFormEvent.submit();
-							}else{
-								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
-							}
-						}
-					});		
+		{	
 			
+			document.submitFormEvent.action = 'post-add-activity.php';
+			document.submitFormEvent.submit();
+							
 			
 		}		
 	}

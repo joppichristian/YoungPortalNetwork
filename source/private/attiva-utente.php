@@ -21,20 +21,20 @@ if ($_SERVER['REQUEST_METHOD'] == "GET"){
 			//IL RANDOM E CORRETTO
 		
 			attivaUtente($email);		
+			header("Location: ../page_messaggio.php?ms= COMPLIMENTI, ora il tuo account è attivo e puoi effettuare il login!");
+			die();
+
 			
-			echo "</br></br>COMPLIMENTI, ora il tuo account è attivo e puoi effettuare il login!</br></br>";
-			
-			echo "<a href=\"../index.php\" > vai al sito </a>";		
 		
 		}else{
-			echo "</br>Si &egrave; verificato qualche errore (errore random sbagliato). contatta l'amministratore: info@youngportalnetwork.it </br>";
+			header("Location: ../page_messaggio.php?ms=Si &egrave; verificato qualche errore (errore random sbagliato). contatta l'amministratore: info@youngportalnetwork.it ");
+			die();
 		}		
 		
 	}else{ //Utente gia registrato 
-	 
-		echo "Grazie, sei già registrato al sito. Vai alla home ed effettua il login. </br>";		
-		
-		echo "<a href=\"../index.php\" > vai al sito </a>";		
+	 header("Location: ../page_messaggio.php?ms=Grazie, sei già registrato al sito. Vai alla home ed effettua il login. ");
+			die();
+			
 	
 	
 	}	

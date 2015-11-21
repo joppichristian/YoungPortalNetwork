@@ -123,7 +123,7 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-  <form action="post-add-companies.php" method="post"  enctype="multipart/form-data" >
+	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <p>Nome:</p>
@@ -138,17 +138,17 @@ $testoIndietro = "TORNA INDIETRO";
     <p>Localita</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
         <p>latitudine:</p>
-        <input type="text" id="residenza" name="latitudine" placeholder="Latitudine" />
+        <input type="text" id="residenza_lat" name="latitudine" placeholder="Latitudine" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.2%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
         <p>longitudine:</p>
-        <input type="text" id="residenza" name="longitudine" placeholder="Longitudine" />
+        <input type="text" id="residenza_long" name="longitudine" placeholder="Longitudine" />
       </div>
     </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <p>Orario apertura:</p>
-    <textarea rows="3" id="istruzione1" name="orario_apertura" cols="100"  placeholder="Lun-Ven 00:00"></textarea>
+    <textarea rows="3" id="orario_a" name="orario_apertura" cols="100"  placeholder="Lun-Ven 00:00"></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->

@@ -74,7 +74,7 @@
 	$utente_creatore = "";
 	$url_foto = "";
 	$data_inserimento = "";
-
+		
 	$qry_a="SELECT TITOLO,LOCALITA,DESCRIZIONE,CATEGORIA_ID,UTENTE_CREATORE,URL_FOTO,DATE_FORMAT(DATA_INSERIMENTO, '%d/%m/%Y %H:%i') as DATA_INSERIMENTO FROM ATTIVITA WHERE ID='$id_attivita' ;";
 	$result_a = $mysqli->query($qry_a);
 	while($row_a = $result_a->fetch_array())
@@ -87,6 +87,15 @@
 		$url_foto = $row_a['URL_FOTO'];
 		$data_inserimento = $row_a['DATA_INSERIMENTO'];
 	}
+	
+	$nome_creatore = "";
+	$qry_utente="SELECT * FROM UTENTE WHERE ID='$utente_creatore' ;";
+	$result_utente = $mysqli->query($qry_utente);
+	while($row_utente = $result_utente->fetch_array())
+	{
+		$nome_creatore = $row_utente['USERNAME'];		
+	}
+	
 	
 	$title=urlencode($titolo);
  
@@ -136,6 +145,9 @@
 	     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 	        <div id="title" style="font-size: 400%;">
 	        <?php echo $titolo; ?> </div>
+			<div >
+	         <?php echo "Creato da ".$nome_creatore; ?>
+			</div>
 	        <div id="data">
 	         <?php echo $data_inserimento; ?></div>
 	          <div id="localita">

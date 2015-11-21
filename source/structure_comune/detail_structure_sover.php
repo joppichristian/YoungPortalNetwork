@@ -30,14 +30,14 @@
 <div class="cd-tabs">
 	<nav>
 		<ul class="cd-tabs-navigation">
-			<li><a data-content="inbox" class="selected" href="#0">Sale</a></li>
+			<li><a data-content="inbox" class="selected" href="#0">Tendone</a></li>
 
 		</ul> <!-- cd-tabs-navigation -->
 	</nav>
 
 	<ul class="cd-tabs-content">
 		<li data-content="inbox" class="selected">
-			<p>Non ci sono file.</p>
+			<p>Non ci sono file. (contatta il comune per il modulo di richiesta)</p>
 
 		<!--	<p><a href="../document_structure/grumes/A.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>-->
 		</li>

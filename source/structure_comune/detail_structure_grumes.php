@@ -30,17 +30,24 @@
 <div class="cd-tabs">
 	<nav>
 		<ul class="cd-tabs-navigation">
-			<li><a data-content="inbox" class="selected" href="#0">Sale</a></li>
+			<li><a data-content="inbox" class="selected" href="#0">Attrezzature</a></li>
 
 		</ul> <!-- cd-tabs-navigation -->
 	</nav>
 
 	<ul class="cd-tabs-content">
+
 		<li data-content="inbox" class="selected">
-			<p>Non ci sono file.</p>
+			<p>gazebo (6x3 m)</p>
+			<p>pedane (2x1 m, per costruire palchetti)</p>
+			<p>palco</p>
+			<p><a  >non ci sono file (contatta il comune per il modulo di richiesta)<i class="fa fa-download"></i></a></p>
 
 		<!--	<p><a href="../document_structure/grumes/A.pdf" download>scarica modulo <i class="fa fa-download"></i></a></p>-->
 		</li>
+
+
+
 
 
 	</ul> <!-- cd-tabs-content -->

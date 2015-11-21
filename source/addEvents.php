@@ -61,7 +61,9 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->  
   <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 
-  
+    <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
  
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
@@ -96,7 +98,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Evento',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else

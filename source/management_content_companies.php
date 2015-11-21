@@ -6,12 +6,12 @@
 	<header class="cd-table-column">
 		<h2>Azienda</h2>
 		<ul>
-			<li>Nome</li>
 			<li>Telefono</li>
 			<li>Descrizione</li>
+			<li>Foto Copertina</li>
 			<li>Email</li>
-			<!--<li>Modifica</li>
-			<li>Elimina</li>-->
+			
+			
 		</ul>
 	</header>
 
@@ -31,8 +31,9 @@
 				<ul>
 					<li><?php echo $row['telefono']; ?></li>
 					<li><?php echo substr($row['descrizione'],0,60); ?></li>
-					<li><img src="<?php echo $row['URL_FOTO']; ?>" /></li>
+					<li><img src="<?php echo $row['url_foto']; ?>" /></li>
 					<li><?php echo $row['email']; ?></li>
+					
 
 					<li><a class="cd-select" href="add-foto-companies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(234,140,6, 1);">gestisci foto</a></li>
 					<li><a class="cd-select" href="updateCompanies.php?id=<?php echo $row['ID']; ?>" style="color:rgba(234,140,6, 1);"><i class="fa fa-pencil-square-o" style=" margin-top:3px;"></i></a></li>

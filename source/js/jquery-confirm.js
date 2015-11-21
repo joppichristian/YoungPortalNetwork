@@ -341,7 +341,7 @@ var jconfirm, Jconfirm;
                 }
             } else {
                 var style = {
-                    'margin-top': topMargin /2
+                    'margin-top': 200
                 }
             }
             if (animate) {

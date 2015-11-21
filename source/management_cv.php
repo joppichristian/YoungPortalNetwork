@@ -33,6 +33,10 @@ $testoIndietro = "TORNA INDIETRO";
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+  <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
 	{	
@@ -67,7 +71,16 @@ $testoIndietro = "TORNA INDIETRO";
 	
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Modifica Curriculum',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else
@@ -174,32 +187,32 @@ $testoIndietro = "TORNA INDIETRO";
 	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Nome:</p>
+    <p>Nome:(*)</p>
     <input type="text" id="nome" name="nome" value="<?php echo $nome;?>" placeholder="Nome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Cognome:</p>
+    <p>Cognome:(*)</p>
     <input type="text" id="cognome" name="cognome" value="<?php echo $cognome;?>" placeholder="Cognome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Data di nascita:</p>
+    <p>Data di nascita:(*)</p>
     <input type="text" id="data" name="data" value="<?php echo $data;?>" placeholder="01/01/2001" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Residenza/Via:</p>
+    <p>Residenza/Via:(*)</p>
     <input type="text" id="residenza" name="residenza" value="<?php echo $residenza;?>" placeholder="Residenza e indirizzo" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Telefono/Cellulare:</p>
+    <p>Telefono/Cellulare:(*)</p>
     <input type="text" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Telefono o Cellulare" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <p>Email:</p>
+    <p>Email:(*)</p>
     <input type="text" id="email" name="email" value="<?php echo $email;?>" placeholder="Email" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">

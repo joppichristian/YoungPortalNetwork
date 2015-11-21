@@ -98,7 +98,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Foto Azienda',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else

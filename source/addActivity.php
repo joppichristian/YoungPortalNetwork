@@ -87,14 +87,23 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Attività',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else
 		{	
 			
-			document.submitFormEvent.action = 'post-add-activity.php';
-			document.submitFormEvent.submit();
+			document.submitForm.action = 'post-add-activity.php';
+			document.submitForm.submit();
 							
 			
 		}		

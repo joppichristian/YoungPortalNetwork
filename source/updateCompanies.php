@@ -163,46 +163,46 @@ $testoIndietro = "TORNA INDIETRO";
   <form action="post-updateCompanies.php" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Nome:</h1>
+    <p>Nome:</p>
     <input type="text" id="nome" name="nome" value="<?php echo $nome; ?>" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Descrizione:</h1>
+    <p>Descrizione:</p>
     <textarea rows="3" id="descrizione" name="descrizione" cols="100"  placeholder="cosa l'azienda fa' o vende.."><?php echo $descrizione; ?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-    <h1>Localita</h1>
+    <p>Localita</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
-        <h1>latitudine:</h1>
+        <p>latitudine:</p>
         <input type="text" id="residenza" name="latitudine" value="<?php echo $latitudine; ?>" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.2%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
-        <h1>longitudine:</h1>
+        <p>longitudine:</p>
         <input type="text" id="residenza" name="longitudine" value="<?php echo $longitudine; ?>" />
       </div>
     </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Orario apertura:</h1>
+    <p>Orario apertura:</p>
     <textarea rows="3" id="istruzione1" name="orario_apertura" cols="100"  placeholder="Lun-Ven 00:00"><?php echo $orario_apertura; ?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Telefono/Cellulare:</h1>
+    <p>Telefono/Cellulare:</p>
     <input type="text" id="telefono" name="telefono" value="<?php echo $telefono; ?>" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Email:</h1>
+    <p>Email:</p>
     <input type="text" id="email" name="email" value="<?php echo $email; ?>" />
   </div>
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-      <h1>Prodotto/innovazione/servizio (campo 1)</h1>
+      <p>Prodotto/innovazione/servizio (campo 1)</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <!--Esempio text -->
-        <h1>Nome:</h1>
+        <p>Nome:</p>
         <input type="text" id="prodotto1" name="prodotto1" value="<?php echo $titoloPr1;?>" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
@@ -217,16 +217,16 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
         <!--Esempio text -->
-        <h1>Descrizione (campo 1)</h1>
+        <p>Descrizione (campo 1)</p>
         <textarea rows="3" id="descrizione1" name="descrizione1" cols="100"  placeholder="descrizione prodotto"><?php echo $descrizionePr1;?></textarea>
       </div>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-        <h1>Prodotto/innovazione/servizio (campo 2):</h1>
+        <p>Prodotto/innovazione/servizio (campo 2):</p>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <!--Esempio text -->
-          <h1>Nome:</h1>
+          <p>Nome:</p>
           <input type="text" id="prodotto2" name="prodotto2" placeholder="Prodotto" value="<?php echo $titoloPr2;?>"/>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
@@ -242,7 +242,7 @@ $testoIndietro = "TORNA INDIETRO";
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
           <!--Esempio text -->
-          <h1>Descrizione (campo 3)</h1>
+          <p>Descrizione (campo 3)</p>
           <textarea rows="3" id="descrizione2" name="descrizione2" cols="100"  placeholder="descrizione prodotto"><?php echo $descrizionePr2;?></textarea>
         </div>
       </div>
@@ -251,7 +251,7 @@ $testoIndietro = "TORNA INDIETRO";
           <h1>Prodotto/innovazione/servizio (campo 3):</h1>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <!--Esempio text -->
-            <h1>Nome:</h1>
+            <p>Nome:</p>
             <input type="text" id="prodotto3" name="prodotto3" placeholder="Prodotto" value="<?php echo $titoloPr3;?>" />
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
@@ -266,7 +266,7 @@ $testoIndietro = "TORNA INDIETRO";
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
             <!--Esempio text -->
-            <h1>Descrizione (campo 3)</h1>
+            <p>Descrizione (campo 3)</p>
             <textarea rows="3" id="descrizione3" name="descrizione3" cols="100"  placeholder="descrizione prodotto"><?php echo $descrizionePr3;?></textarea>
           </div>
         </div>

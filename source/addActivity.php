@@ -60,7 +60,6 @@ $testoIndietro = "TORNA INDIETRO";
 					
 	</script>
   
-  
   <!-- JS -->
   
   <script language="JavaScript" type="text/JavaScript">
@@ -93,8 +92,50 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitForm.action = 'post-add-activity.php';
-			document.submitForm.submit();
+			$.ajax({
+						url:'swear_check.php',
+						type: 'POST',
+						data: { 
+							'stringa': titolo
+							
+						},
+						success:function(response){															
+							if( response.indexOf("success") == -1){
+								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
+							}
+						}
+					});		
+			$.ajax({
+						url:'swear_check.php',
+						type: 'POST',
+						data: { 
+							'stringa': localita
+							
+						},
+						success:function(response){															
+							if( response.indexOf("success") == -1){
+								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
+							}
+						}
+					});
+					$.ajax({
+						url:'swear_check.php',
+						type: 'POST',
+						data: { 
+							'stringa': descrizione
+							
+						},
+						success:function(response){															
+							if( response.indexOf("success") > -1){
+								document.submitFormEvent.action = 'post-add-activity.php';
+								document.submitFormEvent.submit();
+							}else{
+								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
+							}
+						}
+					});		
+			
+			
 		}		
 	}
   </script> 
@@ -128,12 +169,12 @@ $testoIndietro = "TORNA INDIETRO";
 	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
-		  <h1>Titolo:</h1>
+		  <p>Titolo:</p>
 		  <input type="text" id="titolo" name="titolo" placeholder="Titolo" />
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
-		  <h1>Localit&agrave;:</h1>
+		  <p>Localit&agrave;:</p>
 		  <input type="text" id="localita" name="localita" placeholder="Localita" />
 		</div>
 		<!--Esempio textarea -->

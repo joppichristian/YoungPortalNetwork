@@ -33,6 +33,50 @@ $testoIndietro = "TORNA INDIETRO";
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+  <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var nome = document.getElementById("nome").value;		
+		var cognome = document.getElementById("cognome").value;				
+		var data  = document.getElementById("data").value;
+		var residenza  = document.getElementById("residenza").value;
+		var telefono  = document.getElementById("telefono").value;
+		var email  = document.getElementById("email").value;
+	 	 
+		if(nome==""){
+			campi = campi+" \n[nome] OBBLIGATORIO";			
+		}
+		if(cognome==""){
+			campi = campi+" \n[cognome] OBBLIGATORIO";			
+		}
+		if(data==""){
+			campi = campi+" \n[data di nascita] OBBLIGATORIO";			
+		}
+		if(residenza==""){
+			campi = campi+" \n[residenza] OBBLIGATORIO";			
+		}
+		if(telefono==""){
+			campi = campi+" \n[telefono] OBBLIGATORIO";			
+		}
+		if(email==""){
+			campi = campi+" \n[email] OBBLIGATORIO";			
+		}
+	
+		
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-updateCV.php?i=<?php echo $id_cv;?>';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 
 </head>
 <body>
@@ -127,35 +171,35 @@ $testoIndietro = "TORNA INDIETRO";
 
 	?>
 
-  <form action="post-updateCV.php?i=<?php echo $id_cv;?>" method="post"  enctype="multipart/form-data" >
+	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Nome:</h1>
+    <p>Nome:</p>
     <input type="text" id="nome" name="nome" value="<?php echo $nome;?>" placeholder="Nome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Cognome:</h1>
+    <p>Cognome:</p>
     <input type="text" id="cognome" name="cognome" value="<?php echo $cognome;?>" placeholder="Cognome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Data di nascita:</h1>
+    <p>Data di nascita:</p>
     <input type="text" id="data" name="data" value="<?php echo $data;?>" placeholder="01/01/2001" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Residenza/Via:</h1>
+    <p>Residenza/Via:</p>
     <input type="text" id="residenza" name="residenza" value="<?php echo $residenza;?>" placeholder="Residenza e indirizzo" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Telefono/Cellulare:</h1>
+    <p>Telefono/Cellulare:</p>
     <input type="text" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Telefono o Cellulare" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Email:</h1>
+    <p>Email:</p>
     <input type="text" id="email" name="email" value="<?php echo $email;?>" placeholder="Email" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
@@ -234,7 +278,7 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
     <button type="submit" value="Salva" style="font-size: 25px;" >Salva</button>
-     <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
+     <button type="reset"  onclick="window.location='curriculums.php';" value="Annulla" style="font-size: 25px;">Annulla</button>
   <div>
 
   </form>

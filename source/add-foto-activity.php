@@ -83,6 +83,27 @@ $testoIndietro = "TORNA INDIETRO";
 	}
 
   </script>
+   <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		if(document.getElementById("elencofoto").value.length < 1) {
+		   campi = campi+" \nNessuna foto selezionata!";			
+		}
+		
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-add-foto-activity.php';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 
 
 </head>
@@ -115,14 +136,13 @@ $testoIndietro = "TORNA INDIETRO";
 	  
 	  if(isset($id_attivita)){
   ?>
-		  <form action="post-add-foto-activity.php" method="post"  enctype="multipart/form-data" >
-			 
+		<form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" > 
 			<input type="hidden" id="id" name="id" value="<?php echo $id_attivita; ?>" /> 
 			 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 			  <p>Aggiungi Foto attivit&agrave;:</p>
 			 
-				<input type="file" name="files[]" multiple="multiple" />
+				<input type="file" id="elencofoto" name="files[]" multiple="multiple" />
 				</br>
 				<p>N.B.: Le immagini verranno aggiunte alla galleria dell'attività.</p>
 			</div>

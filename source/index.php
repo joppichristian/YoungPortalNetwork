@@ -124,8 +124,12 @@ $testoIndietro = "#";
         <img src="images/loghi/pat.jpg" style="width:250px;height:150px;margin:3%;"/>
       </a>
   </div>
-  <footer class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top:5%">
-
+  <footer class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top:5%;text-align: center;">
+  	<font style="color: #eb8c06">Per info e segnalazioni contattaci a </font><a href="mailto:info@youngportalnetwork.it">info@youngportalnetwork.it</a>
+  	<br/>
+  	<a href="//www.iubenda.com/privacy-policy/587389" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+  	
+  	<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
   </footer>
 
 

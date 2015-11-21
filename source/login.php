@@ -134,7 +134,7 @@
 			<p class="fieldset">
 			  <input type="checkbox" id="accept-terms">
 			  <span class="cd-error-message">Per continuare devi accettare i termini</span>
-			  <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+			  <label for="accept-terms">I agree to the <a href="//www.iubenda.com/privacy-policy/587389" class="iubenda-white iubenda-embed" title="Privacy Policy" style="color:black;">Terms</a></label>
 			</p>
 
 			<p class="fieldset">

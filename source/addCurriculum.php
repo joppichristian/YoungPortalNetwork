@@ -37,7 +37,52 @@ $testoIndietro = "TORNA INDIETRO";
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
-
+  <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var nome = document.getElementById("nome").value;		
+		var cognome = document.getElementById("cognome").value;				
+		var data  = document.getElementById("data").value;
+		var residenza  = document.getElementById("residenza").value;
+		var telefono  = document.getElementById("telefono").value;
+		var email  = document.getElementById("email").value;
+	 	 
+		if(nome==""){
+			campi = campi+" \n[nome] OBBLIGATORIO";			
+		}
+		if(cognome==""){
+			campi = campi+" \n[cognome] OBBLIGATORIO";			
+		}
+		if(data==""){
+			campi = campi+" \n[data di nascita] OBBLIGATORIO";			
+		}
+		if(residenza==""){
+			campi = campi+" \n[residenza] OBBLIGATORIO";			
+		}
+		if(telefono==""){
+			campi = campi+" \n[telefono] OBBLIGATORIO";			
+		}
+		if(email==""){
+			campi = campi+" \n[email] OBBLIGATORIO";			
+		}
+		if(document.getElementById("file").value.length < 1) {
+		   campi = campi+" \n[immagine] OBBLIGATORIO";			
+		}
+		
+		if(campi!=("")){
+			alert(message+campi);
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-add-cv.php';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 </head>
 <body>
   <header role="banner" style="background-color:black;">
@@ -64,35 +109,35 @@ $testoIndietro = "TORNA INDIETRO";
   <?php
   if(utenteLoggato($mysqli) == true) {
   ?>
-  <form action="post-add-cv.php" method="post"  enctype="multipart/form-data" >
+  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Nome:</h1>
+    <p>Nome:(*)</p>
     <input type="text" id="nome" name="nome" placeholder="Nome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Cognome:</h1>
+    <p>Cognome:(*)</p>
     <input type="text" id="cognome" name="cognome" placeholder="Cognome" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Data di nascita:</h1>
+    <p>Data di nascita:(*)</p>
     <input type="text" id="data" name="data" placeholder="01/01/2001" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Residenza/Via:</h1>
+    <p>Residenza/Via:(*)</p>
     <input type="text" id="residenza" name="residenza" placeholder="Residenza e indirizzo" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Telefono/Cellulare:</h1>
+    <p>Telefono/Cellulare:(*)</p>
     <input type="text" id="telefono" name="telefono" placeholder="Telefono o Cellulare" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
-    <h1>Email:</h1>
+    <p>Email:(*)</p>
     <input type="text" id="email" name="email" placeholder="Email" />
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">
@@ -157,7 +202,7 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
-		  <p>Immagine:</p>
+		  <p>Immagine:(*)</p>
 
 			<input type="file" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come foto profilo.</p>

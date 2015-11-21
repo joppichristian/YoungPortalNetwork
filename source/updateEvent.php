@@ -167,12 +167,12 @@ $testoIndietro = "TORNA INDIETRO";
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
-		  <h1>Titolo:</h1>
+		  <p>Titolo:</p>
 		  <input type="text" id="titolo" name="titolo" value="<?php echo $titolo;?>" placeholder="Titolo" />
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 20px;" >
 		  <!--Esempio text -->
-		  <h1>Localit&agrave;:</h1>
+		  <p>Localit&agrave;:</p>
 		  <input type="text" id="localita" name="localita" value="<?php echo $localita;?>" placeholder="Localita" />
 		</div>
 		<!--Esempio textarea -->

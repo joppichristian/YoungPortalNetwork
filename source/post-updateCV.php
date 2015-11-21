@@ -133,7 +133,7 @@
 				die('</br></br>Errore. Contatta il tecnico del sito . ');
 			}
 
-			$messaggio .= "</br></br>HAI MODIFICATO 1 ATTIVIT&Agrave; CON SUCCESSO</br></br>";
+			$messaggio .= "</br></br>HAI MODIFICATO IL TUO CURRICULUM CON SUCCESSO</br></br>";
 
 		}else{
 			$messaggio = "DEVI PRIMA COMPILARE IL FORM PER INSERIRE I DATI DELLA ATTIVIT&Agrave.";

@@ -38,38 +38,63 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+    <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
-	{
+	{	
 		var message = "ATTENZIONE:\n";
 		var campi   = "";
-
-		var titolo = document.getElementById("titolo").value;
-		var localita = document.getElementById("localita").value;
-		var descrizione  = document.getElementById("descrizione").value;
-
-		if(titolo==""){
-			campi = campi+" \n[titolo] OBBLIGATORIO";
-		}
-		if(localita==""){
-			campi = campi+" \n[localita] OBBLIGATORIO";
+		
+		var nome = document.getElementById("nome").value;		
+		var descrizione = document.getElementById("descrizione").value;				
+		var residenza_lat  = document.getElementById("residenza_lat").value;
+		var residenza_long  = document.getElementById("residenza_long").value;
+		var orario_a  = document.getElementById("orario_a").value;
+		var telefono  = document.getElementById("telefono").value;
+		var email  = document.getElementById("email").value;
+	 	 
+		if(nome==""){
+			campi = campi+" \n[nome] OBBLIGATORIO";			
 		}
 		if(descrizione==""){
-			campi = campi+" \n[descrizione] OBBLIGATORIO";
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+		if(residenza_lat=="" || residenza_long == ""){
+			campi = campi+" \n[località] OBBLIGATORIO";			
+		}
+		if(orario_a==""){
+			campi = campi+" \n[orario di apertura] OBBLIGATORIO";			
+		}
+		if(telefono==""){
+			campi = campi+" \n[telefono] OBBLIGATORIO";			
+		}
+		if(email==""){
+			campi = campi+" \n[email] OBBLIGATORIO";			
 		}
 
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Modifica Azienda',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else
-		{
-			document.submitForm.action = 'post-updateActivity.php';
+		{		
+			document.submitForm.action = 'post-updateCompanies.php';
 			document.submitForm.submit();
-		}
+		}		
 	}
-  </script>
-
+  </script> 
 </head>
 <body>
   <header role="banner" style="background-color:black;">

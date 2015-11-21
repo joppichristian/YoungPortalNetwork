@@ -36,7 +36,66 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
+  <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 
+  <script language="JavaScript" type="text/JavaScript">
+	function validateForm()
+	{	
+		var message = "ATTENZIONE:\n";
+		var campi   = "";
+		
+		var nome = document.getElementById("nome").value;		
+		var descrizione = document.getElementById("descrizione").value;				
+		var residenza_lat  = document.getElementById("residenza_lat").value;
+		var residenza_long  = document.getElementById("residenza_long").value;
+		var orario_a  = document.getElementById("orario_a").value;
+		var telefono  = document.getElementById("telefono").value;
+		var email  = document.getElementById("email").value;
+	 	 
+		if(nome==""){
+			campi = campi+" \n[nome] OBBLIGATORIO";			
+		}
+		if(descrizione==""){
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+		if(residenza_lat=="" || residenza_long == ""){
+			campi = campi+" \n[località] OBBLIGATORIO";			
+		}
+		if(orario_a==""){
+			campi = campi+" \n[orario di apertura] OBBLIGATORIO";			
+		}
+		if(telefono==""){
+			campi = campi+" \n[telefono] OBBLIGATORIO";			
+		}
+		if(email==""){
+			campi = campi+" \n[email] OBBLIGATORIO";			
+		}
+		if(document.getElementById("file").value.length < 1) {
+		   campi = campi+" \n[immagine] OBBLIGATORIO";			
+		}
+		
+		if(campi!=("")){
+			$.alert({
+				title: 'Aggiungi Azienda',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
+			return false;
+		}
+		else
+		{		
+			document.submitForm.action = 'post-add-companies.php';
+			document.submitForm.submit();
+		}		
+	}
+  </script> 
 
 </head>
 <body>

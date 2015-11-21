@@ -199,7 +199,8 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-      <p>Prodotto/innovazione/servizio (campo 1)</p>
+      <p>Prodotto/innovazione/servizio (campo 1)</p></br>
+      <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <!--Esempio text -->
         <p>Nome:</p>
@@ -223,7 +224,8 @@ $testoIndietro = "TORNA INDIETRO";
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-        <p>Prodotto/innovazione/servizio (campo 2):</p>
+        <p>Prodotto/innovazione/servizio (campo 2):</p></br>
+        <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <!--Esempio text -->
           <p>Nome:</p>
@@ -248,7 +250,8 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-          <h1>Prodotto/innovazione/servizio (campo 3):</h1>
+          <h1>Prodotto/innovazione/servizio (campo 3):</h1></br>
+          <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <!--Esempio text -->
             <p>Nome:</p>

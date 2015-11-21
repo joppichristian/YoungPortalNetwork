@@ -90,9 +90,17 @@ background-color: rgba(0,144,215, 1);
    }
    if($foto_trovate==0)
    { ?>
-	    <div class="item active">
-           <img src="images/example.jpg" style="max-width:100%;"/>
-         </div>
+	  
+         <!--<div class="item active">
+              <img src="images/example.jpg" style="max-width:100%;"/>
+            </div>-->
+            <script>
+
+              function nascondi_gallery() {
+                document.getElementById('content_gallery').style.display ="none";
+              }
+              nascondi_gallery();
+            </script>
          <?php
 
    }

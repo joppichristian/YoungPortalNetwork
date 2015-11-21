@@ -50,33 +50,6 @@
                       }
 
 
-                      //echo "Fino a qui";
-
-
-
-                      /*
-
-                      $text_get_foto;
-
-                      for ($i=0; $i<$numero_foto; $i++)
-                      {
-                          $numero_f=$i+1;
-                          $text_get_foto= $text_get_foto."f".$numero_f."=".$array_nome_foto[$i]."&";
-                      }
-/*
-                      if($id_ann!=0){
-                          echo "<script>window.location = 'caricamento_foto.php?ann=".$id_ann."&".$text_get_foto."'</script>";
-                      }
-*/
-
-                      /*
-                      $message="COMPLIMENTI, hai aggiunto un annuncio!";
-                      echo "<script type='text/javascript'>alert('$message');</script>";
-                      echo "<script>window.location = '../index.html'</script>";
-                      */
-                      // liberazione delle risorse occupate dal risultato
-                      //$result->close();
-
       /**
           * Image resize
           * @param int $width

@@ -38,28 +38,28 @@
 
 	    <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
-	{	
+	{
 		var message = "ATTENZIONE:\n";
 		var campi = "";
-		var testo_commento = document.getElementById("testo_commento").value;		
-	
-	 	 
+		var testo_commento = document.getElementById("testo_commento").value;
+
+
 		if(testo_commento =="..."){
-			campi = campi+" \nNESSUN COMMENTO INSERITO";			
+			campi = campi+" \nNESSUN COMMENTO INSERITO";
 		}
 		if(campi!=("")){
 			alert(message+campi);
 			return false;
 		}
 		else
-		{		
+		{
 			document.commentForm.action = 'post-add-comment_event.php';
 			document.commentForm.submit();
-		}	
+		}
 	}
   </script>
-  
-  
+
+
   <?php
 
 	$id_evento = $_GET["id"];
@@ -98,7 +98,7 @@
 	<meta property="og:image" content="<? echo $url_foto; ?>" />
 	<meta property="og:description" content="Per saperne di più clicca qui..." />
 
-  
+
   </head>
   <body>
     <header role="banner" style="background-color:black;">
@@ -112,8 +112,8 @@
       include("login.php");
     ?>
   </div> <!-- cd-user-modal -->
-  
-  	
+
+
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
 
@@ -136,36 +136,40 @@
 	         <div class="info-description col-lg-12 col-md-12 col-sm-12 col-xs-12" id="description" style="text-align:left; margin-top:5%;">
          <?php echo $descrizione; ?>
 		    </div>
-	     </div> 
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
-		 	<img src="<?php echo $url_foto; ?>" id="anteprima" />
 	     </div>
-        
+	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <img src="<?php echo $url_foto; ?>" id="anteprima" />
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:4%;text-align: center;">
+        Condividi l'evento su Facebook</br>
+        <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
+        <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+      </div>
+	     </div>
+
       </div>
 <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-	      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
+	      <div id="content_gallery" class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top:1%;">
             <?php
               include("gallery_events.php");
             ?>
         	</div>
-             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:1%;text-align: center;">		 
-           <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Condividi su Facebook</a>
-            <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-
-			</div>
+          
 		</div>
 
 
 		    <!-- Parte commenti -->
-  
+
     </div>
-      <?php 
+      <?php
 	    if(utenteLoggato($mysqli) == true) {	?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
-			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >			    
+			<form id="commentForm" name="commentForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo $id_evento;?>" />
-				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>			   	
+				<textarea name='testo_commento' id="testo_commento" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Commenta qui..."></textarea>
 				<button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi commento</button>
 		   	</form>
 		</div>
@@ -176,14 +180,14 @@
 
 	<div class="commenti col-lg-6 col-md-6 col-sm-12 col-xs-12" id="commenti" >
 	<?php
-		
-		$query_sql = "SELECT CE.ID, TESTO, DATA_ORA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME 
+
+		$query_sql = "SELECT CE.ID, TESTO, DATA_ORA_INSERIMENTO AS DATA,DATE_FORMAT(DATA_ORA_INSERIMENTO,'%d/%m/%Y %H:%i') as DATA_ORA_INSERIMENTO,USER_ID, USERNAME
 					  FROM COMMENTO_EVENTI CE
 					  LEFT JOIN UTENTE U ON CE.USER_ID = U.ID
 					   WHERE EVENTO_ID =". $id_evento ."
 					   ORDER BY DATA ASC;";
-	
-		$result = $mysqli->query($query_sql);	 
+
+		$result = $mysqli->query($query_sql);
 		while($row = $result->fetch_array())
 		{
 			if($row['USER_ID'] == $_SESSION['user_id']){
@@ -228,12 +232,12 @@
 			    	</div>
 		    	</div>
 
-			<?	
+			<?
 			}
 	 } ?>
     </div>
 
-   
+
 
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->

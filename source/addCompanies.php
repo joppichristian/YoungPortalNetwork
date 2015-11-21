@@ -104,6 +104,7 @@ $testoIndietro = "TORNA INDIETRO";
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
       <p>Prodotto/innovazione/servizio (campo 1)</p>
+      <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <!--Esempio text -->
         <p>Nome:</p>
@@ -122,6 +123,7 @@ $testoIndietro = "TORNA INDIETRO";
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
         <p>Prodotto/innovazione/servizio (campo 2):</p>
+        <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <!--Esempio text -->
           <p>Nome:</p>
@@ -140,6 +142,7 @@ $testoIndietro = "TORNA INDIETRO";
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
           <p>Prodotto/innovazione/servizio (campo 3):</p>
+          <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <!--Esempio text -->
             <p>Nome:</p>
@@ -173,7 +176,7 @@ $testoIndietro = "TORNA INDIETRO";
 		</div>
 
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
-		  <p>Immagine:</p>
+		  <p>Logo:</p>
 
 			<input type="file" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come foto profilo (se presente inserisci il logo aziendale).</p>

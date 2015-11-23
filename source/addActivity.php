@@ -101,17 +101,8 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{	
-			
-<<<<<<< HEAD
-			
-			document.submitFormEvent.action = 'post-add-activity.php';
-			document.submitFormEvent.submit();
-=======
 			document.submitForm.action = 'post-add-activity.php';
-			document.submitForm.submit();
->>>>>>> origin/developing
-							
-			
+			document.submitForm.submit();		
 		}		
 	}
   </script> 

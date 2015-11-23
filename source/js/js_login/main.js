@@ -111,6 +111,27 @@ jQuery(document).ready(function($){
         }  
         return true; 
     }
+	
+	$form_forgot_password.find('input[type="submit"]').on('click', function(event){
+		
+		var eMail = document.getElementById("reset-email").value;	
+		
+		if(!emailCorretta(eMail)){
+			//MESSAGGIO DI ERRORE
+			var hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="reset-email"]').toggleClass('has-error').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="reset-email"]').toggleClass('has-error').next('span').removeClass('is-visible');
+		}
+		
+		if(!hasErrors){		
+			document.formReset.method = 'POST';
+			document.formReset.action = 'private/resetta-password.php';
+			document.formReset.submit();
+		}
+		
+	});	
  	
 	$form_login.find('input[type="submit"]').on('click', function(event){
 			 

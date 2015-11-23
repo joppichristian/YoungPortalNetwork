@@ -93,6 +93,7 @@ $testoIndietro = "TORNA INDIETRO";
 		else
 		{	
 			
+			
 			document.submitFormEvent.action = 'post-add-activity.php';
 			document.submitFormEvent.submit();
 							

@@ -33,22 +33,16 @@
 			$.ajax({
 					url:'swear_check.php',
 					type: 'POST',
-						data: { 
-							'stringa': stringa,
-							
-						},
-						success:function(response){	
-							alert(response);														
-							if( response.indexOf("success") > -1){
-								alert("Success");
-							}
-						},
-						
-						error: function(err){
-							console.log(err);
-								alert("Potresti aver inserito un parola offensiva nel form! Una condotta negativa potrebbe portare alla disattivazione del tuo profilo!");
+					data: { 
+						'stringa': stringa							
+					},
+					success:function(response){	
+						alert(response);														
+						if( response.indexOf("success") > -1){
+							alert("Success");
 						}
-											});		
+					}
+			});		
 			
 			
 		}		

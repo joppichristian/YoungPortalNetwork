@@ -150,24 +150,24 @@
 	
 
 	<div id="cd-reset-password"> <!-- reset password form -->
-	  <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+	  <p class="cd-form-message">Hai dimenticato la password? Inserisci la tua email. Ti invieremo una password provvisoria.</p>
 
-	  <form class="cd-form">
+	  <form id="formReset" name="formReset" class="cd-form">
 		<p class="fieldset">
 		  <label class="image-replace cd-email" for="reset-email">E-mail</label>
-		  <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-		  <span class="cd-error-message">Error message here!</span>
+		  <input class="full-width has-padding has-border" id="reset-email" name="reset-email" type="email" placeholder="E-mail">
+		  <span class="cd-error-message">Errore! controlla l'email.</span>
 		</p>
 
 		<p class="fieldset">
-		  <input class="full-width has-padding" type="submit" value="Reset password">
+		  <input class="full-width has-padding" type="submit" value="Resetta password">
 		</p>
 	  </form>
 
-	  <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+	  <p class="cd-form-bottom-message"><a href="#0">Torna al log-in</a></p>
 	</div> <!-- cd-reset-password -->
 	
 	
-	<a href="#0" class="cd-close-form">Close</a>	
+	<a href="#0" class="cd-close-form">Chiudi</a>	
 	
   </div> <!-- cd-user-modal-container -->

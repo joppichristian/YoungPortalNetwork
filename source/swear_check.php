@@ -1,8 +1,9 @@
-
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
-$messaggio = $_POST['stringa'];
-/*
+/*include 'connessione-db.php';
+require_once ('phpmailer/PHPMailerAutoload.php'); 
+ 
+if ($_SERVER['REQUEST_METHOD'] == "POST"){ 
+
 $parolacce=array('cazz','sesso','stronz','sex','porc','bastard','puttan','troi','dio','merd','cacc','pompin','fig'); 
      for ($i=0; $i < count($parolacce); $i++)  {    
          $exp = explode($parolacce[$i], $messaggio); 
@@ -11,9 +12,9 @@ $parolacce=array('cazz','sesso','stronz','sex','porc','bastard','puttan','troi',
               echo "error";
             }      
      } 
-     */
+    
      echo "success";
  }
-
-
+ */
+echo "success";
 ?>

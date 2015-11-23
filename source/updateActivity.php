@@ -38,6 +38,10 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+  <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+  
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
 	{	
@@ -59,7 +63,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 				
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Modifica Attività',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else

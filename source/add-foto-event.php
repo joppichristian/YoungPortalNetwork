@@ -94,8 +94,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
-			return false;
+			$.alert({
+				title: 'Aggiungi Foto Evento',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});			return false;
 		}
 		else
 		{		

@@ -5,7 +5,7 @@ include 'private/utility-login.php';
 
 my_session_start();
 
-$linkIndietro="activities.php";
+$linkIndietro="students.php";
 $testoIndietro = "TORNA INDIETRO";
 
 ?>
@@ -37,6 +37,9 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="js/bootstrap.min.js"></script>
   
   <!-- JS -->
+    <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
   
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
@@ -51,7 +54,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Domanda',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else
@@ -91,7 +103,7 @@ $testoIndietro = "TORNA INDIETRO";
 	  <form id="questioForm" name="questionForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
 		  <!--Esempio text -->
-		  <h1>Domanda:</h1>
+		  <p>Domanda:</p>
 		  <textarea rows="5" id="question" name="question" cols="100"  placeholder="Inserisci qui la tua domanda..."></textarea>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;">

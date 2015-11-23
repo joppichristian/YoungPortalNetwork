@@ -175,7 +175,7 @@
     </div>
 
     <div class="main-info col-lg-12 col-md-12 col-sm-12 col-xs-12" style="float:left;" >
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:1%;">
+      <div id="content_gallery" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:1%;">
           <?php
             include("gallery_companies.php");
           ?>
@@ -262,17 +262,36 @@
           }
           ?>
 
+          <?php
+            if($titoloPr3 != "" && $descrizionePr3 != "" ){
+
+              ?>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="center" style="margin-bottom:2%;">
                 <?php echo $titoloPr3; ?>
             </div>
+            <?php if($urlFotoPr3 ==""){ ?>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
-              <img src="<?php echo $url_fotoPr3; ?>" style="width:100%;height:50%;"  />
+              <img src="<?php echo $url_fotoPr2; ?>" style="width:100%;height:50%;"  />
             </div>
+            <?php
+              }else{
+                  $url_vuota = "http://www.youngportalnetwork.it/images/example.jpg";
+            ?>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding">
+                <img src="<?php echo $url_vuota; ?>" style="width:100%;height:50%;"  />
+              </div>
+            <?php
+              }
+            ?>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remove_padding" align="left" style="margin-top:2%;">
                 <?php echo $descrizionePr3; ?>
             </div>
           </div>
+          <?php
+          }
+          ?>
+
 
         </div>
 
@@ -318,7 +337,8 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;margin-bottom:3%;" >
-          <?php echo $email; echo $telefono; ?>
+          Email: <?php echo $email;?></br>
+          Telefono: <?php echo $telefono; ?>
         </div>
 
       </div>

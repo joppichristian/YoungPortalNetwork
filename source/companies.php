@@ -285,7 +285,7 @@ while($row_nome = $result_nome->fetch_array())
 									  $('#inserted').on('click', function () {
 	                                        $.alert({
                                             title: 'Aggiungi Azienda',
-                                            content: 'Hai già inserito la tua azienda. Vai nella sezione \'Gestisci la tua azienda \' qui accanto per modificarla!',
+                                            content: 'Hai già inserito la tua azienda. Vai nella sezione \'Gestisci la tua azienda\' qui accanto per modificarla!',
                                             theme: 'supervan',
                                             animation:'RotateY',
                                             cancelButton: '',

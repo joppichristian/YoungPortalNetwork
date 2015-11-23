@@ -36,6 +36,9 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
   <!-- -->
+    <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
@@ -73,7 +76,16 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Curriculum',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else

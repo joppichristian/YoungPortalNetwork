@@ -38,38 +38,63 @@ $testoIndietro = "TORNA INDIETRO";
   <script src="js/bootstrap.min.js"></script>
   <!-- -->
 
+    <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
-	{
+	{	
 		var message = "ATTENZIONE:\n";
 		var campi   = "";
-
-		var titolo = document.getElementById("titolo").value;
-		var localita = document.getElementById("localita").value;
-		var descrizione  = document.getElementById("descrizione").value;
-
-		if(titolo==""){
-			campi = campi+" \n[titolo] OBBLIGATORIO";
-		}
-		if(localita==""){
-			campi = campi+" \n[localita] OBBLIGATORIO";
+		
+		var nome = document.getElementById("nome").value;		
+		var descrizione = document.getElementById("descrizione").value;				
+		var residenza_lat  = document.getElementById("residenza_lat").value;
+		var residenza_long  = document.getElementById("residenza_long").value;
+		var orario_a  = document.getElementById("orario_a").value;
+		var telefono  = document.getElementById("telefono").value;
+		var email  = document.getElementById("email").value;
+	 	 
+		if(nome==""){
+			campi = campi+" \n[nome] OBBLIGATORIO";			
 		}
 		if(descrizione==""){
-			campi = campi+" \n[descrizione] OBBLIGATORIO";
+			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+		}
+		if(residenza_lat=="" || residenza_long == ""){
+			campi = campi+" \n[località] OBBLIGATORIO";			
+		}
+		if(orario_a==""){
+			campi = campi+" \n[orario di apertura] OBBLIGATORIO";			
+		}
+		if(telefono==""){
+			campi = campi+" \n[telefono] OBBLIGATORIO";			
+		}
+		if(email==""){
+			campi = campi+" \n[email] OBBLIGATORIO";			
 		}
 
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Modifica Azienda',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+				});
 			return false;
 		}
 		else
-		{
-			document.submitForm.action = 'post-updateActivity.php';
+		{		
+			document.submitForm.action = 'post-updateCompanies.php';
 			document.submitForm.submit();
-		}
+		}		
 	}
-  </script>
-
+  </script> 
 </head>
 <body>
   <header role="banner" style="background-color:black;">
@@ -160,7 +185,7 @@ $testoIndietro = "TORNA INDIETRO";
 
 		if( $idUtente == $autore ) {
 	?>
-  <form action="post-updateCompanies.php" method="post"  enctype="multipart/form-data" >
+	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <p>Nome:</p>
@@ -175,17 +200,17 @@ $testoIndietro = "TORNA INDIETRO";
     <p>Localita</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
         <p>latitudine:</p>
-        <input type="text" id="residenza" name="latitudine" value="<?php echo $latitudine; ?>" />
+        <input type="text" id="residenza_lat" name="latitudine" value="<?php echo $latitudine; ?>" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:0.2%;margin-bottom:0.5%;font-size: 20px;" ><!--Esempio text -->
         <p>longitudine:</p>
-        <input type="text" id="residenza" name="longitudine" value="<?php echo $longitudine; ?>" />
+        <input type="text" id="residenza_long" name="longitudine" value="<?php echo $longitudine; ?>" />
       </div>
     </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <p>Orario apertura:</p>
-    <textarea rows="3" id="istruzione1" name="orario_apertura" cols="100"  placeholder="Lun-Ven 00:00"><?php echo $orario_apertura; ?></textarea>
+    <textarea rows="3" id="orario_a" name="orario_apertura" cols="100"  placeholder="Lun-Ven 00:00"><?php echo $orario_apertura; ?></textarea>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
@@ -199,7 +224,8 @@ $testoIndietro = "TORNA INDIETRO";
   </div>
 
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-      <p>Prodotto/innovazione/servizio (campo 1)</p>
+      <p>Prodotto/innovazione/servizio (campo 1)</p></br>
+      <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <!--Esempio text -->
         <p>Nome:</p>
@@ -223,7 +249,8 @@ $testoIndietro = "TORNA INDIETRO";
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-        <p>Prodotto/innovazione/servizio (campo 2):</p>
+        <p>Prodotto/innovazione/servizio (campo 2):</p></br>
+        <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <!--Esempio text -->
           <p>Nome:</p>
@@ -248,7 +275,8 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
-          <h1>Prodotto/innovazione/servizio (campo 3):</h1>
+          <h1>Prodotto/innovazione/servizio (campo 3):</h1></br>
+          <p>IMPORTANTE: per aggiungere il prodotto DEVI selezionare la sua immagine</p>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <!--Esempio text -->
             <p>Nome:</p>

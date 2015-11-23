@@ -155,7 +155,7 @@
 	  <form id="formReset" name="formReset" class="cd-form">
 		<p class="fieldset">
 		  <label class="image-replace cd-email" for="reset-email">E-mail</label>
-		  <input class="full-width has-padding has-border" id="reset-email" name="reset-email" type="email" placeholder="E-mail">
+		  <input class="full-width has-padding has-border" id="resetEmail" name="resetEmail" type="email" placeholder="E-mail">
 		  <span class="cd-error-message">Errore! controlla l'email.</span>
 		</p>
 

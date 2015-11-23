@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	 
 	// Recupero la password criptata dal form di inserimento.
 	
-	$email = $_POST['reset-email'];	
+	$email = $_POST['resetEmail'];	
 
 	if( !isset($email) ){
 		header('Location: ../page_messaggio.php?ms=qualcosa e andato storto.. per info scrivi a info@youngportalnetwork.it');
@@ -34,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		$mail->Body = "<html><body> <div> Invio password provvisoria.</div> 
 									<div>
 										</br>
-										La tua password provvisoria è $randomPwd.</br>
-										Ricorda che dopo aver effettuato il login nel sito con la password provvisoria puoi cambiarla cliccando sul tuo nome in alto a destra.</br>
+										<b>La tua password provvisoria &egrave;: $randomPwd</b></br>
+										Ricorda che dopo aver effettuato il login nel sito con la password provvisoria <b>puoi cambiarla cliccando sul tuo nome in alto a destra</b>.</br></br>
 										Per qualsiasi info puoi scrivere all email: info@youngportalnetwork.it
 									</div>
 					   </body></html>";
@@ -68,6 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 function inserisciNuovaPassword($email,$randomPwd){
 	global $mysqli;
+	
+	// devo applicare lo SHA512 alla randomPassword
+	$randomPwd =  hash('sha512',$randomPwd);
 					
 	// Crea una chiave casuale
 	$random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
@@ -111,13 +114,13 @@ function utenteAttivo($email){
 }
 
 function generateRandomPassword($length = 8) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
-    return $randomString;
+    return utf8_encode($randomString);
 }
 	
 	

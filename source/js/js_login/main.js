@@ -114,15 +114,15 @@ jQuery(document).ready(function($){
 	
 	$form_forgot_password.find('input[type="submit"]').on('click', function(event){
 		
-		var eMail = document.getElementById("reset-email").value;	
+		var eMail = document.getElementById("resetEmail").value;	
 		
 		if(!emailCorretta(eMail)){
 			//MESSAGGIO DI ERRORE
 			var hasErrors = true;
 			event.preventDefault();
-			$form_signup.find('input[id="reset-email"]').toggleClass('has-error').next('span').addClass('is-visible');
+			$form_forgot_password.find('input[id="resetEmail"]').toggleClass('has-error').next('span').addClass('is-visible');
 		}else{
-			$form_signup.find('input[id="reset-email"]').toggleClass('has-error').next('span').removeClass('is-visible');
+			$form_forgot_password.find('input[id="resetEmail"]').toggleClass('has-error').next('span').removeClass('is-visible');
 		}
 		
 		if(!hasErrors){		

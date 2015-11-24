@@ -153,7 +153,7 @@
     <div class="subheader col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" >
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding">
-          <a href="#chi_siamo" >Chi siamo</a>
+          <a style="cursor:pointer;" href="#chi_siamo">Chi siamo</a>
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 nopadding" >

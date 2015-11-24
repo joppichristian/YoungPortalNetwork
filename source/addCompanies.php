@@ -42,40 +42,56 @@ $testoIndietro = "TORNA INDIETRO";
 
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
-	{	
-		var message = "ATTENZIONE:\n";
+	{
+    var message = "ATTENZIONE:\n";
+    var privacy = document.getElementById("privacy").checked;
+    if(privacy!=true){
+
+      $.alert({
+				title: 'Aggiungi Curriculum',
+				content: message+"Spunta la normativa sulla privacy per poter aggiungere il tuo Curriculum!",
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+
+				}
+				});
+        return false;
+    }else{
+
 		var campi   = "";
-		
-		var nome = document.getElementById("nome").value;		
-		var descrizione = document.getElementById("descrizione").value;				
+
+		var nome = document.getElementById("nome").value;
+		var descrizione = document.getElementById("descrizione").value;
 		var residenza_lat  = document.getElementById("residenza_lat").value;
 		var residenza_long  = document.getElementById("residenza_long").value;
 		var orario_a  = document.getElementById("orario_a").value;
 		var telefono  = document.getElementById("telefono").value;
 		var email  = document.getElementById("email").value;
-	 	 
+
 		if(nome==""){
-			campi = campi+" \n[nome] OBBLIGATORIO";			
+			campi = campi+" \n[nome] OBBLIGATORIO";
 		}
 		if(descrizione==""){
-			campi = campi+" \n[descrizione] OBBLIGATORIO";			
+			campi = campi+" \n[descrizione] OBBLIGATORIO";
 		}
 		if(residenza_lat=="" || residenza_long == ""){
-			campi = campi+" \n[località] OBBLIGATORIO";			
+			campi = campi+" \n[località] OBBLIGATORIO";
 		}
 		if(orario_a==""){
-			campi = campi+" \n[orario di apertura] OBBLIGATORIO";			
+			campi = campi+" \n[orario di apertura] OBBLIGATORIO";
 		}
 		if(telefono==""){
-			campi = campi+" \n[telefono] OBBLIGATORIO";			
+			campi = campi+" \n[telefono] OBBLIGATORIO";
 		}
 		if(email==""){
-			campi = campi+" \n[email] OBBLIGATORIO";			
+			campi = campi+" \n[email] OBBLIGATORIO";
 		}
 		if(document.getElementById("file").value.length < 1) {
-		   campi = campi+" \n[immagine] OBBLIGATORIO";			
+		   campi = campi+" \n[immagine] OBBLIGATORIO";
 		}
-		
+
 		if(campi!=("")){
 			$.alert({
 				title: 'Aggiungi Azienda',
@@ -84,18 +100,19 @@ $testoIndietro = "TORNA INDIETRO";
 				animation:'RotateY',
 				 animationSpeed: 1000,
 				confirm: function (id) {
-				 
-				}                                        
+
+				}
 				});
 			return false;
 		}
 		else
-		{		
+		{
 			document.submitForm.action = 'post-add-companies.php';
 			document.submitForm.submit();
-		}		
+		}
 	}
-  </script> 
+}
+  </script>
 
 </head>
 <body>
@@ -240,6 +257,11 @@ $testoIndietro = "TORNA INDIETRO";
 			<input type="file" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come foto profilo (se presente inserisci il logo aziendale).</p>
 		</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
+      <input id="privacy" type="checkbox" name="privacy" value="off">Accetto la <a href="//www.iubenda.com/privacy-policy/587389" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+		<div>
+
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 		  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi</button>
 		  <button type="reset" value="Cancella" style="font-size: 25px;">Cancella</button>

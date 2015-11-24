@@ -48,6 +48,8 @@ $testoIndietro = "TORNA ALLA HOME";
 
 </head>
 <body>
+		  <?php include_once("analyticstracking.php") ?>
+
   <header role="banner" style="background-color:black;">
     <?php
 	  include("header.php");

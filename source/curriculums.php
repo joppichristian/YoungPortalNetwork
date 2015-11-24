@@ -43,6 +43,8 @@ $testoIndietro = "TORNA ALLA HOME";
     <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 </head>
 <body>
+		  <?php include_once("analyticstracking.php") ?>
+
   <header role="banner" style="background-color:black;">
     <?php
 	  include("header.php");

@@ -38,6 +38,8 @@ $testoIndietro = "TORNA ALLA HOME";
 	<title>YPN | Strutture a noleggio</title>
 </head>
 <body>
+		  <?php include_once("analyticstracking.php") ?>
+
 	<header role="banner" style="background-color:black;">
 	<?php
 		include("header.php");

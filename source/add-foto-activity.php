@@ -142,22 +142,34 @@ $testoIndietro = "TORNA INDIETRO";
   if(utenteLoggato($mysqli) == true) {
 	  
 	  $id_attivita = $_GET["id"];
+	  $codProvenienza = $_GET["c"];
 	  
 	  if(isset($id_attivita)){
+		    
   ?>
 		<form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" > 
 			<input type="hidden" id="id" name="id" value="<?php echo $id_attivita; ?>" /> 
 			 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
-			  <p>Aggiungi Foto attivit&agrave;:</p>
+			   
+			  <?php
+			  if(isset($codProvenienza)){
+				  if($codProvenienza == 99){
+			  ?>		  
+					<p>Attivit&agrave; aggiunta con successo!</p>
+			  <?php	  
+				  }				
+			  }	
+			  ?>			  
+			  <p>Se desideri puoi aggiungere foto alla galleria dell'attivit&agrave;:</p>
 			 
 				<input type="file" id="elencofoto" name="files[]" multiple="multiple" />
-				</br>
-				<p>N.B.: Le immagini verranno aggiunte alla galleria dell'attività.</p>
+				
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >
 			  <button type="submit" value="Aggiugi" style="font-size: 25px;" >Aggiungi le Foto</button>
-			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Fine.</button>
+			  <label> &nbsp; OPPURE &nbsp; </label>
+			  <button type="reset"  onclick="window.location='management_activities.php';" value="Annulla" style="font-size: 25px;">Salva e chiudi</button>
 			<div>
 
 		  </form>

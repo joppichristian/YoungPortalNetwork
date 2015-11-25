@@ -96,13 +96,44 @@ $testoIndietro = "TORNA INDIETRO";
 				confirm: function (id) {
 				 
 				}                                        
-				});
+			});
 			return false;
 		}
 		else
 		{	
-			document.submitForm.action = 'post-add-activity.php';
-			document.submitForm.submit();		
+			//prima di fare il subit del form controllo parolacce:
+			var stringToCheck = ' ' + titolo + ' ' + localita + ' ' + descrizione;
+			$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.submitForm.action = 'post-add-activity.php';
+						document.submitForm.submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Aggiungi Attività',
+							content: 'Attenzione! abbiamo rilevato una parolaccia nel testo inserito. Prova a controllare e riprova.',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;	
 		}		
 	}
   </script> 

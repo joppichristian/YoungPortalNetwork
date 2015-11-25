@@ -29,22 +29,24 @@
 		}
 		else
 		{	
-			var stringa = titolo + ' ' + localita + ' ' + descrizione;
+			var stringToCheck = titolo + ' ' + localita + ' ' + descrizione;
 			$.ajax({
 					url:'swear_check.php',
 					type: 'POST',
 					data: { 
-						'stringa': stringa							
+						'stringToCheck': stringToCheck							
 					},
 					success:function(response){	
-						alert(response);														
+						alert("resp: "+response);														
 						if( response.indexOf("success") > -1){
-							alert("Success");
+							alert("Success");							
 						}
+						
+						return false;
 					}
 			});		
 			
-			
+			return false;
 		}		
 	}
   </script> 

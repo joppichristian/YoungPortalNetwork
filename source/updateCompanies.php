@@ -11,6 +11,7 @@ $testoIndietro = "TORNA INDIETRO";
 ?>
 <head>
   <title>YPN | Aggiungi Attività</title>
+  <link rel="icon" href="images/icon.ico" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,8 +91,39 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitForm.action = 'post-updateCompanies.php';
-			document.submitForm.submit();
+			//prima di fare il subit del form controllo parolacce:
+			var stringToCheck = nome + ' ' + descrizione + ' ' + residenza_lat + ' ' + residenza_long + ' ' + orario_a + ' ' + telefono + ' ' + email;
+			$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.submitForm.action = 'post-updateCompanies.php';
+						document.submitForm.submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Modifica Azienda',
+							content: 'Attenzione! Sono state inserite parole offensive. Una condotta scorretta potrebbe portare alla disattivazione del profilo!',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;
 		}		
 	}
   </script> 
@@ -186,6 +218,8 @@ $testoIndietro = "TORNA INDIETRO";
 		if( $idUtente == $autore ) {
 	?>
 	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
+		      <input type="hidden" id="id" name="id" value="<?php echo $id_azienda; ?>" />
+
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
     <p>Nome:</p>

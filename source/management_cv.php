@@ -11,6 +11,7 @@ $testoIndietro = "TORNA INDIETRO";
 ?>
 <head>
   <title>YPN | Aggiungi Curriculum</title>
+  <link rel="icon" href="images/icon.ico" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,8 +102,41 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{
-			document.submitForm.action = 'post-updateCV.php?i=<?php echo $id_cv;?>';
-			document.submitForm.submit();
+			//prima di fare il subit del form controllo parolacce:
+			var stringToCheck = ' ' + nome + ' ' + cognome + ' ' + residenza + ' ' + telefono + ' ' + email;
+			$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.submitForm.action = 'post-updateCV.php?i=<?php echo $id_cv;?>';
+						document.submitForm.submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Modifica Curriculum',
+							content: 'Attenzione! Sono state inserite parole offensive. Una condotta scorretta potrebbe portare alla disattivazione del profilo!',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;
+
+
 		}
 	}
 }

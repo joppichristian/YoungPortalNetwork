@@ -11,6 +11,8 @@
   ?>
   <head>
     <title>YPN | Attivita</title>
+        <link rel="icon" href="images/icon.ico" />
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,9 +89,7 @@
 		$url_foto = $row_a['URL_FOTO'];
 		$data_inserimento = $row_a['DATA_INSERIMENTO'];
 	}
-<<<<<<< HEAD
 
-=======
 	
 	$nome_creatore = "";
 	$qry_utente="SELECT * FROM UTENTE WHERE ID='$utente_creatore' ;";
@@ -99,8 +99,6 @@
 		$nome_creatore = $row_utente['USERNAME'];		
 	}
 	
-	
->>>>>>> origin/developing
 	$title=urlencode($titolo);
 
 	$url=urlencode('http://www.youngportalnetwork.it/activity.php?id='.$id_attivita);

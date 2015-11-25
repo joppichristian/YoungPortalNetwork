@@ -10,8 +10,11 @@ $testoIndietro = "TORNA ALLA HOME";
 
 ?>
 <head>
+	<link rel="icon" href="images/icon.ico" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="young,portal,network,children,ragazzi,giovani,strutture,noleggio,valle di cembra,trentino,forum,studenti,contatti,associazioni,aziende,imprenditori,eventi,attività,curriculums,opportunità" />
+    <meta name="description" content="Portale interattivo dedicato ai giovani della Valle di Cembra. Qui puoi trovare eventi e attività che si svolgono in valle. Un giovane può condividere le proprie esperienze e conoscenze in modo semplice, pubblicizzare la propria azienda."/>
 
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,6 +48,11 @@ $testoIndietro = "TORNA ALLA HOME";
 		include("header.php");
 	?>
 </header>
+ <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+	<?php
+      include("login.php");
+    ?>
+  </div> <!-- cd-user-modal -->
   <div class="subheader" >
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding" style="height:100px">
       <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
@@ -56,21 +64,7 @@ $testoIndietro = "TORNA ALLA HOME";
       </div>
     </div>
   </div>
-<!--
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a href="addStructure.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
-      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-      Aggiungi struttura
-    </button>
-  </a>
-  <a href="management_activities.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-    <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      Gestisci le tue struttura
-    </button>
-  </a>
 
-  </div>
--->
   <div class="articles col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:100%;">
 
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >

@@ -12,6 +12,8 @@ $testoIndietro = "TORNA INDIETRO";
 ?>
 <head>
   <title>YPN | Aggiungi Evento</title>
+      <link rel="icon" href="images/icon.ico" />
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,8 +114,39 @@ $testoIndietro = "TORNA INDIETRO";
 		}
 		else
 		{		
-			document.submitFormEvent.action = 'post-add-event.php';
-			document.submitFormEvent.submit();
+			//prima di fare il subit del form controllo parolacce:
+			var stringToCheck = ' ' + titolo + ' ' + localita + ' ' + descrizione;
+			$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.submitForm.action = 'post-add-event.php';
+						document.submitForm.submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Aggiungi Evento',
+							content: 'Attenzione! Sono state inserite parole offensive. Una condotta scorretta potrebbe portare alla disattivazione del profilo!',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;
 		}		
 	}
   </script> 

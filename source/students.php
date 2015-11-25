@@ -10,8 +10,11 @@
 
   ?>
   <head>
+	  <link rel="icon" href="images/icon.ico" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="young,portal,network,children,ragazzi,giovani,strutture,noleggio,valle di cembra,trentino,forum,studenti,contatti,associazioni,aziende,imprenditori,eventi,attività,curriculums,opportunità" />
+    <meta name="description" content="Portale interattivo dedicato ai giovani della Valle di Cembra. Qui puoi trovare eventi e attività che si svolgono in valle. Un giovane può condividere le proprie esperienze e conoscenze in modo semplice, pubblicizzare la propria azienda."/>
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Merriweather:400italic,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/css_students/reset.css"> <!-- CSS reset -->
@@ -55,6 +58,44 @@
  <script type="text/javascript" src="js/jquery-confirm.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
     
+    <script language="JavaScript" type="text/JavaScript">
+	 	function controllaRisposta(form_sub_name){
+		 	var risposta = document.getElementById("answer"+form_sub_name).value;
+		 	var stringToCheck = risposta;
+		 	$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.getElementById("submitForm"+form_sub_name).action = 'post-add-answer.php';
+						document.getElementById("submitForm"+form_sub_name).submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Aggiungi Risposta',
+							content: 'Attenzione! Sono state inserite parole offensive. Una condotta scorretta potrebbe portare alla disattivazione del profilo!',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;	
+		 		
+	 	}   
+	 </script>
     
     <title>YPN | Forum Studenti</title>
 
@@ -209,9 +250,9 @@
 				    if(utenteLoggato($mysqli) == true) {	?>
 			    <div style="height: auto;">
 				    <div style="border-color:#32481f;margin-bottom: 1%;margin-top: 3%;">
-						<form action="post-add-answer.php" method="post"  enctype="multipart/form-data" >			    
+						<form id="submitForm<?echo $row_dom['ID'];?>" name="submitForm" onsubmit="return controllaRisposta(<?echo $row_dom['ID'];?>);" method="post"  enctype="multipart/form-data" >	    
 							<input type="hidden" name="id_domanda" value="<?php echo $row_dom['ID'];?>" />
-							<textarea name='answer' id="answer" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Rispondi qui..."></textarea>			   		 <p>Vuoi essere anonimo? :</p>
+							<textarea name='answer' id="answer<?echo $row_dom['ID'];?>" cols='25' class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows='5' placeholder="Rispondi qui..."></textarea>			   		 <p>Vuoi essere anonimo? :</p>
 						  <select name="anonimato" >
 							  <option value="0">No</option>
 							  <option value="1">Si</option>
@@ -335,18 +376,5 @@
 </script>
   </body>
   
-  <script>
-      window.onload = function() {
 
-        if($(window).width()<776){
-          document.getElementById('torna_home').style.display='none';
-        }else{
-          document.getElementById('torna_home').style.display='block';
-
-        }
-
-        onChangeDim();
-
-      }
-  </script>
 </html>

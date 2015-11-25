@@ -11,9 +11,13 @@ $testoIndietro = "TORNA ALLA HOME";
 ?>
 <head>
   <title>YPN | Aziende</title>
+      <link rel="icon" href="images/icon.ico" />
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="young,portal,network,children,ragazzi,giovani,strutture,noleggio,valle di cembra,trentino,forum,studenti,contatti,associazioni,aziende,imprenditori,eventi,attività,curriculums,opportunità" />
+    <meta name="description" content="Portale interattivo dedicato ai giovani della Valle di Cembra. Qui puoi trovare eventi e attività che si svolgono in valle. Un giovane può condividere le proprie esperienze e conoscenze in modo semplice, pubblicizzare la propria azienda."/>
 
   <!--        CSS       -->
   <link href="css/bootstrap.min.css" rel="stylesheet">

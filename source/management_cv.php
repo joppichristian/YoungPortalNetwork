@@ -337,7 +337,7 @@ $testoIndietro = "TORNA INDIETRO";
     <img src="<?php echo $url_foto;?>" />
 
     <p>Per Cambiare Immagine utilizza il bottone qui sotto ():</p>
-    <input type="file" name="file" id="file" />
+    <input type="file" name="file" accept="image/jpeg,image/png,image/gif" id="file" />
     <p>N.B.: L'immagine verrà usata come foto profilo.</p>
   </div>
 

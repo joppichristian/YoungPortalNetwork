@@ -215,7 +215,7 @@ $testoIndietro = "TORNA INDIETRO";
 				<img src="<?php echo $url_foto_attuale;?>" />
 
 				<p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
-				<input type="file" name="file" id="file" />
+				<input type="file" accept="image/jpeg,image/png,image/gif" name="file" id="file" />
 				<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >

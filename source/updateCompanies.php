@@ -272,7 +272,7 @@ $testoIndietro = "TORNA INDIETRO";
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
           <p>Aggiorna Immagine prodotto:</p>
-          <input type="file" name="fileP1" id="fileP1" />
+          <input type="file" accept="image/jpeg,image/png,image/gif" name="fileP1" id="fileP1" />
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
@@ -297,7 +297,7 @@ $testoIndietro = "TORNA INDIETRO";
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
             <p>Aggiorna Immagine prodotto:</p>
-            <input type="file" name="fileP2" id="fileP2" />
+            <input type="file" accept="image/jpeg,image/png,image/gif" name="fileP2" id="fileP2" />
           </div>
 
         </div>
@@ -323,7 +323,7 @@ $testoIndietro = "TORNA INDIETRO";
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
               <p>Aggiorna Immagine prodotto:</p>
-              <input type="file" name="fileP3" id="fileP3" />
+              <input type="file" accept="image/jpeg,image/png,image/gif" name="fileP3" id="fileP3" />
             </div>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
@@ -361,7 +361,7 @@ $testoIndietro = "TORNA INDIETRO";
 				<img src="<?php echo $url_foto;?>" />
 
 				<p>Per Cambiare Immagine utilizza il bottone qui sotto:</p>
-				<input type="file" name="file" id="file" />
+				<input type="file" accept="image/jpeg,image/png,image/gif" name="file" id="file" />
 				<p>N.B.: L'immagine verrà usata come anteprima dell'attività.</p>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >

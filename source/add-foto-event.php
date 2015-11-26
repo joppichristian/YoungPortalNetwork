@@ -153,7 +153,7 @@ $testoIndietro = "TORNA INDIETRO";
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 			  <p>Aggiungi Foto evento</p>
 			 
-				<input type="file" id="elencofoto" name="files[]" multiple="multiple" />
+				<input type="file" accept="image/jpeg,image/png,image/gif" id="elencofoto" name="files[]" multiple="multiple" />
 				</br>
 				<p>N.B.: Le immagini verranno aggiunte alla galleria dell'evento.</p>
 			</div>

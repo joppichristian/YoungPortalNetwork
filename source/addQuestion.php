@@ -84,8 +84,8 @@ $testoIndietro = "TORNA INDIETRO";
 					//alert("response index of success="+response.indexOf("success"));
 					if( response.indexOf("success") > -1){
 						//Niente parolacce
-						document.submitForm.action = 'post-add-question.php';
-						document.submitForm.submit();
+						document.questionForm.action = 'post-add-question.php';
+						document.questionForm.submit();
 					}else{
 						//Attenzione a parolaccia
 						$.alert({

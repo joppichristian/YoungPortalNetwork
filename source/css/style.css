@@ -1,0 +1,146 @@
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"DIN 1451 fette Breitschrift 1936";src:url("../fonts/DIN1451-36breit.eot?") format("eot"),url("../fonts/DIN1451-36breit.woff") format("woff"),url("../fonts/DIN1451-36breit.ttf") format("truetype"),url("../fonts/DIN1451-36breit.svg#DIN1451fetteBreitschrift1936-Regular") format("svg");font-weight:normal;font-style:normal;}
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"Eight One";src:url("../fonts/EIGHT_ONE_font_by_dree23km.eot?") format("eot"),url("../fonts/EIGHT_ONE_font_by_dree23km.woff") format("woff"),url("../fonts/EIGHT_ONE_font_by_dree23km.ttf") format("truetype"),url("../fonts/EIGHT_ONE_font_by_dree23km.svg#EightOne") format("svg");font-weight:normal;font-style:normal;}
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"Evolution";src:url("../fonts/Evolution_True_Type_Font_by_PAULW.eot?") format("eot"),url("../fonts/Evolution_True_Type_Font_by_PAULW.woff") format("woff"),url("../fonts/Evolution_True_Type_Font_by_PAULW.ttf") format("truetype"),url("../fonts/Evolution_True_Type_Font_by_PAULW.svg#Evolution") format("svg");font-weight:normal;font-style:normal;}
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"Bellerose Light:1.0";src:url("../fonts/Bellerose.eot?") format("eot"),url("../fonts/Bellerose.woff") format("woff"),url("../fonts/Bellerose.ttf") format("truetype"),url("../fonts/Bellerose.svg#BelleroseLight") format("svg");font-weight:normal;font-style:normal;}
+
+
+
+body{
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-family: "Bellerose Light:1.0";
+  font-weight: bolder;
+  font-size: 8px;
+  line-height: normal !important;
+}
+a{
+  color:white;
+}
+  a:hover{
+    color:white;
+    text-decoration: none;
+  }
+nav {
+  width: 100%;
+  height: 5%;
+  margin-top: 5%;
+  background-color: rgb(50,72,31);
+  margin-bottom: 100px;
+}
+img{
+  height: 200px;
+  margin-bottom: 20px;
+}
+.block{
+  text-align: center;
+  line-height: 170px;
+  margin-bottom: 30px;
+  border-style: solid;
+  border-width: 2px;
+  height: 200px;
+  color:white;
+  font-size: 14px;
+  font-weight: bold;
+  }
+
+.images{
+  height: 200px;
+  padding: auto;
+  text-align: center;
+  background-image: url("../images/img-menu.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+.green{
+  border-bottom-right-radius: 50px 50px;
+  background-color: rgb(180,183,34);
+}
+/*
+  .green:hover{
+    box-shadow: 0 0 15px rgba(50,72,31, 0.2);
+  }*/
+.container{
+  height: 60%;
+}
+
+.blue{
+  border-bottom-right-radius: 50px 50px;
+  background-color: rgb(0,144,215);
+}
+/*
+.blue:hover{
+  box-shadow: 0 0 15px rgba(23,148,201, 0.2);
+}
+*/
+.orange{
+  border-bottom-right-radius: 50px 50px;
+  background-color: rgb(234,140,6);
+}
+/*
+.red:hover{
+  box-shadow: 0 0 25px rgba(149,59,69, 0.2);
+}
+*/
+.gray{
+  border-bottom-right-radius: 50px 50px;
+  background-color: rgb(156,156,156);
+}
+/*
+.gray:hover{
+  box-shadow: 0 0 25px rgba(149,59,69, 0.2);
+}
+*/
+.logo{
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: bolder;
+}
+li{
+  color: rgb(180,183,34);
+}
+footer{
+  height: 80px;
+  background-color: black;
+}
+.commenti{
+	margin-bottom: 150px;
+}
+.commento{
+	height: auto;
+	border-top: solid 1px;
+	text-align: center;
+
+}
+.user-profile{
+	height: 100%;
+}
+.commento .info{
+	line-height: 50px;
+}
+.commento .info #utente{
+	font-weight: bold;
+}
+.commento .info #data_inserimento{
+	font-weight: bold;
+}
+@media screen and (min-width: 480px) {
+    .block {
+        font-size: 22px;
+    }
+    .commento{
+	    text-align: left;
+    }
+}
+
+.subheader{
+	font-size: 28px;
+	vertical-align: top !important;
+}
+.subheader img{
+	vertical-align: top;
+}

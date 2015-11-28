@@ -70,6 +70,7 @@ input[type="submit"]{
     border-radius: .25em;
     padding: 5px;
     resize: none;
+    max-width: 100%;
   }
     textarea:focus{
       border-color: rgb(0,144,215);

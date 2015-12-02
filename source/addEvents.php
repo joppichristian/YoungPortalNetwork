@@ -128,8 +128,8 @@ $testoIndietro = "TORNA INDIETRO";
 					//alert("response index of success="+response.indexOf("success"));
 					if( response.indexOf("success") > -1){
 						//Niente parolacce
-						document.submitForm.action = 'post-add-event.php';
-						document.submitForm.submit();
+						document.submitFormEvent.action = 'post-add-event.php';
+						document.submitFormEvent.submit();
 					}else{
 						//Attenzione a parolaccia
 						$.alert({

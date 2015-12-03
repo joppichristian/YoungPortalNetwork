@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 	$messaggio =  $_POST['stringToCheck'];	
 
-	$parolacce=array('cazz','sesso','stronz','sex','porc','bastard','puttan','troi','dio','merd','cacc','pompin','fig'); 
+	$parolacce=array('cazz','sesso','stronz','sex','porc','bastard','puttan','troi','dio','merd','cacc','pompin','fig','mona','stupid'); 
     
 	for ($i=0; $i < count($parolacce); $i++)  {   
 

@@ -32,7 +32,7 @@
     .textcv{
       text-align:right;
       font-size: 200%;
-      margin-top: 0.3%
+      margin-top: 0.3%;
       margin-bottom:0.3%;
     }
 
@@ -165,7 +165,7 @@
         <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo "Telefono: ".$telefono; ?>
         </div>
-        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo "Posta elettronica: ".$email; ?>
         </div>
 

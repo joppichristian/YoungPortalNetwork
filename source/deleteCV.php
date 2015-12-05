@@ -2,6 +2,8 @@
 
 		//DB Connection
 		include 'private/connessione-db.php';
+		include 'private/utility-login.php';
+		my_session_start();
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -12,8 +14,10 @@
 				die("non sei autenticato");
 			}
 
-			$sql = "DELETE FROM CURRICULUM WHERE ID_UTENTE = '".$_SESSION['user_id']."' ; ";
+			$sql = "DELETE FROM CURRICULUM WHERE ID_utente = '".$_SESSION['user_id']."' ; ";
 
+			//echo "sql: ".$sql;
+			
 			if (!mysqli_query($mysqli,$sql)){
 				die('</br></br>Errore. Scrivi a info@youngportalnetwork.it . ');
 			}

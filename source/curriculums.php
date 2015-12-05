@@ -74,7 +74,7 @@ $testoIndietro = "TORNA ALLA HOME";
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <?php
-$query_nome="SELECT ID_utente FROM CURRICULUM WHERE  id_utente='". $_SESSION['user_id']."';";
+$query_nome="SELECT ID_utente FROM CURRICULUM WHERE  ID_utente='". $_SESSION['user_id']."';";
 $result_nome = $mysqli->query($query_nome);
 $gia_inserito=0;
 while($row_nome = $result_nome->fetch_array())
@@ -346,13 +346,35 @@ if($gia_inserito == 0){
 															'cod': 'young123' 
 														},
 														success:function(response){
-														
-										
-																							
-															if( response.indexOf("success") > -1){
-																location.reload(true);
+															//alert("resp: "+response);
+															if( response.indexOf("success") > -1){			
+																$.alert({
+																	title: 'CV Eliminato con successo',
+																	content: 'Hai eliminato il tuo CV con successo!',
+																	theme: 'supervan',
+																	animation:'RotateY',
+																	cancelButton: '',
+																	animationSpeed: 1000,
+																	columnClass: 'col-xs-12',
+																	confirm: function (id) {
+																		location.reload(true);
+																	}
+																});															
+																
 															}else{
-																alert("Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l'amministratore");
+																$.alert({
+																	title: 'Eliminazione fallita',
+																	content: 'Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l amministratore!',
+																	theme: 'supervan',
+																	animation:'RotateY',
+																	cancelButton: '',
+																	animationSpeed: 1000,
+																	columnClass: 'col-xs-12',
+																	confirm: function (id) {
+																		location.reload(true);
+																	}
+																});
+																
 															}
 														}
 													});		

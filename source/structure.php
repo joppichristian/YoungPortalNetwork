@@ -59,7 +59,7 @@ $testoIndietro = "TORNA ALLA HOME";
           <img src="images/img-menu-small.jpg" style="height:50px" alt="Logo"></a>
       </div>-->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:100px">
-	      <img src="images/strutture_logo.png" style="height: 100%;width: auto;"/> 
+	      <img src="images/strutture_logo.png" style="height: 100%;width: auto;"/>
           <a style="vertical-align: top;">STRUTTURE A NOLEGGIO</a>
       </div>
     </div>
@@ -71,7 +71,7 @@ $testoIndietro = "TORNA ALLA HOME";
 				<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_albiano.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/albiano.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/albiano.jpg" />
             </div>
             <div class="description">
               <p>Comune di Albiano</p>
@@ -84,7 +84,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_cembra.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/cembra.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/cembra.jpg" />
             </div>
             <div class="description">
               <p>Comune di Cembra</p>
@@ -97,7 +97,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_faver.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/faver.jpg" />
+              <img style="height:100%;"  src="images/loghi_comune/faver.jpg" />
             </div>
             <div class="description">
               <p>Comune di Faver</p>
@@ -110,7 +110,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_giovo.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/giovo.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/giovo.jpg" />
             </div>
             <div class="description">
               <p>Comune di Giovo</p>
@@ -123,7 +123,7 @@ $testoIndietro = "TORNA ALLA HOME";
 						<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_grumes.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/grumes.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/grumes.jpg" />
             </div>
             <div class="description">
               <p>Comune di Grumes</p>
@@ -136,7 +136,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_grauno.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/grauno.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/grauno.jpg" />
             </div>
             <div class="description">
               <p>Comune di Grauno</p>
@@ -149,7 +149,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_lisignago.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/lisignago.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/lisignago.jpg" />
             </div>
             <div class="description">
               <p>Comune di Lisignago</p>
@@ -162,7 +162,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_lona.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/lona.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/lona.jpg" />
             </div>
             <div class="description">
               <p>Comune di Lona-Lases</p>
@@ -175,7 +175,7 @@ $testoIndietro = "TORNA ALLA HOME";
 			      <div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_segonzano.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/segonzano.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/segonzano.jpg" />
             </div>
             <div class="description">
               <p>Comune di Segonzano</p>
@@ -188,7 +188,7 @@ $testoIndietro = "TORNA ALLA HOME";
 						<div class="article col-lg-12 col-md-12 col-sm-12 col-xs-12" >
           <a href="structure_comune/detail_structure_sover.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/sover.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/sover.jpg" />
             </div>
             <div class="description">
               <p>Comune di Sover</p>
@@ -202,7 +202,7 @@ $testoIndietro = "TORNA ALLA HOME";
 
           <a href="structure_comune/detail_structure_valda.php" >
             <div class="preview" >
-              <img src="images/loghi_comune/valda.jpg" />
+              <img style="height:100%;" src="images/loghi_comune/valda.jpg" />
             </div>
             <div class="description">
               <p>Comune di Valda</p>

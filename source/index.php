@@ -65,53 +65,53 @@ $testoIndietro = "#";
 		<img src="images/logo.png" style="width:60%;height: auto;"/>
 	</div>
     <img src="images/sfondo.jpg" style="width:100%; height:auto; " />
-    
+
   </div>
 
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin:auto;">
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" >
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6" >
         <div class="block green responsive-2" onclick="location.href='activities.php';" style="cursor:pointer;">
               <!--<p>Attività</p>-->
               <img src="/images/loghi_home/attivita.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block blue responsive-2" onclick="location.href='events.php';" style="cursor:pointer;">
               <!--<p>Eventi</p>-->
               <img src="/images/loghi_home/eventi.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block orange responsive-2" onclick="location.href='companies.php';" style="cursor:pointer;">
               <!--<p>Aziende</p>-->
               <img src="/images/loghi_home/aziende_IMPRENDITORI.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block gray responsive-2" onclick="location.href='curriculums.php?c=0';" style="cursor:pointer;">
               <!--<p>Giovani e Lavoro</p>-->
               <img src="/images/loghi_home/giovani.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block blue responsive-2" onclick="location.href='students.php';" style="cursor:pointer;">
               <!--<p>Forum Studenti</p>-->
               <img src="/images/loghi_home/forum.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block orange responsive-2" onclick="location.href='structure.php';" style="cursor:pointer;">
               <!--<p>Strutture a noleggio</p>-->
               <img src="/images/loghi_home/strutture.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block gray responsive-2" onclick="location.href='contacts.php';" style="cursor:pointer;">
               <!--<p>Contatti</p>-->
               <img src="/images/loghi_home/contatti.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
         </div>
     </div>
-    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
         <div class="block green responsive-2" onclick="location.href='developers.php';" style="cursor:pointer;">
               <!--<p>Sviluppatori</p>-->
               <img src="/images/loghi_home/sviluppatori.jpg" id="anteprima" style="width:100%;border-bottom-right-radius: 50px 50px;">
@@ -139,7 +139,7 @@ $testoIndietro = "#";
   	<font style="color: #eb8c06">Per info e segnalazioni contattaci a </font><a href="mailto:info@youngportalnetwork.it">info@youngportalnetwork.it</a>
   	<br/>
   	<a href="//www.iubenda.com/privacy-policy/587389" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
-  	
+
   	<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
   </footer>
 

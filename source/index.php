@@ -23,7 +23,7 @@ $testoIndietro = "#";
 	 <meta property="og:title" content="YoungPortalNetwork" />
 	<meta property="og:type" content="WebSite" />
 	<meta property="og:url" content="http://www.youngportalnetwork.it/" />
-	<meta property="og:image" content="http://www.youngportalnetwork.it/images/share_icon.png" />
+	<meta property="og:image" content="http://www.youngportalnetwork.it/images/share_icon.jpg" />
 	<meta property="og:description" content="Per saperne di più clicca qui..." />
     <!--        CSS       -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

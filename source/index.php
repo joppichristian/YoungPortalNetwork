@@ -120,19 +120,19 @@ $testoIndietro = "#";
   </div>
   <div class="contributors col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:center;">
       <a href="http://www.comunita.valledicembra.tn.it">
-        <img src="images/loghi/cvc.jpg" style="width:100px;height:100px;margin:3%;"  />
+        <img src="images/loghi/cvc.jpg" style="width:auto;height:120px;margin:3%;"  />
       </a>
       <a href="http://www.politichegiovanili.provincia.tn.it">
-        <img src="images/loghi/pg.jpg"  style="width:170px;height:150px;margin:3%;" />
+        <img src="images/loghi/pg.jpg"  style="width:auto;height:180px;margin:3%;" />
       </a>
       <a href="http://www.comune.albiano.tn.it">
-        <img src="images/loghi/alb.png"  style="width:100px;height:100px;margin:3%;" />
+        <img src="images/loghi/alb.png"  style="width:auto;height:120px;margin:3%;" />
       </a>
       <a href="http://www.bimtrento.it">
-        <img src="images/loghi/bim.jpg"  style="width:100px;height:100px;margin:3%;" />
+        <img src="images/loghi/bim.jpg"  style="width:auto;height:120px;margin:3%;" />
       </a>
       <a href="http://www.provincia.tn.it">
-        <img src="images/loghi/pat.jpg" style="width:250px;height:150px;margin:3%;"/>
+        <img src="images/loghi/pat.jpg" style="width:auto;height:180px;margin:3%;"/>
       </a>
   </div>
   <footer class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top:5%;text-align: center;">

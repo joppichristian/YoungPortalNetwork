@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="css/css_login/style.css"> <!-- Gem style -->
     <!--              -->
 
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 	<!-- Per Login -->
     <script type="text/javascript" src="private/sha512.js"></script>
     <script src="js/js_login/modernizr.js"></script> <!-- Modernizr -->
@@ -36,7 +38,6 @@
 
 
     <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
      <script src="js/pace.js"></script>
     <!-- -->

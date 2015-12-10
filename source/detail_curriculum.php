@@ -10,7 +10,7 @@
 
   ?>
   <head>
-    <title>YPN | Attivita</title>
+    <title>YPN | Curriculum</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
     .textcv{
       text-align:right;
       font-size: 200%;
-      margin-top: 0.3%
+      margin-top: 0.3%;
       margin-bottom:0.3%;
     }
 
@@ -48,6 +48,12 @@
       color:white;
       text-align:left;
       font-size: 200%;
+    }
+    .sottotextcv{
+      text-align:right;
+      font-size: 150%;
+      margin-top: 0.3%;
+      margin-bottom:0.3%;
     }
 
     </style>
@@ -159,13 +165,13 @@
         <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo $nome; echo " ".$cognome; ?>
         </div>
-        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+        <div class="sottotextcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo "Nato il ".$data; ?>
         </div>
-        <div class="textcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+        <div class="sottotextcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo "Telefono: ".$telefono; ?>
         </div>
-        <div class="textcv_ele col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
+        <div class="sottotextcv col-lg-12 col-md-12 col-sm-12 col-xs-12" id="title">
           <?php echo "Posta elettronica: ".$email; ?>
         </div>
 

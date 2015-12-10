@@ -165,7 +165,7 @@ $testoIndietro = "TORNA INDIETRO";
 			  ?>			  
 			  <p>Se desideri puoi aggiungere foto alla galleria dell'attivit&agrave;:</p>
 			 
-				<input type="file" id="elencofoto" name="files[]" multiple="multiple" />
+				<input type="file" id="elencofoto" accept="image/jpeg,image/png,image/gif" name="files[]" multiple="multiple" />
 				
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >

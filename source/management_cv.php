@@ -38,6 +38,77 @@ $testoIndietro = "TORNA INDIETRO";
   <script type="text/javascript" src="js/jquery-confirm.js"></script>
   <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 
+   <?php
+
+  $query_nome="SELECT * FROM CURRICULUM WHERE  id_utente='". $_SESSION['user_id']."';";
+  $result_nome = $mysqli->query($query_nome);
+  $ID_inserito=0;
+  while($row = $result_nome->fetch_array())
+    {
+        $ID_inserito=$row['ID'];
+    }
+
+  $id_cv = $ID_inserito;
+
+  if(isset($id_cv)){
+
+    $nome = "";
+    $cognome = "";
+    $residenza = "";
+    $data = "";
+    $telefono = "";
+    $email = "";
+    $istruzione1 = "";
+    $istruzione2 = "";
+    $istruzione3 = "";
+    $esperienza1 = "";
+    $esperienza2 = "";
+    $esperienza3 = "";
+    $esperienza4 = "";
+    $competenza1 = "";
+    $competenza2 = "";
+    $competenza3 = "";
+    $interessi1 = "";
+    $interessi2 = "";
+    $categoria = "";
+    $idUtente = "";
+    $url_foto = "";
+
+	$qry="SELECT * FROM CURRICULUM WHERE ID = '".$id_cv."' ;";
+	$result = $mysqli->query($qry);
+	while($row = $result->fetch_array())
+	{
+    $nome = $row['nome'];
+    $cognome = $row['cognome'];
+    $residenza =$row['residenza'];
+    $data = $row['data_nascita'];
+    $telefono = $row['telefono'];
+    $email = $row['email'];
+    $istruzione1 = $row['istruzione1'];
+    $istruzione2 = $row['istruzione2'];
+    $istruzione3 = $row['istruzione3'];
+    $esperienza1 = $row['esperienza1'];
+    $esperienza2 = $row['esperienza2'];
+    $esperienza3 = $row['esperienza3'];
+    $esperienza4 = $row['esperienza4'];
+    $competenza1 = $row['competenza1'];
+    $competenza2 = $row['competenza2'];
+    $competenza3 = $row['competenza3'];
+    $interessi1 = $row['interessi1'];
+    $interessi2 = $row['interessi2'];
+    $categoria = $row['ID_cat'];
+    $idUtente = $row['ID_utente'];
+		$url_foto = $row['url_foto'];
+	}
+
+	if(utenteLoggato($mysqli) == true ) {
+
+		$idUtente = $_SESSION['user_id'];
+
+
+	?>
+
+
   <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
 	{
@@ -165,76 +236,7 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
     </div>
   </div>
-  <?php
-
-  $query_nome="SELECT * FROM CURRICULUM WHERE  id_utente='". $_SESSION['user_id']."';";
-  $result_nome = $mysqli->query($query_nome);
-  $ID_inserito=0;
-  while($row = $result_nome->fetch_array())
-    {
-        $ID_inserito=$row['ID'];
-    }
-
-  $id_cv = $ID_inserito;
-
-  if(isset($id_cv)){
-
-    $nome = "";
-    $cognome = "";
-    $residenza = "";
-    $data = "";
-    $telefono = "";
-    $email = "";
-    $istruzione1 = "";
-    $istruzione2 = "";
-    $istruzione3 = "";
-    $esperienza1 = "";
-    $esperienza2 = "";
-    $esperienza3 = "";
-    $esperienza4 = "";
-    $competenza1 = "";
-    $competenza2 = "";
-    $competenza3 = "";
-    $interessi1 = "";
-    $interessi2 = "";
-    $categoria = "";
-    $idUtente = "";
-    $url_foto = "";
-
-	$qry="SELECT * FROM CURRICULUM WHERE ID = '".$id_cv."' ;";
-	$result = $mysqli->query($qry);
-	while($row = $result->fetch_array())
-	{
-    $nome = $row['nome'];
-    $cognome = $row['cognome'];
-    $residenza =$row['residenza'];
-    $data = $row['data_nascita'];
-    $telefono = $row['telefono'];
-    $email = $row['email'];
-    $istruzione1 = $row['istruzione1'];
-    $istruzione2 = $row['istruzione2'];
-    $istruzione3 = $row['istruzione3'];
-    $esperienza1 = $row['esperienza1'];
-    $esperienza2 = $row['esperienza2'];
-    $esperienza3 = $row['esperienza3'];
-    $esperienza4 = $row['esperienza4'];
-    $competenza1 = $row['competenza1'];
-    $competenza2 = $row['competenza2'];
-    $competenza3 = $row['competenza3'];
-    $interessi1 = $row['interessi1'];
-    $interessi2 = $row['interessi2'];
-    $categoria = $row['ID_cat'];
-    $idUtente = $row['ID_utente'];
-		$url_foto = $row['url_foto'];
-	}
-
-	if(utenteLoggato($mysqli) == true ) {
-
-		$idUtente = $_SESSION['user_id'];
-
-
-	?>
-
+ 
 	  <form id="submitForm" name="submitForm" onsubmit="return validateForm();" method="post"  enctype="multipart/form-data" >
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5%;margin-bottom:0.5%;font-size: 20px;" >
     <!--Esempio text -->
@@ -337,7 +339,7 @@ $testoIndietro = "TORNA INDIETRO";
     <img src="<?php echo $url_foto;?>" />
 
     <p>Per Cambiare Immagine utilizza il bottone qui sotto ():</p>
-    <input type="file" name="file" id="file" />
+    <input type="file" name="file" accept="image/jpeg,image/png,image/gif" id="file" />
     <p>N.B.: L'immagine verrà usata come foto profilo.</p>
   </div>
 

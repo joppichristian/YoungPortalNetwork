@@ -38,6 +38,9 @@
    <script src="js/bootstrap.min.js"></script>
      <script src="js/pace.js"></script>
     <!-- -->
+	 <!-- Per confirm dialog -->
+  <script type="text/javascript" src="js/jquery-confirm.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 
     <script language="JavaScript" type="text/JavaScript">
 	function validateForm()
@@ -47,17 +50,58 @@
 		var testo_commento = document.getElementById("testo_commento").value;
 
 
-		if(testo_commento =="..."){
+		if(testo_commento =="..." || testo_commento ==""){
 			campi = campi+" \nNESSUN COMMENTO INSERITO";
 		}
 		if(campi!=("")){
-			alert(message+campi);
+			$.alert({
+				title: 'Aggiungi Commento',
+				content: message+campi,
+				theme: 'supervan',
+				animation:'RotateY',
+				 animationSpeed: 1000,
+				confirm: function (id) {
+				 
+				}                                        
+			});
+			
 			return false;
 		}
 		else
 		{
-			document.commentForm.action = 'post-add-comment_activity.php';
-			document.commentForm.submit();
+			//prima di fare il subit del form controllo parolacce:
+			var stringToCheck = ' ' + testo_commento;
+			$.ajax({
+				url:'swear_check.php',
+				type: 'POST',
+				data: { 
+					'stringToCheck': stringToCheck 
+				},
+				success:function(response){
+				
+					//alert("Resp:"+response);
+					//alert("response index of success="+response.indexOf("success"));
+					if( response.indexOf("success") > -1){
+						//Niente parolacce
+						document.commentForm.action = 'post-add-comment_activity.php';
+						document.commentForm.submit();
+					}else{
+						//Attenzione a parolaccia
+						$.alert({
+							title: 'Aggiungi Commento',
+							content: 'Attenzione! Sono state inserite parole offensive. Una condotta scorretta potrebbe portare alla disattivazione del profilo!',
+							theme: 'supervan',
+							animation:'RotateY',
+							animationSpeed: 1000,
+							confirm: function (id) {
+							 
+							}                                        
+						});
+						return false;
+					}
+				}
+			});			
+			return false;		
 		}
 	}
   </script>
@@ -261,7 +305,7 @@
 	 } ?>
     </div>
 
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   
    <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
   </body>
 </html>

@@ -128,8 +128,8 @@ $testoIndietro = "TORNA INDIETRO";
 					//alert("response index of success="+response.indexOf("success"));
 					if( response.indexOf("success") > -1){
 						//Niente parolacce
-						document.submitForm.action = 'post-add-event.php';
-						document.submitForm.submit();
+						document.submitFormEvent.action = 'post-add-event.php';
+						document.submitFormEvent.submit();
 					}else{
 						//Attenzione a parolaccia
 						$.alert({
@@ -232,7 +232,7 @@ $testoIndietro = "TORNA INDIETRO";
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 		  <p>Immagine:</p>
 		 
-			<input type="file" name="file" id="file" />
+			<input type="file" accept="image/jpeg,image/png,image/gif" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come anteprima dell'evento.</p>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;" >

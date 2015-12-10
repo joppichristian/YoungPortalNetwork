@@ -235,7 +235,7 @@ $testoIndietro = "TORNA INDIETRO";
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 		  <p>Immagine:(*)</p>
 
-			<input type="file" name="file" id="file" />
+			<input type="file" accept="image/jpeg,image/png,image/gif" name="file" id="file" />
 			<p>N.B.: L'immagine verrà usata come foto profilo.</p>
 		</div>
 

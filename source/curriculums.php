@@ -44,7 +44,7 @@ $testoIndietro = "TORNA ALLA HOME";
 
 
  <script type="text/javascript" src="js/jquery-confirm.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+ <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 </head>
 <body>
 		  <?php include_once("analyticstracking.php") ?>
@@ -74,7 +74,7 @@ $testoIndietro = "TORNA ALLA HOME";
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 <?php
-$query_nome="SELECT ID_utente FROM CURRICULUM WHERE  id_utente='". $_SESSION['user_id']."';";
+$query_nome="SELECT ID_utente FROM CURRICULUM WHERE  ID_utente='". $_SESSION['user_id']."';";
 $result_nome = $mysqli->query($query_nome);
 $gia_inserito=0;
 while($row_nome = $result_nome->fetch_array())
@@ -128,6 +128,26 @@ while($row_nome = $result_nome->fetch_array())
   <a href="management_cv.php" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
     <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Gestisci il tuo curriculum
+    </button>
+  </a>
+
+  <?php
+  }
+if($gia_inserito == 0){
+    ?>
+    <a href="#" id="deleteCV" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+      <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        Elimina il tuo curriculum
+      </button>
+    </a>
+
+  <?php
+  }else{
+  ?>
+
+  <a href="#" id="valideDeleteCV" class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top:3%;padding-top:1%; padding-bottom:1%;">
+    <button class="item-option col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      Elimina il tuo curriculum
     </button>
   </a>
 
@@ -278,6 +298,20 @@ while($row_nome = $result_nome->fetch_array())
                                             }
                                             });
                                     });
+									 $('#deleteCV').on('click', function () {
+	                                        $.alert({
+                                            title: 'Elimina CV',
+                                            content: 'Non hai inserito il tuo CV. Vai nella sezione \'Aggiungi curriculum \' qui accanto per inserirlo!',
+                                            theme: 'supervan',
+                                            animation:'RotateY',
+                                            cancelButton: '',
+                                            animationSpeed: 1000,
+                                            columnClass: 'col-xs-12',
+                                            confirm: function (id) {
+
+                                            }
+                                            });
+                                    });
 
 									  $('#inserted').on('click', function () {
 	                                        $.alert({
@@ -293,6 +327,62 @@ while($row_nome = $result_nome->fetch_array())
                                             }
                                             });
                                     });
+									$('#valideDeleteCV').on('click', function () {
+										$.confirm({
+												title: 'Elimino Curriculum',
+												confirmButton: 'Elimina',
+												cancelButton: 'Annulla',
+												content: 'Sei sicuro di voler eliminare il tuo curriculum?',
+												theme: 'supervan',
+												confirmButtonClass: 'btn-info',
+												cancelButtonClass: 'btn-danger',
+												animation:'RotateY',
+												animationSpeed: 1000,
+												confirm: function () {
+													$.ajax({
+														url:'deleteCV.php',
+														type: 'POST',
+														data: { 
+															'cod': 'young123' 
+														},
+														success:function(response){
+															//alert("resp: "+response);
+															if( response.indexOf("success") > -1){			
+																$.alert({
+																	title: 'CV Eliminato con successo',
+																	content: 'Hai eliminato il tuo CV con successo!',
+																	theme: 'supervan',
+																	animation:'RotateY',
+																	cancelButton: '',
+																	animationSpeed: 1000,
+																	columnClass: 'col-xs-12',
+																	confirm: function (id) {
+																		location.reload(true);
+																	}
+																});															
+																
+															}else{
+																$.alert({
+																	title: 'Eliminazione fallita',
+																	content: 'Si è verificato qualche errore, prova a ricaricare la pagina e riprova, oppure contatta l amministratore!',
+																	theme: 'supervan',
+																	animation:'RotateY',
+																	cancelButton: '',
+																	animationSpeed: 1000,
+																	columnClass: 'col-xs-12',
+																	confirm: function (id) {
+																		location.reload(true);
+																	}
+																});
+																
+															}
+														}
+													});		
+
+												}										
+										});
+										
+									 });
 
                                 </script>
 

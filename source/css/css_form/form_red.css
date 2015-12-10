@@ -22,7 +22,16 @@ input[type="submit"]{
     color: white;
     padding: 5px;
   }
-
+input[type="file"]{
+    border: 2px solid #cfd9db;
+    border-radius: .25em;
+    padding: 5px;
+  }
+    input[type="file"]:focus{
+      border-color: rgba(235, 140, 6, 1);
+      box-shadow: 0 0 5px rgba(235, 140, 6, 0.2);
+      outline: none;
+    }
 button{
         font-size:20px;
         background-color: rgb(234,140,6);
@@ -35,14 +44,29 @@ button{
         border-color: rgb(234,140,6);
         box-shadow: 0 0 5px rgba(234,140,6, 0.2);
       }
+ select{
+            background-color: rgba(235, 140, 6, 1);
+            border: 1px solid #cfd9db;
+            border-radius: .25em;
+            color: white;
+            padding: 5px;
+          }
+          select:hover{
+            border-color: rgba(235, 140, 6, 1);
+            box-shadow: 0 0 5px rgba(235, 140, 6, 0.2);
+          }
 
   textarea{
     border: 2px solid #cfd9db;
     border-radius: .25em;
     padding: 5px;
+    resize: none;
+    max-width: 100%;
+
   }
     textarea:focus{
       border-color: rgb(234,140,6);
       box-shadow: 0 0 5px rgba(234,140,6, 0.2);
       outline: none;
+      resize: none;
     }

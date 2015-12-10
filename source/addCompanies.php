@@ -222,7 +222,7 @@ $testoIndietro = "TORNA INDIETRO";
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
         <p>Immagine prodotto:</p>
-        <input type="file" name="fileP[]" id="file1" />
+        <input type="file" accept="image/jpeg,image/png,image/gif" name="fileP[]" id="file1" />
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
         <!--Esempio text -->
@@ -241,7 +241,7 @@ $testoIndietro = "TORNA INDIETRO";
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
           <p>Immagine prodotto:</p>
-          <input type="file" name="fileP[]" id="file2" />
+          <input type="file" accept="image/jpeg,image/png,image/gif" name="fileP[]" id="file2" />
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
           <!--Esempio text -->
@@ -260,7 +260,7 @@ $testoIndietro = "TORNA INDIETRO";
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  >
             <p>Immagine prodotto:</p>
-            <input type="file" name="fileP[]" id="file3" />
+            <input type="file" name="fileP[]" accept="image/jpeg,image/png,image/gif" id="file3" />
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  >
             <!--Esempio text -->
@@ -288,7 +288,7 @@ $testoIndietro = "TORNA INDIETRO";
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:2%;margin-bottom:2%;font-size: 25px;" >
 		  <p>Logo:</p>
 
-			<input type="file" name="file" id="file" />
+			<input type="file" name="file" accept="image/jpeg,image/png,image/gif" id="file" />
 			<p>N.B.: L'immagine verrà usata come foto profilo (se presente inserisci il logo aziendale).</p>
 		</div>
 

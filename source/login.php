@@ -104,6 +104,17 @@
 			  <input class="full-width has-padding has-border" id="signup-username" name="signup-username" type="text" placeholder="Username">
 			  <span class="cd-error-message">Inserisci un username di almeno 4 caratteri.</span>
 			</p>
+			
+			<p class="fieldset">
+			  <label class="image-replace cd-data-nascita" for="signup-data-nascita">Data di nascita</label>
+			  <input class="full-width has-padding has-border" type="text" id="data_nascita" name="data_nascita" placeholder="Data di nascita" />
+				<script>	  
+					//if ( $('#data_nascita')[0].type != 'datetime-local' ){
+						$('#data_nascita').datepicker();
+					//}	
+				</script>
+			   <span class="cd-error-message">data errata, rivedi il campo data nascita.</span>
+			</p>
 
 			<p class="fieldset">
 			  <label class="image-replace cd-email" for="signup-email">E-mail</label>
@@ -130,7 +141,7 @@
 			  <a href="#0" class="hide-password">Mostra</a>
 			  <span class="cd-error-message">Le 2 password non coincidono!</span>
 			</p>
-
+			
 			<p class="fieldset">
 			  <input type="checkbox" id="accept-terms">
 			  <span class="cd-error-message">Per continuare devi accettare i termini</span>

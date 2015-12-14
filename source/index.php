@@ -33,8 +33,14 @@ $testoIndietro = "#";
     <link rel="stylesheet" href="css/font-awesome.min.css" >
     <link rel="stylesheet" href="css/pace.css" >
 
-    <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+  <!-- JQuery per data -->
+  <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+    <!-- JavaScript  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
       <script src="js/js_login/main.js"></script> <!-- Gem jQuery -->
 	<script src="js/pace.js"></script>

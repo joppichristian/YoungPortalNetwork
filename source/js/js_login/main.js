@@ -188,9 +188,29 @@ jQuery(document).ready(function($){
 		var eMailConferma = document.getElementById("signup-conferma-email").value;		
 		var acceptTerms = document.getElementById("accept-terms");	
 		
+		var dataNasc = document.getElementById("data_nascita");	
+		
+		var regExpDataNascita = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+		
+		if(dataNasc.value != '' && !dataNasc.value.match(regExpDataNascita)) {
+			//MESSAGGIO DI ERRORE
+			hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="data_nascita"]').toggleClass('has-error').next('script').next('span').addClass('is-visible');
+		}else{
+			$form_signup.find('input[id="data_nascita"]').toggleClass('has-error').next('script').next('span').removeClass('is-visible');
+		}	
+
+		if(dataNasc.value == '') {
+			//MESSAGGIO DI ERRORE
+			hasErrors = true;
+			event.preventDefault();
+			$form_signup.find('input[id="data_nascita"]').toggleClass('has-error').next('script').next('span').addClass('is-visible');
+		}
+		
 		if(username.length < 4){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="signup-username"]').toggleClass('has-error').next('span').addClass('is-visible');
 		}else{
@@ -199,7 +219,7 @@ jQuery(document).ready(function($){
 		
 		if(!emailCorretta(eMail)){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="signup-email"]').toggleClass('has-error').next('span').addClass('is-visible');
 		}else{
@@ -208,7 +228,7 @@ jQuery(document).ready(function($){
 		
 		if(eMail!=eMailConferma){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="signup-conferma-email"]').toggleClass('has-error').next('span').addClass('is-visible');
 		}else{
@@ -217,7 +237,7 @@ jQuery(document).ready(function($){
 		
 		if(password.length < 8){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="signup-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
 		}else{
@@ -226,7 +246,7 @@ jQuery(document).ready(function($){
 					
 		if(password!=confermaP){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="signup-conferma-password"]').toggleClass('has-error').next('a').next('span').addClass('is-visible');
 		}else{
@@ -235,7 +255,7 @@ jQuery(document).ready(function($){
 		
 		if(!acceptTerms.checked){
 			//MESSAGGIO DI ERRORE
-			var hasErrors = true;
+			hasErrors = true;
 			event.preventDefault();
 			$form_signup.find('input[id="accept-terms"]').toggleClass('has-error').next('span').addClass('is-visible');
 		}else{

@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$password = $_POST['p'];
 	$email = $_POST['signup-email'];					 
 	$username = $_POST['signup-username'];
+	$dataNascita = $_POST['data_nascita'];
 	
 	//1) genera random
 	$randomStr = generateRandomString();
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	//2) aggiungo utente disattivo al DB se non è già presente
 	if(!utenteAttivo($email)){
 		
-		inserisciUtenteDisattivo($username,$email,$randomStr,$password);
+		inserisciUtenteDisattivo($username,$email,$randomStr,$password,$dataNascita);
 		
 		//3) invio email
 		$mail = new PHPMailer();
@@ -68,8 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 // ==================================================== FUNZIONI UTILI ===================================================================
 
-function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
+function inserisciUtenteDisattivo($username,$email,$randomStr,$password,$dataNascita){
 	global $mysqli;
+	 
+	$dataNascitaFormatted = date('Y-m-d', strtotime($dataNascita));
+	
 	$giaInserito = false;
 	$utenteGiaInUso = false;
 	
@@ -104,11 +108,11 @@ function inserisciUtenteDisattivo($username,$email,$randomStr,$password){
 		$password = hash('sha512', $password.$random_salt);
 		// Inserisco codice per eseguire un INSERT 
 		// USARE PREPARED STATEMENT
-		if ($insert_stmt = $mysqli->prepare("INSERT INTO UTENTE (USERNAME,EMAIL, PASSWORD, SALT, RANDOM, ATTIVO) VALUES (?, ?, ?, ?, ?, ?)")) {    
+		if ($insert_stmt = $mysqli->prepare("INSERT INTO UTENTE (USERNAME,EMAIL, PASSWORD, SALT, RANDOM, ATTIVO, DATA_NASCITA) VALUES (?, ?, ?, ?, ?, ?, ?)")) {    
 		   
-			$non_attivo = "0";
+			$non_attivo = "0";		
 		   
-			$rc = $insert_stmt->bind_param('ssssss',$username, $email, $password, $random_salt, $randomStr, $non_attivo); 
+			$rc = $insert_stmt->bind_param('sssssss',$username, $email, $password, $random_salt, $randomStr, $non_attivo, $dataNascitaFormatted); 
 		   
 			if ( false===$rc ) {
 				// again execute() is useless if you can't bind the parameters. Bail out somehow.
